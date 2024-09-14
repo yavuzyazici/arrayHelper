@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
+  <title>Instant Text to Array Converter – Fast, Versatile, and SQL-Compatible</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="instantly convert your text list to array">
+  <meta name="description" content="Convert your text into arrays instantly with our modern and user-friendly tool! Perfect for developers working with JavaScript, SQL, PHP, Python, and other programming languages. Our tool ensures clean, readable array outputs for your projects.">
   <link rel="icon" type="image/x-icon" href="./images/icons/icon.png">
-  <title>Online array converter | arrayHelper</title>
   <link rel="stylesheet" href="./styles/globals.css">
   <link rel="stylesheet" href="./styles/output.css">
 </head>
@@ -14,11 +14,12 @@
 <body>
   <div class="space-y-4">
     <header class="p-2 space-y-4">
-      <div>
+      <a href="https://www.arrayhelper.com/">
         <img src="./images/arrayHelper.svg" alt="arrayHelper" class="w-[120px] h-full object-cover">
-      </div>
-      <h1 class="text-[15px]">instantly convert your <span class="font-semibold">text list to array</span>; valid for
-        JS, PHP, PERL, PYTHON (as list) and much more.</h1>
+      </a>
+      <h1 class="text-[15px]">
+        Easily transform your <span class="font-semibold">text list into an array</span>; compatible with JS, SQL, PHP, PYTHON (as list), and more. Perfect for modern development needs.
+      </h1>
     </header>
     <main class="flex flex-col md:flex-row items-center justify-center">
       <div
@@ -43,7 +44,7 @@
             <div class="w-full gap-4 flex items-center justify-between p-1 bg-off-white">
               <span class="text-sm pl-1">[ Raw ]</span>
               <button id="rawCopy"
-                class="group relative inline-flex p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                class="group relative inline-flex p-1.5 mr-2 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
                   <img src="./images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
                 </div>
@@ -60,7 +61,7 @@
             <div class="w-full gap-4 flex items-center justify-between p-1 bg-off-white">
               <span class="text-sm pl-1">[ JavaScript ]</span>
               <button id="jsCopy"
-                class="group relative inline-flex p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
                   <img src="./images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
                 </div>
@@ -77,7 +78,7 @@
             <div class="w-full gap-4 flex items-center justify-between p-1 bg-off-white">
               <span class="text-sm pl-1">[ SQL ]</span>
               <button id="sqlCopy"
-                class="group relative inline-flex p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
                   <img src="./images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
                 </div>
@@ -96,7 +97,7 @@
     <div class="gap-4 flex flex-wrap items-center justify-start p-2 mt-4">
       <div class="button-container max-[500px]:w-full">
         <button class="button active">
-          <img src="./images//icons/double-quote.svg" alt="double-quote" class="w-full h-max object-cover">
+          <img src="./images/icons/double-quote.svg" alt="double-quote" class="w-full h-max object-cover">
         </button>
         <button class="button">
           <img src="./images/icons/single-quote.svg" alt="single-quote" class="w-full h-max object-cover">
@@ -104,7 +105,7 @@
       </div>
       <div class="button-container max-[500px]:w-full">
         <button class="button active">
-          <img src="./images//icons/numbers-without-quote.svg" alt="numbers-without-quote"
+          <img src="./images/icons/numbers-without-quote.svg" alt="numbers-without-quote"
             class="w-full h-max object-cover">
         </button>
         <button class="button">
@@ -113,7 +114,7 @@
       </div>
       <div class="button-container max-[500px]:w-full">
         <button class="button delete">
-          <img src="./images//icons/trash.svg" alt="trash" class="w-full h-max object-cover">
+          <img src="./images/icons/trash.svg" alt="trash" class="w-full h-max object-cover">
         </button>
       </div>
     </div>

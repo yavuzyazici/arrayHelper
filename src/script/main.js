@@ -106,9 +106,9 @@ function convertText() {
     }
   });
 
-  rawOutput.value = formattedLines.join(',');
-  jsOutput.value = `[${formattedLines.join(',')}]`;
-  sqlOutput.value = `IN (${formattedLines.join(',')})`;
+  rawOutput.value = formattedLines.join(', ');
+  jsOutput.value = `[${formattedLines.join(', ')}]`;
+  sqlOutput.value = `IN (${formattedLines.join(', ')})`;
 }
 
   // Kopyalama butonlarına tıklandığında "Copied" yazısı gözüksün
