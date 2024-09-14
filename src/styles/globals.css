@@ -1,0 +1,21 @@
+@import './poppins.css';
+
+:root {
+  --dark-gray: #20262C;
+  --light-purple: #8C85FF;
+  --navy-blue: #1C274C;
+  --light-blue: #D5DFFF;
+  --light-gray: #F4F4F4;
+  --red: #DE2E24;
+  --off-white: #F6F8FE;
+  --cool-gray: #afb4c2;
+  --mid-gray: #767a8a;
+}
+
+body {
+  color: var(--dark-gray);
+
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}

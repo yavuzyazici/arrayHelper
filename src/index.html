@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="instantly convert your text list to array">
+  <link rel="icon" type="image/x-icon" href="./images/icons/icon.png">
+  <title>Online array converter | arrayHelper</title>
+  <link rel="stylesheet" href="./styles/globals.css">
+  <link rel="stylesheet" href="./styles/output.css">
+</head>
+
+<body>
+  <div class="space-y-4">
+    <header class="p-2 space-y-4">
+      <div>
+        <img src="./images/arrayHelper.svg" alt="arrayHelper" class="w-[120px] h-full object-cover">
+      </div>
+      <h1 class="text-[15px]">instantly convert your <span class="font-semibold">text list to array</span>; valid for
+        JS, PHP, PERL, PYTHON (as list) and much more.</h1>
+    </header>
+    <main class="flex flex-col md:flex-row items-center justify-center">
+      <div
+        class="text-editor relative flex-1 w-full min-h-[720px] h-[720px] flex flex-col border-2 border-light-gray overflow-hidden">
+        <button id="convertBtn"
+          class="absolute top-2 right-2 p-0.5 bg-white border-2 border-light-purple rounded-full cursor-pointer z-10 hover:bg-light-gray transition-all duration-300 group">
+          <img src="./images/icons/arrow-right.svg" alt="arrow-right"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:rotate-45">
+        </button>
+        <div class="flex flex-1 overflow-auto relative">
+          <div id="line-numbers" class="w-16 text-cool-gray flex flex-col pt-1 overflow-hidden"></div>
+          <div class="relative flex flex-col flex-1 border-l-2 border-light-gray">
+            <textarea name="editor" id="editor" aria-label="editor-label" placeholder="Start typing..."
+              class="w-full h-full p-1 pb-0 resize-none overflow-auto focus:outline-none whitespace-nowrap"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="editor-output flex-1 w-full h-full">
+        <div class="flex flex-col items-stretch justify-between">
+          <div class="hidden md:block w-full h-0.5 bg-light-gray"></div>
+          <div class="w-full h-full">
+            <div class="w-full gap-4 flex items-center justify-between p-1 bg-off-white">
+              <span class="text-sm pl-1">[ Raw ]</span>
+              <button id="rawCopy"
+                class="group relative inline-flex p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="./images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  Copy Text</div>
+              </button>
+            </div>
+            <textarea name="rawOutput" id="rawOutput" aria-label="rawOutput-label"
+              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+          </div>
+          <div class="w-full h-0.5 bg-light-gray"></div>
+          <div class="w-full h-full">
+            <div class="w-full gap-4 flex items-center justify-between p-1 bg-off-white">
+              <span class="text-sm pl-1">[ JavaScript ]</span>
+              <button id="jsCopy"
+                class="group relative inline-flex p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="./images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  Copy Text</div>
+              </button>
+            </div>
+            <textarea name="jsOutput" id="jsOutput" aria-label="jsOutput-label"
+              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+          </div>
+          <div class="w-full h-0.5 bg-light-gray"></div>
+          <div class="w-full h-full">
+            <div class="w-full gap-4 flex items-center justify-between p-1 bg-off-white">
+              <span class="text-sm pl-1">[ SQL ]</span>
+              <button id="sqlCopy"
+                class="group relative inline-flex p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="./images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  Copy Text</div>
+              </button>
+            </div>
+            <textarea name="sqlOutput" id="sqlOutput" aria-label="sqlOutput-label"
+              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+          </div>
+          <div class="w-full h-0.5 bg-light-gray"></div>
+        </div>
+      </div>
+    </main>
+    <div class="gap-4 flex flex-wrap items-center justify-start p-2 mt-4">
+      <div class="button-container max-[500px]:w-full">
+        <button class="button active">
+          <img src="./images//icons/double-quote.svg" alt="double-quote" class="w-full h-max object-cover">
+        </button>
+        <button class="button">
+          <img src="./images/icons/single-quote.svg" alt="single-quote" class="w-full h-max object-cover">
+        </button>
+      </div>
+      <div class="button-container max-[500px]:w-full">
+        <button class="button active">
+          <img src="./images//icons/numbers-without-quote.svg" alt="numbers-without-quote"
+            class="w-full h-max object-cover">
+        </button>
+        <button class="button">
+          <img src="./images/icons/numbers-quote.svg" alt="numbers-quote" class="w-full h-max object-cover">
+        </button>
+      </div>
+      <div class="button-container max-[500px]:w-full">
+        <button class="button delete">
+          <img src="./images//icons/trash.svg" alt="trash" class="w-full h-max object-cover">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script/main.js"></script>
+</body>
+
+</html>

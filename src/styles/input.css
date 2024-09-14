@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.line {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active-line {
+  background-color: var(--off-white);
+  color: var(--mid-gray);
+}
+
+.arrow-shifted {
+  right: 1.5rem;
+}
+
+.button-container {
+  @apply gap-4 flex items-center justify-center bg-white text-dark-gray border-2 border-light-blue py-2 px-4 rounded-2xl transition-all duration-300;
+
+  .button {
+    @apply flex items-center justify-center bg-light-gray h-7 px-12 rounded-2xl transition-all duration-300;
+
+    &.active {
+      @apply bg-light-blue;
+    }
+
+    &:hover {
+      @apply bg-light-blue;
+    }
+
+    &.delete {
+      @apply bg-transparent;
+
+      &:hover {
+        @apply bg-light-gray;
+      }
+    }
+  }
+}
