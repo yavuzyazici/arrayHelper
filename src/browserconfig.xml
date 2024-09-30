@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square150x150logo src="https://www.arrayhelper.com/images/icons/icon.png"/>
+      <TileColor>rgb(213, 223, 255)</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>
