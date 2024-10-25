@@ -988,6 +988,17 @@ video {
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
 }
+.github-icon {
+  margin-right: 16px;
+}
+
+.github-icon path {
+  transition: fill 0.3s;
+}
+
+.github-icon:hover path {
+  fill: #a9b3d4;
+}
 
 @media (max-width: 500px) {
   .max-\[500px\]\:w-full {
