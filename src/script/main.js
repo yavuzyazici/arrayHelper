@@ -108,8 +108,13 @@ function convertText() {
 
   rawOutput.value = formattedLines.join(', ');
   jsOutput.value = `[${formattedLines.join(', ')}]`;
-  sqlOutput.value = `IN (${formattedLines.join(', ')})`;
-}
+    // SQL Output kısmı için "N'...'" formatına uygun hale getirme
+  const sqlFormattedLines = lines.map(line => {
+    const trimmedLine = line.trim();
+    return `N'${trimmedLine}'`; // SQL için her öğeyi N'...' formatına sarar
+  });
+
+  sqlOutput.value = `IN (${sqlFormattedLines.join(', ')})`;}
 
   // Kopyalama butonlarına tıklandığında "Copied" yazısı gözüksün
   function copyToClipboard(text, button) {
