@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Varsayılan ayarlar
   const defaultOptions = {
-    quoteStyle: 'double', // double or single for strings
+    quoteStyle: 'single', // double or single for strings
     numbersFormat: 'plain' // plain or quoted for numbers
   };
 
