@@ -110,7 +110,7 @@ function convertText() {
   jsOutput.value = `[${formattedLines.join(', ')}]`;
     // SQL Output kısmı için "N'...'" formatına uygun hale getirme
   const sqlFormattedLines = lines.map(line => {
-    const trimmedLine = line.trim();
+    const trimmedLine = line.trim().replace(/'/g, "''"); // SQL için tek tırnakları kaçır
     return `N'${trimmedLine}'`; // SQL için her öğeyi N'...' formatına sarar
   });
 
