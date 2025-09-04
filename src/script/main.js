@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const rawCopyBtn = document.getElementById('rawCopy');
   const jsCopyBtn = document.getElementById('jsCopy');
   const sqlCopyBtn = document.getElementById('sqlCopy');
-  let activeLineIndex = 1;
+  let activeLineIndex = 0;
 
   // Varsayılan ayarlar
   const defaultOptions = {
@@ -164,7 +164,13 @@ function convertText() {
 
   convertBtn.addEventListener('click', convertText);
 
-  // Copy butonlarına tıklama işlemleri
+  document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey && event.key === "Enter") {
+      event.preventDefault();
+      convertText();
+    }
+  });
+
   rawCopyBtn.addEventListener('click', () => {
     copyToClipboard(rawOutput.value, rawCopyBtn);
   });
