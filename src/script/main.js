@@ -47,19 +47,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const lines = editor.value.substr(0, cursorPosition).split('\n');
     const currentLineIndex = lines.length;
 
+    // Eğer aktif satır değişmediyse, fonksiyonu sonlandır.
+    if (activeLineIndex === currentLineIndex) {
+      return;
+    }
+
     activeLineIndex = currentLineIndex;
 
     const startOffset = (activeLineIndex - 1) * lineHeight;
     editor.scrollTop = startOffset;
 
     const lineElements = lineNumbers.querySelectorAll('.line');
-    lineElements.forEach((line, index) => {
-      if (index + 1 === activeLineIndex) {
-        line.classList.add('active-line');
-      } else {
-        line.classList.remove('active-line');
-      }
-    });
+    lineElements[activeLineIndex - 1]?.classList.add('active-line');
+    lineElements[activeLineIndex]?.classList.remove('active-line');
   }
 
   function setActiveLine(index) {
@@ -76,45 +76,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Veriyi formatlara çevirme
-function convertText() {
-  const lines = editor.value.split('\n').filter(line => line.trim() !== '');
+  function convertText() {
+    const lines = editor.value.split('\n').filter(line => line.trim() !== '');
 
-  // Verileri işlemek için numaraları ve metinleri kontrol et
-  const formattedLines = lines.map(line => {
-    const trimmedLine = line.trim();
+    // Verileri işlemek için numaraları ve metinleri kontrol et
+    const formattedLines = lines.map(line => {
+      const trimmedLine = line.trim();
 
-    // Eğer sayıysa ve tırnak işareti olmadan düz formatta gelmesi isteniyorsa
-    if (!isNaN(trimmedLine) && trimmedLine !== '') {
-      // Eğer numbersFormat 'quoted' ise sayılar tırnak içine alınacak
-      if (options.numbersFormat === 'quoted') {
-        if (options.quoteStyle === 'double') {
-          return `"${trimmedLine}"`; // Sayılar çift tırnakla sarılır
-        } else if (options.quoteStyle === 'single') {
-          return `'${trimmedLine}'`; // Sayılar tek tırnakla sarılır
+      // Eğer sayıysa ve tırnak işareti olmadan düz formatta gelmesi isteniyorsa
+      if (!isNaN(trimmedLine) && trimmedLine !== '') {
+        // Eğer numbersFormat 'quoted' ise sayılar tırnak içine alınacak
+        if (options.numbersFormat === 'quoted') {
+          if (options.quoteStyle === 'double') {
+            return `"${trimmedLine}"`; // Sayılar çift tırnakla sarılır
+          } else if (options.quoteStyle === 'single') {
+            return `'${trimmedLine}'`; // Sayılar tek tırnakla sarılır
+          }
+        } else {
+          // Eğer numbersFormat 'plain' ise sayılar yalın halde dönmeli
+          return Number(trimmedLine); // Burada Number() kullanarak sayıyı tırnaksız döndürürüz
         }
       } else {
-        // Eğer numbersFormat 'plain' ise sayılar yalın halde dönmeli
-        return Number(trimmedLine); // Burada Number() kullanarak sayıyı tırnaksız döndürürüz
+        // Eğer metinse, quoteStyle değerine göre işlenir
+        if (options.quoteStyle === 'double') {
+          return `"${trimmedLine}"`; // Metinler çift tırnakla sarılır
+        } else if (options.quoteStyle === 'single') {
+          return `'${trimmedLine}'`; // Metinler tek tırnakla sarılır
+        }
       }
-    } else {
-      // Eğer metinse, quoteStyle değerine göre işlenir
-      if (options.quoteStyle === 'double') {
-        return `"${trimmedLine}"`; // Metinler çift tırnakla sarılır
-      } else if (options.quoteStyle === 'single') {
-        return `'${trimmedLine}'`; // Metinler tek tırnakla sarılır
-      }
-    }
-  });
+    });
 
-  rawOutput.value = formattedLines.join(', ');
-  jsOutput.value = `[${formattedLines.join(', ')}]`;
+    rawOutput.value = formattedLines.join(', ');
+    jsOutput.value = `[${formattedLines.join(', ')}]`;
     // SQL Output kısmı için "N'...'" formatına uygun hale getirme
-  const sqlFormattedLines = lines.map(line => {
-    const trimmedLine = line.trim().replace(/'/g, "''"); // SQL için tek tırnakları kaçır
-    return `N'${trimmedLine}'`; // SQL için her öğeyi N'...' formatına sarar
-  });
+    const sqlFormattedLines = lines.map(line => {
+      const trimmedLine = line.trim().replace(/'/g, "''"); // SQL için tek tırnakları kaçır
+      return `N'${trimmedLine}'`; // SQL için her öğeyi N'...' formatına sarar
+    });
 
-  sqlOutput.value = `IN (${sqlFormattedLines.join(', ')})`;}
+    sqlOutput.value = `IN (${sqlFormattedLines.join(', ')})`;
+  }
 
   // Kopyalama butonlarına tıklandığında "Copied" yazısı gözüksün
   function copyToClipboard(text, button) {
