@@ -39,5 +39,13 @@
         @apply bg-light-gray;
       }
     }
+
+    &.options {
+      @apply bg-transparent;
+
+      &:hover {
+        @apply bg-light-gray;
+      }
+    }
   }
 }
