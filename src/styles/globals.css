@@ -30,7 +30,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Changed to column */
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -38,6 +38,21 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
+}
+
+.editor-image-placeholder {
+  width: 100%;
+  height: 50px; /* Adjust as needed */
+  background-color: #eee; /* Placeholder color */
+  margin-bottom: 5px;
+}
+
+.text-editor {
+  transition: width 0.5s ease-in-out;
+}
+
+#line-numbers.hidden {
+  display: none;
 }
 
 .options-container:hover .editor-selector-menu,

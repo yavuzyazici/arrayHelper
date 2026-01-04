@@ -96,7 +96,7 @@
           <div class="relative flex flex-col flex-1 border-l-2 border-light-gray">
             <textarea name="editor" id="editor" aria-label="editor-label" placeholder="Start typing..."
               class="w-full h-full p-1 pb-0 resize-none overflow-auto focus:outline-none whitespace-nowrap"></textarea>
-            <div id="monaco-editor-container" class="w-full h-full" style="display: none;"></div>
+            <div id="monaco-editor-container" class="w-full h-full hidden"></div>
           </div>
         </div>
       </div>
@@ -180,6 +180,7 @@
           <img src="/images/icons/options.svg" alt="options" class="w-6 h-6">
         </button>
         <div class="editor-selector-menu">
+          <div class="editor-image-placeholder"></div>
           <button id="classic-editor-btn" class="editor-btn active">Classic</button>
           <button id="ultra-editor-btn" class="editor-btn">Ultra</button>
         </div>

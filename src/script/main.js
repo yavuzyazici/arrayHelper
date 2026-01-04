@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
       monacoEditorContainer.classList.add('hidden');
       classicEditorBtn.classList.add('active');
       ultraEditorBtn.classList.remove('active');
+      lineNumbers.classList.remove('hidden');
+      document.querySelector('.text-editor').style.width = '';
       // Sync content from Monaco to textarea
       editor.value = monacoEditor.getValue();
       localStorage.setItem('editorMode', 'classic');
@@ -40,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
       monacoEditorContainer.classList.remove('hidden');
       classicEditorBtn.classList.remove('active');
       ultraEditorBtn.classList.add('active');
+      lineNumbers.classList.add('hidden');
+      document.querySelector('.text-editor').style.width = '100%';
       // Sync content from textarea to Monaco
       monacoEditor.setValue(editor.value);
       localStorage.setItem('editorMode', 'ultra');
@@ -62,14 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isMobile) {
       optionsContainer.addEventListener('click', () => {
         optionsContainer.classList.toggle('open');
-      });
-    } else {
-      optionsContainer.addEventListener('mouseenter', () => {
-        optionsContainer.classList.add('open');
-      });
-
-      optionsContainer.addEventListener('mouseleave', () => {
-        optionsContainer.classList.remove('open');
       });
     }
   });
