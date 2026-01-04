@@ -30,7 +30,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  flex-direction: column; /* Changed to column */
+  flex-direction: row;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -52,7 +52,7 @@ body {
 }
 
 #line-numbers.hidden {
-  display: none;
+  display: none !important;
 }
 
 .options-container:hover .editor-selector-menu,

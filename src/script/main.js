@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Sync content from textarea to Monaco
       monacoEditor.setValue(editor.value);
       localStorage.setItem('editorMode', 'ultra');
+      setTimeout(() => monacoEditor.layout(), 1); // Trigger layout refresh
     }
 
     classicEditorBtn.addEventListener('click', showClassicEditor);
