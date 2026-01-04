@@ -9,7 +9,72 @@ document.addEventListener('DOMContentLoaded', () => {
   const rawCopyBtn = document.getElementById('rawCopy');
   const jsCopyBtn = document.getElementById('jsCopy');
   const sqlCopyBtn = document.getElementById('sqlCopy');
+  const classicEditorBtn = document.getElementById('classic-editor-btn');
+  const ultraEditorBtn = document.getElementById('ultra-editor-btn');
+  const monacoEditorContainer = document.getElementById('monaco-editor-container');
+  let monacoEditor;
   let activeLineIndex = 0;
+
+  require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs' } });
+  require(['vs/editor/editor.main'], function () {
+    monacoEditor = monaco.editor.create(monacoEditorContainer, {
+      value: editor.value, // Initialize with textarea content
+      language: 'text',
+      theme: 'vs-light',
+      automaticLayout: true,
+      acceptSuggestionOnEnter: 'off',
+      tabCompletion: 'on',
+      wordBasedSuggestions: true,
+    });
+
+    function showClassicEditor() {
+      editor.classList.remove('hidden');
+      monacoEditorContainer.classList.add('hidden');
+      classicEditorBtn.classList.add('active');
+      ultraEditorBtn.classList.remove('active');
+      lineNumbers.classList.remove('hidden');
+      document.querySelector('.text-editor').style.width = '';
+      // Sync content from Monaco to textarea
+      editor.value = monacoEditor.getValue();
+      convertBtn.classList.remove('arrow-shifted');
+      updateLineNumbers();
+      
+      localStorage.setItem('editorMode', 'classic');
+    }
+
+    function showUltraEditor() {
+      editor.classList.add('hidden');
+      monacoEditorContainer.classList.remove('hidden');
+      classicEditorBtn.classList.remove('active');
+      ultraEditorBtn.classList.add('active');
+      lineNumbers.classList.add('hidden');
+      document.querySelector('.text-editor').style.width = '100%';
+      convertBtn.classList.add('arrow-shifted');
+      // Sync content from textarea to Monaco
+      monacoEditor.setValue(editor.value);
+      localStorage.setItem('editorMode', 'ultra');
+      setTimeout(() => monacoEditor.layout(), 1);
+    }
+
+    classicEditorBtn.addEventListener('click', showClassicEditor);
+    ultraEditorBtn.addEventListener('click', showUltraEditor);
+
+    const savedEditorMode = localStorage.getItem('editorMode');
+    if (savedEditorMode === 'ultra') {
+      showUltraEditor();
+    } else {
+      showClassicEditor();
+    }
+
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const optionsContainer = document.querySelector('.options-container');
+
+    if (isMobile) {
+      optionsContainer.addEventListener('click', () => {
+        optionsContainer.classList.toggle('open');
+      });
+    }
+  });
 
   // Varsayılan ayarlar
   const defaultOptions = {
@@ -77,8 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Veriyi formatlara çevirme
   function convertText() {
-    const lines = editor.value.split('\n').filter(line => line.trim() !== '');
-
+    const lines = (
+      localStorage.getItem('editorMode') === 'ultra' && monacoEditor
+        ? monacoEditor.getValue()
+        : editor.value
+    ).split('\n') .filter(line => line.trim() !== '');
     // Verileri işlemek için numaraları ve metinleri kontrol et
     const formattedLines = lines.map(line => {
       const trimmedLine = line.trim();
@@ -134,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Delete butonu: Tüm textarea'ları temizle
   deleteBtn.addEventListener('click', () => {
     editor.value = '';
+    monacoEditor.setValue('');
     rawOutput.value = '';
     jsOutput.value = '';
     sqlOutput.value = '';
@@ -232,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (imgAlt.includes('numbers-quote') && options.numbersFormat === 'quoted') {
       button.classList.add('active');
-    } else if (imgAlt.includes('numbers-plain') && options.numbersFormat === 'plain') {
+    } else if (imgAlt.includes('numbers-without-quote') && options.numbersFormat === 'plain') {
       button.classList.add('active');
     }
   });

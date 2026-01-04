@@ -18,34 +18,85 @@
   right: 1.5rem;
 }
 
-.button-container {
-  @apply gap-4 flex items-center justify-center bg-white text-dark-gray border-2 border-light-blue py-2 px-4 rounded-2xl transition-all duration-300;
+@layer components {
 
-  .button {
-    @apply flex items-center justify-center bg-light-gray h-7 px-12 rounded-2xl transition-all duration-300;
+  /* Button Container – New UI */
+  .button-container {
+    @apply
+      flex items-center justify-center
+      gap-3
 
-    &.active {
-      @apply bg-light-blue;
-    }
+      bg-white/80
+      backdrop-blur-md
 
-    &:hover {
-      @apply bg-light-blue;
-    }
+      text-dark-gray
+      border border-light-blue
 
-    &.delete {
-      @apply bg-transparent;
+      py-2 px-3
+      rounded-full
 
-      &:hover {
-        @apply bg-light-gray;
-      }
-    }
+      shadow-sm
+      transition-all duration-300 ease-out;
+  }
 
-    &.options {
-      @apply bg-transparent;
+ .button-container .button {
+  @apply
+    relative
+    flex items-center justify-center
 
-      &:hover {
-        @apply bg-light-gray;
-      }
-    }
+    h-7
+    px-10
+    rounded-full
+
+    bg-light-gray
+    text-sm font-medium
+
+    transition-all duration-200 ease-out;
+}
+
+/* Hover – soft lift */
+.button-container .button:hover {
+  background-color: rgb(213 223 255 / 0.6); /* light-blue soft */
+  box-shadow: 0 4px 12px rgba(140, 133, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Active – selected state */
+.button-container .button.active {
+  background-color: rgb(213 223 255 / 1); /* full light-blue */
+  box-shadow: 0 6px 16px rgba(140, 133, 255, 0.35);
+}
+
+/* Press feedback */
+.button-container .button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(140, 133, 255, 0.25);
+}
+
+.button-container .button.delete {
+  @apply
+    bg-transparent
+    text-mid-gray
+    shadow-none;
+}
+
+.button-container .button.delete:hover {
+  background-color: rgb(222 46 36 / 0.08); /* red soft */
+  color: #DE2E24;
+  box-shadow: 0 2px 8px rgba(222, 46, 36, 0.15);
+}
+
+.button-container .button.delete:active {
+  background-color: rgb(222 46 36 / 0.12);
+  box-shadow: none;
+}
+
+  /* Options Button */
+  .button-container .button.options {
+    @apply bg-transparent;
+  }
+
+  .button-container .button.options:hover {
+    @apply bg-light-gray;
   }
 }

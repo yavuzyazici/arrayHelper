@@ -10,6 +10,10 @@
   --off-white: #F6F8FE;
   --cool-gray: #afb4c2;
   --mid-gray: #767a8a;
+  --theme-bg: rgb(213 223 255 / 1);
+  --theme-bg-soft: rgb(213 223 255 / 0.55);
+  --theme-border: rgb(213 223 255 / 0.7);
+  --theme-shadow: rgba(28, 39, 76, 0.18);
 }
 
 body {
@@ -18,4 +22,147 @@ body {
   font-size: 16px;
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
+}
+
+.options-container {
+  position: relative;
+}
+
+.editor-selector-menu {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+
+  display: inline-flex;
+  gap: 6px;
+
+  padding: 6px;
+  border-radius: 999px;
+
+  background: var(--theme-bg-soft);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid var(--theme-border);
+
+  box-shadow:
+    0 10px 28px var(--theme-shadow),
+    0 3px 8px rgba(0, 0, 0, 0.04);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.options-container:hover .editor-selector-menu,
+.options-container.open .editor-selector-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.text-editor {
+  transition: width 0.5s ease-in-out;
+}
+
+#line-numbers.hidden {
+  display: none !important;
+}
+
+.editor-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  padding: 6px 16px;
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+
+  color: var(--navy-blue);
+
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.editor-btn:hover {
+  background: rgb(255 255 255 / 0.55);
+}
+
+.editor-btn.active {
+  background: var(--theme-bg);
+  color: var(--navy-blue);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(140, 133, 255, 0.35),
+    0 4px 12px rgba(140, 133, 255, 0.35);
+}
+.editor-selector-menu::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+
+  width: 12px;
+  height: 12px;
+
+  background: var(--theme-bg-soft);
+  border-right: 1px solid var(--theme-border);
+  border-bottom: 1px solid var(--theme-border);
+}
+
+#editor,
+#monaco-editor-container {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+#editor.hidden,
+#monaco-editor-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute; /* Add this to prevent the hidden editor from taking up space */
+  pointer-events: none; /* Add this to prevent interaction with the hidden editor */
+}
+
+.github-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.github-icon:hover {
+  transform: translateY(-1px) rotate(-6deg);
+}
+
+.github-icon:active {
+  transform: translateY(0) rotate(0deg);
+}
+
+.github-icon:hover {
+  transform: translateY(-2px) rotate(-6deg);
+  filter: drop-shadow(0 6px 14px rgba(140, 133, 255, 0.35));
+}
+
+.github-icon svg {
+  transition: transform 0.25s ease;
+}
+
+.github-icon:hover svg {
+  transform: scale(1.05);
 }
