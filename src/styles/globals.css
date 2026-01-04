@@ -19,3 +19,56 @@ body {
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
 }
+
+.options-container {
+  position: relative;
+}
+
+.editor-selector-menu {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.options-container:hover .editor-selector-menu,
+.options-container.open .editor-selector-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.editor-btn {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.editor-btn.active {
+  background-color: #d5dfff;
+}
+
+#editor,
+#monaco-editor-container {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+#editor.hidden,
+#monaco-editor-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute; /* Add this to prevent the hidden editor from taking up space */
+  pointer-events: none; /* Add this to prevent interaction with the hidden editor */
+}

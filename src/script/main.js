@@ -9,7 +9,70 @@ document.addEventListener('DOMContentLoaded', () => {
   const rawCopyBtn = document.getElementById('rawCopy');
   const jsCopyBtn = document.getElementById('jsCopy');
   const sqlCopyBtn = document.getElementById('sqlCopy');
+  const classicEditorBtn = document.getElementById('classic-editor-btn');
+  const ultraEditorBtn = document.getElementById('ultra-editor-btn');
+  const monacoEditorContainer = document.getElementById('monaco-editor-container');
+  let monacoEditor;
   let activeLineIndex = 0;
+
+  require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs' } });
+  require(['vs/editor/editor.main'], function () {
+    monacoEditor = monaco.editor.create(monacoEditorContainer, {
+      value: editor.value, // Initialize with textarea content
+      language: 'javascript',
+      theme: 'vs-light',
+      automaticLayout: true
+    });
+
+    // All logic depending on monacoEditor must be inside this callback
+    function showClassicEditor() {
+      editor.classList.remove('hidden');
+      monacoEditorContainer.classList.add('hidden');
+      classicEditorBtn.classList.add('active');
+      ultraEditorBtn.classList.remove('active');
+      // Sync content from Monaco to textarea
+      editor.value = monacoEditor.getValue();
+      localStorage.setItem('editorMode', 'classic');
+    }
+
+    function showUltraEditor() {
+      editor.classList.add('hidden');
+      monacoEditorContainer.classList.remove('hidden');
+      classicEditorBtn.classList.remove('active');
+      ultraEditorBtn.classList.add('active');
+      // Sync content from textarea to Monaco
+      monacoEditor.setValue(editor.value);
+      localStorage.setItem('editorMode', 'ultra');
+    }
+
+    classicEditorBtn.addEventListener('click', showClassicEditor);
+    ultraEditorBtn.addEventListener('click', showUltraEditor);
+
+    const savedEditorMode = localStorage.getItem('editorMode');
+    if (savedEditorMode === 'ultra') {
+      showUltraEditor();
+    } else {
+      // Default to classic, ensuring textarea is shown and content is synced
+      showClassicEditor();
+    }
+
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const optionsContainer = document.querySelector('.options-container');
+
+    if (isMobile) {
+      optionsContainer.addEventListener('click', () => {
+        optionsContainer.classList.toggle('open');
+      });
+    } else {
+      optionsContainer.addEventListener('mouseenter', () => {
+        optionsContainer.classList.add('open');
+      });
+
+      optionsContainer.addEventListener('mouseleave', () => {
+        optionsContainer.classList.remove('open');
+      });
+    }
+  });
 
   // Varsayılan ayarlar
   const defaultOptions = {
