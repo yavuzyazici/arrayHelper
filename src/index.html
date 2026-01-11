@@ -163,15 +163,25 @@
 
 <body>
   <div class="space-y-4">
-    <header class="pt-0 pb-0 m-0 pl-2">
-      <a href="https://www.arrayhelper.com/" style="display: inline-block">
-        <img src="/images/arrayHelper.svg" alt="arrayHelper" class="w-[120px] h-full object-cover">
-      </a>
-      <h1 class="text-[15px] m-0 p-0">
-        Easily transform your <span class="font-semibold">text list into an array</span>; compatible with JS, SQL, PHP,
-        PYTHON (as list), and more. Perfect for modern development needs. You can press <span
-          class="font-semibold">Ctrl+Enter</span> to run
+    <header class="m-0 pl-2 pr-2 pt-1 pb-1">
+      <div class="flex items-center gap-3">
+        <a href="https://www.arrayhelper.com/" aria-label="ArrayHelper home" class="inline-flex items-center">
+          <img src="/images/arrayHelper.svg" alt="ArrayHelper logo" width="120" height="28" decoding="async" class="w-[110px] md:w-[120px] h-auto object-contain">
+        </a>
+        <p class="m-0 text-xs md:text-sm text-cool-gray leading-tight">
+          Press
+          <kbd class="rounded border-2 border-light-gray bg-white px-1.5 py-0.5 font-semibold">Ctrl</kbd>
+          +
+          <kbd class="rounded border-2 border-light-gray bg-white px-1.5 py-0.5 font-semibold">Enter</kbd>
+          to convert
+        </p>
+      </div>
+      <h1 class="m-0 mt-1 text-[14px] md:text-[15px] font-semibold leading-snug">
+        Text list to array converter for JavaScript, SQL, PHP and Python
       </h1>
+      <p class="m-0 mt-0.5 text-xs md:text-sm text-cool-gray leading-snug">
+        Paste any list and instantly convert it into code-ready arrays.
+      </p>
     </header>
     <main class="flex flex-col md:flex-row items-center justify-center">
       <div
