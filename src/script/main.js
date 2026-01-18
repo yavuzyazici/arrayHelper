@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs' } });
   require(['vs/editor/editor.main'], function () {
     monacoEditor = monaco.editor.create(monacoEditorContainer, {
-      value: editor.value, // Initialize with textarea content
+      value: editor.value,
       language: 'text',
       theme: 'vs-light',
       automaticLayout: true,
@@ -37,11 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
       ultraEditorBtn.classList.remove('active');
       lineNumbers.classList.remove('hidden');
       document.querySelector('.text-editor').style.width = '';
-      // Sync content from Monaco to textarea
       editor.value = monacoEditor.getValue();
       convertBtn.classList.remove('arrow-shifted');
       updateLineNumbers();
-      
+
       localStorage.setItem('editorMode', 'classic');
     }
 
@@ -53,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
       lineNumbers.classList.add('hidden');
       document.querySelector('.text-editor').style.width = '100%';
       convertBtn.classList.add('arrow-shifted');
-      // Sync content from textarea to Monaco
       monacoEditor.setValue(editor.value);
       localStorage.setItem('editorMode', 'ultra');
       setTimeout(() => monacoEditor.layout(), 1);
@@ -79,13 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Varsayılan ayarlar
   const defaultOptions = {
-    quoteStyle: 'single', // double or single for strings
-    numbersFormat: 'plain' // plain or quoted for numbers
+    quoteStyle: 'single',
+    numbersFormat: 'plain'
   };
 
-  // Kullanıcı ayarlarını yükle
   const options = JSON.parse(localStorage.getItem('userOptions')) || defaultOptions;
 
   function saveOptions() {
@@ -115,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const lines = editor.value.substr(0, cursorPosition).split('\n');
     const currentLineIndex = lines.length;
 
-    // Eğer aktif satır değişmediyse, fonksiyonu sonlandır.
     if (activeLineIndex === currentLineIndex) {
       return;
     }
@@ -143,66 +138,57 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Veriyi formatlara çevirme
   function convertText() {
     const lines = (
       localStorage.getItem('editorMode') === 'ultra' && monacoEditor
         ? monacoEditor.getValue()
         : editor.value
-    ).split('\n') .filter(line => line.trim() !== '');
-    // Verileri işlemek için numaraları ve metinleri kontrol et
+    ).split('\n').filter(line => line.trim() !== '');
     const formattedLines = lines.map(line => {
       const trimmedLine = line.trim();
 
-      // Eğer sayıysa ve tırnak işareti olmadan düz formatta gelmesi isteniyorsa
       if (!isNaN(trimmedLine) && trimmedLine !== '') {
-        // Eğer numbersFormat 'quoted' ise sayılar tırnak içine alınacak
         if (options.numbersFormat === 'quoted') {
           if (options.quoteStyle === 'double') {
-            return `"${trimmedLine}"`; // Sayılar çift tırnakla sarılır
+            return `"${trimmedLine}"`;
           } else if (options.quoteStyle === 'single') {
-            return `'${trimmedLine}'`; // Sayılar tek tırnakla sarılır
+            return `'${trimmedLine}'`;
           }
         } else {
-          // Eğer numbersFormat 'plain' ise sayılar yalın halde dönmeli
-          return Number(trimmedLine); // Burada Number() kullanarak sayıyı tırnaksız döndürürüz
+          return Number(trimmedLine);
         }
       } else {
-        // Eğer metinse, quoteStyle değerine göre işlenir
         if (options.quoteStyle === 'double') {
-          return `"${trimmedLine}"`; // Metinler çift tırnakla sarılır
+          return `"${trimmedLine}"`;
         } else if (options.quoteStyle === 'single') {
-          return `'${trimmedLine}'`; // Metinler tek tırnakla sarılır
+          return `'${trimmedLine}'`;
         }
       }
     });
 
     rawOutput.value = formattedLines.join(', ');
     jsOutput.value = `[${formattedLines.join(', ')}]`;
-    // SQL Output kısmı için "N'...'" formatına uygun hale getirme
     const sqlFormattedLines = lines.map(line => {
-      const trimmedLine = line.trim().replace(/'/g, "''"); // SQL için tek tırnakları kaçır
-      return `N'${trimmedLine}'`; // SQL için her öğeyi N'...' formatına sarar
+      const trimmedLine = line.trim().replace(/'/g, "''");
+      return `N'${trimmedLine}'`;
     });
 
     sqlOutput.value = `IN (${sqlFormattedLines.join(', ')})`;
   }
 
-  // Kopyalama butonlarına tıklandığında "Copied" yazısı gözüksün
   function copyToClipboard(text, button) {
     navigator.clipboard.writeText(text).then(() => {
       const copyLabel = button.querySelector('.inline-flex');
-      copyLabel.textContent = 'Copied'; // Kopyalama sonrası "Copied" yazısını göster
+      copyLabel.textContent = 'Copied';
 
       setTimeout(() => {
-        copyLabel.textContent = 'Copy Text'; // Birkaç saniye sonra eski haline döndür
-      }, 2000); // 2 saniye sonra tekrar "Copy Text" olacak
+        copyLabel.textContent = 'Copy Text';
+      }, 2000);
     }).catch(err => {
       console.error('Kopyalama hatası: ', err);
     });
   }
 
-  // Delete butonu: Tüm textarea'ları temizle
   deleteBtn.addEventListener('click', () => {
     editor.value = '';
     monacoEditor.setValue('');
@@ -293,11 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
           options.quoteStyle = 'single';
         }
 
-        // Sayılar için numbersFormat belirle
         if (imgAlt.includes('numbers-quote')) {
-          options.numbersFormat = 'quoted'; // Sayılar da tırnaklı olacak
+          options.numbersFormat = 'quoted';
         } else if (imgAlt.includes('numbers-without-quote')) {
-          options.numbersFormat = 'plain'; // Sayılar yalın olacak
+          options.numbersFormat = 'plain';
         }
 
         saveOptions();
@@ -305,14 +290,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Varsayılan veya kaydedilmiş kullanıcı tercihlerini yükle
   document.querySelectorAll('.button').forEach(button => {
     const imgAlt = button.querySelector('img').alt;
 
-    // Önce tüm butonlardan 'active' sınıfını kaldır
     button.classList.remove('active');
 
-    // Şimdi quoteStyle ve numbersFormat için butonları kontrol et
     if (imgAlt.includes('double-quote') && options.quoteStyle === 'double') {
       button.classList.add('active');
     } else if (imgAlt.includes('single-quote') && options.quoteStyle === 'single') {
