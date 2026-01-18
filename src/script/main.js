@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'Control' || event.key === 'Meta') kbdOn(kbdCtrlCmd);
     if (event.key === 'Enter') kbdOn(kbdEnter);
 
-    const isConvertShortcut = (event.key === 'Control' || event.key === 'Meta') && event.key === 'Enter';
+    const isConvertShortcut = event.key === "Enter" && (event.ctrlKey || event.metaKey);
 
     if (isConvertShortcut) {
       event.preventDefault();
