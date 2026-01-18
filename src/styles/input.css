@@ -2,6 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+header kbd {
+  /* default durum daha “buton” gibi dursun */
+  transition:
+    transform 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow, background-color, filter;
+  transform: translateZ(0);
+}
+
+header kbd.kbd-down {
+  background-color: rgba(199, 210, 254, 0.95);
+  border-color: rgba(99, 102, 241, 0.45);
+  color: #1c274c;
+
+  transform: translateY(-2px) scale(1.18);
+
+  box-shadow:
+    0 14px 34px rgba(99, 102, 241, 0.22), 
+    0 6px 14px rgba(28, 39, 76, 0.10),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+
+  filter: saturate(1.15) brightness(1.03);
+}
+
+header kbd.kbd-down:active {
+  transform: translateY(-1px) scale(1.09);
+  box-shadow:
+    0 10px 26px rgba(99, 102, 241, 0.18),
+    0 4px 10px rgba(28, 39, 76, 0.10),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header kbd,
+  header kbd.kbd-down {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
 .line {
   width: 100%;
   display: flex;

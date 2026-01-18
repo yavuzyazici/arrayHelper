@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const classicEditorBtn = document.getElementById('classic-editor-btn');
   const ultraEditorBtn = document.getElementById('ultra-editor-btn');
   const monacoEditorContainer = document.getElementById('monaco-editor-container');
+  const shortcutKbds = document.querySelectorAll('header kbd');
+  const kbdCtrlCmd = shortcutKbds[0];
+  const kbdEnter = shortcutKbds[1];
   let monacoEditor;
   let activeLineIndex = 0;
 
@@ -235,11 +238,31 @@ document.addEventListener('DOMContentLoaded', () => {
   convertBtn.addEventListener('click', convertText);
 
   document.addEventListener("keydown", function (event) {
-    if (event.ctrlKey && event.key === "Enter") {
+    if (event.key === 'Control' || event.key === 'Meta') kbdOn(kbdCtrlCmd);
+    if (event.key === 'Enter') kbdOn(kbdEnter);
+
+    const isConvertShortcut = (event.key === 'Control' || event.key === 'Meta') && event.key === 'Enter';
+
+    if (isConvertShortcut) {
       event.preventDefault();
       convertText();
     }
   });
+
+  document.addEventListener('keyup', (event) => {
+    if (event.key === 'Control' || event.key === 'Meta') kbdOff(kbdCtrlCmd);
+    if (event.key === 'Enter' || event.code === 'NumpadEnter') kbdOff(kbdEnter);
+  });
+
+  function kbdOn(el) {
+    if (!el) return;
+    el.classList.add('kbd-down');
+  }
+
+  function kbdOff(el) {
+    if (!el) return;
+    el.classList.remove('kbd-down');
+  }
 
   rawCopyBtn.addEventListener('click', () => {
     copyToClipboard(rawOutput.value, rawCopyBtn);
@@ -253,8 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
     copyToClipboard(sqlOutput.value, sqlCopyBtn);
   });
 
-  // button
-
   const buttonContainers = document.querySelectorAll('.button-container');
 
   buttonContainers.forEach(container => {
@@ -266,7 +287,6 @@ document.addEventListener('DOMContentLoaded', () => {
         this.classList.add('active');
         const imgAlt = this.querySelector('img').alt;
 
-        // Metinler için quoteStyle belirle
         if (imgAlt.includes('double-quote')) {
           options.quoteStyle = 'double';
         } else if (imgAlt.includes('single-quote')) {
