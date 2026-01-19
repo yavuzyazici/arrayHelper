@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
       tabCompletion: 'on',
       wordBasedSuggestions: true,
     });
+    //Ctrl + Enter was using by monaco editor as default.
+    monaco.editor.addKeybindingRule({
+      keybinding: monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
+      command: null,
+      when: 'editorTextFocus'
+    });
 
     function showClassicEditor() {
       editor.classList.remove('hidden');
