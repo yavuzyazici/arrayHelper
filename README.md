@@ -7,6 +7,17 @@ Live demo available at: [Array Helper](https://www.arrayhelper.com)
 🌍 **Languages:**  
 🇹🇷 [Türkçe](README-TR.md) | 🇬🇧 English
 
+---
+## The story behind the project
+
+This project started while I was working as a junior developer at Atak Domain. I was pulling reports from databases and frequently needed to put given lists into SQL `IN()` queries. At first, I wrote small Python scripts to handle this.
+
+After a while, even running scripts felt like unnecessary overhead. Opening the script, executing it, copying the output — it all added extra steps.
+
+I thought, “Why not do this directly in the browser?”  
+So I built a simple web tool to solve my own problem. Later on, I realized it could be useful for others as well.
+---
+
 ![Og Image Preview](https://www.arrayhelper.com/images/arrayHelper-og.png)  
 
 Preview:
