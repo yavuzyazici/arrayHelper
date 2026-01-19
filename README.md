@@ -4,6 +4,9 @@ Easily transform your text lists into array formats compatible with JS, SQL, PHP
 
 Live demo available at: [Array Helper](https://www.arrayhelper.com)
 
+🌍 **Languages:**  
+🇹🇷 [Türkçe](README-TR.md) | 🇬🇧 English
+
 ![Og Image Preview](https://www.arrayhelper.com/images/arrayHelper-og.png)  
 
 Preview:
