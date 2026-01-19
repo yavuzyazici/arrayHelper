@@ -7,6 +7,7 @@ Metin listelerinizi **JavaScript, SQL, PHP, PERL, PYTHON (liste olarak)** ve bir
 
 🌍 **Diller:**  
 🇹🇷 Türkçe | 🇬🇧 [English](README.md)
+
 ---
 
 ## Projenin hikâyesi
