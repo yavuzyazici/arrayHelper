@@ -16,6 +16,7 @@ After a while, even running scripts felt like unnecessary overhead. Opening the 
 
 I thought, “Why not do this directly in the browser?”  
 So I built a simple web tool to solve my own problem. Later on, I realized it could be useful for others as well.
+
 ---
 
 ![Og Image Preview](https://www.arrayhelper.com/images/arrayHelper-og.png)  
