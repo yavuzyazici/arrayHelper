@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const kbdEnter = shortcutKbds[1];
   let monacoEditor;
   let activeLineIndex = 0;
+  let prevLineCount = 0;
 
   require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs' } });
   require(['vs/editor/editor.main'], function () {
@@ -96,13 +97,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateLineNumbers() {
     const lines = editor.value.split('\n').length;
-    lineNumbers.innerHTML = '';
-    for (let i = 1; i <= lines; i++) {
-      const div = document.createElement('div');
-      div.textContent = i;
-      div.className = 'line';
-      lineNumbers.appendChild(div);
+
+    if (prevLineCount === 0) {
+      for (let i = 1; i <= lines; i++) {
+        const div = document.createElement('div');
+        div.textContent = i;
+        div.className = 'line';
+        lineNumbers.appendChild(div);
+      }
+      prevLineCount = lines;
+      highlightActiveLine();
+      checkButtonVisibility(lines);
+      return;
     }
+
+    if (lines === prevLineCount) {
+      highlightActiveLine();
+      checkButtonVisibility(lines);
+      return;
+    }
+
+    if (lines > prevLineCount) {
+      for (let i = prevLineCount + 1; i <= lines; i++) {
+        const div = document.createElement('div');
+        div.textContent = i;
+        div.className = 'line';
+        lineNumbers.appendChild(div);
+      }
+    } else {
+      for (let i = prevLineCount; i > lines; i--) {
+        lineNumbers.lastElementChild?.remove();
+      }
+    }
+
+    prevLineCount = lines;
+
     highlightActiveLine();
     checkButtonVisibility(lines);
   }
@@ -112,28 +141,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function highlightActiveLine() {
-    const lineHeight = parseInt(window.getComputedStyle(editor).lineHeight, 10);
-    const cursorPosition = editor.selectionStart;
-    const lines = editor.value.substr(0, cursorPosition).split('\n');
-    const currentLineIndex = lines.length;
+    const currentLineIndex = editor.value.slice(0, editor.selectionStart).split('\n').length;
 
-    if (activeLineIndex === currentLineIndex) {
-      return;
-    }
-
-    activeLineIndex = currentLineIndex;
-
-    const startOffset = (activeLineIndex - 1) * lineHeight;
-    editor.scrollTop = startOffset;
+    if (currentLineIndex === activeLineIndex) return;
 
     const lineElements = lineNumbers.querySelectorAll('.line');
-    lineElements[activeLineIndex - 1]?.classList.add('active-line');
-    lineElements[activeLineIndex]?.classList.remove('active-line');
-  }
 
-  function setActiveLine(index) {
-    activeLineIndex = index;
-    highlightActiveLine();
+    if (activeLineIndex > 0) {
+      lineElements[activeLineIndex - 1]?.classList.remove('active-line');
+    }
+
+    lineElements[currentLineIndex - 1]?.classList.add('active-line');
+
+    activeLineIndex = currentLineIndex;
   }
 
   function checkButtonVisibility(lines) {
@@ -204,11 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLineNumbers();
   });
 
-  updateLineNumbers();
-
   editor.addEventListener('input', () => {
     updateLineNumbers();
-    highlightActiveLine();
   });
 
   editor.addEventListener('scroll', syncScroll);
@@ -217,14 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
     editor.scrollTop = lineNumbers.scrollTop;
   });
 
-  lineNumbers.addEventListener('click', (event) => {
-    if (event.target.classList.contains('line')) {
-      const lineIndex = parseInt(event.target.textContent, 10);
-      setActiveLine(lineIndex);
-      const cursorPosition = editor.value.split('\n').slice(0, lineIndex - 1).join('\n').length + (lineIndex > 1 ? 1 : 0);
-      editor.setSelectionRange(cursorPosition, cursorPosition);
-      editor.focus();
-    }
+  editor.addEventListener('click', (event) => {
+    highlightActiveLine();
   });
 
   convertBtn.addEventListener('click', convertText);
