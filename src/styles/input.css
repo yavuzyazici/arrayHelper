@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 header kbd {
-  /* default durum daha “buton” gibi dursun */
   transition:
     transform 380ms cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1),
