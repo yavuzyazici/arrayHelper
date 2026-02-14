@@ -21,8 +21,8 @@ Bu proje Atak Domain’de junior olarak çalıştığım dönemde ortaya çıkt�
 ![Og Image Preview](https://www.arrayhelper.com/images/arrayHelper-og.png)
 
 ## Önizleme
-![Canlı Önizleme](https://www.arrayhelper.com/images/Readme%20Image%201.jpg)  
-![Canlı Önizleme](https://www.arrayhelper.com/images/Readme%20Image%202.jpg)
+![Canlı Önizleme](https://www.arrayhelper.com/images/Readme%20Image%201.png)  
+![Canlı Önizleme](https://www.arrayhelper.com/images/Readme%20Image%202.png)
 
 ---
 
