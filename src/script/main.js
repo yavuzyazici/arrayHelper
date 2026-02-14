@@ -38,34 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
       when: 'editorTextFocus'
     });
 
-    function showClassicEditor() {
-      editor.classList.remove('hidden');
-      monacoEditorContainer.classList.add('hidden');
-      classicEditorBtn.classList.add('active');
-      ultraEditorBtn.classList.remove('active');
-      lineNumbers.classList.remove('hidden');
-      document.querySelector('.text-editor').style.width = '';
-      editor.value = monacoEditor.getValue();
-      convertBtn.classList.remove('arrow-shifted');
-      updateLineNumbers();
-      savedEditorMode = 'classic';
-      saveOptions()
-    }
-
-    function showUltraEditor() {
-      editor.classList.add('hidden');
-      monacoEditorContainer.classList.remove('hidden');
-      classicEditorBtn.classList.remove('active');
-      ultraEditorBtn.classList.add('active');
-      lineNumbers.classList.add('hidden');
-      document.querySelector('.text-editor').style.width = '100%';
-      convertBtn.classList.add('arrow-shifted');
-      monacoEditor.setValue(editor.value);
-      savedEditorMode = 'ultra';
-      saveOptions()
-      setTimeout(() => monacoEditor.layout(), 1);
-    }
-
     classicEditorBtn.addEventListener('click', showClassicEditor);
     ultraEditorBtn.addEventListener('click', showUltraEditor);
 
@@ -104,6 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lines = countLinesFast(editor.value);
 
+    if (lines > 50000) {
+      alert("Too many lines. Switching to Ultra mode for performance.");
+      showUltraEditor();
+      return;
+    }
+
     if (prevLineCount === 0) {
       for (let i = 1; i <= lines; i++) {
         const div = document.createElement('div');
@@ -124,13 +102,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (lines > prevLineCount) {
+      const fragment = document.createDocumentFragment();
+
       for (let i = prevLineCount + 1; i <= lines; i++) {
         const div = document.createElement('div');
         div.textContent = i;
         div.className = 'line';
-        lineNumbers.appendChild(div);
+        fragment.appendChild(div);
       }
-    } else {
+
+      lineNumbers.appendChild(fragment);
+    }
+    else {
       for (let i = prevLineCount; i > lines; i--) {
         lineNumbers.lastElementChild?.remove();
       }
@@ -142,21 +125,48 @@ document.addEventListener('DOMContentLoaded', () => {
     checkButtonVisibility(lines);
   }
 
+  function showClassicEditor() {
+    editor.classList.remove('hidden');
+    monacoEditorContainer.classList.add('hidden');
+    classicEditorBtn.classList.add('active');
+    ultraEditorBtn.classList.remove('active');
+    lineNumbers.classList.remove('hidden');
+    document.querySelector('.text-editor').style.width = '';
+    editor.value = monacoEditor.getValue();
+    convertBtn.classList.remove('arrow-shifted');
+    updateLineNumbers();
+    savedEditorMode = 'classic';
+    saveOptions()
+  }
+
+  function showUltraEditor() {
+    editor.classList.add('hidden');
+    monacoEditorContainer.classList.remove('hidden');
+    classicEditorBtn.classList.remove('active');
+    ultraEditorBtn.classList.add('active');
+    lineNumbers.classList.add('hidden');
+    document.querySelector('.text-editor').style.width = '100%';
+    convertBtn.classList.add('arrow-shifted');
+    monacoEditor.setValue(editor.value);
+    savedEditorMode = 'ultra';
+    saveOptions()
+    setTimeout(() => monacoEditor.layout(), 1);
+  }
+
   function syncScroll() {
     lineNumbers.scrollTop = editor.scrollTop;
   }
 
   function highlightActiveLine() {
-    const currentLineIndex = editor.value.slice(0, editor.selectionStart).split('\n').length;
+    if (savedEditorMode !== 'classic') return;
 
-    if (currentLineIndex === activeLineIndex) return;
+    const currentLineIndex = getCurrentLineIndex(editor.value, editor.selectionStart);
 
-    const lineElements = lineNumbers.querySelectorAll('.line');
+    const lineElements = lineNumbers.children;
 
     if (activeLineIndex > 0) {
       lineElements[activeLineIndex - 1]?.classList.remove('active-line');
     }
-
     lineElements[currentLineIndex - 1]?.classList.add('active-line');
 
     activeLineIndex = currentLineIndex;
@@ -171,41 +181,72 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function convertText() {
-    const lines = (
+
+    const text =
       savedEditorMode === 'ultra' && monacoEditor
         ? monacoEditor.getValue()
-        : editor.value
-    ).split('\n').filter(line => line.trim() !== '');
-    const formattedLines = lines.map(line => {
-      const trimmedLine = line.trim();
+        : editor.value;
 
-      if (!isNaN(trimmedLine) && trimmedLine !== '') {
-        if (options.numbersFormat === 'quoted') {
-          if (options.quoteStyle === 'double') {
-            return `"${trimmedLine}"`;
-          } else if (options.quoteStyle === 'single') {
-            return `'${trimmedLine}'`;
-          }
-        } else {
-          return Number(trimmedLine);
-        }
+    let rawParts = [];
+    let sqlParts = [];
+    let current = '';
+
+    const len = text.length;
+
+    for (let i = 0; i < len; i++) {
+      const ch = text[i];
+
+      if (ch === '\n') {
+        processLine(current);
+        current = '';
       } else {
-        if (options.quoteStyle === 'double') {
-          return `"${trimmedLine}"`;
-        } else if (options.quoteStyle === 'single') {
-          return `'${trimmedLine}'`;
-        }
+        current += ch;
       }
-    });
+    }
 
-    rawOutput.value = formattedLines.join(', ');
-    jsOutput.value = `[${formattedLines.join(', ')}]`;
-    const sqlFormattedLines = lines.map(line => {
-      const trimmedLine = line.trim().replace(/'/g, "''");
-      return `N'${trimmedLine}'`;
-    });
+    if (current) processLine(current);
 
-    sqlOutput.value = `IN (${sqlFormattedLines.join(', ')})`;
+    const raw = rawParts.join(', ');
+    const js = `[${raw}]`;
+    const sql = `IN (${sqlParts.join(', ')})`;
+
+    safeSetOutput(rawOutput, raw);
+    safeSetOutput(jsOutput, js);
+    safeSetOutput(sqlOutput, sql);
+
+    function processLine(line) {
+      const trimmed = line.trim();
+      if (!trimmed) return;
+
+      const isNumber = !isNaN(trimmed);
+
+      let formatted;
+
+      if (isNumber && options.numbersFormat === 'plain') {
+        formatted = trimmed;
+      } else {
+        formatted =
+          options.quoteStyle === 'double'
+            ? `"${trimmed}"`
+            : `'${trimmed}'`;
+      }
+
+      rawParts.push(formatted);
+
+      const escaped = trimmed.replace(/'/g, "''");
+      sqlParts.push(`N'${escaped}'`);
+    }
+    function safeSetOutput(textarea, text) {
+      const LIMIT = 200000; // 200k char
+
+      if (text.length > LIMIT) {
+        textarea.value =
+          text.slice(0, LIMIT) +
+          `\n\n--- Output truncated (${text.length} characters. *You can still copy everything you wrote) ---`;
+      } else {
+        textarea.value = text;
+      }
+    }
   }
 
   function copyToClipboard(text, button) {
@@ -230,8 +271,11 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLineNumbers();
   });
 
+  let lineUpdateTimeout;
+
   editor.addEventListener('input', () => {
-    updateLineNumbers();
+    clearTimeout(lineUpdateTimeout);
+    lineUpdateTimeout = setTimeout(updateLineNumbers, 50);
   });
 
   editor.addEventListener('scroll', syncScroll);
@@ -335,6 +379,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let count = 1;
     for (let i = 0; i < text.length; i++) {
       if (text[i] === '\n') count++;
+    }
+    return count;
+  }
+  function getCurrentLineIndex(text, pos) {
+    let count = 1;
+    for (let i = 0; i < pos; i++) {
+      if (text.charCodeAt(i) === 10) count++; // '\n'
     }
     return count;
   }
