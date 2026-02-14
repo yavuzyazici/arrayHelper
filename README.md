@@ -22,8 +22,8 @@ So I built a simple web tool to solve my own problem. Later on, I realized it co
 ![Og Image Preview](https://www.arrayhelper.com/images/arrayHelper-og.png)  
 
 Preview:
-![Live Preview](https://www.arrayhelper.com/images/Readme%20Image%201.jpg)  
-![Live Preview](https://www.arrayhelper.com/images/Readme%20Image%202.jpg)
+![Live Preview](https://www.arrayhelper.com/images/Readme%20Image%201.png)  
+![Live Preview](https://www.arrayhelper.com/images/Readme%20Image%202.png)
 
 ## Table of Contents
 
