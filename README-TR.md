@@ -24,9 +24,6 @@ Bu proje Atak Domain’de junior olarak çalıştığım dönemde ortaya çıkt�
 ![Canlı Önizleme](https://www.arrayhelper.com/images/Readme%20Image%201.jpg)  
 ![Canlı Önizleme](https://www.arrayhelper.com/images/Readme%20Image%202.jpg)
 
-## Lighthouse
-![Lighthouse Skoru](https://www.arrayhelper.com/images/LightShot.jpg)
-
 ---
 
 ## İçindekiler
