@@ -25,10 +25,6 @@ Preview:
 ![Live Preview](https://www.arrayhelper.com/images/Readme%20Image%201.jpg)  
 ![Live Preview](https://www.arrayhelper.com/images/Readme%20Image%202.jpg)
 
-Lighthouse:
-![Live Preview](https://www.arrayhelper.com/images/LightShot.jpg)
-
-
 ## Table of Contents
 
 - [Features](#features)
