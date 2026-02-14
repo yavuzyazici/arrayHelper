@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let monacoEditor;
   let activeLineIndex = 0;
   let prevLineCount = 0;
+  let savedEditorMode = localStorage.getItem('editorMode');
 
   require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs' } });
   require(['vs/editor/editor.main'], function () {
@@ -47,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
       editor.value = monacoEditor.getValue();
       convertBtn.classList.remove('arrow-shifted');
       updateLineNumbers();
-
-      localStorage.setItem('editorMode', 'classic');
+      savedEditorMode = 'classic';
+      saveOptions()
     }
 
     function showUltraEditor() {
@@ -60,14 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.text-editor').style.width = '100%';
       convertBtn.classList.add('arrow-shifted');
       monacoEditor.setValue(editor.value);
-      localStorage.setItem('editorMode', 'ultra');
+      savedEditorMode = 'classic';
+      saveOptions()
       setTimeout(() => monacoEditor.layout(), 1);
     }
 
     classicEditorBtn.addEventListener('click', showClassicEditor);
     ultraEditorBtn.addEventListener('click', showUltraEditor);
 
-    const savedEditorMode = localStorage.getItem('editorMode');
     if (savedEditorMode === 'ultra') {
       showUltraEditor();
     } else {
@@ -90,13 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const options = JSON.parse(localStorage.getItem('userOptions')) || defaultOptions;
+  const editorOptions = savedEditorMode || 'ultra';
 
   function saveOptions() {
     localStorage.setItem('userOptions', JSON.stringify(options));
+    localStorage.setItem('editorMode', editorOptions);
   }
 
   function updateLineNumbers() {
-    const lines = editor.value.split('\n').length;
+    if (savedEditorMode !== 'classic') {
+      return;
+    }
+
+    const lines = countLinesFast(editor.value);
 
     if (prevLineCount === 0) {
       for (let i = 1; i <= lines; i++) {
@@ -166,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function convertText() {
     const lines = (
-      localStorage.getItem('editorMode') === 'ultra' && monacoEditor
+      savedEditorMode === 'ultra' && monacoEditor
         ? monacoEditor.getValue()
         : editor.value
     ).split('\n').filter(line => line.trim() !== '');
@@ -325,4 +332,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  function countLinesFast(text) {
+    let count = 1;
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === '\n') count++;
+    }
+    return count;
+  }
 });
