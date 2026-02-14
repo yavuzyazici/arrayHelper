@@ -1,4 +1,4 @@
-import { updateLineNumbers, highlightActiveLine, applyEditorMode } from '../core/editor.js';
+import { updateLineNumbers, highlightActiveLine, applyEditorMode, loadMonaco } from '../core/editor.js';
 import { convertText } from '../core/converter.js';
 import { CONFIG } from '../core/utils.js';
 

@@ -5,8 +5,44 @@ export function createEditorState() {
     monaco: null,
     activeLineIndex: 0,
     prevLineCount: 0,
-    mode: localStorage.getItem('editorMode') || 'ultra'
+    mode: localStorage.getItem('editorMode') || 'classic'
   };
+}
+
+let monacoLoaded = false;
+export function loadMonaco(state, DOM) {
+  if (monacoLoaded) return;
+
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs/loader.js";
+
+  script.onload = () => {
+
+    require.config({
+      paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs' }
+    });
+
+    require(['vs/editor/editor.main'], function () {
+      state.monaco = monaco.editor.create(DOM.monacoContainer, {
+        value: DOM.editor.value,
+        language: 'text',
+        theme: 'vs-light',
+        automaticLayout: true,
+        acceptSuggestionOnEnter: 'off',
+        tabCompletion: 'on',
+        wordBasedSuggestions: true,
+      });
+
+      monaco.editor.addKeybindingRule({
+        keybinding: monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
+        command: null,
+        when: 'editorTextFocus'
+      });
+      monacoLoaded = true;
+    });
+  };
+
+  document.body.appendChild(script);
 }
 
 export function applyEditorMode(state, DOM) {
@@ -19,6 +55,8 @@ export function applyEditorMode(state, DOM) {
     DOM.lineNumbers.classList.add('hidden');
     DOM.convertBtn.classList.add('arrow-shifted');
     DOM.textEditor.style.width = '100%';
+
+    loadMonaco(state, DOM)
 
     if (state.monaco) {
       state.monaco.setValue(DOM.editor.value);
