@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.text-editor').style.width = '100%';
       convertBtn.classList.add('arrow-shifted');
       monacoEditor.setValue(editor.value);
-      savedEditorMode = 'classic';
+      savedEditorMode = 'ultra';
       saveOptions()
       setTimeout(() => monacoEditor.layout(), 1);
     }
@@ -91,11 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const options = JSON.parse(localStorage.getItem('userOptions')) || defaultOptions;
-  const editorOptions = savedEditorMode || 'ultra';
 
   function saveOptions() {
     localStorage.setItem('userOptions', JSON.stringify(options));
-    localStorage.setItem('editorMode', editorOptions);
+    localStorage.setItem('editorMode', savedEditorMode);
   }
 
   function updateLineNumbers() {
