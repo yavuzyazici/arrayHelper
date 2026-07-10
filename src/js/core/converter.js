@@ -1,11 +1,4 @@
-import { CONFIG, OUTPUT_KEYS } from './utils.js';
-
-const DELIMITERS = {
-  line: /\r?\n/,
-  comma: /[,\r\n]/,
-  semicolon: /[;\r\n]/,
-  tab: /[\t\r\n]/
-};
+import { CONFIG, OUTPUT_KEYS } from './utils.js?v=20260711';
 
 // Which intermediate parts each output format is built from
 const RAW_BASED = ['raw', 'js', 'py', 'php'];
@@ -29,7 +22,7 @@ export function convertText(text, options, DOM, state) {
   const sqlParts = [];
   const jsonParts = [];
 
-  const parts = text.split(DELIMITERS[options.delimiter] || DELIMITERS.line);
+  const parts = text.split(/\r?\n/);
 
   for (let i = 0; i < parts.length; i++) {
     const trimmed = parts[i].trim();

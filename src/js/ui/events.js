@@ -1,6 +1,6 @@
-import { updateLineNumbers, highlightActiveLine, applyEditorMode, loadMonaco } from '../core/editor.js';
-import { convertText } from '../core/converter.js';
-import { CONFIG, countLinesFast } from '../core/utils.js';
+import { updateLineNumbers, highlightActiveLine, applyEditorMode, loadMonaco } from '../core/editor.js?v=20260711';
+import { convertText } from '../core/converter.js?v=20260711';
+import { CONFIG, countLinesFast } from '../core/utils.js?v=20260711';
 
 export function initEvents(state, DOM, options) {
     updateLineNumbers(state, DOM);
@@ -138,7 +138,6 @@ export function initEvents(state, DOM, options) {
         });
     }
 
-    initSegment(DOM.delimiterSegment, 'delimiter', 'delimiter');
     initSegment(DOM.sqlDialectSegment, 'dialect', 'sqlDialect');
 
     /* Panel visibility (max 3 visible at once) */
@@ -195,15 +194,6 @@ export function initEvents(state, DOM, options) {
             highlightActiveLine(state, DOM);
             maybeAutoRun();
         }, CONFIG.INPUT_DEBOUNCE);
-    });
-
-    /* Let Tab insert a real tab character when it is the active delimiter */
-    DOM.editor.addEventListener('keydown', e => {
-        if (e.key !== 'Tab' || options.delimiter !== 'tab') return;
-        e.preventDefault();
-
-        DOM.editor.setRangeText('\t', DOM.editor.selectionStart, DOM.editor.selectionEnd, 'end');
-        DOM.editor.dispatchEvent(new Event('input'));
     });
 
     DOM.editor.addEventListener('click', () => {

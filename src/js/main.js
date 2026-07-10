@@ -1,6 +1,6 @@
-import { createEditorState, applyEditorMode } from './core/editor.js';
-import { initEvents } from './ui/events.js';
-import { OUTPUT_KEYS } from './core/utils.js';
+import { createEditorState, applyEditorMode } from './core/editor.js?v=20260711';
+import { initEvents } from './ui/events.js?v=20260711';
+import { OUTPUT_KEYS } from './core/utils.js?v=20260711';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ultraBtn: document.getElementById('ultra-editor-btn'),
     autoRunToggle: document.getElementById('auto-run-toggle'),
     dedupeToggle: document.getElementById('dedupe-toggle'),
-    delimiterSegment: document.getElementById('delimiter-segment'),
     sqlDialectSegment: document.getElementById('sql-dialect-segment'),
     panelChips: document.getElementById('panel-chips'),
     outputsContainer: document.getElementById('outputsContainer'),
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     quoteStyle: 'single',
     numbersFormat: 'plain',
     autoRun: false,
-    delimiter: 'line',
     dedupe: false,
     sqlDialect: 'mssql',
     visiblePanels: ['raw', 'js', 'sql'],

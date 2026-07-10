@@ -1,4 +1,4 @@
-import { countLinesFast, getCurrentLineIndex, CONFIG } from './utils.js';
+import { countLinesFast, getCurrentLineIndex, CONFIG } from './utils.js?v=20260711';
 
 export function createEditorState() {
   return {
