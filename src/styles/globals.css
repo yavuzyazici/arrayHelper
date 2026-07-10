@@ -72,6 +72,75 @@ body {
   transition: width 0.5s ease-in-out;
 }
 
+/* Fit the whole app into the viewport on desktop / laptop screens */
+@media (min-width: 768px) {
+  html,
+  body {
+    height: 100%;
+  }
+
+  .app-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 540px;
+  }
+
+  @supports (height: 100dvh) {
+    .app-shell {
+      height: 100dvh;
+    }
+  }
+
+  .app-shell > header,
+  .app-shell > div:last-child {
+    flex-shrink: 0;
+  }
+
+  .app-shell > main {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .text-editor,
+  .editor-output,
+  #outputsContainer {
+    height: 100%;
+    min-height: 0;
+  }
+
+  #outputsContainer > :not(.output-section) {
+    flex-shrink: 0;
+  }
+
+  .output-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .output-section > :not(textarea) {
+    flex-shrink: 0;
+  }
+
+  .output-section textarea {
+    flex: 1;
+    min-height: 0;
+  }
+}
+
+/* Mobile keeps the fixed heights and natural page scroll */
+@media (max-width: 767px) {
+  .text-editor {
+    height: 720px;
+  }
+
+  .output-section textarea {
+    height: 190.5px;
+  }
+}
+
 #line-numbers.hidden {
   display: none !important;
 }

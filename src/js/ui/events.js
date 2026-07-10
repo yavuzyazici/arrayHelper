@@ -88,7 +88,7 @@ export function initEvents(state, DOM, options) {
         if (!options.autoRun) return;
 
         const text = getEditorText();
-        if (countLinesFast(text) > CONFIG.AUTO_RUN_MAX_LINES) return;
+        if (countLinesFast(text, CONFIG.AUTO_RUN_MAX_LINES) > CONFIG.AUTO_RUN_MAX_LINES) return;
 
         convertText(text, options, DOM, state);
     }

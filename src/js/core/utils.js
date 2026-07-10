@@ -9,10 +9,13 @@ export const CONFIG = {
   MAX_VISIBLE_PANELS: 3
 };
 
-export function countLinesFast(text) {
+export function countLinesFast(text, limit = Infinity) {
   let count = 1;
   for (let i = 0; i < text.length; i++) {
-    if (text.charCodeAt(i) === 10) count++;
+    if (text.charCodeAt(i) === 10) {
+      count++;
+      if (count > limit) return count;
+    }
   }
   return count;
 }

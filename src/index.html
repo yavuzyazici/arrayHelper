@@ -133,7 +133,7 @@
 </head>
 
 <body>
-  <div class="space-y-4">
+  <div class="app-shell space-y-4">
     <header class="m-0 pl-2 pr-2 pt-1 pb-1">
       <div class="flex items-center gap-3">
         <a href="https://www.arrayhelper.com/" aria-label="ArrayHelper home" class="inline-flex items-center">
@@ -156,7 +156,7 @@
     </header>
     <main class="flex flex-col md:flex-row items-center justify-center">
       <div
-        class="text-editor relative flex-1 w-full min-h-[720px] h-[720px] flex flex-col border-2 border-light-gray overflow-hidden">
+        class="text-editor relative flex-1 w-full flex flex-col border-2 border-light-gray overflow-hidden">
         <button id="convertBtn"
           class="absolute top-2 right-2 p-0.5 bg-white border-2 border-light-purple rounded-full cursor-pointer z-10 hover:bg-light-gray transition-all duration-300 group">
           <img src="/images/icons/arrow-right.svg" alt="arrow-right"
@@ -188,7 +188,7 @@
               </button>
             </div>
             <textarea name="rawOutput" id="rawOutput" aria-label="rawOutput-label"
-              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section w-full h-full" data-output="js">
@@ -205,7 +205,7 @@
               </button>
             </div>
             <textarea name="jsOutput" id="jsOutput" aria-label="jsOutput-label"
-              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section w-full h-full" data-output="sql">
@@ -222,7 +222,7 @@
               </button>
             </div>
             <textarea name="sqlOutput" id="sqlOutput" aria-label="sqlOutput-label"
-              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section hidden w-full h-full" data-output="py">
@@ -239,7 +239,7 @@
               </button>
             </div>
             <textarea name="pyOutput" id="pyOutput" aria-label="pyOutput-label"
-              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section hidden w-full h-full" data-output="php">
@@ -256,7 +256,7 @@
               </button>
             </div>
             <textarea name="phpOutput" id="phpOutput" aria-label="phpOutput-label"
-              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section hidden w-full h-full" data-output="json">
@@ -273,7 +273,7 @@
               </button>
             </div>
             <textarea name="jsonOutput" id="jsonOutput" aria-label="jsonOutput-label"
-              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section hidden w-full h-full" data-output="cs">
@@ -290,7 +290,7 @@
               </button>
             </div>
             <textarea name="csOutput" id="csOutput" aria-label="csOutput-label"
-              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
         </div>
