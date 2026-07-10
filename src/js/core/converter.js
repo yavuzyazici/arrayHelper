@@ -1,52 +1,60 @@
 import { CONFIG } from './utils.js';
 
+const DELIMITERS = {
+  line: /\r?\n/,
+  comma: /[,\r\n]/,
+  semicolon: /[;\r\n]/,
+  tab: /[\t\r\n]/
+};
+
 export function convertText(text, options, DOM, state) {
 
-  let rawParts = [];
-  let sqlParts = [];
-  let current = '';
+  const quote = options.quoteStyle === 'double' ? '"' : "'";
+  const sqlPrefix = options.sqlDialect === 'standard' ? '' : 'N';
+  const seen = options.dedupe ? new Set() : null;
 
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i];
+  const rawParts = [];
+  const sqlParts = [];
+  const jsonParts = [];
 
-    if (ch === '\n') {
-      processLine(current);
-      current = '';
-    } else {
-      current += ch;
+  const parts = text.split(DELIMITERS[options.delimiter] || DELIMITERS.line);
+
+  for (const part of parts) {
+    const trimmed = part.trim();
+    if (!trimmed) continue;
+
+    if (seen) {
+      if (seen.has(trimmed)) continue;
+      seen.add(trimmed);
     }
+
+    const isPlainNumber = !isNaN(trimmed) && options.numbersFormat === 'plain';
+
+    rawParts.push(isPlainNumber ? trimmed : quote + trimmed + quote);
+    sqlParts.push(`${sqlPrefix}'${trimmed.replace(/'/g, "''")}'`);
+    jsonParts.push(isPlainNumber ? trimmed : JSON.stringify(trimmed));
   }
 
-  if (current) processLine(current);
-
   const raw = rawParts.join(', ');
-  const js = `[${raw}]`;
-  const sql = `IN (${sqlParts.join(', ')})`;
+  const json = jsonParts.join(', ');
 
-  safeSetOutput(DOM.rawOutput, raw, 'raw');
-  safeSetOutput(DOM.jsOutput, js, 'js');
-  safeSetOutput(DOM.sqlOutput, sql, 'sql');
+  const outputs = {
+    raw,
+    js: `[${raw}]`,
+    sql: `IN (${sqlParts.join(', ')})`,
+    py: `[${raw}]`,
+    php: `array(${raw})`,
+    json: `[${json}]`,
+    cs: `new[] { ${json} }`
+  };
 
-  function processLine(line) {
-    const trimmed = line.trim();
-    if (!trimmed) return;
-
-    const isNumber = !isNaN(trimmed);
-
-    let formatted =
-      isNumber && options.numbersFormat === 'plain'
-        ? trimmed
-        : options.quoteStyle === 'double'
-          ? `"${trimmed}"`
-          : `'${trimmed}'`;
-
-    rawParts.push(formatted);
-
-    const escaped = trimmed.replace(/'/g, "''");
-    sqlParts.push(`N'${escaped}'`);
+  for (const key of Object.keys(outputs)) {
+    safeSetOutput(DOM.outputs[key], outputs[key], key);
   }
 
   function safeSetOutput(textarea, text, key) {
+    if (!textarea) return;
+
     state.fullOutputs[key] = text;
 
     if (text.length > CONFIG.OUTPUT_LIMIT) {

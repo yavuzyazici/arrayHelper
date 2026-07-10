@@ -172,11 +172,11 @@
         </div>
       </div>
       <div class="editor-output flex-1 w-full h-full">
-        <div class="flex flex-col items-stretch justify-between">
+        <div id="outputsContainer" class="flex flex-col items-stretch justify-between">
           <div class="hidden md:block w-full h-0.5 bg-light-gray"></div>
-          <div class="w-full h-full">
-            <div class="w-full gap-4 flex items-center justify-between p-1 bg-off-white">
-              <span class="text-sm pl-1">[ Raw ]</span>
+          <div class="output-section w-full h-full" data-output="raw">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ Raw ]</span>
               <button id="rawCopy"
                 class="group relative inline-flex p-1.5 mr-2 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
@@ -189,11 +189,11 @@
             </div>
             <textarea name="rawOutput" id="rawOutput" aria-label="rawOutput-label"
               class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
-          <div class="w-full h-0.5 bg-light-gray"></div>
-          <div class="w-full h-full">
-            <div class="w-full gap-4 flex items-center justify-between p-1 bg-off-white">
-              <span class="text-sm pl-1">[ JavaScript ]</span>
+          <div class="output-section w-full h-full" data-output="js">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ JavaScript ]</span>
               <button id="jsCopy"
                 class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
@@ -206,11 +206,11 @@
             </div>
             <textarea name="jsOutput" id="jsOutput" aria-label="jsOutput-label"
               class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
-          <div class="w-full h-0.5 bg-light-gray"></div>
-          <div class="w-full h-full">
-            <div class="w-full gap-4 flex items-center justify-between p-1 bg-off-white">
-              <span class="text-sm pl-1">[ SQL ]</span>
+          <div class="output-section w-full h-full" data-output="sql">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ SQL ]</span>
               <button id="sqlCopy"
                 class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
@@ -223,17 +223,85 @@
             </div>
             <textarea name="sqlOutput" id="sqlOutput" aria-label="sqlOutput-label"
               class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
-          <div class="w-full h-0.5 bg-light-gray"></div>
+          <div class="output-section hidden w-full h-full" data-output="py">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ Python ]</span>
+              <button id="pyCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  Copy Text</div>
+              </button>
+            </div>
+            <textarea name="pyOutput" id="pyOutput" aria-label="pyOutput-label"
+              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section hidden w-full h-full" data-output="php">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ PHP ]</span>
+              <button id="phpCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  Copy Text</div>
+              </button>
+            </div>
+            <textarea name="phpOutput" id="phpOutput" aria-label="phpOutput-label"
+              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section hidden w-full h-full" data-output="json">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ JSON ]</span>
+              <button id="jsonCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  Copy Text</div>
+              </button>
+            </div>
+            <textarea name="jsonOutput" id="jsonOutput" aria-label="jsonOutput-label"
+              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section hidden w-full h-full" data-output="cs">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ C# ]</span>
+              <button id="csCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  Copy Text</div>
+              </button>
+            </div>
+            <textarea name="csOutput" id="csOutput" aria-label="csOutput-label"
+              class="w-full h-[190.5px] p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
         </div>
       </div>
     </main>
     <div class="gap-4 flex flex-wrap items-center justify-start p-2" style="margin-top: 0;">
       <div class="button-container max-[500px]:w-full">
-        <button class="button active">
+        <button class="button">
           <img src="/images/icons/double-quote.svg" alt="double-quote" class="w-full h-max object-cover">
         </button>
-        <button class="button">
+        <button class="button active">
           <img src="/images/icons/single-quote.svg" alt="single-quote" class="w-full h-max object-cover">
         </button>
       </div>
@@ -252,12 +320,57 @@
           <img src="/images/icons/options.svg" alt="options" class="w-6 h-6">
         </button>
         <div class="editor-selector-menu">
-          <button id="classic-editor-btn" class="editor-btn active">
-            Classic
-          </button>
-          <button id="ultra-editor-btn" class="editor-btn">
-            Ultra
-          </button>
+          <div class="settings-row">
+            <span class="settings-label">Editor</span>
+            <div class="settings-segment">
+              <button id="classic-editor-btn" class="editor-btn active">
+                Classic
+              </button>
+              <button id="ultra-editor-btn" class="editor-btn">
+                Ultra
+              </button>
+            </div>
+          </div>
+          <div class="settings-row">
+            <span class="settings-label">Auto Run</span>
+            <button id="auto-run-toggle" class="toggle-switch" role="switch" aria-checked="false" aria-label="Auto Run">
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
+          <div class="settings-row">
+            <span class="settings-label">Delimiter</span>
+            <div class="settings-segment" id="delimiter-segment">
+              <button class="editor-btn active" data-delimiter="line" title="Split by new line">Line</button>
+              <button class="editor-btn" data-delimiter="comma" title="Split by comma">,</button>
+              <button class="editor-btn" data-delimiter="semicolon" title="Split by semicolon">;</button>
+              <button class="editor-btn" data-delimiter="tab" title="Split by tab">Tab</button>
+            </div>
+          </div>
+          <div class="settings-row">
+            <span class="settings-label">Dedupe</span>
+            <button id="dedupe-toggle" class="toggle-switch" role="switch" aria-checked="false" aria-label="Remove duplicate values">
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
+          <div class="settings-row">
+            <span class="settings-label">SQL</span>
+            <div class="settings-segment" id="sql-dialect-segment">
+              <button class="editor-btn active" data-dialect="mssql" title="SQL Server">N'...'</button>
+              <button class="editor-btn" data-dialect="standard" title="MySQL / PostgreSQL">'...'</button>
+            </div>
+          </div>
+          <div class="settings-row settings-row-stacked">
+            <span class="settings-label">Panels <span class="settings-hint">· max 3</span></span>
+            <div class="panel-chips" id="panel-chips">
+              <button class="panel-chip active" data-panel="raw">Raw</button>
+              <button class="panel-chip active" data-panel="js">JS</button>
+              <button class="panel-chip active" data-panel="sql">SQL</button>
+              <button class="panel-chip" data-panel="py">Python</button>
+              <button class="panel-chip" data-panel="php">PHP</button>
+              <button class="panel-chip" data-panel="json">JSON</button>
+              <button class="panel-chip" data-panel="cs">C#</button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="button-container max-[500px]:w-full">

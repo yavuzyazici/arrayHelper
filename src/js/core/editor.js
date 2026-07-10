@@ -38,6 +38,8 @@ export function loadMonaco(state, DOM) {
         command: null,
         when: 'editorTextFocus'
       });
+
+      state.monaco.onDidChangeModelContent(() => state.onUltraInput?.());
       monacoLoaded = true;
     });
   };
