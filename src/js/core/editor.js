@@ -9,12 +9,18 @@ export function createEditorState() {
   };
 }
 
-let monacoLoaded = false;
+let monacoLoadState = 'idle';
 export function loadMonaco(state, DOM) {
-  if (monacoLoaded) return;
+  if (monacoLoadState !== 'idle') return;
+  monacoLoadState = 'loading';
 
   const script = document.createElement("script");
   script.src = "https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs/loader.js";
+
+  script.onerror = () => {
+    monacoLoadState = 'idle';
+    script.remove();
+  };
 
   script.onload = () => {
 
@@ -40,7 +46,9 @@ export function loadMonaco(state, DOM) {
       });
 
       state.monaco.onDidChangeModelContent(() => state.onUltraInput?.());
-      monacoLoaded = true;
+      monacoLoadState = 'ready';
+    }, () => {
+      monacoLoadState = 'idle';
     });
   };
 
@@ -85,7 +93,7 @@ export function applyEditorMode(state, DOM) {
 export function updateLineNumbers(state, DOM) {
   if (state.mode !== 'classic') return;
 
-  const lines = countLinesFast(DOM.editor.value);
+  const lines = countLinesFast(DOM.editor.value, CONFIG.MAX_CLASSIC_LINES);
 
   if (lines > CONFIG.MAX_CLASSIC_LINES) {
     alert("Too many lines. Switching to Ultra mode.");

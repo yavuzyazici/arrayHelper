@@ -61,12 +61,21 @@ export function initEvents(state, DOM, options) {
     /* Copy */
     function copy(key, textarea, button) {
         const fullText = state.fullOutputs[key] || textarea.value;
+        const label = button.querySelector('.inline-flex');
 
-        navigator.clipboard.writeText(fullText).then(() => {
-            const label = button.querySelector('.inline-flex');
-            label.textContent = 'Copied';
+        const feedback = text => {
+            label.textContent = text;
             setTimeout(() => label.textContent = 'Copy Text', 2000);
-        });
+        };
+
+        if (!navigator.clipboard) {
+            feedback('Copy failed');
+            return;
+        }
+
+        navigator.clipboard.writeText(fullText)
+            .then(() => feedback('Copied'))
+            .catch(() => feedback('Copy failed'));
     }
 
     Object.entries(DOM.copyBtns).forEach(([key, btn]) => {
@@ -87,10 +96,12 @@ export function initEvents(state, DOM, options) {
     function maybeAutoRun() {
         if (!options.autoRun) return;
 
-        const text = getEditorText();
-        if (countLinesFast(text, CONFIG.AUTO_RUN_MAX_LINES) > CONFIG.AUTO_RUN_MAX_LINES) return;
+        const lineCount = state.mode === 'ultra' && state.monaco
+            ? state.monaco.getModel().getLineCount()
+            : countLinesFast(DOM.editor.value, CONFIG.AUTO_RUN_MAX_LINES);
+        if (lineCount > CONFIG.AUTO_RUN_MAX_LINES) return;
 
-        convertText(text, options, DOM, state);
+        convertText(getEditorText(), options, DOM, state);
     }
 
     /* Re-convert immediately when a setting that affects the output changes */
