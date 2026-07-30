@@ -1,6 +1,6 @@
-import { updateLineNumbers, highlightActiveLine, applyEditorMode, loadMonaco } from '../core/editor.js?v=20260711';
-import { convertText } from '../core/converter.js?v=20260711';
-import { CONFIG, countLinesFast } from '../core/utils.js?v=20260711';
+import { updateLineNumbers, highlightActiveLine, applyEditorMode, prewarmMonaco } from '../core/editor.js?v=20260731';
+import { convertText } from '../core/converter.js?v=20260731';
+import { CONFIG, countLinesFast } from '../core/utils.js?v=20260731';
 
 export function initEvents(state, DOM, options) {
     updateLineNumbers(state, DOM);
@@ -45,6 +45,14 @@ export function initEvents(state, DOM, options) {
         state.mode = 'ultra';
         applyEditorMode(state, DOM);
     });
+
+    const warmMonaco = () => prewarmMonaco().catch(() => { });
+
+    ['pointerenter', 'touchstart', 'focusin'].forEach(type => {
+        DOM.optionsContainer?.addEventListener(type, warmMonaco, { once: true, passive: true });
+    });
+
+    DOM.ultraBtn.addEventListener('pointerenter', warmMonaco, { once: true, passive: true });
 
     DOM.deleteBtn.addEventListener('click', () => {
         DOM.editor.value = '';

@@ -1,4 +1,6 @@
-import { countLinesFast, getCurrentLineIndex, CONFIG } from './utils.js?v=20260711';
+import { countLinesFast, getCurrentLineIndex, CONFIG } from './utils.js?v=20260731';
+
+const MONACO_VS = 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs';
 
 export function createEditorState() {
   return {
@@ -9,50 +11,74 @@ export function createEditorState() {
   };
 }
 
-let monacoLoadState = 'idle';
+let loaderPromise = null;
+function loadAmdLoader() {
+  if (loaderPromise) return loaderPromise;
+
+  loaderPromise = new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = `${MONACO_VS}/loader.js`;
+
+    script.onload = resolve;
+    script.onerror = () => {
+      loaderPromise = null;
+      script.remove();
+      reject();
+    };
+
+    document.head.appendChild(script);
+  });
+
+  return loaderPromise;
+}
+
+let monacoPromise = null;
+export function prewarmMonaco() {
+  if (monacoPromise) return monacoPromise;
+
+  monacoPromise = loadAmdLoader()
+    .then(() => new Promise((resolve, reject) => {
+      require.config({ paths: { vs: MONACO_VS } });
+      require(['vs/editor/editor.main'], resolve, reject);
+    }))
+    .catch(error => {
+      monacoPromise = null;
+      throw error;
+    });
+
+  return monacoPromise;
+}
+
+let creatingMonaco = false;
 export function loadMonaco(state, DOM) {
-  if (monacoLoadState !== 'idle') return;
-  monacoLoadState = 'loading';
+  if (state.monaco || creatingMonaco) return;
+  creatingMonaco = true;
 
-  const script = document.createElement("script");
-  script.src = "https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs/loader.js";
+  prewarmMonaco().then(() => {
+    creatingMonaco = false;
 
-  script.onerror = () => {
-    monacoLoadState = 'idle';
-    script.remove();
-  };
-
-  script.onload = () => {
-
-    require.config({
-      paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs' }
+    state.monaco = monaco.editor.create(DOM.monacoContainer, {
+      value: DOM.editor.value,
+      language: 'text',
+      theme: 'vs-light',
+      automaticLayout: true,
+      acceptSuggestionOnEnter: 'off',
+      tabCompletion: 'on',
+      wordBasedSuggestions: true,
     });
 
-    require(['vs/editor/editor.main'], function () {
-      state.monaco = monaco.editor.create(DOM.monacoContainer, {
-        value: DOM.editor.value,
-        language: 'text',
-        theme: 'vs-light',
-        automaticLayout: true,
-        acceptSuggestionOnEnter: 'off',
-        tabCompletion: 'on',
-        wordBasedSuggestions: true,
-      });
-
-      monaco.editor.addKeybindingRule({
-        keybinding: monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
-        command: null,
-        when: 'editorTextFocus'
-      });
-
-      state.monaco.onDidChangeModelContent(() => state.onUltraInput?.());
-      monacoLoadState = 'ready';
-    }, () => {
-      monacoLoadState = 'idle';
+    monaco.editor.addKeybindingRule({
+      keybinding: monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
+      command: null,
+      when: 'editorTextFocus'
     });
-  };
 
-  document.body.appendChild(script);
+    state.monaco.onDidChangeModelContent(() => state.onUltraInput?.());
+
+    if (state.mode === 'ultra') state.monaco.layout();
+  }).catch(() => {
+    creatingMonaco = false;
+  });
 }
 
 export function applyEditorMode(state, DOM) {
@@ -94,6 +120,8 @@ export function updateLineNumbers(state, DOM) {
   if (state.mode !== 'classic') return;
 
   const lines = countLinesFast(DOM.editor.value, CONFIG.MAX_CLASSIC_LINES);
+
+  if (lines > CONFIG.MONACO_PREWARM_LINES) prewarmMonaco().catch(() => {});
 
   if (lines > CONFIG.MAX_CLASSIC_LINES) {
     alert("Too many lines. Switching to Ultra mode.");

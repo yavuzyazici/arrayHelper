@@ -1,4 +1,4 @@
-import { CONFIG, OUTPUT_KEYS } from './utils.js?v=20260711';
+import { CONFIG, OUTPUT_KEYS } from './utils.js?v=20260731';
 
 // Which intermediate parts each output format is built from
 const RAW_BASED = ['raw', 'js', 'py', 'php'];

@@ -61,6 +61,15 @@
   <link rel="stylesheet" href="/styles/globals.css?v=20260711">
   <link rel="stylesheet" href="/styles/output.css?v=20260711">
 
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+  <link rel="modulepreload" href="/js/main.js?v=20260731">
+  <link rel="modulepreload" href="/js/core/editor.js?v=20260731">
+  <link rel="modulepreload" href="/js/core/utils.js?v=20260731">
+  <link rel="modulepreload" href="/js/core/converter.js?v=20260731">
+  <link rel="modulepreload" href="/js/ui/events.js?v=20260731">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -333,7 +342,7 @@
           </div>
           <div class="settings-row">
             <span class="settings-label">Auto Run</span>
-            <button id="auto-run-toggle" class="toggle-switch" role="switch" aria-checked="false" aria-label="Auto Run">
+            <button id="auto-run-toggle" class="toggle-switch on" role="switch" aria-checked="true" aria-label="Auto Run">
               <span class="toggle-knob"></span>
             </button>
           </div>
@@ -382,6 +391,6 @@
     </div>
   </div>
 
-  <script type="module" src="/js/main.js?v=20260711"></script>
+  <script type="module" src="/js/main.js?v=20260731"></script>
 </body>
 </html>

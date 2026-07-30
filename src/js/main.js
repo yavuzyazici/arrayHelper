@@ -1,6 +1,6 @@
-import { createEditorState, applyEditorMode } from './core/editor.js?v=20260711';
-import { initEvents } from './ui/events.js?v=20260711';
-import { OUTPUT_KEYS } from './core/utils.js?v=20260711';
+import { createEditorState, applyEditorMode } from './core/editor.js?v=20260731';
+import { initEvents } from './ui/events.js?v=20260731';
+import { OUTPUT_KEYS } from './core/utils.js?v=20260731';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const options = {
     quoteStyle: 'single',
     numbersFormat: 'plain',
-    autoRun: false,
+    autoRun: true,
     dedupe: false,
     sqlDialect: 'mssql',
     visiblePanels: ['raw', 'js', 'sql'],

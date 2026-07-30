@@ -2,6 +2,7 @@ export const OUTPUT_KEYS = ['raw', 'js', 'sql', 'py', 'php', 'json', 'cs'];
 
 export const CONFIG = {
   MAX_CLASSIC_LINES: 50000,
+  MONACO_PREWARM_LINES: 25000,
   OUTPUT_LIMIT: 200000,
   SHIFT_BUTTON_THRESHOLD: 29,
   INPUT_DEBOUNCE: 50,
