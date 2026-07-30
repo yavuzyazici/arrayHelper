@@ -1,4 +1,4 @@
-import { countLinesFast, getCurrentLineIndex, CONFIG } from './utils.js?v=20260731';
+import { countLinesFast, getCurrentLineIndex, CONFIG, IS_MOBILE } from './utils.js?v=20260731';
 
 const MONACO_VS = 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs';
 
@@ -49,6 +49,16 @@ export function prewarmMonaco() {
   return monacoPromise;
 }
 
+export function focusEditor(state, DOM) {
+  if (IS_MOBILE) return;
+
+  if (state.mode === 'ultra') {
+    state.monaco?.focus();
+  } else {
+    DOM.editor.focus({ preventScroll: true });
+  }
+}
+
 let creatingMonaco = false;
 export function loadMonaco(state, DOM) {
   if (state.monaco || creatingMonaco) return;
@@ -75,7 +85,10 @@ export function loadMonaco(state, DOM) {
 
     state.monaco.onDidChangeModelContent(() => state.onUltraInput?.());
 
-    if (state.mode === 'ultra') state.monaco.layout();
+    if (state.mode === 'ultra') {
+      state.monaco.layout();
+      focusEditor(state, DOM);
+    }
   }).catch(() => {
     creatingMonaco = false;
   });
@@ -96,7 +109,10 @@ export function applyEditorMode(state, DOM) {
 
     if (state.monaco) {
       state.monaco.setValue(DOM.editor.value);
-      setTimeout(() => state.monaco.layout(), 1);
+      setTimeout(() => {
+        state.monaco.layout();
+        focusEditor(state, DOM);
+      }, 1);
     }
 
   } else {
@@ -111,6 +127,8 @@ export function applyEditorMode(state, DOM) {
     if (state.monaco) {
       DOM.editor.value = state.monaco.getValue();
     }
+
+    focusEditor(state, DOM);
   }
 
   localStorage.setItem('editorMode', state.mode);

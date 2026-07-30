@@ -1,6 +1,6 @@
 import { updateLineNumbers, highlightActiveLine, applyEditorMode, prewarmMonaco } from '../core/editor.js?v=20260731';
 import { convertText } from '../core/converter.js?v=20260731';
-import { CONFIG, countLinesFast } from '../core/utils.js?v=20260731';
+import { CONFIG, countLinesFast, IS_MOBILE } from '../core/utils.js?v=20260731';
 
 export function initEvents(state, DOM, options) {
     updateLineNumbers(state, DOM);
@@ -235,8 +235,7 @@ export function initEvents(state, DOM, options) {
         DOM.editor.scrollTop = DOM.lineNumbers.scrollTop;
     });
 
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile && DOM.optionsContainer) {
+    if (IS_MOBILE && DOM.optionsContainer) {
         DOM.optionsContainer.addEventListener('click', (e) => {
             if (e.target.closest('.editor-selector-menu')) return;
             DOM.optionsContainer.classList.toggle('open');

@@ -1,5 +1,7 @@
 export const OUTPUT_KEYS = ['raw', 'js', 'sql', 'py', 'php', 'json', 'cs'];
 
+export const IS_MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 export const CONFIG = {
   MAX_CLASSIC_LINES: 50000,
   MONACO_PREWARM_LINES: 25000,
