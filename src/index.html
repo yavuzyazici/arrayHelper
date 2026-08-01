@@ -58,17 +58,17 @@
   <meta name="referrer" content="no-referrer-when-downgrade">
 
   <link rel="icon" type="image/x-icon" href="/images/icons/icon.png">
-  <link rel="stylesheet" href="/styles/globals.css?v=20260711">
+  <link rel="stylesheet" href="/styles/globals.css?v=20260801">
   <link rel="stylesheet" href="/styles/output.css?v=20260711">
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
-  <link rel="modulepreload" href="/js/main.js?v=20260731">
-  <link rel="modulepreload" href="/js/core/editor.js?v=20260731">
-  <link rel="modulepreload" href="/js/core/utils.js?v=20260731">
-  <link rel="modulepreload" href="/js/core/converter.js?v=20260731">
-  <link rel="modulepreload" href="/js/ui/events.js?v=20260731">
+  <link rel="modulepreload" href="/js/main.js?v=20260801">
+  <link rel="modulepreload" href="/js/core/editor.js?v=20260801">
+  <link rel="modulepreload" href="/js/core/utils.js?v=20260801">
+  <link rel="modulepreload" href="/js/core/converter.js?v=20260801">
+  <link rel="modulepreload" href="/js/ui/events.js?v=20260801">
 
 <script type="application/ld+json">
 {
@@ -302,6 +302,33 @@
               class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
+          <div class="output-section hidden w-full h-full" data-output="custom">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ Custom ]</span>
+              <button id="customCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  Copy Text</div>
+              </button>
+            </div>
+            <div class="pattern-bar">
+              <input id="customPattern" class="pattern-input" type="text" spellcheck="false" autocomplete="off"
+                autocapitalize="off" autocorrect="off" placeholder="EXEC MyProcedure '{}';"
+                aria-label="Custom output pattern">
+              <div class="pattern-tokens">
+                <button class="token-chip" data-token="{}" title="Line value" type="button">{}</button>
+                <button class="token-chip" data-token="{n}" title="Row number, starts at 1" type="button">{n}</button>
+                <button class="token-chip" data-token="{i}" title="Index, starts at 0" type="button">{i}</button>
+              </div>
+            </div>
+            <textarea name="customOutput" id="customOutput" aria-label="customOutput-label"
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
         </div>
       </div>
     </main>
@@ -369,6 +396,7 @@
               <button class="panel-chip" data-panel="php">PHP</button>
               <button class="panel-chip" data-panel="json">JSON</button>
               <button class="panel-chip" data-panel="cs">C#</button>
+              <button class="panel-chip" data-panel="custom">Custom</button>
             </div>
           </div>
         </div>
@@ -391,6 +419,6 @@
     </div>
   </div>
 
-  <script type="module" src="/js/main.js?v=20260731"></script>
+  <script type="module" src="/js/main.js?v=20260801"></script>
 </body>
 </html>

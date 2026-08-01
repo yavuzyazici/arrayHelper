@@ -1,8 +1,48 @@
-import { CONFIG, OUTPUT_KEYS } from './utils.js?v=20260731';
+import { CONFIG, OUTPUT_KEYS } from './utils.js?v=20260801';
 
 // Which intermediate parts each output format is built from
 const RAW_BASED = ['raw', 'js', 'py', 'php'];
 const JSON_BASED = ['json', 'cs'];
+
+const PATTERN_TOKEN = /\{(value|n|i)?\}/g;
+const PATTERN_ESCAPE = /\\([ntr\\])/g;
+
+// Turns "EXEC Proc '{}';" into literals + token slots, once per conversion
+function compilePattern(pattern) {
+  const source = pattern.replace(PATTERN_ESCAPE, (_, char) =>
+    char === 'n' ? '\n' : char === 't' ? '\t' : char === 'r' ? '\r' : '\\');
+
+  const literals = [];
+  const tokens = [];
+
+  let last = 0;
+  let match;
+
+  PATTERN_TOKEN.lastIndex = 0;
+
+  while ((match = PATTERN_TOKEN.exec(source)) !== null) {
+    literals.push(source.slice(last, match.index));
+    tokens.push(match[1] || 'value');
+    last = match.index + match[0].length;
+  }
+
+  literals.push(source.slice(last));
+
+  return { literals, tokens };
+}
+
+function renderPattern(compiled, value, index) {
+  const { literals, tokens } = compiled;
+
+  let result = literals[0];
+
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
+    result += (token === 'value' ? value : token === 'n' ? index + 1 : index) + literals[i + 1];
+  }
+
+  return result;
+}
 
 export function convertText(text, options, DOM, state) {
 
@@ -12,6 +52,9 @@ export function convertText(text, options, DOM, state) {
   const needRaw = RAW_BASED.some(key => visible.has(key));
   const needSql = visible.has('sql');
   const needJson = JSON_BASED.some(key => visible.has(key));
+  const customPattern = visible.has('custom') && (options.customPattern || '').trim()
+    ? compilePattern(options.customPattern)
+    : null;
 
   const quote = options.quoteStyle === 'double' ? '"' : "'";
   const sqlPrefix = options.sqlDialect === 'standard' ? '' : 'N';
@@ -21,6 +64,7 @@ export function convertText(text, options, DOM, state) {
   const rawParts = [];
   const sqlParts = [];
   const jsonParts = [];
+  const customParts = [];
 
   const parts = text.split(/\r?\n/);
 
@@ -47,6 +91,10 @@ export function convertText(text, options, DOM, state) {
     if (needJson) {
       jsonParts.push(isPlainNumber ? trimmed : JSON.stringify(trimmed));
     }
+
+    if (customPattern) {
+      customParts.push(renderPattern(customPattern, trimmed, customParts.length));
+    }
   }
 
   const raw = needRaw ? rawParts.join(', ') : '';
@@ -59,7 +107,8 @@ export function convertText(text, options, DOM, state) {
     py: () => `[${raw}]`,
     php: () => `array(${raw})`,
     json: () => `[${json}]`,
-    cs: () => `new[] { ${json} }`
+    cs: () => `new[] { ${json} }`,
+    custom: () => customParts.join('\n')
   };
 
   for (const key of OUTPUT_KEYS) {

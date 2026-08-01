@@ -1,4 +1,4 @@
-import { countLinesFast, getCurrentLineIndex, CONFIG, IS_MOBILE } from './utils.js?v=20260731';
+import { countLinesFast, getCurrentLineIndex, CONFIG, IS_MOBILE } from './utils.js?v=20260801';
 
 const MONACO_VS = 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs';
 

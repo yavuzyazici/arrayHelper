@@ -1,6 +1,6 @@
-import { createEditorState, applyEditorMode } from './core/editor.js?v=20260731';
-import { initEvents } from './ui/events.js?v=20260731';
-import { OUTPUT_KEYS } from './core/utils.js?v=20260731';
+import { createEditorState, applyEditorMode } from './core/editor.js?v=20260801';
+import { initEvents } from './ui/events.js?v=20260801';
+import { OUTPUT_KEYS, DEFAULT_CUSTOM_PATTERN } from './core/utils.js?v=20260801';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     outputsContainer: document.getElementById('outputsContainer'),
     outputs: {},
     copyBtns: {},
+    customPatternInput: document.getElementById('customPattern'),
+    tokenChips: document.querySelectorAll('.token-chip'),
     monacoContainer: document.getElementById('monaco-editor-container'),
     optionsContainer: document.querySelector('.options-container'),
     buttonContainers: document.querySelectorAll('.button-container'),
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     autoRun: true,
     dedupe: false,
     sqlDialect: 'mssql',
+    customPattern: DEFAULT_CUSTOM_PATTERN,
     visiblePanels: ['raw', 'js', 'sql'],
     outputOrder: [...OUTPUT_KEYS],
     ...(JSON.parse(localStorage.getItem('userOptions')) || {})

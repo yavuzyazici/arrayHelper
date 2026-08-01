@@ -1,6 +1,6 @@
-import { updateLineNumbers, highlightActiveLine, applyEditorMode, prewarmMonaco } from '../core/editor.js?v=20260731';
-import { convertText } from '../core/converter.js?v=20260731';
-import { CONFIG, countLinesFast, IS_MOBILE } from '../core/utils.js?v=20260731';
+import { updateLineNumbers, highlightActiveLine, applyEditorMode, prewarmMonaco } from '../core/editor.js?v=20260801';
+import { convertText } from '../core/converter.js?v=20260801';
+import { CONFIG, countLinesFast, IS_MOBILE } from '../core/utils.js?v=20260801';
 
 export function initEvents(state, DOM, options) {
     updateLineNumbers(state, DOM);
@@ -158,6 +158,51 @@ export function initEvents(state, DOM, options) {
     }
 
     initSegment(DOM.sqlDialectSegment, 'dialect', 'sqlDialect');
+
+    /* Custom pattern */
+    initCustomPattern();
+
+    function initCustomPattern() {
+        const input = DOM.customPatternInput;
+        if (!input) return;
+
+        input.value = options.customPattern ?? '';
+
+        let patternDebounce;
+        const commit = () => {
+            options.customPattern = input.value;
+            clearTimeout(patternDebounce);
+            patternDebounce = setTimeout(() => {
+                saveOptions();
+                refreshOutputs();
+            }, CONFIG.INPUT_DEBOUNCE);
+        };
+
+        input.addEventListener('input', commit);
+
+        input.addEventListener('keydown', e => {
+            if (e.key === 'Enter' && !e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                refreshOutputs();
+            }
+        });
+
+        DOM.tokenChips.forEach(chip => {
+            chip.addEventListener('mousedown', e => e.preventDefault());
+
+            chip.addEventListener('click', () => {
+                const token = chip.dataset.token;
+                const start = input.selectionStart ?? input.value.length;
+                const end = input.selectionEnd ?? start;
+
+                input.value = input.value.slice(0, start) + token + input.value.slice(end);
+                input.focus();
+                input.setSelectionRange(start + token.length, start + token.length);
+
+                commit();
+            });
+        });
+    }
 
     /* Panel visibility (max 3 visible at once) */
     if (options.visiblePanels.length > CONFIG.MAX_VISIBLE_PANELS) {

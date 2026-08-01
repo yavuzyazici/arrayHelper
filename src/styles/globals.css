@@ -338,6 +338,27 @@ body {
   border-bottom: 1px solid var(--theme-border);
 }
 
+/* On narrow screens the centered menu ran off the left edge; pin it instead */
+@media (max-width: 500px) {
+  .editor-selector-menu {
+    left: 0;
+    transform: translateX(0) translateY(6px);
+
+    min-width: 0;
+    width: calc(100vw - 24px);
+    max-width: 320px;
+  }
+
+  .options-container:hover .editor-selector-menu,
+  .options-container.open .editor-selector-menu {
+    transform: translateX(0) translateY(0);
+  }
+
+  .editor-selector-menu::after {
+    left: 25px;
+  }
+}
+
 #editor,
 #monaco-editor-container {
   opacity: 1;
@@ -382,6 +403,83 @@ body {
 
 .output-section {
   transition: opacity 0.15s ease;
+}
+
+.pattern-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 5px 8px 6px 8px;
+
+  background: rgb(246 248 254 / 0.55);
+  border-bottom: 1px solid rgb(28 39 76 / 0.06);
+}
+
+.pattern-input {
+  flex: 1;
+  min-width: 0;
+
+  padding: 4px 9px;
+  border: 1px solid var(--theme-border);
+  border-radius: 8px;
+
+  background: #fff;
+  color: var(--dark-gray);
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.6;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pattern-input::placeholder {
+  color: var(--cool-gray);
+}
+
+.pattern-input:focus {
+  border-color: var(--light-purple);
+  box-shadow: 0 0 0 3px rgb(140 133 255 / 0.18);
+}
+
+.pattern-tokens {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.token-chip {
+  border: none;
+  cursor: pointer;
+
+  padding: 3px 7px;
+  border-radius: 7px;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.5;
+
+  color: var(--mid-gray);
+  background: rgb(28 39 76 / 0.07);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.token-chip:hover {
+  color: var(--navy-blue);
+  background: rgb(140 133 255 / 0.22);
+}
+
+.token-chip:active {
+  transform: translateY(1px);
 }
 
 .output-section.dragging {

@@ -1,4 +1,6 @@
-export const OUTPUT_KEYS = ['raw', 'js', 'sql', 'py', 'php', 'json', 'cs'];
+export const OUTPUT_KEYS = ['raw', 'js', 'sql', 'py', 'php', 'json', 'cs', 'custom'];
+
+export const DEFAULT_CUSTOM_PATTERN = "EXEC MyProcedure '{}';";
 
 export const IS_MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
