@@ -11,7 +11,8 @@ const STATIC_ENTRIES = [
   'fonts',
   'robots.txt',
   'sitemap.xml',
-  'browserconfig.xml'
+  'browserconfig.xml',
+  '.htaccess'
 ];
 
 const stripVersionQuery = {
