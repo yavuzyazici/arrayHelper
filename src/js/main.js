@@ -1,6 +1,6 @@
-import { createEditorState, applyEditorMode } from './core/editor.js?v=20260801';
-import { initEvents } from './ui/events.js?v=20260801';
-import { OUTPUT_KEYS, DEFAULT_CUSTOM_PATTERN } from './core/utils.js?v=20260801';
+import { createEditorState, applyEditorMode } from './core/editor.js?v=20260906';
+import { initEvents } from './ui/events.js?v=20260906';
+import { OUTPUT_KEYS, DEFAULT_CUSTOM_PATTERN } from './core/utils.js?v=20260906';
 
 document.addEventListener('DOMContentLoaded', () => {
 

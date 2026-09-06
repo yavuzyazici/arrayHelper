@@ -1,6 +1,6 @@
-import { updateLineNumbers, highlightActiveLine, applyEditorMode, prewarmMonaco } from '../core/editor.js?v=20260801';
-import { convertText } from '../core/converter.js?v=20260801';
-import { CONFIG, countLinesFast, IS_MOBILE } from '../core/utils.js?v=20260801';
+import { updateLineNumbers, highlightActiveLine, applyEditorMode, prewarmMonaco } from '../core/editor.js?v=20260906';
+import { convertText, buildFullOutput } from '../core/converter.js?v=20260906';
+import { CONFIG, countLinesFast, IS_MOBILE } from '../core/utils.js?v=20260906';
 
 export function initEvents(state, DOM, options) {
     updateLineNumbers(state, DOM);
@@ -68,7 +68,10 @@ export function initEvents(state, DOM, options) {
 
     /* Copy */
     function copy(key, textarea, button) {
-        const fullText = state.fullOutputs[key] || textarea.value;
+        const cached = state.fullOutputs[key];
+        const fullText = cached === null
+            ? buildFullOutput(getEditorText(), options, key)
+            : cached || textarea.value;
         const label = button.querySelector('.inline-flex');
 
         const feedback = text => {

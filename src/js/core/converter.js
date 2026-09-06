@@ -1,4 +1,4 @@
-import { CONFIG, OUTPUT_KEYS } from './utils.js?v=20260801';
+import { CONFIG, OUTPUT_KEYS } from './utils.js?v=20260906';
 
 // Which intermediate parts each output format is built from
 const RAW_BASED = ['raw', 'js', 'py', 'php'];
@@ -6,6 +6,19 @@ const JSON_BASED = ['json', 'cs'];
 
 const PATTERN_TOKEN = /\{(value|n|i)?\}/g;
 const PATTERN_ESCAPE = /\\([ntr\\])/g;
+const SQL_QUOTE = /'/g;
+
+// prefix, suffix and separator each panel wraps its intermediate with
+const SPECS = {
+  raw: ['raw', '', '', ', '],
+  js: ['raw', '[', ']', ', '],
+  sql: ['sql', 'IN (', ')', ', '],
+  py: ['raw', '[', ']', ', '],
+  php: ['raw', 'array(', ')', ', '],
+  json: ['json', '[', ']', ', '],
+  cs: ['json', 'new[] { ', ' }', ', '],
+  custom: ['custom', '', '', '\n']
+};
 
 // Turns "EXEC Proc '{}';" into literals + token slots, once per conversion
 function compilePattern(pattern) {
@@ -28,7 +41,10 @@ function compilePattern(pattern) {
 
   literals.push(source.slice(last));
 
-  return { literals, tokens };
+  let literalLength = 0;
+  for (const literal of literals) literalLength += literal.length;
+
+  return { literals, tokens, literalLength };
 }
 
 function renderPattern(compiled, value, index) {
@@ -44,7 +60,87 @@ function renderPattern(compiled, value, index) {
   return result;
 }
 
-export function convertText(text, options, DOM, state) {
+function digitCount(n) {
+  if (n < 10) return 1;
+  if (n < 100) return 2;
+  if (n < 1000) return 3;
+  if (n < 10000) return 4;
+  if (n < 100000) return 5;
+  if (n < 1000000) return 6;
+  return String(n).length;
+}
+
+// Length renderPattern would produce, without building the string
+function measurePattern(compiled, valueLength, index) {
+  let total = compiled.literalLength;
+
+  for (const token of compiled.tokens) {
+    total += token === 'value' ? valueLength
+      : token === 'n' ? digitCount(index + 1)
+        : digitCount(index);
+  }
+
+  return total;
+}
+
+// Anything Number() could still parse: hex/octal/binary radixes, exponents, Infinity
+const MAYBE_NUMERIC = /^[-+0-9.a-fA-FxXoOiInNtTyY]+$/;
+
+function isExoticNumber(value) {
+  return MAYBE_NUMERIC.test(value) && !isNaN(value);
+}
+
+// Fast path for plain integers and decimals, exact !isNaN() semantics otherwise
+function isPlainNumber(value) {
+  const length = value.length;
+  if (length === 0) return false;
+
+  let i = 0;
+  const first = value.charCodeAt(0);
+
+  if (first === 43 || first === 45) {
+    if (length === 1) return false;
+    i = 1;
+  }
+
+  let digits = 0;
+  let dots = 0;
+
+  for (; i < length; i++) {
+    const code = value.charCodeAt(i);
+
+    if (code >= 48 && code <= 57) digits++;
+    else if (code === 46) { if (++dots > 1) return isExoticNumber(value); }
+    else return isExoticNumber(value);
+  }
+
+  return digits > 0 || isExoticNumber(value);
+}
+
+function countQuotes(value) {
+  let total = 0;
+  for (let i = 0; i < value.length; i++) if (value.charCodeAt(i) === 39) total++;
+  return total;
+}
+
+// Keeps the first `cap` characters verbatim while still counting the true total
+function createSink(cap, separatorLength) {
+  return { parts: [], length: 0, count: 0, cap, separatorLength, capped: false };
+}
+
+function push(sink, piece) {
+  sink.length += (sink.count ? sink.separatorLength : 0) + piece.length;
+  sink.count++;
+  sink.parts.push(piece);
+  if (sink.length >= sink.cap) sink.capped = true;
+}
+
+function grow(sink, pieceLength) {
+  sink.length += (sink.count ? sink.separatorLength : 0) + pieceLength;
+  sink.count++;
+}
+
+export function convertText(text, options, DOM, state, cap = CONFIG.OUTPUT_LIMIT) {
 
   const visible = new Set(options.visiblePanels || OUTPUT_KEYS);
 
@@ -58,80 +154,112 @@ export function convertText(text, options, DOM, state) {
 
   const quote = options.quoteStyle === 'double' ? '"' : "'";
   const sqlPrefix = options.sqlDialect === 'standard' ? '' : 'N';
+  const sqlOverhead = sqlPrefix.length + 2;
   const plainNumbers = options.numbersFormat === 'plain';
   const seen = options.dedupe ? new Set() : null;
 
-  const rawParts = [];
-  const sqlParts = [];
-  const jsonParts = [];
-  const customParts = [];
-
-  const parts = text.split(/\r?\n/);
-
-  for (let i = 0; i < parts.length; i++) {
-    const trimmed = parts[i].trim();
-    if (!trimmed) continue;
-
-    if (seen) {
-      if (seen.has(trimmed)) continue;
-      seen.add(trimmed);
-    }
-
-    const isPlainNumber = plainNumbers && !isNaN(trimmed);
-
-    if (needRaw) {
-      rawParts.push(isPlainNumber ? trimmed : quote + trimmed + quote);
-    }
-
-    if (needSql) {
-      const escaped = trimmed.includes("'") ? trimmed.replace(/'/g, "''") : trimmed;
-      sqlParts.push(sqlPrefix + "'" + escaped + "'");
-    }
-
-    if (needJson) {
-      jsonParts.push(isPlainNumber ? trimmed : JSON.stringify(trimmed));
-    }
-
-    if (customPattern) {
-      customParts.push(renderPattern(customPattern, trimmed, customParts.length));
-    }
-  }
-
-  const raw = needRaw ? rawParts.join(', ') : '';
-  const json = needJson ? jsonParts.join(', ') : '';
-
-  const builders = {
-    raw: () => raw,
-    js: () => `[${raw}]`,
-    sql: () => `IN (${sqlParts.join(', ')})`,
-    py: () => `[${raw}]`,
-    php: () => `array(${raw})`,
-    json: () => `[${json}]`,
-    cs: () => `new[] { ${json} }`,
-    custom: () => customParts.join('\n')
+  const sinks = {
+    raw: createSink(cap, 2),
+    sql: createSink(cap, 2),
+    json: createSink(cap, 2),
+    custom: createSink(cap, 1)
   };
 
+  const parts = text.split('\n');
+  const lineCount = parts.length;
+
+  let customIndex = 0;
+  let i = 0;
+
+  // Phase 1: build real text until every visible panel has filled its window
+  for (; i < lineCount; i++) {
+    let line = parts[i];
+    const last = line.length - 1;
+
+    if (last < 0) continue;
+    if (line.charCodeAt(0) <= 32 || line.charCodeAt(last) <= 32) line = line.trim();
+    if (!line) continue;
+
+    if (seen) {
+      if (seen.has(line)) continue;
+      seen.add(line);
+    }
+
+    const numeric = plainNumbers && isPlainNumber(line);
+
+    if (needRaw) push(sinks.raw, numeric ? line : quote + line + quote);
+
+    if (needSql) {
+      const escaped = line.indexOf("'") === -1 ? line : line.replace(SQL_QUOTE, "''");
+      push(sinks.sql, sqlPrefix + "'" + escaped + "'");
+    }
+
+    if (needJson) push(sinks.json, numeric ? line : JSON.stringify(line));
+
+    if (customPattern) push(sinks.custom, renderPattern(customPattern, line, customIndex++));
+
+    if ((!needRaw || sinks.raw.capped) &&
+      (!needSql || sinks.sql.capped) &&
+      (!needJson || sinks.json.capped) &&
+      (!customPattern || sinks.custom.capped)) {
+      i++;
+      break;
+    }
+  }
+
+  // Phase 2: the rest is never displayed, so only its length matters
+  for (; i < lineCount; i++) {
+    let line = parts[i];
+    const last = line.length - 1;
+
+    if (last < 0) continue;
+    if (line.charCodeAt(0) <= 32 || line.charCodeAt(last) <= 32) line = line.trim();
+    if (!line) continue;
+
+    if (seen) {
+      if (seen.has(line)) continue;
+      seen.add(line);
+    }
+
+    const length = line.length;
+    const numeric = plainNumbers && isPlainNumber(line);
+
+    if (needRaw) grow(sinks.raw, numeric ? length : length + 2);
+    if (needSql) grow(sinks.sql, length + sqlOverhead + countQuotes(line));
+    if (needJson) grow(sinks.json, numeric ? length : JSON.stringify(line).length);
+    if (customPattern) grow(sinks.custom, measurePattern(customPattern, length, customIndex++));
+  }
+
   for (const key of OUTPUT_KEYS) {
-    if (visible.has(key)) {
-      safeSetOutput(DOM.outputs[key], builders[key](), key);
-    } else {
+    const textarea = DOM.outputs[key];
+
+    if (!visible.has(key)) {
       // Hidden panels are recomputed on demand; don't keep stale giant strings
       state.fullOutputs[key] = '';
-      if (DOM.outputs[key]) DOM.outputs[key].value = '';
+      if (textarea) textarea.value = '';
+      continue;
     }
+
+    const [sinkKey, prefix, suffix, separator] = SPECS[key];
+    const sink = sinks[sinkKey];
+    const total = prefix.length + sink.length + suffix.length;
+    const head = prefix + sink.parts.join(separator);
+
+    // Truncated panels rebuild their full text only when Copy asks for it
+    state.fullOutputs[key] = sink.capped ? null : head + suffix;
+
+    if (!textarea) continue;
+
+    textarea.value = total > cap
+      ? head.slice(0, cap) + `\n\n--- Output truncated (${total} characters) ---`
+      : head + suffix;
   }
+}
 
-  function safeSetOutput(textarea, text, key) {
-    if (!textarea) return;
+export function buildFullOutput(text, options, key) {
+  const state = { fullOutputs: {} };
 
-    state.fullOutputs[key] = text;
+  convertText(text, { ...options, visiblePanels: [key] }, { outputs: {} }, state, Infinity);
 
-    if (text.length > CONFIG.OUTPUT_LIMIT) {
-      textarea.value =
-        text.slice(0, CONFIG.OUTPUT_LIMIT) +
-        `\n\n--- Output truncated (${text.length} characters) ---`;
-    } else {
-      textarea.value = text;
-    }
-  }
+  return state.fullOutputs[key] || '';
 }
