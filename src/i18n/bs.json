@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Pretvori Tekstualnu Listu u Niz – JavaScript, SQL, Python, PHP",
+    "description": "Zalijepi listu i odmah dobij gotov niz. Besplatan pretvarač tekstualne liste u niz za JavaScript, SQL, Python, PHP, JSON i C# — radi u tvom pregledniku.",
+    "keywords": "pretvori tekstualnu listu u niz, lista u niz, generator niza online, text list to array, sql in klauzula, javascript niz iz liste, python lista, php niz, generisanje json niza, lista odvojena zarezima",
+    "ogImageAlt": "ArrayHelper logo i pregled pretvaranja u niz",
+    "appName": "Array Helper – Pretvarač Tekstualne Liste u Niz"
+  },
+  "ui": {
+    "logoAria": "Početna stranica ArrayHelper",
+    "kbdBefore": "Pritisni",
+    "kbdAfter": "za pretvaranje",
+    "h1": "Pretvarač tekstualne liste u niz za JavaScript, SQL, PHP i Python",
+    "tagline": "Zalijepi bilo koju listu i pretvori je odmah u nizove spremne za tvoj kod.",
+    "convertAria": "Pretvori listu",
+    "editorAria": "Unos tekstualne liste",
+    "editorPlaceholder": "Počni kucati...",
+    "copy": "Kopiraj tekst",
+    "copied": "Kopirano",
+    "copyFailed": "Kopiranje nije uspjelo",
+    "tooManyLines": "Previše redova. Prebacujem u Ultra način.",
+    "truncated": "--- Izlaz skraćen ({n} znakova) ---",
+    "patternAria": "Vlastiti obrazac izlaza",
+    "tokenValue": "Vrijednost reda",
+    "tokenRow": "Broj reda, počinje od 1",
+    "tokenIndex": "Indeks, počinje od 0",
+    "doubleQuoteAria": "Koristi dvostruke navodnike",
+    "singleQuoteAria": "Koristi jednostruke navodnike",
+    "plainNumbersAria": "Ostavi brojeve bez navodnika",
+    "quotedNumbersAria": "Stavi brojeve u navodnike",
+    "settingsAria": "Postavke",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Klasični",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Duplikati",
+    "dedupeAria": "Ukloni duplikate",
+    "settingsPanels": "Paneli",
+    "settingsPanelsHint": "najviše 3",
+    "clearAria": "Isprazni editor",
+    "jump": "Vodič, primjeri i FAQ",
+    "githubAria": "Pogledaj projekt ArrayHelper na GitHubu",
+    "sectionsAria": "Dijelovi stranice"
+  },
+  "nav": {
+    "how": "Kako radi",
+    "formats": "Formati izlaza",
+    "features": "Mogućnosti",
+    "useCases": "Primjena",
+    "faq": "FAQ",
+    "languages": "Jezici"
+  },
+  "how": {
+    "h2": "Kako pretvoriti tekstualnu listu u niz",
+    "lead": "Kopiraj kolonu iz tabele, iz rezultata upita ili iz log fajla, zalijepi je ovdje i dobij nazad pravi literal niza: pod navodnicima, odvojen zarezima i spreman za kod. Bez registracije, bez uploada, bez čekanja.",
+    "steps": [
+      {
+        "title": "Zalijepi svoju listu",
+        "body": "Jedna vrijednost po redu, tačno onako kako si je kopirao. Prazni redovi nestaju, a suvišni razmaci se skraćuju, pa i neuredno lijepljenje iz Excela izađe čisto."
+      },
+      {
+        "title": "Postavi pravila jednom",
+        "body": "Jednostruki ili dvostruki navodnici, brojevi goli ili pod navodnicima, duplikati van, odabran SQL dijalekt. Tvoji izbori te čekaju pri sljedećoj posjeti."
+      },
+      {
+        "title": "Kopiraj i vrati se poslu",
+        "body": "Pritisni <code>Ctrl / Cmd + Enter</code> ili ostavi Auto uključen pa izlaz prati tvoje kucanje. Jedan klik kopira cijeli niz, čak i kada je pregled skraćen."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Jedna tekstualna lista, svi formati niza",
+    "lead": "Tvoja lista se u istom trenutku pretvara u svih osam formata. Brojevi ostaju brojevi, tekst dobija navodnike, a apostrofi unutar vrijednosti se obrađuju onako kako svaki jezik očekuje.",
+    "inputLabel": "Ulazna lista",
+    "outputLabel": "Šta dobijaš",
+    "outputLead": "Osam izlaza spremnih za lijepljenje, generisanih dok kucaš. Drži tri koja najviše koristiš otvorena jedan pored drugog i mijenjaj panel kada se promijeni ciljni jezik.",
+    "cards": [
+      {
+        "title": "JavaScript / TypeScript niz",
+        "body": "Običan literal niza za JS, TS i Node. Prebaci na dvostruke navodnike ako ih tvoj linter više voli."
+      },
+      {
+        "title": "SQL IN klauzula",
+        "body": "Ulazi pravo u <code>WHERE kolona IN (...)</code>. <code>N'...'</code> za SQL Server ili promijeni dijalekt u <code>'...'</code> za MySQL, PostgreSQL i SQLite."
+      },
+      {
+        "title": "Python lista",
+        "body": "Zalijepi je u skriptu, u fixture ili u parametrize blok u <code>pytest</code> bez ponovnog kucanja ijednog zareza."
+      },
+      {
+        "title": "PHP niz",
+        "body": "Klasična <code>array()</code> sintaksa koja i dalje radi u starijim projektima i u Laravel konfiguracijama."
+      },
+      {
+        "title": "JSON niz",
+        "body": "Strogo validan JSON sa stvarnim escapeovanjem stringova — siguran za tijelo API zahtjeva ili fajl s test podacima."
+      },
+      {
+        "title": "C# niz",
+        "body": "Implicitno tipiziran niz za C# i .NET, izgrađen od istih vrijednosti escapeovanih kao u JSON-u."
+      },
+      {
+        "title": "Sirova lista sa zarezima",
+        "body": "Bez uglastih zagrada — samo tijelo pod navodnicima i odvojeno zarezima, koje možeš zalijepiti u bilo koji jezik van ove liste."
+      },
+      {
+        "title": "Vlastiti obrazac",
+        "body": "Napiši svoj šablon: <code>{}</code> je vrijednost, <code>{n}</code> broj reda od 1, a <code>{i}</code> indeks od 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Napravljen za stvarne, neuredne liste",
+    "lead": "Većina pretvarača liste u niz odustane kod prvog apostrofa ili kod desethiljaditog reda. Ovaj je napravljen za liste koje zaista lijepiš na poslu.",
+    "items": [
+      {
+        "title": "Ništa se ne šalje na server.",
+        "body": "Pretvaranje se dešava unutar tvog preglednika. Interni identifikatori, e-mail adrese i podaci klijenata nikada ne napuštaju tvoj uređaj."
+      },
+      {
+        "title": "Velike liste ostaju brze.",
+        "body": "Klasični editor bez muke prima 50.000 redova, a Ultra editor drži tečnost i kod većih lijepljenja."
+      },
+      {
+        "title": "Navodnici se escapeuju kako treba.",
+        "body": "<code>O'Brien</code> postaje <code>N'O''Brien'</code> u SQL-u i <code>&quot;O'Brien&quot;</code> u JSON-u, pa se dalje ništa ne lomi."
+      },
+      {
+        "title": "Brojevi ostaju brojevi.",
+        "body": "Čisto numerički redovi po zadanom izlaze bez navodnika, a jedan klik ih pretvara u stringove kada to tvoja šema traži."
+      },
+      {
+        "title": "Duplikati nestaju jednim klikom.",
+        "body": "Uključi Duplikate i iz pretvaranja izlazi samo prvo pojavljivanje svakog reda."
+      },
+      {
+        "title": "Tri panela odjednom.",
+        "body": "Prikaži Raw, JavaScript, SQL, Python, PHP, JSON, C# ili Custom, prevuci ih u redoslijed koji ti odgovara i sljedeći put zatekni isti raspored."
+      },
+      {
+        "title": "Pravljen za tastaturu.",
+        "body": "<code>Ctrl / Cmd + Enter</code> pretvara, Auto drži kratke liste svježim dok kucaš, a svaki panel ima svoje dugme za kopiranje."
+      },
+      {
+        "title": "Besplatan i otvorenog koda.",
+        "body": "Bez naloga, bez kvote, bez reklama. Cijeli pretvarač je na GitHubu ako želiš da ga pročitaš ili forkuješ."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Zašto programeri pretvaraju tekstualne liste u nizove",
+    "cards": [
+      {
+        "title": "Pravljenje SQL IN klauzule iz tabele",
+        "body": "Kopiraj kolonu s brojevima narudžbi ili e-mail adresama iz Excela, zalijepi je ovdje i za par sekundi dobij escapeovanu <code>IN (...)</code> listu za svoj upit."
+      },
+      {
+        "title": "Priprema test podataka",
+        "body": "Pretvori listu šifri artikala, slugova ili korisničkih ID-jeva u JavaScript, Python ili C# niz za unit testove i lažne podatke."
+      },
+      {
+        "title": "Priprema tijela API zahtjeva",
+        "body": "Pretvori listu identifikatora u validan JSON niz prije nego što je zalijepiš u Postman, curl ili svoj REST klijent."
+      },
+      {
+        "title": "Masovni pozivi procedura ili skripti",
+        "body": "Koristi vlastiti obrazac za jednu naredbu po redu: <code>EXEC</code> pozivi, <code>UPDATE</code> naredbe, komande terminala ili migracione skripte."
+      },
+      {
+        "title": "Čišćenje izvezenih logova",
+        "body": "Zalijepi sirovi izlaz loga, izbaci duplikate i prazne redove i s druge strane dobij čist niz bez ponavljanja."
+      },
+      {
+        "title": "Popunjavanje enuma i konfiguracijskih fajlova",
+        "body": "Prebaci listu kodova država, feature flagova ili jezika u literal niza koji tvoja konfiguracija čeka."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Tekstualna lista u niz: česta pitanja",
+    "items": [
+      {
+        "q": "Šta je pretvarač tekstualne liste u niz?",
+        "a": "To je alat koji običnu listu vrijednosti, jednu po redu, pretvara u literal niza koji lijepiš pravo u kod. ArrayHelper istovremeno pravi JavaScript, SQL, Python, PHP, JSON, C# i vlastitu verziju iste liste, pa više nikada ne kucaš navodnike i zareze ručno."
+      },
+      {
+        "q": "Kako da pretvorim tekstualnu listu u niz online?",
+        "a": "Zalijepi listu u editor na vrhu ove stranice, pritisni <code>Ctrl / Cmd + Enter</code> ili ostavi Auto uključen, pa kopiraj panel koji ti treba. Nema instalacije, nema registracije i nema ograničenja broja redova."
+      },
+      {
+        "q": "Escapeuje li navodnike i posebne znakove?",
+        "a": "Da. Jednostruki navodnici se udvostručuju za SQL, a JSON i C# izlazi koriste stvarno JSON escapeovanje stringova, pa vrijednosti s apostrofima, obrnutim kosim crtama ili tabulatorima ostaju validne u ciljnom jeziku."
+      },
+      {
+        "q": "Idu li brojevi pod navodnike?",
+        "a": "Po zadanom ne: čisto numerički redovi se pišu kao brojevi, a sve ostalo ide pod navodnike. Ako je tvoja kolona tekstualnog tipa, dugme za brojeve u traci stavlja i njih pod navodnike."
+      },
+      {
+        "q": "Mogu li ukloniti duple redove tokom pretvaranja?",
+        "a": "Da. Uključi Duplikate u meniju s opcijama i ostaje samo prvo pojavljivanje svakog reda. Prazni redovi i razmaci okolo se uvijek skraćuju, s tom opcijom ili bez nje."
+      },
+      {
+        "q": "Koliko velika lista može biti?",
+        "a": "Klasični editor je udoban do 50.000 redova, a Ultra editor ostaje brz i kod većih lijepljenja. Dugi izlazi se zbog brzine skraćuju na ekranu, ali Kopiraj ti uvijek daje cijeli niz."
+      },
+      {
+        "q": "Šalje li se moja lista na server?",
+        "a": "Ne. Svako pretvaranje radi lokalno u tvom pregledniku, pa lista nikada ne napušta tvoj uređaj — zato je alat siguran za interne identifikatore i podatke klijenata."
+      },
+      {
+        "q": "Mogu li definisati vlastiti format izlaza?",
+        "a": "Da. Custom panel prima šablon poput <code>EXEC MyProcedure '{}';</code>, gdje je <code>{}</code> vrijednost reda, <code>{n}</code> broj reda koji počinje od 1, a <code>{i}</code> indeks koji počinje od 0. Svaki red se ispisuje tim šablonom u vlastitom redu."
+      },
+      {
+        "q": "Koji SQL dijalekt koristi IN klauzula?",
+        "a": "Oba. <code>N'...'</code> je zadano za SQL Server; prebaci SQL postavku na <code>'...'</code> za MySQL, PostgreSQL, SQLite i druge standardne dijalekte."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Pretvaraj tekstualne liste u nizove na svom jeziku",
+    "lead": "Isti pretvarač, dokumentovan na svakom od jezika ispod. Odaberi onaj na kojem razmišljaš — tvoje sačuvane postavke idu s tobom svuda.",
+    "aria": "Dostupni jezici"
+  },
+  "footer": {
+    "line": "ArrayHelper — besplatan pretvarač tekstualne liste u niz, hosting obezbjeđuje {brand}.",
+    "guide": "Vodič",
+    "faq": "FAQ"
+  }
+}

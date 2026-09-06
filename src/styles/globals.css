@@ -935,3 +935,78 @@ html {
     margin-top: 52px;
   }
 }
+
+.lang-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 26px;
+}
+
+.lang-link {
+  padding: 7px 15px;
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  color: var(--mid-gray);
+  background: #fff;
+  border: 1px solid var(--theme-border);
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lang-link:hover {
+  transform: translateY(-1px);
+  color: var(--navy-blue);
+  background: var(--theme-bg-soft);
+  border-color: var(--light-purple);
+}
+
+.lang-link.is-current {
+  color: var(--navy-blue);
+  background: var(--theme-bg-soft);
+  border-color: var(--light-purple);
+  cursor: default;
+}
+
+.lang-link.is-current:hover {
+  transform: none;
+}
+
+[dir="rtl"] .check-list li {
+  padding-left: 0;
+  padding-right: 26px;
+}
+
+[dir="rtl"] .check-list li::before {
+  left: auto;
+  right: 4px;
+}
+
+[dir="rtl"] .footer-links {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .code-sample {
+  direction: ltr;
+  text-align: left;
+}
+
+[dir="rtl"] code {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .step-list li::before {
+  direction: ltr;
+}

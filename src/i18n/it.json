@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Convertire un Elenco di Testo in Array – JS, SQL, Python, PHP",
+    "description": "Incolla il tuo elenco e ottieni subito l’array pronto all’uso. Convertitore gratuito da elenco di testo ad array per JavaScript, SQL, Python, PHP, JSON e C#.",
+    "keywords": "convertire un elenco di testo in array, da lista ad array, convertitore di liste online, generatore di array, clausola sql in, array javascript da elenco, lista python, array php, generare array json, elenco separato da virgole",
+    "ogImageAlt": "Logo ArrayHelper e anteprima della conversione in array",
+    "appName": "Array Helper – Convertitore da Elenco di Testo ad Array"
+  },
+  "ui": {
+    "logoAria": "Home di ArrayHelper",
+    "kbdBefore": "Premi",
+    "kbdAfter": "per convertire",
+    "h1": "Convertitore da elenco di testo ad array per JavaScript, SQL, PHP e Python",
+    "tagline": "Incolla un elenco qualsiasi e trasformalo subito in array pronti per il tuo codice.",
+    "convertAria": "Converti l’elenco",
+    "editorAria": "Inserimento dell’elenco di testo",
+    "editorPlaceholder": "Inizia a scrivere...",
+    "copy": "Copia testo",
+    "copied": "Copiato",
+    "copyFailed": "Copia non riuscita",
+    "tooManyLines": "Troppe righe. Passaggio alla modalità Ultra.",
+    "truncated": "--- Output troncato ({n} caratteri) ---",
+    "patternAria": "Modello di output personalizzato",
+    "tokenValue": "Valore della riga",
+    "tokenRow": "Numero di riga, parte da 1",
+    "tokenIndex": "Indice, parte da 0",
+    "doubleQuoteAria": "Usa le virgolette doppie",
+    "singleQuoteAria": "Usa gli apici singoli",
+    "plainNumbersAria": "Lascia i numeri senza apici",
+    "quotedNumbersAria": "Metti i numeri tra apici",
+    "settingsAria": "Impostazioni",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Classico",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Duplicati",
+    "dedupeAria": "Rimuovi i valori duplicati",
+    "settingsPanels": "Pannelli",
+    "settingsPanelsHint": "max 3",
+    "clearAria": "Svuota l’editor",
+    "jump": "Guida, esempi e FAQ",
+    "githubAria": "Vedi il progetto ArrayHelper su GitHub",
+    "sectionsAria": "Sezioni della pagina"
+  },
+  "nav": {
+    "how": "Come funziona",
+    "formats": "Formati di output",
+    "features": "Funzioni",
+    "useCases": "Casi d’uso",
+    "faq": "FAQ",
+    "languages": "Lingue"
+  },
+  "how": {
+    "h2": "Come convertire un elenco di testo in un array",
+    "lead": "Copia una colonna da un foglio di calcolo, dal risultato di una query o da un file di log, incollala qui e riprenditi un vero letterale di array: con gli apici, separato da virgole e pronto per il tuo codice. Senza registrazione, senza caricare nulla, senza attese.",
+    "steps": [
+      {
+        "title": "Incolla il tuo elenco",
+        "body": "Un valore per riga, esattamente come l’hai copiato. Le righe vuote spariscono e gli spazi di troppo vengono tagliati: anche un incolla disordinato da Excel esce pulito."
+      },
+      {
+        "title": "Imposta le regole una volta sola",
+        "body": "Apici singoli o doppi, numeri nudi o tra apici, duplicati rimossi, dialetto SQL scelto. Le tue preferenze ti aspettano alla visita successiva."
+      },
+      {
+        "title": "Copia e torna al lavoro",
+        "body": "Premi <code>Ctrl / Cmd + Invio</code>, oppure lascia Auto attivo e guarda l’output seguire quello che scrivi. Un clic copia tutto l’array, anche quando l’anteprima è accorciata."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Un elenco di testo, tutti i formati di array",
+    "lead": "Il tuo elenco viene convertito in tutti e otto i formati nello stesso istante. I numeri restano numeri, il testo va tra apici e gli apostrofi dentro i valori vengono gestiti come ogni linguaggio si aspetta.",
+    "inputLabel": "Elenco in ingresso",
+    "outputLabel": "Cosa ottieni",
+    "outputLead": "Otto output pronti da incollare, generati mentre scrivi. Tieni aperti affiancati i tre che usi di più e cambia pannello quando cambia il linguaggio di destinazione.",
+    "cards": [
+      {
+        "title": "Array JavaScript / TypeScript",
+        "body": "Un semplice letterale di array per JS, TS e Node. Passa alle virgolette doppie se il tuo linter le preferisce."
+      },
+      {
+        "title": "Clausola SQL IN",
+        "body": "Entra direttamente in <code>WHERE colonna IN (...)</code>. <code>N'...'</code> per SQL Server, oppure cambia dialetto per <code>'...'</code> su MySQL, PostgreSQL e SQLite."
+      },
+      {
+        "title": "Lista Python",
+        "body": "Incollala in uno script, in una fixture o in un blocco parametrize di <code>pytest</code> senza riscrivere neanche una virgola."
+      },
+      {
+        "title": "Array PHP",
+        "body": "La classica sintassi <code>array()</code>, che funziona ancora nei progetti più datati e nei file di configurazione di Laravel."
+      },
+      {
+        "title": "Array JSON",
+        "body": "JSON rigorosamente valido con vero escaping delle stringhe: sicuro per il corpo di una richiesta API o per un file di fixture."
+      },
+      {
+        "title": "Array C#",
+        "body": "Un array a tipizzazione implicita per C# e .NET, costruito dagli stessi valori con escaping JSON."
+      },
+      {
+        "title": "Elenco grezzo separato da virgole",
+        "body": "Nessuna parentesi quadra: solo il corpo tra apici e separato da virgole, da incollare in qualsiasi linguaggio non presente in questo elenco."
+      },
+      {
+        "title": "Modello personalizzato",
+        "body": "Scrivi il tuo template: <code>{}</code> è il valore, <code>{n}</code> il numero di riga da 1 e <code>{i}</code> l’indice da 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Pensato per elenchi veri e disordinati",
+    "lead": "La maggior parte dei convertitori da lista ad array si arrende al primo apostrofo o alla decimillesima riga. Questo è fatto per gli elenchi che incolli davvero al lavoro.",
+    "items": [
+      {
+        "title": "Non viene caricato nulla.",
+        "body": "La conversione avviene dentro il tuo browser. Identificativi interni, indirizzi e-mail e dati dei clienti non lasciano mai il tuo dispositivo."
+      },
+      {
+        "title": "Gli elenchi grandi restano veloci.",
+        "body": "L’editor classico regge 50.000 righe senza fatica e l’editor Ultra mantiene fluidi anche incolla più grandi."
+      },
+      {
+        "title": "Gli apici vengono gestiti correttamente.",
+        "body": "<code>O'Brien</code> diventa <code>N'O''Brien'</code> in SQL e <code>&quot;O'Brien&quot;</code> in JSON, così a valle non si rompe niente."
+      },
+      {
+        "title": "I numeri restano numeri.",
+        "body": "Le righe puramente numeriche escono senza apici per impostazione predefinita, e un clic le trasforma in stringhe quando il tuo schema lo richiede."
+      },
+      {
+        "title": "Duplicati via con un clic.",
+        "body": "Attiva Duplicati e sopravvive solo la prima occorrenza di ogni riga."
+      },
+      {
+        "title": "Tre pannelli alla volta.",
+        "body": "Mostra Raw, JavaScript, SQL, Python, PHP, JSON, C# o Custom, trascinali nell’ordine che preferisci e ritrova la stessa disposizione la volta dopo."
+      },
+      {
+        "title": "Fatto per la tastiera.",
+        "body": "<code>Ctrl / Cmd + Invio</code> converte, Auto tiene allineati gli elenchi brevi mentre scrivi e ogni pannello ha il suo pulsante di copia."
+      },
+      {
+        "title": "Gratuito e open source.",
+        "body": "Nessun account, nessuna quota, nessuna pubblicità. Tutto il convertitore è su GitHub se vuoi leggerlo o farne un fork."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Perché gli sviluppatori convertono elenchi di testo in array",
+    "cards": [
+      {
+        "title": "Costruire una clausola SQL IN da un foglio di calcolo",
+        "body": "Copia una colonna di numeri d’ordine o di e-mail da Excel, incollala qui e ottieni in pochi secondi un elenco <code>IN (...)</code> con apici ed escaping già pronto per la query."
+      },
+      {
+        "title": "Preparare dati di test",
+        "body": "Trasforma un elenco di SKU, slug o ID utente in un array JavaScript, Python o C# per unit test e dati finti."
+      },
+      {
+        "title": "Preparare il corpo di richieste API",
+        "body": "Converti un elenco di identificativi in un array JSON valido prima di incollarlo in Postman, curl o nel tuo client REST."
+      },
+      {
+        "title": "Chiamate massive a procedure o script",
+        "body": "Usa il modello personalizzato per generare un’istruzione per riga: chiamate <code>EXEC</code>, comandi <code>UPDATE</code>, comandi da terminale o script di migrazione."
+      },
+      {
+        "title": "Ripulire log esportati",
+        "body": "Incolla l’output grezzo del log, elimina duplicati e righe vuote e ottieni dall’altra parte un array pulito e senza ripetizioni."
+      },
+      {
+        "title": "Riempire enum e file di configurazione",
+        "body": "Porta un elenco di codici paese, feature flag o lingue nel letterale di array che la tua configurazione sta aspettando."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Da elenco di testo ad array: domande frequenti",
+    "items": [
+      {
+        "q": "Che cos’è un convertitore da elenco di testo ad array?",
+        "a": "È uno strumento che trasforma un semplice elenco di valori, uno per riga, in un letterale di array da incollare direttamente nel codice. ArrayHelper produce contemporaneamente le versioni JavaScript, SQL, Python, PHP, JSON, C# e personalizzata dello stesso elenco, così non scrivi più apici e virgole a mano."
+      },
+      {
+        "q": "Come converto un elenco di testo in un array online?",
+        "a": "Incolla l’elenco nell’editor in cima a questa pagina, premi <code>Ctrl / Cmd + Invio</code> oppure lascia Auto attivo, poi copia il pannello che ti serve. Niente da installare, nessuna registrazione e nessun limite di righe."
+      },
+      {
+        "q": "Gestisce apici e caratteri speciali?",
+        "a": "Sì. Gli apici singoli vengono raddoppiati per SQL, mentre gli output JSON e C# usano il vero escaping delle stringhe JSON: i valori con apostrofi, backslash o tabulazioni restano validi nel linguaggio di destinazione."
+      },
+      {
+        "q": "I numeri vengono messi tra apici?",
+        "a": "Non per impostazione predefinita: le righe puramente numeriche sono scritte come numeri e tutto il resto va tra apici. Se la tua colonna è di tipo testo, il pulsante dei numeri nella barra mette tra apici anche quelli."
+      },
+      {
+        "q": "Posso rimuovere le righe duplicate durante la conversione?",
+        "a": "Sì. Attiva Duplicati nel menu delle opzioni e resta solo la prima occorrenza di ogni riga. Le righe vuote e gli spazi attorno vengono sempre tagliati, con o senza questa opzione."
+      },
+      {
+        "q": "Quanto può essere grande l’elenco?",
+        "a": "L’editor classico è comodo fino a 50.000 righe e l’editor Ultra resta reattivo anche con incolla più grandi. Gli output lunghi vengono accorciati a schermo per velocità, ma Copia restituisce sempre l’array completo."
+      },
+      {
+        "q": "Il mio elenco viene caricato su un server?",
+        "a": "No. Ogni conversione gira in locale nel tuo browser, quindi l’elenco non lascia mai il tuo dispositivo: è per questo che lo strumento è sicuro per identificativi interni e dati dei clienti."
+      },
+      {
+        "q": "Posso definire un formato di output personalizzato?",
+        "a": "Sì. Il pannello Custom accetta un template come <code>EXEC MyProcedure '{}';</code>, dove <code>{}</code> è il valore della riga, <code>{n}</code> il numero di riga a partire da 1 e <code>{i}</code> l’indice a partire da 0. Ogni riga viene generata con quel template su una riga propria."
+      },
+      {
+        "q": "Quale dialetto SQL usa la clausola IN?",
+        "a": "Entrambi. <code>N'...'</code> è l’impostazione predefinita per SQL Server; porta l’impostazione SQL su <code>'...'</code> per MySQL, PostgreSQL, SQLite e altri dialetti standard."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Converti elenchi di testo in array nella tua lingua",
+    "lead": "Lo stesso convertitore, documentato in ognuna delle lingue qui sotto. Scegli quella in cui pensi: le impostazioni salvate ti seguono ovunque.",
+    "aria": "Lingue disponibili"
+  },
+  "footer": {
+    "line": "ArrayHelper — convertitore gratuito da elenco di testo ad array, ospitato da {brand}.",
+    "guide": "Guida",
+    "faq": "FAQ"
+  }
+}

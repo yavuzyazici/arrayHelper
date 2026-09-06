@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Convertește Lista Text în Array – JavaScript, SQL, Python, PHP",
+    "description": "Lipește lista și primești array-ul gata de folosit pe loc. Convertor gratuit din listă text în array pentru JavaScript, SQL, Python, PHP, JSON și C# — rulează în browser.",
+    "keywords": "converteste lista text in array, lista in array, generator de array online, text list to array, clauza sql in, array javascript din lista, lista python, array php, generare array json, lista separata prin virgula",
+    "ogImageAlt": "Logo ArrayHelper și previzualizarea conversiei în array",
+    "appName": "Array Helper – Convertor din Listă Text în Array"
+  },
+  "ui": {
+    "logoAria": "Pagina principală ArrayHelper",
+    "kbdBefore": "Apasă",
+    "kbdAfter": "pentru a converti",
+    "h1": "Convertor din listă text în array pentru JavaScript, SQL, PHP și Python",
+    "tagline": "Lipește orice listă și transform-o pe loc în array-uri gata de pus în cod.",
+    "convertAria": "Convertește lista",
+    "editorAria": "Introducerea listei text",
+    "editorPlaceholder": "Începe să scrii...",
+    "copy": "Copiază textul",
+    "copied": "Copiat",
+    "copyFailed": "Copierea a eșuat",
+    "tooManyLines": "Prea multe linii. Se trece în modul Ultra.",
+    "truncated": "--- Rezultat scurtat ({n} caractere) ---",
+    "patternAria": "Șablon personalizat de ieșire",
+    "tokenValue": "Valoarea liniei",
+    "tokenRow": "Numărul rândului, începe de la 1",
+    "tokenIndex": "Indexul, începe de la 0",
+    "doubleQuoteAria": "Folosește ghilimele duble",
+    "singleQuoteAria": "Folosește apostrofuri",
+    "plainNumbersAria": "Lasă numerele fără ghilimele",
+    "quotedNumbersAria": "Pune numerele între ghilimele",
+    "settingsAria": "Setări",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Clasic",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Duplicate",
+    "dedupeAria": "Elimină valorile duplicate",
+    "settingsPanels": "Panouri",
+    "settingsPanelsHint": "max. 3",
+    "clearAria": "Golește editorul",
+    "jump": "Ghid, exemple și întrebări",
+    "githubAria": "Vezi proiectul ArrayHelper pe GitHub",
+    "sectionsAria": "Secțiunile paginii"
+  },
+  "nav": {
+    "how": "Cum funcționează",
+    "formats": "Formate de ieșire",
+    "features": "Funcții",
+    "useCases": "Utilizări",
+    "faq": "Întrebări",
+    "languages": "Limbi"
+  },
+  "how": {
+    "h2": "Cum convertești o listă text într-un array",
+    "lead": "Copiază o coloană dintr-un tabel, din rezultatul unei interogări sau dintr-un fișier de log, lipește-o aici și primești înapoi un literal de array ca la carte: cu ghilimele, separat prin virgule și gata de cod. Fără cont, fără încărcare, fără așteptare.",
+    "steps": [
+      {
+        "title": "Lipește lista",
+        "body": "O valoare pe linie, exact cum ai copiat-o. Liniile goale dispar, iar spațiile în plus sunt tăiate, așa că până și o lipire dezordonată din Excel iese curată."
+      },
+      {
+        "title": "Stabilește regulile o singură dată",
+        "body": "Apostrofuri sau ghilimele, numere simple sau între ghilimele, duplicate scoase, dialect SQL ales. Alegerile tale te așteaptă la următoarea vizită."
+      },
+      {
+        "title": "Copiază și întoarce-te la treabă",
+        "body": "Apasă <code>Ctrl / Cmd + Enter</code> sau lasă modul Auto pornit și rezultatul ține pasul cu ce scrii. Un clic copiază tot array-ul, chiar și când previzualizarea este scurtată."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "O singură listă text, toate formatele de array",
+    "lead": "Lista ta este convertită în toate cele opt formate în aceeași clipă. Numerele rămân numere, textul primește ghilimele, iar apostrofurile din valori sunt tratate așa cum se așteaptă fiecare limbaj.",
+    "inputLabel": "Lista de intrare",
+    "outputLabel": "Ce primești",
+    "outputLead": "Opt rezultate gata de lipit, generate în timp ce scrii. Ține deschise una lângă alta cele trei pe care le folosești cel mai des și schimbă panoul când se schimbă limbajul țintă.",
+    "cards": [
+      {
+        "title": "Array JavaScript / TypeScript",
+        "body": "Un literal de array simplu pentru JS, TS și Node. Treci la ghilimele duble dacă linterul tău le preferă."
+      },
+      {
+        "title": "Clauză SQL IN",
+        "body": "Intră direct în <code>WHERE coloana IN (...)</code>. <code>N'...'</code> pentru SQL Server sau schimbă dialectul pentru <code>'...'</code> la MySQL, PostgreSQL și SQLite."
+      },
+      {
+        "title": "Listă Python",
+        "body": "Lipește-o într-un script, într-o fixture sau într-un bloc parametrize din <code>pytest</code> fără să rescrii nicio virgulă."
+      },
+      {
+        "title": "Array PHP",
+        "body": "Sintaxa clasică <code>array()</code>, care merge în continuare în proiecte mai vechi și în fișierele de configurare Laravel."
+      },
+      {
+        "title": "Array JSON",
+        "body": "JSON strict valid, cu escapare reală a șirurilor — sigur pentru corpul unei cereri API sau pentru un fișier de date de test."
+      },
+      {
+        "title": "Array C#",
+        "body": "Un array cu tip implicit pentru C# și .NET, construit din aceleași valori escapate ca în JSON."
+      },
+      {
+        "title": "Listă brută separată prin virgule",
+        "body": "Fără paranteze drepte — doar corpul cu ghilimele și virgule, pe care îl lipești în orice limbaj care nu apare în această listă."
+      },
+      {
+        "title": "Șablon personalizat",
+        "body": "Scrie-ți propriul șablon: <code>{}</code> este valoarea, <code>{n}</code> numărul rândului de la 1 și <code>{i}</code> indexul de la 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Făcut pentru liste reale și dezordonate",
+    "lead": "Majoritatea convertoarelor din listă în array cedează la primul apostrof sau la al zece miilea rând. Acesta este făcut pentru listele pe care chiar le lipești la muncă.",
+    "items": [
+      {
+        "title": "Nimic nu se încarcă pe server.",
+        "body": "Conversia se întâmplă în browserul tău. Identificatorii interni, adresele de e-mail și datele clienților nu îți părăsesc niciodată dispozitivul."
+      },
+      {
+        "title": "Listele mari rămân rapide.",
+        "body": "Editorul clasic duce 50.000 de linii fără efort, iar editorul Ultra păstrează fluiditatea și la lipiri mai mari."
+      },
+      {
+        "title": "Ghilimelele sunt escapate corect.",
+        "body": "<code>O'Brien</code> devine <code>N'O''Brien'</code> în SQL și <code>&quot;O'Brien&quot;</code> în JSON, așa că nimic nu se rupe mai departe."
+      },
+      {
+        "title": "Numerele rămân numere.",
+        "body": "Liniile pur numerice ies implicit fără ghilimele, iar un clic le transformă în șiruri atunci când schema ta cere asta."
+      },
+      {
+        "title": "Duplicatele dispar dintr-un clic.",
+        "body": "Pornește Duplicate și din conversie iese doar prima apariție a fiecărei linii."
+      },
+      {
+        "title": "Trei panouri deodată.",
+        "body": "Afișează Raw, JavaScript, SQL, Python, PHP, JSON, C# sau Custom, trage-le în ordinea care îți place și regăsești același aranjament data viitoare."
+      },
+      {
+        "title": "Gândit pentru tastatură.",
+        "body": "<code>Ctrl / Cmd + Enter</code> convertește, modul Auto ține listele scurte la zi în timp ce scrii, iar fiecare panou are propriul buton de copiere."
+      },
+      {
+        "title": "Gratuit și open source.",
+        "body": "Fără cont, fără cotă, fără reclame. Tot convertorul este pe GitHub, dacă vrei să îl citești sau să îi faci fork."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Pentru ce convertesc dezvoltatorii liste text în array-uri",
+    "cards": [
+      {
+        "title": "Construirea unei clauze SQL IN dintr-un tabel",
+        "body": "Copiază o coloană cu numere de comandă sau adrese de e-mail din Excel, lipește-o aici și primești în câteva secunde o listă <code>IN (...)</code> cu ghilimele și escapare, gata de interogare."
+      },
+      {
+        "title": "Pregătirea datelor de test",
+        "body": "Transformă o listă de coduri de produs, slug-uri sau ID-uri de utilizator într-un array JavaScript, Python sau C# pentru teste unitare și date simulate."
+      },
+      {
+        "title": "Pregătirea corpului cererilor API",
+        "body": "Convertește o listă de identificatori într-un array JSON valid înainte să o lipești în Postman, curl sau clientul tău REST."
+      },
+      {
+        "title": "Apeluri în masă la proceduri sau scripturi",
+        "body": "Folosește șablonul personalizat pentru o instrucțiune pe linie: apeluri <code>EXEC</code>, comenzi <code>UPDATE</code>, comenzi de terminal sau scripturi de migrare."
+      },
+      {
+        "title": "Curățarea logurilor exportate",
+        "body": "Lipește ieșirea brută din log, scoate duplicatele și liniile goale și primești la celălalt capăt un array curat, fără repetiții."
+      },
+      {
+        "title": "Completarea enum-urilor și a fișierelor de configurare",
+        "body": "Mută o listă de coduri de țară, feature flags sau limbi în literalul de array pe care îl așteaptă configurația ta."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Listă text în array: întrebări frecvente",
+    "items": [
+      {
+        "q": "Ce este un convertor din listă text în array?",
+        "a": "Este un instrument care transformă o listă simplă de valori, câte una pe linie, într-un literal de array pe care îl lipești direct în cod. ArrayHelper creează în același timp versiunile JavaScript, SQL, Python, PHP, JSON, C# și cea personalizată ale aceleiași liste, ca să nu mai scrii niciodată ghilimele și virgule de mână."
+      },
+      {
+        "q": "Cum convertesc o listă text într-un array online?",
+        "a": "Lipește lista în editorul din partea de sus a paginii, apasă <code>Ctrl / Cmd + Enter</code> sau lasă modul Auto pornit, apoi copiază panoul de care ai nevoie. Nimic de instalat, fără cont și fără limită de rânduri."
+      },
+      {
+        "q": "Escapează ghilimelele și caracterele speciale?",
+        "a": "Da. Apostrofurile sunt dublate pentru SQL, iar ieșirile JSON și C# folosesc escapare reală de șiruri JSON, așa că valorile cu apostrofuri, backslash sau tab rămân valide în limbajul țintă."
+      },
+      {
+        "q": "Numerele sunt puse între ghilimele?",
+        "a": "Implicit nu: liniile pur numerice sunt scrise ca numere, iar restul primește ghilimele. Dacă însă coloana ta este de tip text, butonul pentru numere din bară le pune și pe ele între ghilimele."
+      },
+      {
+        "q": "Pot elimina liniile duplicate în timpul conversiei?",
+        "a": "Da. Pornește Duplicate din meniul de opțiuni și rămâne doar prima apariție a fiecărei linii. Liniile goale și spațiile din jur sunt tăiate întotdeauna, cu sau fără această opțiune."
+      },
+      {
+        "q": "Cât de mare poate fi lista?",
+        "a": "Editorul clasic este confortabil până la 50.000 de linii, iar editorul Ultra rămâne prompt chiar și la lipiri mai mari. Rezultatele lungi sunt scurtate pe ecran pentru viteză, dar Copiază îți dă întotdeauna array-ul complet."
+      },
+      {
+        "q": "Lista mea se încarcă pe un server?",
+        "a": "Nu. Fiecare conversie rulează local, în browserul tău, deci lista nu îți părăsește niciodată dispozitivul — de aceea instrumentul este sigur pentru identificatori interni și date ale clienților."
+      },
+      {
+        "q": "Pot defini propriul format de ieșire?",
+        "a": "Da. Panoul Custom acceptă un șablon precum <code>EXEC MyProcedure '{}';</code>, unde <code>{}</code> este valoarea liniei, <code>{n}</code> numărul rândului începând de la 1 și <code>{i}</code> indexul începând de la 0. Fiecare linie este generată cu acel șablon pe rândul ei."
+      },
+      {
+        "q": "Ce dialect SQL folosește clauza IN?",
+        "a": "Pe amândouă. <code>N'...'</code> este implicit pentru SQL Server; schimbă setarea SQL pe <code>'...'</code> pentru MySQL, PostgreSQL, SQLite și alte dialecte standard."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Convertește liste text în array-uri în limba ta",
+    "lead": "Același convertor, documentat în fiecare dintre limbile de mai jos. Alege limba în care gândești — setările salvate te însoțesc peste tot.",
+    "aria": "Limbi disponibile"
+  },
+  "footer": {
+    "line": "ArrayHelper — convertor gratuit din listă text în array, găzduit de {brand}.",
+    "guide": "Ghid",
+    "faq": "Întrebări"
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Muunna Tekstilista Taulukoksi – JavaScript, SQL, Python, PHP",
+    "description": "Liitä listasi ja saat valmiin taulukon heti. Ilmainen tekstilistan taulukoksi muuntaja JavaScriptille, SQL:lle, Pythonille, PHP:lle, JSONille ja C#:lle — toimii selaimessa.",
+    "keywords": "muunna tekstilista taulukoksi, lista taulukoksi, taulukon generaattori, text list to array, sql in lauseke, javascript taulukko listasta, python lista, php taulukko, json taulukko, pilkuilla eroteltu lista",
+    "ogImageAlt": "ArrayHelper-logo ja esikatselu taulukkomuunnoksesta",
+    "appName": "Array Helper – Tekstilistan Taulukoksi Muuntaja"
+  },
+  "ui": {
+    "logoAria": "ArrayHelperin etusivu",
+    "kbdBefore": "Muunna painamalla",
+    "kbdAfter": "näppäimiä",
+    "h1": "Tekstilistan taulukoksi muuntaja JavaScriptille, SQL:lle, PHP:lle ja Pythonille",
+    "tagline": "Liitä mikä tahansa lista ja muunna se heti koodiin valmiiksi taulukoiksi.",
+    "convertAria": "Muunna lista",
+    "editorAria": "Tekstilistan syöttökenttä",
+    "editorPlaceholder": "Ala kirjoittaa...",
+    "copy": "Kopioi teksti",
+    "copied": "Kopioitu",
+    "copyFailed": "Kopiointi epäonnistui",
+    "tooManyLines": "Liian monta riviä. Vaihdetaan Ultra-tilaan.",
+    "truncated": "--- Tuloste lyhennetty ({n} merkkiä) ---",
+    "patternAria": "Oma tulostemalli",
+    "tokenValue": "Rivin arvo",
+    "tokenRow": "Rivinumero, alkaa ykkösestä",
+    "tokenIndex": "Indeksi, alkaa nollasta",
+    "doubleQuoteAria": "Käytä lainausmerkkejä",
+    "singleQuoteAria": "Käytä puolilainausmerkkejä",
+    "plainNumbersAria": "Jätä luvut ilman lainausmerkkejä",
+    "quotedNumbersAria": "Merkitse luvut merkkijonoiksi",
+    "settingsAria": "Asetukset",
+    "settingsEditor": "Editori",
+    "settingsClassic": "Klassinen",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Kaksoiskappaleet",
+    "dedupeAria": "Poista kaksoiskappaleet",
+    "settingsPanels": "Paneelit",
+    "settingsPanelsHint": "enintään 3",
+    "clearAria": "Tyhjennä editori",
+    "jump": "Opas, esimerkit ja UKK",
+    "githubAria": "Katso ArrayHelper-projekti GitHubissa",
+    "sectionsAria": "Sivun osiot"
+  },
+  "nav": {
+    "how": "Näin se toimii",
+    "formats": "Tulostemuodot",
+    "features": "Ominaisuudet",
+    "useCases": "Käyttötapaukset",
+    "faq": "UKK",
+    "languages": "Kielet"
+  },
+  "how": {
+    "h2": "Näin muunnat tekstilistan taulukoksi",
+    "lead": "Kopioi sarake taulukkolaskennasta, kyselyn tuloksesta tai lokitiedostosta, liitä se tähän ja saat takaisin kunnollisen taulukkoliteraalin: lainausmerkeissä, pilkuilla eroteltuna ja valmiina koodiin. Ei rekisteröitymistä, ei latauksia, ei odottelua.",
+    "steps": [
+      {
+        "title": "Liitä listasi",
+        "body": "Yksi arvo riviä kohti, juuri sellaisena kuin kopioit sen. Tyhjät rivit katoavat ja ylimääräiset välilyönnit siistitään pois, joten sekavakin Excel-liitos tulee ulos siistinä."
+      },
+      {
+        "title": "Aseta säännöt kerran",
+        "body": "Puolilainausmerkit vai lainausmerkit, luvut paljaina vai lainausmerkeissä, kaksoiskappaleet pois, SQL-murre valittuna. Valintasi odottavat sinua seuraavalla käynnillä."
+      },
+      {
+        "title": "Kopioi ja jatka töitä",
+        "body": "Paina <code>Ctrl / Cmd + Enter</code> tai jätä Auto päälle, jolloin tuloste seuraa kirjoittamistasi. Yksi klikkaus kopioi koko taulukon, vaikka esikatselu olisi lyhennetty."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Yksi tekstilista, kaikki taulukkomuodot",
+    "lead": "Listasi muunnetaan kaikkiin kahdeksaan muotoon samalla hetkellä. Luvut pysyvät lukuina, teksti saa lainausmerkit ja arvojen sisällä olevat heittomerkit suojataan niin kuin kukin kieli odottaa.",
+    "inputLabel": "Syötelista",
+    "outputLabel": "Mitä saat",
+    "outputLead": "Kahdeksan liittämisvalmista tulostetta, jotka syntyvät kirjoittaessasi. Pidä kolme eniten käyttämääsi auki rinnakkain ja vaihda paneelia, kun kohdekieli muuttuu.",
+    "cards": [
+      {
+        "title": "JavaScript- / TypeScript-taulukko",
+        "body": "Tavallinen taulukkoliteraali JS:lle, TS:lle ja Nodelle. Vaihda lainausmerkkeihin, jos linterisi pitää niistä enemmän."
+      },
+      {
+        "title": "SQL IN -lauseke",
+        "body": "Menee suoraan lausekkeeseen <code>WHERE sarake IN (...)</code>. <code>N'...'</code> SQL Serverille, tai vaihda murre muotoon <code>'...'</code> MySQL:lle, PostgreSQL:lle ja SQLitelle."
+      },
+      {
+        "title": "Python-lista",
+        "body": "Liitä se skriptiin, fixtureen tai <code>pytest</code>-parametrize-lohkoon kirjoittamatta yhtäkään pilkkua uudelleen."
+      },
+      {
+        "title": "PHP-taulukko",
+        "body": "Klassinen <code>array()</code>-syntaksi, joka toimii yhä vanhemmissa koodikannoissa ja Laravelin asetustiedostoissa."
+      },
+      {
+        "title": "JSON-taulukko",
+        "body": "Tiukasti kelvollista JSONia aidolla merkkijonosuojauksella — turvallinen API-pyynnön rungoksi tai testidatatiedostoon."
+      },
+      {
+        "title": "C#-taulukko",
+        "body": "Implisiittisesti tyypitetty taulukko C#:lle ja .NETille, rakennettu samoista JSON-suojatuista arvoista."
+      },
+      {
+        "title": "Raaka pilkkulista",
+        "body": "Ei hakasulkeita lainkaan — pelkkä lainausmerkeissä oleva, pilkuilla eroteltu runko, jonka voit liittää mihin tahansa kieleen tämän listan ulkopuolelta."
+      },
+      {
+        "title": "Oma malli",
+        "body": "Kirjoita oma mallisi: <code>{}</code> on arvo, <code>{n}</code> rivinumero ykkösestä alkaen ja <code>{i}</code> indeksi nollasta alkaen."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Tehty oikeille, sotkuisille listoille",
+    "lead": "Useimmat listasta taulukoksi -muuntimet luovuttavat ensimmäisen heittomerkin tai kymmenentuhannennen rivin kohdalla. Tämä on tehty niille listoille, joita oikeasti liität töissä.",
+    "items": [
+      {
+        "title": "Mitään ei lähetetä palvelimelle.",
+        "body": "Muunnos tapahtuu selaimesi sisällä. Sisäiset tunnisteet, sähköpostiosoitteet ja asiakastiedot eivät koskaan poistu laitteeltasi."
+      },
+      {
+        "title": "Isot listat pysyvät nopeina.",
+        "body": "Klassinen editori nielee 50 000 riviä vaivatta, ja Ultra-editori pitää vielä suuremmatkin liitokset sujuvina."
+      },
+      {
+        "title": "Lainausmerkit suojataan oikein.",
+        "body": "<code>O'Brien</code> muuttuu SQL:ssä muotoon <code>N'O''Brien'</code> ja JSONissa muotoon <code>&quot;O'Brien&quot;</code>, joten mikään ei hajoa myöhemmin."
+      },
+      {
+        "title": "Luvut pysyvät lukuina.",
+        "body": "Puhtaasti numeeriset rivit tulevat oletuksena ilman lainausmerkkejä, ja yksi klikkaus muuttaa ne merkkijonoiksi, kun skeemasi sitä vaatii."
+      },
+      {
+        "title": "Kaksoiskappaleet pois yhdellä klikkauksella.",
+        "body": "Laita Kaksoiskappaleet päälle, niin jäljelle jää vain kunkin rivin ensimmäinen esiintymä."
+      },
+      {
+        "title": "Kolme paneelia kerralla.",
+        "body": "Näytä Raw, JavaScript, SQL, Python, PHP, JSON, C# tai Custom, raahaa ne haluamaasi järjestykseen ja löydä sama asettelu ensi kerralla."
+      },
+      {
+        "title": "Tehty näppäimistölle.",
+        "body": "<code>Ctrl / Cmd + Enter</code> muuntaa, Auto pitää lyhyet listat ajan tasalla kirjoittaessasi ja jokaisella paneelilla on oma kopiointipainikkeensa."
+      },
+      {
+        "title": "Ilmainen ja avoin lähdekoodi.",
+        "body": "Ei tiliä, ei kiintiötä, ei mainoksia. Koko muunnin on GitHubissa, jos haluat lukea tai haaroittaa sen."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Mihin kehittäjät muuntavat tekstilistoja taulukoiksi",
+    "cards": [
+      {
+        "title": "SQL IN -lausekkeen rakentaminen taulukkolaskennasta",
+        "body": "Kopioi tilausnumero- tai sähköpostisarake Excelistä, liitä se tähän ja saat sekunneissa lainausmerkein suojatun <code>IN (...)</code> -listan kyselyysi."
+      },
+      {
+        "title": "Testidatan valmistelu",
+        "body": "Muunna lista tuotekoodeja, slugeja tai käyttäjätunnisteita JavaScript-, Python- tai C#-taulukoksi yksikkötestejä ja valedataa varten."
+      },
+      {
+        "title": "API-pyyntöjen valmistelu",
+        "body": "Muunna tunnistelista kelvolliseksi JSON-taulukoksi ennen kuin liität sen Postmaniin, curliin tai REST-asiakkaaseesi."
+      },
+      {
+        "title": "Massakutsut proseduureille tai skripteille",
+        "body": "Käytä omaa mallia yhden lauseen tuottamiseen riviä kohti: <code>EXEC</code>-kutsut, <code>UPDATE</code>-lauseet, komentorivikomennot tai migraatioskriptit."
+      },
+      {
+        "title": "Vietyjen lokien siivoaminen",
+        "body": "Liitä raaka lokituloste, pudota kaksoiskappaleet ja tyhjät rivit ja saat toisesta päästä siistin, kertaalleen suodatetun taulukon."
+      },
+      {
+        "title": "Enumien ja asetustiedostojen täyttäminen",
+        "body": "Siirrä lista maakoodeja, ominaisuuslippuja tai kieliä siihen taulukkoliteraaliin, jota asetustiedostosi odottaa."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Tekstilistasta taulukoksi: usein kysytyt kysymykset",
+    "items": [
+      {
+        "q": "Mikä on tekstilistan taulukoksi muuntaja?",
+        "a": "Se on työkalu, joka muuttaa yksinkertaisen arvolistan, yksi arvo riviä kohti, taulukkoliteraaliksi jonka liität suoraan koodiin. ArrayHelper tuottaa saman listan JavaScript-, SQL-, Python-, PHP-, JSON-, C#- ja oman muodon yhtä aikaa, joten et enää koskaan kirjoita lainausmerkkejä ja pilkkuja käsin."
+      },
+      {
+        "q": "Miten muunnan tekstilistan taulukoksi verkossa?",
+        "a": "Liitä lista tämän sivun yläosan editoriin, paina <code>Ctrl / Cmd + Enter</code> tai jätä Auto päälle, ja kopioi sitten tarvitsemasi paneeli. Ei asennettavaa, ei rekisteröitymistä eikä riviraja."
+      },
+      {
+        "q": "Suojaako se lainausmerkit ja erikoismerkit?",
+        "a": "Kyllä. Puolilainausmerkit kahdennetaan SQL:ää varten, ja JSON- ja C#-tulosteet käyttävät aitoa JSON-merkkijonosuojausta, joten heittomerkkejä, kenoviivoja tai sarkaimia sisältävät arvot pysyvät kelvollisina kohdekielessä."
+      },
+      {
+        "q": "Laitetaanko luvut lainausmerkkeihin?",
+        "a": "Ei oletuksena: puhtaasti numeeriset rivit kirjoitetaan lukuina ja kaikki muu lainausmerkkeihin. Jos sarakkeesi on tekstityyppinen, työkalurivin lukupainike laittaa nekin lainausmerkkeihin."
+      },
+      {
+        "q": "Voinko poistaa kaksoiskappaleet muunnoksen aikana?",
+        "a": "Kyllä. Laita Kaksoiskappaleet päälle asetusvalikosta, niin vain kunkin rivin ensimmäinen esiintymä säilyy. Tyhjät rivit ja ympäröivät välilyönnit siistitään aina pois, oli tämä valinta päällä tai ei."
+      },
+      {
+        "q": "Kuinka suuren listan se käsittelee?",
+        "a": "Klassinen editori on mukava aina 50 000 riviin asti, ja Ultra-editori pysyy reagoivana suuremmillakin liitoksilla. Pitkät tulosteet lyhennetään näytöllä nopeuden vuoksi, mutta Kopioi antaa aina koko taulukon."
+      },
+      {
+        "q": "Lähetetäänkö listani palvelimelle?",
+        "a": "Ei. Jokainen muunnos ajetaan paikallisesti selaimessasi, joten lista ei koskaan poistu laitteeltasi — juuri siksi työkalu on turvallinen sisäisille tunnisteille ja asiakastiedoille."
+      },
+      {
+        "q": "Voinko määritellä oman tulostemuodon?",
+        "a": "Kyllä. Custom-paneeli ottaa vastaan mallin kuten <code>EXEC MyProcedure '{}';</code>, jossa <code>{}</code> on rivin arvo, <code>{n}</code> ykkösestä alkava rivinumero ja <code>{i}</code> nollasta alkava indeksi. Jokainen rivi tuotetaan tällä mallilla omalle rivilleen."
+      },
+      {
+        "q": "Mitä SQL-murretta IN-lauseke käyttää?",
+        "a": "Molempia. <code>N'...'</code> on oletus SQL Serverille; vaihda SQL-asetukseksi <code>'...'</code> MySQL:lle, PostgreSQL:lle, SQLitelle ja muille standardimurteille."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Muunna tekstilistoja taulukoiksi omalla kielelläsi",
+    "lead": "Sama muunnin, dokumentoituna jokaisella alla olevalla kielellä. Valitse se, jolla ajattelet — tallennetut asetuksesi seuraavat mukana kaikkiin.",
+    "aria": "Saatavilla olevat kielet"
+  },
+  "footer": {
+    "line": "ArrayHelper — ilmainen tekstilistan taulukoksi muuntaja, palveluntarjoajana {brand}.",
+    "guide": "Opas",
+    "faq": "UKK"
+  }
+}

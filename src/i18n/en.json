@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Text List to Array Converter – JavaScript, SQL, Python, PHP",
+    "description": "Paste a text list, get a ready-to-use array instantly. Free text list to array converter for JavaScript, SQL, Python, PHP, JSON and C# — runs in your browser.",
+    "keywords": "text list to array, text list to array converter, convert list to array, list to array converter online, comma separated list generator, sql in clause generator, javascript array from list, python list converter, php array converter, json array generator",
+    "ogImageAlt": "ArrayHelper logo and array conversion preview",
+    "appName": "Array Helper – Text List to Array Converter"
+  },
+  "ui": {
+    "logoAria": "ArrayHelper home",
+    "kbdBefore": "Press",
+    "kbdAfter": "to convert",
+    "h1": "Text list to array converter for JavaScript, SQL, PHP and Python",
+    "tagline": "Paste any list and instantly convert it into code-ready arrays.",
+    "convertAria": "Convert the list",
+    "editorAria": "Text list input",
+    "editorPlaceholder": "Start typing...",
+    "copy": "Copy Text",
+    "copied": "Copied",
+    "copyFailed": "Copy failed",
+    "tooManyLines": "Too many lines. Switching to Ultra mode.",
+    "truncated": "--- Output truncated ({n} characters) ---",
+    "patternAria": "Custom output pattern",
+    "tokenValue": "Line value",
+    "tokenRow": "Row number, starts at 1",
+    "tokenIndex": "Index, starts at 0",
+    "doubleQuoteAria": "Use double quotes",
+    "singleQuoteAria": "Use single quotes",
+    "plainNumbersAria": "Keep numbers unquoted",
+    "quotedNumbersAria": "Quote numbers as strings",
+    "settingsAria": "Settings",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Classic",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto Run",
+    "settingsDedupe": "Dedupe",
+    "dedupeAria": "Remove duplicate values",
+    "settingsPanels": "Panels",
+    "settingsPanelsHint": "max 3",
+    "clearAria": "Clear the editor",
+    "jump": "Guide, examples and FAQ",
+    "githubAria": "View ArrayHelper project on GitHub",
+    "sectionsAria": "Page sections"
+  },
+  "nav": {
+    "how": "How it works",
+    "formats": "Output formats",
+    "features": "Features",
+    "useCases": "Use cases",
+    "faq": "FAQ",
+    "languages": "Languages"
+  },
+  "how": {
+    "h2": "How to convert a text list to an array",
+    "lead": "Copy a column out of a spreadsheet, a query result or a log file, paste it here, and get back a proper array literal — quoted, comma separated and ready for your code. No sign-up, no upload, no waiting.",
+    "steps": [
+      {
+        "title": "Paste your list",
+        "body": "One value per line, exactly as you copied it. Blank lines disappear and stray spaces are trimmed, so a messy paste out of Excel still comes out clean."
+      },
+      {
+        "title": "Set the rules once",
+        "body": "Single or double quotes, numbers left bare or quoted, duplicates dropped, SQL dialect picked. The tool remembers your choices the next time you visit."
+      },
+      {
+        "title": "Copy and get back to work",
+        "body": "Hit <code>Ctrl / Cmd + Enter</code>, or leave Auto Run on and watch the output follow your typing. One click copies the whole array, even when the preview is shortened."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "One text list, every array format",
+    "lead": "Your list is converted into all eight formats at the same moment. Numbers stay numbers, text gets quoted, and apostrophes inside your values are escaped the way each language expects.",
+    "inputLabel": "Input list",
+    "outputLabel": "What you get",
+    "outputLead": "Eight ready-to-paste outputs, generated as you type. Keep the three you use most open side by side and switch whenever the target language changes.",
+    "cards": [
+      {
+        "title": "JavaScript / TypeScript array",
+        "body": "A plain array literal for JS, TS and Node. Switch to double quotes when your linter prefers them."
+      },
+      {
+        "title": "SQL IN clause",
+        "body": "Drops straight into <code>WHERE column IN (...)</code>. <code>N'...'</code> for SQL Server, or switch the dialect for <code>'...'</code> on MySQL, PostgreSQL and SQLite."
+      },
+      {
+        "title": "Python list",
+        "body": "Paste it into a script, a fixture or a <code>pytest</code> parametrize block without retyping a single comma."
+      },
+      {
+        "title": "PHP array",
+        "body": "Classic <code>array()</code> syntax that still works in older codebases and Laravel config files."
+      },
+      {
+        "title": "JSON array",
+        "body": "Strictly valid JSON with real string escaping — safe for an API request body or a fixture file."
+      },
+      {
+        "title": "C# array",
+        "body": "An implicitly typed array for C# and .NET, built from the same JSON-escaped values."
+      },
+      {
+        "title": "Raw comma separated list",
+        "body": "No brackets at all — the quoted, comma separated body you can drop into any language that is not on this list."
+      },
+      {
+        "title": "Custom pattern",
+        "body": "Write your own template: <code>{}</code> is the value, <code>{n}</code> the row number from 1 and <code>{i}</code> the index from 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Built for real, messy lists",
+    "lead": "Most list to array converters give up on the first apostrophe or the first ten thousand rows. This one is built for the lists you actually paste at work.",
+    "items": [
+      {
+        "title": "Nothing is uploaded.",
+        "body": "The conversion happens inside your browser. Internal IDs, e-mail addresses and customer data never leave your device."
+      },
+      {
+        "title": "Large lists stay fast.",
+        "body": "The classic editor takes 50,000 lines in its stride, and the Ultra editor keeps even bigger pastes smooth."
+      },
+      {
+        "title": "Quotes are escaped correctly.",
+        "body": "<code>O'Brien</code> becomes <code>N'O''Brien'</code> in SQL and <code>&quot;O'Brien&quot;</code> in JSON, so nothing breaks downstream."
+      },
+      {
+        "title": "Numbers stay numbers.",
+        "body": "Plain numeric lines come out unquoted by default, and one click turns them into strings when your schema needs that."
+      },
+      {
+        "title": "Duplicates gone in one click.",
+        "body": "Switch on Dedupe and only the first occurrence of each line survives the conversion."
+      },
+      {
+        "title": "Three panels at once.",
+        "body": "Show Raw, JavaScript, SQL, Python, PHP, JSON, C# or Custom, drag them into the order you like, and find the same layout waiting next time."
+      },
+      {
+        "title": "Made for the keyboard.",
+        "body": "<code>Ctrl / Cmd + Enter</code> converts, Auto Run keeps short lists in sync while you type, and every panel has its own copy button."
+      },
+      {
+        "title": "Free and open source.",
+        "body": "No account, no quota, no ads. The whole converter is on GitHub if you want to read it or fork it."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "What developers convert text lists to arrays for",
+    "cards": [
+      {
+        "title": "Building a SQL IN clause from a spreadsheet",
+        "body": "Copy an order-number or e-mail column out of Excel, paste it here, and get a quoted, escaped <code>IN (...)</code> list for your query in seconds."
+      },
+      {
+        "title": "Seeding test fixtures",
+        "body": "Turn a list of SKUs, slugs or user IDs into a JavaScript, Python or C# array for unit tests and mock data."
+      },
+      {
+        "title": "Preparing API request bodies",
+        "body": "Convert a list of identifiers into a valid JSON array before pasting it into Postman, curl or your REST client."
+      },
+      {
+        "title": "Bulk stored-procedure or script calls",
+        "body": "Use the custom pattern to render one statement per line: <code>EXEC</code> calls, <code>UPDATE</code> statements, CLI commands or migration scripts."
+      },
+      {
+        "title": "Cleaning up exported logs",
+        "body": "Paste raw log output, drop the duplicates and the blank lines, and get a clean deduplicated array on the other side."
+      },
+      {
+        "title": "Filling enums and config files",
+        "body": "Move a list of country codes, feature flags or locales into the array literal your config file is waiting for."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Text list to array: frequently asked questions",
+    "items": [
+      {
+        "q": "What is a text list to array converter?",
+        "a": "It is a tool that turns a plain list of values, one per line, into an array literal you can paste straight into code. ArrayHelper builds the JavaScript, SQL, Python, PHP, JSON, C# and custom versions of the same list at once, so you never hand-type quotes and commas again."
+      },
+      {
+        "q": "How do I convert a text list to an array online?",
+        "a": "Paste the list into the editor at the top of this page, press <code>Ctrl / Cmd + Enter</code> or leave Auto Run on, then copy the panel you need. Nothing to install, no sign-up and no row limit."
+      },
+      {
+        "q": "Does it escape quotes and special characters?",
+        "a": "Yes. Single quotes are doubled for SQL, and the JSON and C# outputs use real JSON string escaping, so values with apostrophes, backslashes or tabs stay valid in the target language."
+      },
+      {
+        "q": "Are numbers quoted?",
+        "a": "Not by default — plain numeric lines are written as numbers and everything else is quoted. If your column is a string type, the numbers toggle in the toolbar quotes them too."
+      },
+      {
+        "q": "Can I remove duplicate lines while converting?",
+        "a": "Yes. Switch on Dedupe in the options menu and only the first occurrence of each line is kept. Blank lines and surrounding whitespace are always trimmed, with or without Dedupe."
+      },
+      {
+        "q": "How large a list can it handle?",
+        "a": "The classic editor is comfortable up to 50,000 lines, and the Ultra editor keeps even larger pastes responsive. Long outputs are shortened on screen for speed, but Copy always gives you the complete array."
+      },
+      {
+        "q": "Is my list uploaded to a server?",
+        "a": "No. Every conversion runs locally in your browser, so your list never leaves your device — which is why the tool is safe for internal identifiers and customer data."
+      },
+      {
+        "q": "Can I define my own output format?",
+        "a": "Yes. The Custom panel takes a template like <code>EXEC MyProcedure '{}';</code>, where <code>{}</code> is the line value, <code>{n}</code> the row number starting at 1 and <code>{i}</code> the index starting at 0. Every line is rendered with that template on its own row."
+      },
+      {
+        "q": "Which SQL dialect does the IN clause use?",
+        "a": "Both. <code>N'...'</code> is the default for SQL Server; switch the SQL setting to <code>'...'</code> for MySQL, PostgreSQL, SQLite and other standard dialects."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Convert text lists to arrays in your language",
+    "lead": "The same converter, documented in every language below. Pick the one you think in — your saved settings follow you across all of them.",
+    "aria": "Available languages"
+  },
+  "footer": {
+    "line": "ArrayHelper — a free text list to array converter, hosted by {brand}.",
+    "guide": "Guide",
+    "faq": "FAQ"
+  }
+}

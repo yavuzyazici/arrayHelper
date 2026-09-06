@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Metin Listesini Diziye Çevirme – JavaScript, SQL, Python, PHP",
+    "description": "Listeni yapıştır, kullanıma hazır diziyi anında al. JavaScript, SQL, Python, PHP, JSON ve C# için ücretsiz metin listesi dizi dönüştürücü — tarayıcında çalışır.",
+    "keywords": "metin listesini diziye çevirme, liste dizi dönüştürücü, text list to array, listeyi diziye çevirme, sql in listesi oluşturma, javascript dizi oluşturucu, python liste dönüştürücü, php dizi dönüştürücü, json dizi oluşturucu, virgülle ayrılmış liste",
+    "ogImageAlt": "ArrayHelper logosu ve dizi dönüşümü önizlemesi",
+    "appName": "Array Helper – Metin Listesi Dizi Dönüştürücü"
+  },
+  "ui": {
+    "logoAria": "ArrayHelper ana sayfa",
+    "kbdBefore": "Dönüştürmek için",
+    "kbdAfter": "tuşlarına bas",
+    "h1": "JavaScript, SQL, PHP ve Python için metin listesi dizi dönüştürücü",
+    "tagline": "Herhangi bir listeyi yapıştır, saniyesinde koda hazır dizilere dönüşsün.",
+    "convertAria": "Listeyi dönüştür",
+    "editorAria": "Metin listesi girişi",
+    "editorPlaceholder": "Yazmaya başla...",
+    "copy": "Metni Kopyala",
+    "copied": "Kopyalandı",
+    "copyFailed": "Kopyalanamadı",
+    "tooManyLines": "Çok fazla satır var. Ultra moda geçiliyor.",
+    "truncated": "--- Çıktı kısaltıldı ({n} karakter) ---",
+    "patternAria": "Özel çıktı deseni",
+    "tokenValue": "Satır değeri",
+    "tokenRow": "Satır numarası, 1'den başlar",
+    "tokenIndex": "İndeks, 0'dan başlar",
+    "doubleQuoteAria": "Çift tırnak kullan",
+    "singleQuoteAria": "Tek tırnak kullan",
+    "plainNumbersAria": "Sayıları tırnaksız bırak",
+    "quotedNumbersAria": "Sayıları metin olarak tırnakla",
+    "settingsAria": "Ayarlar",
+    "settingsEditor": "Editör",
+    "settingsClassic": "Klasik",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Otomatik",
+    "settingsDedupe": "Tekilleştir",
+    "dedupeAria": "Yinelenen değerleri kaldır",
+    "settingsPanels": "Paneller",
+    "settingsPanelsHint": "en fazla 3",
+    "clearAria": "Editörü temizle",
+    "jump": "Rehber, örnekler ve SSS",
+    "githubAria": "ArrayHelper projesini GitHub'da görüntüle",
+    "sectionsAria": "Sayfa bölümleri"
+  },
+  "nav": {
+    "how": "Nasıl çalışır",
+    "formats": "Çıktı biçimleri",
+    "features": "Özellikler",
+    "useCases": "Kullanım alanları",
+    "faq": "SSS",
+    "languages": "Diller"
+  },
+  "how": {
+    "h2": "Metin listesi diziye nasıl çevrilir?",
+    "lead": "Bir Excel sütununu, sorgu sonucunu ya da log çıktısını kopyala, buraya yapıştır; tırnaklanmış, virgülle ayrılmış, koda hazır bir dizi olarak geri al. Üyelik yok, yükleme yok, bekleme yok.",
+    "steps": [
+      {
+        "title": "Listeni yapıştır",
+        "body": "Her satıra bir değer, kopyaladığın hâliyle. Boş satırlar atılır, baştaki ve sondaki boşluklar kırpılır; Excel'den gelen dağınık bir yapıştırma bile tertemiz çıkar."
+      },
+      {
+        "title": "Kuralları bir kez ayarla",
+        "body": "Tek mi çift tırnak, sayılar tırnaksız mı kalsın, yinelenenler silinsin mi, hangi SQL lehçesi. Seçtiklerin bir sonraki ziyaretinde seni bekliyor olur."
+      },
+      {
+        "title": "Kopyala ve işine dön",
+        "body": "<code>Ctrl / Cmd + Enter</code> tuşlarına bas ya da Otomatik açık kalsın, çıktı sen yazdıkça güncellensin. Tek tıkla tamamı kopyalanır, önizleme kısaltılmış olsa bile."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Tek liste, sekiz dizi biçimi",
+    "lead": "Listen aynı anda sekiz biçime birden dönüşür. Sayılar sayı kalır, metinler tırnaklanır, değerlerin içindeki kesme işaretleri her dilin beklediği şekilde kaçışlanır.",
+    "inputLabel": "Girdi listesi",
+    "outputLabel": "Ne elde edersin",
+    "outputLead": "Sen yazarken üretilen, yapıştırmaya hazır sekiz çıktı. En çok kullandığın üçünü yan yana açık tut, hedef dil değiştiğinde paneli değiştir.",
+    "cards": [
+      {
+        "title": "JavaScript / TypeScript dizisi",
+        "body": "JS, TS ve Node için düz dizi sabiti. Linter'ın çift tırnak istiyorsa tek tıkla değiştir."
+      },
+      {
+        "title": "SQL IN ifadesi",
+        "body": "Doğrudan <code>WHERE sutun IN (...)</code> içine oturur. SQL Server için <code>N'...'</code>; MySQL, PostgreSQL ve SQLite için lehçeyi değiştirip <code>'...'</code>."
+      },
+      {
+        "title": "Python listesi",
+        "body": "Bir betiğe, fixture'a ya da <code>pytest</code> parametrize bloğuna tek bir virgül yazmadan yapıştır."
+      },
+      {
+        "title": "PHP dizisi",
+        "body": "Eski kod tabanlarında ve Laravel yapılandırma dosyalarında hâlâ çalışan klasik <code>array()</code> söz dizimi."
+      },
+      {
+        "title": "JSON dizisi",
+        "body": "Gerçek karakter kaçışlarıyla tam geçerli JSON — API isteği gövdesine ya da fixture dosyasına güvenle yapıştırılır."
+      },
+      {
+        "title": "C# dizisi",
+        "body": "C# ve .NET için örtük tipli dizi; aynı JSON kaçışlı değerlerden üretilir."
+      },
+      {
+        "title": "Ham virgüllü liste",
+        "body": "Hiç köşeli parantez yok — tırnaklanmış, virgülle ayrılmış gövdeyi bu listede olmayan herhangi bir dile de yapıştırabilirsin."
+      },
+      {
+        "title": "Özel desen",
+        "body": "Kendi şablonunu yaz: <code>{}</code> değer, <code>{n}</code> 1'den başlayan satır numarası, <code>{i}</code> 0'dan başlayan indeks."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Gerçek, dağınık listeler için tasarlandı",
+    "lead": "Çoğu liste-dizi dönüştürücü ilk kesme işaretinde ya da on bininci satırda pes eder. Bu araç, işte gerçekten yapıştırdığın listeler için yazıldı.",
+    "items": [
+      {
+        "title": "Hiçbir şey sunucuya gitmez.",
+        "body": "Dönüşüm tarayıcının içinde olur. Kurum içi kimlikler, e-posta adresleri ve müşteri verisi cihazından çıkmaz."
+      },
+      {
+        "title": "Büyük listeler yavaşlatmaz.",
+        "body": "Klasik editör 50.000 satırı rahatça taşır, Ultra editör daha da büyük yapıştırmalarda akıcı kalır."
+      },
+      {
+        "title": "Tırnaklar doğru kaçışlanır.",
+        "body": "<code>O'Brien</code> değeri SQL'de <code>N'O''Brien'</code>, JSON'da <code>&quot;O'Brien&quot;</code> olur; sonraki adımda hiçbir şey bozulmaz."
+      },
+      {
+        "title": "Sayılar sayı kalır.",
+        "body": "Düz sayısal satırlar varsayılan olarak tırnaksız çıkar; şeman metin bekliyorsa tek tıkla dizeye dönüşürler."
+      },
+      {
+        "title": "Yinelenenler tek tıkla gider.",
+        "body": "Tekilleştir'i aç, her satırın yalnızca ilk geçtiği yer kalsın."
+      },
+      {
+        "title": "Aynı anda üç panel.",
+        "body": "Raw, JavaScript, SQL, Python, PHP, JSON, C# ya da Özel panelini göster, sürükleyerek sırala; aynı düzeni bir dahaki sefere hazır bulursun."
+      },
+      {
+        "title": "Klavye için yapıldı.",
+        "body": "<code>Ctrl / Cmd + Enter</code> dönüştürür, Otomatik kısa listeleri sen yazarken günceller, her panelin kendi kopyala düğmesi vardır."
+      },
+      {
+        "title": "Ücretsiz ve açık kaynak.",
+        "body": "Hesap yok, kota yok, reklam yok. Dönüştürücünün tamamı okumak ya da fork'lamak istersen GitHub'da."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Geliştiriciler metin listelerini neden diziye çevirir",
+    "cards": [
+      {
+        "title": "Excel sütunundan SQL IN listesi kurmak",
+        "body": "Sipariş numarası ya da e-posta sütununu Excel'den kopyala, buraya yapıştır, saniyeler içinde tırnaklanmış ve kaçışlanmış bir <code>IN (...)</code> listesi al."
+      },
+      {
+        "title": "Test verisi hazırlamak",
+        "body": "SKU, slug ya da kullanıcı kimliği listesini birim testleri ve sahte veri için JavaScript, Python veya C# dizisine çevir."
+      },
+      {
+        "title": "API istek gövdesi hazırlamak",
+        "body": "Kimlik listesini Postman, curl ya da REST istemcine yapıştırmadan önce geçerli bir JSON dizisine dönüştür."
+      },
+      {
+        "title": "Toplu prosedür ya da betik çağrısı",
+        "body": "Özel desenle her satır için bir ifade üret: <code>EXEC</code> çağrıları, <code>UPDATE</code> cümleleri, CLI komutları ya da migration betikleri."
+      },
+      {
+        "title": "Dışa aktarılmış logları temizlemek",
+        "body": "Ham log çıktısını yapıştır, yinelenenleri ve boş satırları at, diğer uçtan tertemiz ve tekilleştirilmiş bir dizi al."
+      },
+      {
+        "title": "Enum ve yapılandırma dosyalarını doldurmak",
+        "body": "Ülke kodu, özellik bayrağı ya da dil listesini yapılandırma dosyanın beklediği dizi sabitine taşı."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Metin listesini diziye çevirme: sık sorulan sorular",
+    "items": [
+      {
+        "q": "Metin listesi dizi dönüştürücü nedir?",
+        "a": "Her satırında bir değer bulunan düz bir listeyi, doğrudan koda yapıştırabileceğin bir dizi sabitine çeviren araçtır. ArrayHelper aynı listenin JavaScript, SQL, Python, PHP, JSON, C# ve özel biçimini aynı anda üretir; tırnakları ve virgülleri bir daha elle yazmazsın."
+      },
+      {
+        "q": "Metin listesini çevrimiçi olarak diziye nasıl çeviririm?",
+        "a": "Listeyi sayfanın üstündeki editöre yapıştır, <code>Ctrl / Cmd + Enter</code> tuşlarına bas ya da Otomatik'i açık bırak, sonra ihtiyacın olan paneli kopyala. Kurulum yok, üyelik yok, satır sınırı yok."
+      },
+      {
+        "q": "Tırnakları ve özel karakterleri kaçışlıyor mu?",
+        "a": "Evet. SQL için tek tırnaklar ikilenir; JSON ve C# çıktıları gerçek JSON dize kaçışı kullanır, böylece kesme işareti, ters bölü ya da sekme içeren değerler hedef dilde geçerli kalır."
+      },
+      {
+        "q": "Sayılar tırnaklanıyor mu?",
+        "a": "Varsayılan olarak hayır — düz sayısal satırlar sayı olarak yazılır, geri kalan her şey tırnaklanır. Sütunun metin tipindeyse araç çubuğundaki sayı düğmesi onları da tırnaklar."
+      },
+      {
+        "q": "Çevirirken yinelenen satırları kaldırabilir miyim?",
+        "a": "Evet. Ayarlar menüsünden Tekilleştir'i aç, her satırın yalnızca ilk geçtiği yer kalsın. Boş satırlar ve baştaki-sondaki boşluklar Tekilleştir açık olsun olmasın her zaman kırpılır."
+      },
+      {
+        "q": "Ne kadar büyük bir listeyi kaldırır?",
+        "a": "Klasik editör 50.000 satıra kadar rahattır, Ultra editör daha büyük yapıştırmalarda bile akıcı kalır. Uzun çıktılar hız için ekranda kısaltılır ama Kopyala her zaman dizinin tamamını verir."
+      },
+      {
+        "q": "Listem bir sunucuya yükleniyor mu?",
+        "a": "Hayır. Her dönüşüm tarayıcında yerel olarak çalışır, listen cihazından çıkmaz — aracı kurum içi kimlikler ve müşteri verisi için güvenli kılan da budur."
+      },
+      {
+        "q": "Kendi çıktı biçimimi tanımlayabilir miyim?",
+        "a": "Evet. Özel paneli <code>EXEC MyProcedure '{}';</code> gibi bir şablon alır: <code>{}</code> satır değeri, <code>{n}</code> 1'den başlayan satır numarası, <code>{i}</code> ise 0'dan başlayan indekstir. Her satır bu şablonla kendi satırında üretilir."
+      },
+      {
+        "q": "IN ifadesi hangi SQL lehçesini kullanıyor?",
+        "a": "İkisini de. SQL Server için varsayılan <code>N'...'</code>; MySQL, PostgreSQL, SQLite ve diğer standart lehçeler için SQL ayarını <code>'...'</code> yap."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Metin listelerini kendi dilinde diziye çevir",
+    "lead": "Aynı dönüştürücü, aşağıdaki her dilde belgelenmiş hâliyle. Düşündüğün dili seç — kayıtlı ayarların hepsinde seninle gelir.",
+    "aria": "Mevcut diller"
+  },
+  "footer": {
+    "line": "ArrayHelper — ücretsiz metin listesi dizi dönüştürücü. {brand} tarafından barındırılıyor.",
+    "guide": "Rehber",
+    "faq": "SSS"
+  }
+}

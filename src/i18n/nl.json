@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Tekstlijst naar Array Omzetten – JavaScript, SQL, Python, PHP",
+    "description": "Plak je lijst en krijg direct een kant-en-klare array. Gratis converter van tekstlijst naar array voor JavaScript, SQL, Python, PHP, JSON en C# — draait in je browser.",
+    "keywords": "tekstlijst naar array, lijst naar array omzetten, array generator online, text list to array, sql in clausule generator, javascript array uit lijst, python lijst maken, php array generator, json array maken, komma gescheiden lijst",
+    "ogImageAlt": "ArrayHelper logo en voorbeeld van de array-conversie",
+    "appName": "Array Helper – Tekstlijst naar Array Converter"
+  },
+  "ui": {
+    "logoAria": "ArrayHelper startpagina",
+    "kbdBefore": "Druk op",
+    "kbdAfter": "om om te zetten",
+    "h1": "Tekstlijst naar array converter voor JavaScript, SQL, PHP en Python",
+    "tagline": "Plak een willekeurige lijst en zet hem meteen om in arrays die klaar zijn voor je code.",
+    "convertAria": "Lijst omzetten",
+    "editorAria": "Invoer van de tekstlijst",
+    "editorPlaceholder": "Begin met typen...",
+    "copy": "Tekst kopiëren",
+    "copied": "Gekopieerd",
+    "copyFailed": "Kopiëren mislukt",
+    "tooManyLines": "Te veel regels. Overschakelen naar de Ultra-modus.",
+    "truncated": "--- Uitvoer ingekort ({n} tekens) ---",
+    "patternAria": "Eigen uitvoerpatroon",
+    "tokenValue": "Waarde van de regel",
+    "tokenRow": "Regelnummer, begint bij 1",
+    "tokenIndex": "Index, begint bij 0",
+    "doubleQuoteAria": "Dubbele aanhalingstekens gebruiken",
+    "singleQuoteAria": "Enkele aanhalingstekens gebruiken",
+    "plainNumbersAria": "Getallen zonder aanhalingstekens laten",
+    "quotedNumbersAria": "Getallen als tekst tussen aanhalingstekens zetten",
+    "settingsAria": "Instellingen",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Klassiek",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Duplicaten",
+    "dedupeAria": "Dubbele waarden verwijderen",
+    "settingsPanels": "Panelen",
+    "settingsPanelsHint": "max. 3",
+    "clearAria": "Editor leegmaken",
+    "jump": "Uitleg, voorbeelden en FAQ",
+    "githubAria": "Bekijk het ArrayHelper-project op GitHub",
+    "sectionsAria": "Onderdelen van de pagina"
+  },
+  "nav": {
+    "how": "Zo werkt het",
+    "formats": "Uitvoerformaten",
+    "features": "Functies",
+    "useCases": "Toepassingen",
+    "faq": "FAQ",
+    "languages": "Talen"
+  },
+  "how": {
+    "h2": "Zo zet je een tekstlijst om naar een array",
+    "lead": "Kopieer een kolom uit een spreadsheet, een queryresultaat of een logbestand, plak hem hier en krijg een echt array-literal terug: met aanhalingstekens, komma-gescheiden en klaar voor je code. Geen account, geen upload, geen wachten.",
+    "steps": [
+      {
+        "title": "Plak je lijst",
+        "body": "Eén waarde per regel, precies zoals je hem kopieerde. Lege regels verdwijnen en overtollige spaties worden weggehaald, dus zelfs een rommelige plak uit Excel komt er netjes uit."
+      },
+      {
+        "title": "Stel de regels één keer in",
+        "body": "Enkele of dubbele aanhalingstekens, getallen kaal of tussen quotes, duplicaten eruit, SQL-dialect gekozen. Je keuzes staan klaar bij je volgende bezoek."
+      },
+      {
+        "title": "Kopieer en ga verder",
+        "body": "Druk op <code>Ctrl / Cmd + Enter</code>, of laat Auto aan staan en zie de uitvoer je typen volgen. Eén klik kopieert de hele array, ook als het voorbeeld is ingekort."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Eén tekstlijst, elk array-formaat",
+    "lead": "Je lijst wordt op hetzelfde moment naar alle acht formaten omgezet. Getallen blijven getallen, tekst krijgt aanhalingstekens en apostrofs in je waarden worden ge-escaped zoals elke taal dat verwacht.",
+    "inputLabel": "Invoerlijst",
+    "outputLabel": "Wat je krijgt",
+    "outputLead": "Acht plak-klare uitvoeren, gegenereerd terwijl je typt. Houd de drie die je het meest gebruikt naast elkaar open en wissel zodra de doeltaal verandert.",
+    "cards": [
+      {
+        "title": "JavaScript / TypeScript array",
+        "body": "Een eenvoudig array-literal voor JS, TS en Node. Schakel over naar dubbele aanhalingstekens als je linter die liever ziet."
+      },
+      {
+        "title": "SQL IN-clausule",
+        "body": "Past meteen in <code>WHERE kolom IN (...)</code>. <code>N'...'</code> voor SQL Server, of wissel van dialect voor <code>'...'</code> bij MySQL, PostgreSQL en SQLite."
+      },
+      {
+        "title": "Python-lijst",
+        "body": "Plak hem in een script, een fixture of een parametrize-blok van <code>pytest</code> zonder één komma over te typen."
+      },
+      {
+        "title": "PHP-array",
+        "body": "De klassieke <code>array()</code> syntaxis, die nog steeds werkt in oudere codebases en Laravel-configuratiebestanden."
+      },
+      {
+        "title": "JSON-array",
+        "body": "Strikt geldige JSON met echte string-escaping — veilig voor een API-request body of een fixture-bestand."
+      },
+      {
+        "title": "C#-array",
+        "body": "Een impliciet getypeerde array voor C# en .NET, opgebouwd uit dezelfde JSON-ge-escapete waarden."
+      },
+      {
+        "title": "Ruwe komma-gescheiden lijst",
+        "body": "Helemaal zonder haken — het deel met aanhalingstekens en komma-gescheiden, dat je in elke taal kunt plakken die hier niet bij staat."
+      },
+      {
+        "title": "Eigen patroon",
+        "body": "Schrijf je eigen sjabloon: <code>{}</code> is de waarde, <code>{n}</code> het regelnummer vanaf 1 en <code>{i}</code> de index vanaf 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Gebouwd voor echte, rommelige lijsten",
+    "lead": "De meeste lijst-naar-array converters geven het op bij de eerste apostrof of de tienduizendste regel. Deze is gemaakt voor de lijsten die je op je werk echt plakt.",
+    "items": [
+      {
+        "title": "Er wordt niets geüpload.",
+        "body": "De conversie gebeurt in je browser. Interne ID-nummers, e-mailadressen en klantgegevens verlaten je apparaat nooit."
+      },
+      {
+        "title": "Grote lijsten blijven snel.",
+        "body": "De klassieke editor neemt 50.000 regels moeiteloos aan en de Ultra-editor houdt nog grotere plakacties soepel."
+      },
+      {
+        "title": "Aanhalingstekens worden goed ge-escaped.",
+        "body": "<code>O'Brien</code> wordt <code>N'O''Brien'</code> in SQL en <code>&quot;O'Brien&quot;</code> in JSON, zodat er verderop niets stukgaat."
+      },
+      {
+        "title": "Getallen blijven getallen.",
+        "body": "Puur numerieke regels komen er standaard zonder aanhalingstekens uit, en één klik maakt er strings van als je schema daarom vraagt."
+      },
+      {
+        "title": "Duplicaten weg met één klik.",
+        "body": "Zet Duplicaten aan en alleen het eerste voorkomen van elke regel overleeft de conversie."
+      },
+      {
+        "title": "Drie panelen tegelijk.",
+        "body": "Toon Raw, JavaScript, SQL, Python, PHP, JSON, C# of Custom, sleep ze in de volgorde die jij wilt en vind dezelfde indeling de volgende keer terug."
+      },
+      {
+        "title": "Gemaakt voor het toetsenbord.",
+        "body": "<code>Ctrl / Cmd + Enter</code> zet om, Auto houdt korte lijsten bij terwijl je typt en elk paneel heeft zijn eigen kopieerknop."
+      },
+      {
+        "title": "Gratis en open source.",
+        "body": "Geen account, geen limiet, geen advertenties. De hele converter staat op GitHub als je hem wilt lezen of forken."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Waarvoor ontwikkelaars tekstlijsten naar arrays omzetten",
+    "cards": [
+      {
+        "title": "Een SQL IN-clausule bouwen uit een spreadsheet",
+        "body": "Kopieer een kolom met ordernummers of e-mailadressen uit Excel, plak hem hier en krijg binnen seconden een geciteerde, ge-escapete <code>IN (...)</code> lijst voor je query."
+      },
+      {
+        "title": "Testdata klaarzetten",
+        "body": "Maak van een lijst met SKU-codes, slugs of gebruikers-ID-nummers een JavaScript-, Python- of C#-array voor unittests en mockdata."
+      },
+      {
+        "title": "API-requests voorbereiden",
+        "body": "Zet een lijst met identifiers om in een geldige JSON-array voordat je hem in Postman, curl of je REST-client plakt."
+      },
+      {
+        "title": "Bulkaanroepen van procedures of scripts",
+        "body": "Gebruik het eigen patroon voor één statement per regel: <code>EXEC</code> aanroepen, <code>UPDATE</code> statements, CLI-commando-regels of migratiescripts."
+      },
+      {
+        "title": "Geëxporteerde logs opschonen",
+        "body": "Plak ruwe loguitvoer, gooi duplicaten en lege regels eruit en krijg er aan de andere kant een schone, ontdubbelde array uit."
+      },
+      {
+        "title": "Enums en configuratiebestanden vullen",
+        "body": "Zet een lijst met landcodes, feature flags of locales over naar het array-literal waar je configuratie op wacht."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Tekstlijst naar array: veelgestelde vragen",
+    "items": [
+      {
+        "q": "Wat is een tekstlijst-naar-array converter?",
+        "a": "Het is een hulpmiddel dat een simpele lijst met waarden, één per regel, omzet in een array-literal dat je direct in je code plakt. ArrayHelper maakt tegelijk de JavaScript-, SQL-, Python-, PHP-, JSON-, C#- en eigen versie van dezelfde lijst, zodat je nooit meer met de hand aanhalingstekens en komma-tekens typt."
+      },
+      {
+        "q": "Hoe zet ik online een tekstlijst om naar een array?",
+        "a": "Plak de lijst in de editor bovenaan deze pagina, druk op <code>Ctrl / Cmd + Enter</code> of laat Auto aan staan en kopieer daarna het paneel dat je nodig hebt. Niets te installeren, geen account en geen limiet op het aantal regels."
+      },
+      {
+        "q": "Worden aanhalingstekens en speciale tekens ge-escaped?",
+        "a": "Ja. Enkele aanhalingstekens worden verdubbeld voor SQL, en de JSON- en C#-uitvoer gebruikt echte JSON string-escaping, zodat waarden met apostrofs, backslashes of tabs geldig blijven in de doeltaal."
+      },
+      {
+        "q": "Krijgen getallen aanhalingstekens?",
+        "a": "Standaard niet: puur numerieke regels worden als getal geschreven en al het andere krijgt aanhalingstekens. Is je kolom een tekstveld, dan zet de getallenknop in de balk ook die tussen quotes."
+      },
+      {
+        "q": "Kan ik dubbele regels verwijderen tijdens het omzetten?",
+        "a": "Ja. Zet Duplicaten aan in het optiemenu en alleen het eerste voorkomen van elke regel blijft over. Lege regels en omliggende spaties worden altijd weggehaald, met of zonder deze optie."
+      },
+      {
+        "q": "Hoe groot mag de lijst zijn?",
+        "a": "De klassieke editor is comfortabel tot 50.000 regels en de Ultra-editor blijft ook bij grotere plakacties vlot. Lange uitvoer wordt op het scherm ingekort voor de snelheid, maar Kopiëren geeft je altijd de volledige array."
+      },
+      {
+        "q": "Wordt mijn lijst naar een server gestuurd?",
+        "a": "Nee. Elke conversie draait lokaal in je browser, dus je lijst verlaat je apparaat nooit — daarom is het hulpmiddel veilig voor interne identifiers en klantgegevens."
+      },
+      {
+        "q": "Kan ik mijn eigen uitvoerformaat bepalen?",
+        "a": "Ja. Het Custom-paneel accepteert een sjabloon als <code>EXEC MyProcedure '{}';</code>, waarbij <code>{}</code> de waarde van de regel is, <code>{n}</code> het regelnummer vanaf 1 en <code>{i}</code> de index vanaf 0. Elke regel wordt met dat sjabloon op een eigen regel weergegeven."
+      },
+      {
+        "q": "Welk SQL-dialect gebruikt de IN-clausule?",
+        "a": "Allebei. <code>N'...'</code> is de standaard voor SQL Server; zet de SQL-instelling op <code>'...'</code> voor MySQL, PostgreSQL, SQLite en andere standaarddialecten."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Zet tekstlijsten om naar arrays in jouw taal",
+    "lead": "Dezelfde converter, gedocumenteerd in elke taal hieronder. Kies de taal waarin je denkt — je opgeslagen instellingen gaan overal met je mee.",
+    "aria": "Beschikbare talen"
+  },
+  "footer": {
+    "line": "ArrayHelper — gratis converter van tekstlijst naar array, gehost door {brand}.",
+    "guide": "Uitleg",
+    "faq": "FAQ"
+  }
+}

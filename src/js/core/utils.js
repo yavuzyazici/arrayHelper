@@ -4,6 +4,8 @@ export const DEFAULT_CUSTOM_PATTERN = "EXEC MyProcedure '{}';";
 
 export const IS_MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
+export const T = document.body.dataset;
+
 export const CONFIG = {
   MAX_CLASSIC_LINES: 50000,
   MONACO_PREWARM_LINES: 25000,

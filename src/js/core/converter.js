@@ -1,4 +1,4 @@
-import { CONFIG, OUTPUT_KEYS } from './utils.js?v=20260906';
+import { CONFIG, OUTPUT_KEYS, T } from './utils.js?v=20260906';
 
 // Which intermediate parts each output format is built from
 const RAW_BASED = ['raw', 'js', 'py', 'php'];
@@ -251,7 +251,7 @@ export function convertText(text, options, DOM, state, cap = CONFIG.OUTPUT_LIMIT
     if (!textarea) continue;
 
     textarea.value = total > cap
-      ? head.slice(0, cap) + `\n\n--- Output truncated (${total} characters) ---`
+      ? head.slice(0, cap) + '\n\n' + T.tTruncated.replace('{n}', total)
       : head + suffix;
   }
 }

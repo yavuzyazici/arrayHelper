@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="{{_lang}}" dir="{{_dir}}">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{meta.title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{meta.description}}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{meta.title}}">
+  <meta property="og:url" content="{{_url}}">
+  <meta property="og:image:secure_url" content="https://www.arrayhelper.com/images/arrayHelper-og.png">
+  <meta property="og:image" content="https://www.arrayhelper.com/images/arrayHelper-og.png">
+  <meta property="og:description" content="{{meta.description}}">
+  <meta property="og:site_name" content="ArrayHelper">
+  <meta property="og:locale" content="{{_ogLocale}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{meta.ogImageAlt}}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:rich_attachment" content="true">
+  <meta property="og:price:amount" content="0.00">
+  <meta property="og:price:currency" content="USD">
+
+  <!-- DC -->
+  <meta name="DC.title" content="{{meta.title}}">
+  <meta name="DC.description" content="{{meta.description}}">
+  <meta name="DC.language" content="{{_lang}}">
+  <meta name="DC.publisher" content="ArrayHelper">
+  <meta name="DC.rights" content="https://www.arrayhelper.com/">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{meta.title}}">
+  <meta name="twitter:description" content="{{meta.description}}">
+  <meta name="twitter:image" content="https://www.arrayhelper.com/images/arrayHelper-og.png">
+  <meta name="twitter:image:alt" content="{{meta.ogImageAlt}}">
+  <meta name="twitter:site" content="@4yavuzyazici">
+  <meta name="twitter:creator" content="@4yavuzyazici">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/icon.png">
+
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{_url}}">
+{{_hreflang}}
+  <meta name="keywords" content="{{meta.keywords}}">
+  <meta name="author" content="Yavuz Selim YAZICI">
+
+  <meta name="theme-color" content="#d5dfff">
+  <meta name="msapplication-TileColor" content="#d5dfff">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+
+  <meta name="google" content="notranslate">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <link rel="icon" type="image/x-icon" href="/images/icons/icon.png">
+
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/pxiEyp8kv8JHgFVrJJfecg.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2">
+
+  <link rel="stylesheet" href="/styles/globals.css?v=20260906">
+  <link rel="stylesheet" href="/styles/output.css?v=20260711">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+  <link rel="modulepreload" href="/js/main.js?v=20260906">
+  <link rel="modulepreload" href="/js/core/editor.js?v=20260906">
+  <link rel="modulepreload" href="/js/core/utils.js?v=20260906">
+  <link rel="modulepreload" href="/js/core/converter.js?v=20260906">
+  <link rel="modulepreload" href="/js/ui/events.js?v=20260906">
+
+<script type="application/ld+json">
+{{_jsonld}}
+</script>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRJ7CJ6LQQ');
+
+  (function () {
+    var requested = false;
+
+    function loadGtag() {
+      if (requested) return;
+      requested = true;
+
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XRJ7CJ6LQQ';
+      document.head.appendChild(script);
+    }
+
+    ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (type) {
+      addEventListener(type, loadGtag, { once: true, passive: true });
+    });
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGtag, { timeout: 5000 });
+    } else {
+      setTimeout(loadGtag, 3000);
+    }
+  })();
+</script>
+</head>
+
+<body data-t-copy="{{ui.copy}}" data-t-copied="{{ui.copied}}" data-t-copy-failed="{{ui.copyFailed}}"
+  data-t-too-many-lines="{{ui.tooManyLines}}" data-t-truncated="{{ui.truncated}}">
+  <div class="app-shell space-y-4">
+    <header class="m-0 pl-2 pr-2 pt-1 pb-1">
+      <div class="flex items-center gap-3">
+        <a href="{{_url}}" aria-label="{{ui.logoAria}}" class="inline-flex items-center">
+          <img src="/images/arrayHelper.svg" alt="ArrayHelper logo" width="120" height="28" decoding="async" class="w-[110px] md:w-[120px] h-auto object-contain">
+        </a>
+        <p class="m-0 text-xs md:text-sm text-cool-gray leading-tight">
+          {{ui.kbdBefore}}
+          <kbd class="rounded border-2 border-light-gray bg-white px-1.5 py-0.5 font-semibold">Ctrl / Cmd</kbd>
+          +
+          <kbd class="rounded border-2 border-light-gray bg-white px-1.5 py-0.5 font-semibold">Enter</kbd>
+          {{ui.kbdAfter}}
+        </p>
+      </div>
+      <h1 class="m-0 mt-1 text-[14px] md:text-[15px] font-semibold leading-snug">
+        {{ui.h1}}
+      </h1>
+      <p class="m-0 mt-0.5 text-xs md:text-sm text-cool-gray leading-snug">
+        {{ui.tagline}}
+      </p>
+    </header>
+    <main class="flex flex-col md:flex-row items-center justify-center" dir="ltr">
+      <div
+        class="text-editor relative flex-1 w-full flex flex-col border-2 border-light-gray overflow-hidden">
+        <button id="convertBtn" aria-label="{{ui.convertAria}}"
+          class="absolute top-2 right-2 p-0.5 bg-white border-2 border-light-purple rounded-full cursor-pointer z-10 hover:bg-light-gray transition-all duration-300 group">
+          <img src="/images/icons/arrow-right.svg" alt="arrow-right"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:rotate-45">
+        </button>
+        <div class="flex flex-1 overflow-auto relative">
+          <div id="line-numbers" class="w-16 text-cool-gray flex flex-col pt-1 overflow-hidden"></div>
+          <div class="relative flex flex-col flex-1 border-l-2 border-light-gray">
+            <textarea name="editor" id="editor" aria-label="{{ui.editorAria}}" placeholder="{{ui.editorPlaceholder}}"
+              class="w-full h-full p-1 pb-0 resize-none overflow-auto focus:outline-none whitespace-nowrap"></textarea>
+            <div id="monaco-editor-container" class="w-full h-full hidden"></div>
+          </div>
+        </div>
+      </div>
+      <div class="editor-output flex-1 w-full h-full">
+        <div id="outputsContainer" class="flex flex-col items-stretch justify-between">
+          <div class="hidden md:block w-full h-0.5 bg-light-gray"></div>
+          <div class="output-section w-full h-full" data-output="raw">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ Raw ]</span>
+              <button id="rawCopy"
+                class="group relative inline-flex p-1.5 mr-2 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  {{ui.copy}}</div>
+              </button>
+            </div>
+            <textarea name="rawOutput" id="rawOutput" aria-label="rawOutput-label"
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section w-full h-full" data-output="js">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ JavaScript ]</span>
+              <button id="jsCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  {{ui.copy}}</div>
+              </button>
+            </div>
+            <textarea name="jsOutput" id="jsOutput" aria-label="jsOutput-label"
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section w-full h-full" data-output="sql">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ SQL ]</span>
+              <button id="sqlCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  {{ui.copy}}</div>
+              </button>
+            </div>
+            <textarea name="sqlOutput" id="sqlOutput" aria-label="sqlOutput-label"
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section hidden w-full h-full" data-output="py">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ Python ]</span>
+              <button id="pyCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  {{ui.copy}}</div>
+              </button>
+            </div>
+            <textarea name="pyOutput" id="pyOutput" aria-label="pyOutput-label"
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section hidden w-full h-full" data-output="php">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ PHP ]</span>
+              <button id="phpCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  {{ui.copy}}</div>
+              </button>
+            </div>
+            <textarea name="phpOutput" id="phpOutput" aria-label="phpOutput-label"
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section hidden w-full h-full" data-output="json">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ JSON ]</span>
+              <button id="jsonCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  {{ui.copy}}</div>
+              </button>
+            </div>
+            <textarea name="jsonOutput" id="jsonOutput" aria-label="jsonOutput-label"
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section hidden w-full h-full" data-output="cs">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ C# ]</span>
+              <button id="csCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  {{ui.copy}}</div>
+              </button>
+            </div>
+            <textarea name="csOutput" id="csOutput" aria-label="csOutput-label"
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+          <div class="output-section hidden w-full h-full" data-output="custom">
+            <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
+              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ Custom ]</span>
+              <button id="customCopy"
+                class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
+                <div class="absolute left-3.5">
+                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                </div>
+                <div
+                  class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
+                  {{ui.copy}}</div>
+              </button>
+            </div>
+            <div class="pattern-bar">
+              <input id="customPattern" class="pattern-input" type="text" spellcheck="false" autocomplete="off"
+                autocapitalize="off" autocorrect="off" placeholder="EXEC MyProcedure '{}';"
+                aria-label="{{ui.patternAria}}">
+              <div class="pattern-tokens">
+                <button class="token-chip" data-token="{}" title="{{ui.tokenValue}}" type="button">{}</button>
+                <button class="token-chip" data-token="{n}" title="{{ui.tokenRow}}" type="button">{n}</button>
+                <button class="token-chip" data-token="{i}" title="{{ui.tokenIndex}}" type="button">{i}</button>
+              </div>
+            </div>
+            <textarea name="customOutput" id="customOutput" aria-label="customOutput-label"
+              class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
+            <div class="w-full h-0.5 bg-light-gray"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="gap-4 flex flex-wrap items-center justify-start p-2" style="margin-top: 0;" dir="ltr">
+      <div class="button-container max-[500px]:w-full">
+        <button class="button" aria-label="{{ui.doubleQuoteAria}}">
+          <img src="/images/icons/double-quote.svg" alt="double-quote" class="w-full h-max object-cover">
+        </button>
+        <button class="button active" aria-label="{{ui.singleQuoteAria}}">
+          <img src="/images/icons/single-quote.svg" alt="single-quote" class="w-full h-max object-cover">
+        </button>
+      </div>
+      <div class="button-container max-[500px]:w-full">
+        <button class="button active" aria-label="{{ui.plainNumbersAria}}">
+          <img src="/images/icons/numbers-without-quote.svg" alt="numbers-without-quote"
+            class="w-full h-max object-cover">
+        </button>
+        <button class="button" aria-label="{{ui.quotedNumbersAria}}">
+          <img src="/images/icons/numbers-quote.svg" alt="numbers-quote" class="w-full h-max object-cover">
+        </button>
+      </div>
+      <div class="button-container max-[500px]:w-[120px] w-[50px] options-container" style="padding: 10px;">
+        <button aria-label="{{ui.settingsAria}}"
+          class="options w-full h-full flex justify-center items-center transition-transform duration-300 hover:rotate-180">
+          <img src="/images/icons/options.svg" alt="options" class="w-6 h-6">
+        </button>
+        <div class="editor-selector-menu">
+          <div class="settings-row">
+            <span class="settings-label">{{ui.settingsEditor}}</span>
+            <div class="settings-segment">
+              <button id="classic-editor-btn" class="editor-btn active">
+                {{ui.settingsClassic}}
+              </button>
+              <button id="ultra-editor-btn" class="editor-btn">
+                {{ui.settingsUltra}}
+              </button>
+            </div>
+          </div>
+          <div class="settings-row">
+            <span class="settings-label">{{ui.settingsAutoRun}}</span>
+            <button id="auto-run-toggle" class="toggle-switch on" role="switch" aria-checked="true" aria-label="{{ui.settingsAutoRun}}">
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
+          <div class="settings-row">
+            <span class="settings-label">{{ui.settingsDedupe}}</span>
+            <button id="dedupe-toggle" class="toggle-switch" role="switch" aria-checked="false" aria-label="{{ui.dedupeAria}}">
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
+          <div class="settings-row">
+            <span class="settings-label">SQL</span>
+            <div class="settings-segment" id="sql-dialect-segment">
+              <button class="editor-btn active" data-dialect="mssql" title="SQL Server">N'...'</button>
+              <button class="editor-btn" data-dialect="standard" title="MySQL / PostgreSQL">'...'</button>
+            </div>
+          </div>
+          <div class="settings-row settings-row-stacked">
+            <span class="settings-label">{{ui.settingsPanels}} <span class="settings-hint">· {{ui.settingsPanelsHint}}</span></span>
+            <div class="panel-chips" id="panel-chips">
+              <button class="panel-chip active" data-panel="raw">Raw</button>
+              <button class="panel-chip active" data-panel="js">JS</button>
+              <button class="panel-chip active" data-panel="sql">SQL</button>
+              <button class="panel-chip" data-panel="py">Python</button>
+              <button class="panel-chip" data-panel="php">PHP</button>
+              <button class="panel-chip" data-panel="json">JSON</button>
+              <button class="panel-chip" data-panel="cs">C#</button>
+              <button class="panel-chip" data-panel="custom">Custom</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-container max-[500px]:w-full">
+        <button class="button delete" aria-label="{{ui.clearAria}}">
+          <img src="/images/icons/trash.svg" alt="trash" class="w-full h-max object-cover">
+        </button>
+      </div>
+      <a class="hero-jump" href="#guide">
+        {{ui.jump}}
+        <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 2.5v10M3.5 8.5 8 13l4.5-4.5" />
+        </svg>
+      </a>
+      <div class="flex items-center mr-2" style="float: right;">
+        <a href="https://github.com/yavuzyazici/arrayHelper" target="_blank" class="github-icon" aria-label="{{ui.githubAria}}">
+          <svg height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true"
+            class="octicon octicon-mark-github">
+            <path
+              d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"
+              fill="#d5dfff"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-content">
+    <article class="content-inner" id="guide">
+      <nav class="content-nav" aria-label="{{ui.sectionsAria}}">
+        <a href="#how-it-works">{{nav.how}}</a>
+        <a href="#formats">{{nav.formats}}</a>
+        <a href="#features">{{nav.features}}</a>
+        <a href="#use-cases">{{nav.useCases}}</a>
+        <a href="#faq">{{nav.faq}}</a>
+        <a href="#languages">{{nav.languages}}</a>
+      </nav>
+
+      <section class="content-section" id="how-it-works">
+        <h2>{{how.h2}}</h2>
+        <p class="section-lead">{{how.lead}}</p>
+        <ol class="step-list">
+          {{#how.steps}}
+          <li>
+            <strong>{{title}}</strong>
+            {{body}}
+          </li>
+          {{/how.steps}}
+        </ol>
+      </section>
+
+      <section class="content-section" id="formats">
+        <h2>{{formats.h2}}</h2>
+        <p class="section-lead">{{formats.lead}}</p>
+
+        <div class="sample-io">
+          <div>
+            <h3>{{formats.inputLabel}}</h3>
+            <pre class="code-sample is-input">apple
+banana
+42</pre>
+          </div>
+          <div>
+            <h3>{{formats.outputLabel}}</h3>
+            <p class="section-lead">{{formats.outputLead}}</p>
+          </div>
+        </div>
+
+        <div class="card-grid">
+          {{#formats.cards}}
+          <div class="card">
+            <h3>{{title}}</h3>
+            <pre class="code-sample">{{code}}</pre>
+            <p>{{body}}</p>
+          </div>
+          {{/formats.cards}}
+        </div>
+      </section>
+
+      <section class="content-section" id="features">
+        <h2>{{features.h2}}</h2>
+        <p class="section-lead">{{features.lead}}</p>
+        <ul class="check-list">
+          {{#features.items}}
+          <li><strong>{{title}}</strong> {{body}}</li>
+          {{/features.items}}
+        </ul>
+      </section>
+
+      <section class="content-section" id="use-cases">
+        <h2>{{useCases.h2}}</h2>
+        <div class="card-grid">
+          {{#useCases.cards}}
+          <div class="card">
+            <h3>{{title}}</h3>
+            <p>{{body}}</p>
+          </div>
+          {{/useCases.cards}}
+        </div>
+      </section>
+
+      <section class="content-section" id="faq">
+        <h2>{{faq.h2}}</h2>
+        <div class="faq-grid">
+          {{#faq.items}}
+          <div class="faq-item">
+            <h3>{{q}}</h3>
+            <p>{{a}}</p>
+          </div>
+          {{/faq.items}}
+        </div>
+      </section>
+
+      <section class="content-section" id="languages">
+        <h2>{{languages.h2}}</h2>
+        <p class="section-lead">{{languages.lead}}</p>
+        <nav class="lang-switcher" aria-label="{{languages.aria}}">
+{{_languages}}
+        </nav>
+      </section>
+    </article>
+
+    <footer class="site-footer">
+      <div class="footer-row">
+        <span>{{_footerLine}}</span>
+        <div class="footer-links">
+          <a href="#guide">{{footer.guide}}</a>
+          <a href="#faq">{{footer.faq}}</a>
+          <a href="https://github.com/yavuzyazici/arrayHelper" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.yavuzyazici.com/" title="Yavuz Yazıcı" target="_blank" rel="noopener">Yavuz Selim Yazıcı</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="/js/main.js?v=20260906"></script>
+</body>
+</html>

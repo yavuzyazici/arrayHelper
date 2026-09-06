@@ -1,6 +1,6 @@
 import { updateLineNumbers, highlightActiveLine, applyEditorMode, prewarmMonaco } from '../core/editor.js?v=20260906';
 import { convertText, buildFullOutput } from '../core/converter.js?v=20260906';
-import { CONFIG, countLinesFast, IS_MOBILE } from '../core/utils.js?v=20260906';
+import { CONFIG, countLinesFast, IS_MOBILE, T } from '../core/utils.js?v=20260906';
 
 export function initEvents(state, DOM, options) {
     updateLineNumbers(state, DOM);
@@ -12,6 +12,8 @@ export function initEvents(state, DOM, options) {
     document.addEventListener('keydown', e => {
         if (e.key === 'Control' || e.key === 'Meta') {
             kbdOn(kbdCtrlCmd);
+        } else if (!e.ctrlKey && !e.metaKey) {
+            kbdOff(kbdCtrlCmd);
         }
 
         if (e.key === 'Enter') {
@@ -26,13 +28,19 @@ export function initEvents(state, DOM, options) {
 
     document.addEventListener('keyup', e => {
 
-        if (e.key === 'Control' || e.key === 'Meta') {
+        if (e.key === 'Control' || e.key === 'Meta' || (!e.ctrlKey && !e.metaKey)) {
             kbdOff(kbdCtrlCmd);
         }
 
         if (e.key === 'Enter' || e.code === 'NumpadEnter') {
             kbdOff(kbdEnter);
         }
+    });
+
+    window.addEventListener('blur', releaseKbds);
+    window.addEventListener('pagehide', releaseKbds);
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) releaseKbds();
     });
 
     DOM.classicBtn.addEventListener('click', () => {
@@ -76,17 +84,17 @@ export function initEvents(state, DOM, options) {
 
         const feedback = text => {
             label.textContent = text;
-            setTimeout(() => label.textContent = 'Copy Text', 2000);
+            setTimeout(() => label.textContent = T.tCopy, 2000);
         };
 
         if (!navigator.clipboard) {
-            feedback('Copy failed');
+            feedback(T.tCopyFailed);
             return;
         }
 
         navigator.clipboard.writeText(fullText)
-            .then(() => feedback('Copied'))
-            .catch(() => feedback('Copy failed'));
+            .then(() => feedback(T.tCopied))
+            .catch(() => feedback(T.tCopyFailed));
     }
 
     Object.entries(DOM.copyBtns).forEach(([key, btn]) => {
@@ -376,5 +384,10 @@ export function initEvents(state, DOM, options) {
     function kbdOff(el) {
         if (!el) return;
         el.classList.remove('kbd-down');
+    }
+
+    function releaseKbds() {
+        kbdOff(kbdCtrlCmd);
+        kbdOff(kbdEnter);
     }
 }

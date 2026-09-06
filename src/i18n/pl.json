@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Konwerter Listy Tekstowej na Tablicę – JS, SQL, Python, PHP",
+    "description": "Wklej listę i od razu odbierz gotową tablicę. Darmowy konwerter listy tekstowej na tablicę dla JavaScriptu, SQL, Pythona, PHP, JSON i C# — działa w przeglądarce.",
+    "keywords": "lista tekstowa na tablicę, konwerter listy na tablicę, zamiana listy na tablicę, generator tablicy online, klauzula sql in, tablica javascript z listy, lista python, tablica php, generator tablicy json, lista rozdzielona przecinkami",
+    "ogImageAlt": "Logo ArrayHelper i podgląd konwersji na tablicę",
+    "appName": "Array Helper – Konwerter Listy Tekstowej na Tablicę"
+  },
+  "ui": {
+    "logoAria": "Strona główna ArrayHelper",
+    "kbdBefore": "Naciśnij",
+    "kbdAfter": "aby przekonwertować",
+    "h1": "Konwerter listy tekstowej na tablicę dla JavaScriptu, SQL, PHP i Pythona",
+    "tagline": "Wklej dowolną listę i zamień ją od razu w tablice gotowe do wklejenia w kod.",
+    "convertAria": "Przekonwertuj listę",
+    "editorAria": "Pole listy tekstowej",
+    "editorPlaceholder": "Zacznij pisać...",
+    "copy": "Kopiuj tekst",
+    "copied": "Skopiowano",
+    "copyFailed": "Nie udało się skopiować",
+    "tooManyLines": "Za dużo wierszy. Przełączanie na tryb Ultra.",
+    "truncated": "--- Wynik skrócony ({n} znaków) ---",
+    "patternAria": "Własny wzorzec wyniku",
+    "tokenValue": "Wartość wiersza",
+    "tokenRow": "Numer wiersza, zaczyna się od 1",
+    "tokenIndex": "Indeks, zaczyna się od 0",
+    "doubleQuoteAria": "Użyj cudzysłowów podwójnych",
+    "singleQuoteAria": "Użyj apostrofów",
+    "plainNumbersAria": "Zostaw liczby bez cudzysłowów",
+    "quotedNumbersAria": "Ujmij liczby w cudzysłowy",
+    "settingsAria": "Ustawienia",
+    "settingsEditor": "Edytor",
+    "settingsClassic": "Klasyczny",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Duplikaty",
+    "dedupeAria": "Usuń zduplikowane wartości",
+    "settingsPanels": "Panele",
+    "settingsPanelsHint": "maks. 3",
+    "clearAria": "Wyczyść edytor",
+    "jump": "Poradnik, przykłady i FAQ",
+    "githubAria": "Zobacz projekt ArrayHelper na GitHubie",
+    "sectionsAria": "Sekcje strony"
+  },
+  "nav": {
+    "how": "Jak to działa",
+    "formats": "Formaty wyniku",
+    "features": "Funkcje",
+    "useCases": "Zastosowania",
+    "faq": "FAQ",
+    "languages": "Języki"
+  },
+  "how": {
+    "h2": "Jak zamienić listę tekstową na tablicę",
+    "lead": "Skopiuj kolumnę z arkusza, wyniku zapytania albo pliku logu, wklej ją tutaj i odbierz porządny literał tablicy: w cudzysłowach, rozdzielony przecinkami i gotowy do kodu. Bez rejestracji, bez wysyłania plików, bez czekania.",
+    "steps": [
+      {
+        "title": "Wklej swoją listę",
+        "body": "Jedna wartość na wiersz, dokładnie tak, jak ją skopiowałeś. Puste wiersze znikają, a zbędne spacje są przycinane, więc nawet niechlujne wklejenie z Excela wychodzi czysto."
+      },
+      {
+        "title": "Ustaw zasady raz",
+        "body": "Apostrofy czy cudzysłowy, liczby gołe czy w cudzysłowach, duplikaty precz, wybrany dialekt SQL. Twoje wybory czekają przy następnej wizycie."
+      },
+      {
+        "title": "Skopiuj i wracaj do pracy",
+        "body": "Naciśnij <code>Ctrl / Cmd + Enter</code> albo zostaw tryb Auto włączony, a wynik będzie nadążał za pisaniem. Jedno kliknięcie kopiuje całą tablicę, nawet gdy podgląd jest skrócony."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Jedna lista tekstowa, każdy format tablicy",
+    "lead": "Twoja lista jest w tej samej chwili konwertowana do wszystkich ośmiu formatów. Liczby pozostają liczbami, tekst dostaje cudzysłowy, a apostrofy wewnątrz wartości są escapowane tak, jak oczekuje tego dany język.",
+    "inputLabel": "Lista wejściowa",
+    "outputLabel": "Co otrzymujesz",
+    "outputLead": "Osiem gotowych do wklejenia wyników, generowanych w trakcie pisania. Trzymaj obok siebie trzy najczęściej używane i przełączaj panel, gdy zmienia się język docelowy.",
+    "cards": [
+      {
+        "title": "Tablica JavaScript / TypeScript",
+        "body": "Zwykły literał tablicy dla JS, TS i Node. Przełącz na cudzysłowy podwójne, jeśli tak woli twój linter."
+      },
+      {
+        "title": "Klauzula SQL IN",
+        "body": "Wchodzi wprost do <code>WHERE kolumna IN (...)</code>. <code>N'...'</code> dla SQL Servera albo zmień dialekt na <code>'...'</code> dla MySQL, PostgreSQL i SQLite."
+      },
+      {
+        "title": "Lista Pythona",
+        "body": "Wklej ją do skryptu, fixture albo bloku parametrize w <code>pytest</code> bez przepisywania ani jednego przecinka."
+      },
+      {
+        "title": "Tablica PHP",
+        "body": "Klasyczna składnia <code>array()</code>, która wciąż działa w starszych projektach i plikach konfiguracyjnych Laravela."
+      },
+      {
+        "title": "Tablica JSON",
+        "body": "Ściśle poprawny JSON z prawdziwym escapowaniem łańcuchów — bezpieczny do treści żądania API albo pliku z danymi testowymi."
+      },
+      {
+        "title": "Tablica C#",
+        "body": "Tablica o typie wnioskowanym dla C# i .NET, zbudowana z tych samych wartości escapowanych jak w JSON."
+      },
+      {
+        "title": "Surowa lista z przecinkami",
+        "body": "Zupełnie bez nawiasów — sam korpus w cudzysłowach i z przecinkami, do wklejenia w dowolnym języku spoza tej listy."
+      },
+      {
+        "title": "Własny wzorzec",
+        "body": "Napisz własny szablon: <code>{}</code> to wartość, <code>{n}</code> numer wiersza od 1, a <code>{i}</code> indeks od 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Zrobiony do prawdziwych, nieuporządkowanych list",
+    "lead": "Większość konwerterów listy na tablicę poddaje się przy pierwszym apostrofie albo przy dziesięciotysięcznym wierszu. Ten powstał do list, które naprawdę wklejasz w pracy.",
+    "items": [
+      {
+        "title": "Nic nie jest wysyłane.",
+        "body": "Konwersja dzieje się w twojej przeglądarce. Wewnętrzne identyfikatory, adresy e-mail i dane klientów nigdy nie opuszczają urządzenia."
+      },
+      {
+        "title": "Duże listy pozostają szybkie.",
+        "body": "Klasyczny edytor bez trudu przyjmuje 50 000 wierszy, a edytor Ultra zachowuje płynność przy jeszcze większych wklejeniach."
+      },
+      {
+        "title": "Cudzysłowy są escapowane poprawnie.",
+        "body": "<code>O'Brien</code> staje się <code>N'O''Brien'</code> w SQL i <code>&quot;O'Brien&quot;</code> w JSON, więc dalej nic się nie psuje."
+      },
+      {
+        "title": "Liczby pozostają liczbami.",
+        "body": "Czysto liczbowe wiersze domyślnie wychodzą bez cudzysłowów, a jedno kliknięcie zamienia je w łańcuchy, gdy wymaga tego twój schemat."
+      },
+      {
+        "title": "Duplikaty znikają jednym kliknięciem.",
+        "body": "Włącz Duplikaty, a z konwersji wyjdzie tylko pierwsze wystąpienie każdego wiersza."
+      },
+      {
+        "title": "Trzy panele naraz.",
+        "body": "Pokaż Raw, JavaScript, SQL, Python, PHP, JSON, C# albo Custom, przeciągnij je w wybraną kolejność i zastań ten sam układ następnym razem."
+      },
+      {
+        "title": "Zrobiony pod klawiaturę.",
+        "body": "<code>Ctrl / Cmd + Enter</code> konwertuje, tryb Auto odświeża krótkie listy w trakcie pisania, a każdy panel ma własny przycisk kopiowania."
+      },
+      {
+        "title": "Darmowy i otwartoźródłowy.",
+        "body": "Bez konta, bez limitu, bez reklam. Cały konwerter jest na GitHubie, jeśli chcesz go przeczytać albo sforkować."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Po co programiści zamieniają listy tekstowe na tablice",
+    "cards": [
+      {
+        "title": "Budowanie klauzuli SQL IN z arkusza",
+        "body": "Skopiuj kolumnę z numerami zamówień albo adresami e-mail z Excela, wklej ją tutaj i w kilka sekund odbierz gotową, escapowaną listę <code>IN (...)</code> do zapytania."
+      },
+      {
+        "title": "Przygotowanie danych testowych",
+        "body": "Zamień listę indeksów SKU, slugów albo identyfikatorów użytkowników w tablicę JavaScriptu, Pythona lub C# na potrzeby testów jednostkowych i danych pozorowanych."
+      },
+      {
+        "title": "Przygotowanie treści żądań API",
+        "body": "Zamień listę identyfikatorów w poprawną tablicę JSON, zanim wkleisz ją do Postmana, curla albo swojego klienta REST."
+      },
+      {
+        "title": "Masowe wywołania procedur lub skryptów",
+        "body": "Użyj własnego wzorca, aby wygenerować jedną instrukcję na wiersz: wywołania <code>EXEC</code>, polecenia <code>UPDATE</code>, komendy powłoki albo skrypty migracji."
+      },
+      {
+        "title": "Czyszczenie wyeksportowanych logów",
+        "body": "Wklej surowy log, usuń duplikaty i puste wiersze, a po drugiej stronie odbierz czystą, odduplikowaną tablicę."
+      },
+      {
+        "title": "Wypełnianie enumów i plików konfiguracyjnych",
+        "body": "Przenieś listę kodów krajów, flag funkcji albo lokalizacji do literału tablicy, na który czeka twoja konfiguracja."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Lista tekstowa na tablicę: najczęstsze pytania",
+    "items": [
+      {
+        "q": "Czym jest konwerter listy tekstowej na tablicę?",
+        "a": "To narzędzie, które zamienia zwykłą listę wartości, po jednej w wierszu, w literał tablicy gotowy do wklejenia wprost w kod. ArrayHelper tworzy jednocześnie wersje JavaScript, SQL, Python, PHP, JSON, C# i własną tej samej listy, więc nigdy więcej nie wpisujesz cudzysłowów i przecinków ręcznie."
+      },
+      {
+        "q": "Jak zamienić listę tekstową na tablicę online?",
+        "a": "Wklej listę do edytora na górze tej strony, naciśnij <code>Ctrl / Cmd + Enter</code> albo zostaw tryb Auto włączony, a potem skopiuj potrzebny panel. Nic do instalowania, bez rejestracji i bez limitu wierszy."
+      },
+      {
+        "q": "Czy narzędzie escapuje cudzysłowy i znaki specjalne?",
+        "a": "Tak. Apostrofy są podwajane dla SQL, a wyniki JSON i C# używają prawdziwego escapowania łańcuchów JSON, więc wartości z apostrofami, ukośnikami odwrotnymi czy tabulatorami pozostają poprawne w języku docelowym."
+      },
+      {
+        "q": "Czy liczby trafiają w cudzysłowy?",
+        "a": "Domyślnie nie: czysto liczbowe wiersze są zapisywane jako liczby, a wszystko inne jest ujmowane w cudzysłowy. Jeśli twoja kolumna jest typu tekstowego, przełącznik liczb na pasku ujmie w cudzysłowy również je."
+      },
+      {
+        "q": "Czy mogę usunąć zduplikowane wiersze podczas konwersji?",
+        "a": "Tak. Włącz Duplikaty w menu opcji, a zostanie tylko pierwsze wystąpienie każdego wiersza. Puste wiersze i otaczające spacje są przycinane zawsze, niezależnie od tej opcji."
+      },
+      {
+        "q": "Jak dużą listę obsłuży?",
+        "a": "Klasyczny edytor jest wygodny do 50 000 wierszy, a edytor Ultra zachowuje szybką reakcję nawet przy większych wklejeniach. Długie wyniki są skracane na ekranie dla szybkości, ale Kopiuj zawsze zwraca całą tablicę."
+      },
+      {
+        "q": "Czy moja lista trafia na serwer?",
+        "a": "Nie. Każda konwersja działa lokalnie w przeglądarce, więc lista nigdy nie opuszcza twojego urządzenia — właśnie dlatego narzędzie jest bezpieczne dla wewnętrznych identyfikatorów i danych klientów."
+      },
+      {
+        "q": "Czy mogę zdefiniować własny format wyniku?",
+        "a": "Tak. Panel Custom przyjmuje szablon w rodzaju <code>EXEC MyProcedure '{}';</code>, gdzie <code>{}</code> to wartość wiersza, <code>{n}</code> numer wiersza liczony od 1, a <code>{i}</code> indeks liczony od 0. Każdy wiersz jest renderowany tym szablonem w osobnej linii."
+      },
+      {
+        "q": "Którego dialektu SQL używa klauzula IN?",
+        "a": "Obu. <code>N'...'</code> to ustawienie domyślne dla SQL Servera; przestaw opcję SQL na <code>'...'</code> dla MySQL, PostgreSQL, SQLite i innych standardowych dialektów."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Zamieniaj listy tekstowe na tablice w swoim języku",
+    "lead": "Ten sam konwerter, opisany w każdym z poniższych języków. Wybierz ten, w którym myślisz — zapisane ustawienia idą z tobą wszędzie.",
+    "aria": "Dostępne języki"
+  },
+  "footer": {
+    "line": "ArrayHelper — darmowy konwerter listy tekstowej na tablicę, hostowany przez {brand}.",
+    "guide": "Poradnik",
+    "faq": "FAQ"
+  }
+}

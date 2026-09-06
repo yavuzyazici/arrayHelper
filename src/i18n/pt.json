@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Converter Lista de Texto em Array – JavaScript, SQL, Python, PHP",
+    "description": "Cole a sua lista e receba o array pronto na hora. Conversor gratuito de lista de texto para array em JavaScript, SQL, Python, PHP, JSON e C# — corre no navegador.",
+    "keywords": "converter lista de texto em array, lista para array, conversor de listas online, gerador de array, clausula sql in, array javascript a partir de lista, lista python, array php, gerar array json, lista separada por virgulas",
+    "ogImageAlt": "Logótipo do ArrayHelper e pré-visualização da conversão em array",
+    "appName": "Array Helper – Conversor de Lista de Texto para Array"
+  },
+  "ui": {
+    "logoAria": "Início do ArrayHelper",
+    "kbdBefore": "Prima",
+    "kbdAfter": "para converter",
+    "h1": "Conversor de lista de texto para array em JavaScript, SQL, PHP e Python",
+    "tagline": "Cole qualquer lista e transforme-a de imediato em arrays prontos para o seu código.",
+    "convertAria": "Converter a lista",
+    "editorAria": "Entrada da lista de texto",
+    "editorPlaceholder": "Comece a escrever...",
+    "copy": "Copiar texto",
+    "copied": "Copiado",
+    "copyFailed": "Não foi possível copiar",
+    "tooManyLines": "Demasiadas linhas. A mudar para o modo Ultra.",
+    "truncated": "--- Saída cortada ({n} caracteres) ---",
+    "patternAria": "Padrão de saída personalizado",
+    "tokenValue": "Valor da linha",
+    "tokenRow": "Número da linha, começa em 1",
+    "tokenIndex": "Índice, começa em 0",
+    "doubleQuoteAria": "Usar aspas duplas",
+    "singleQuoteAria": "Usar aspas simples",
+    "plainNumbersAria": "Deixar os números sem aspas",
+    "quotedNumbersAria": "Colocar os números entre aspas",
+    "settingsAria": "Definições",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Clássico",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Duplicados",
+    "dedupeAria": "Remover valores duplicados",
+    "settingsPanels": "Painéis",
+    "settingsPanelsHint": "máx. 3",
+    "clearAria": "Limpar o editor",
+    "jump": "Guia, exemplos e FAQ",
+    "githubAria": "Ver o projeto ArrayHelper no GitHub",
+    "sectionsAria": "Secções da página"
+  },
+  "nav": {
+    "how": "Como funciona",
+    "formats": "Formatos de saída",
+    "features": "Funcionalidades",
+    "useCases": "Casos de uso",
+    "faq": "FAQ",
+    "languages": "Idiomas"
+  },
+  "how": {
+    "h2": "Como converter uma lista de texto em array",
+    "lead": "Copie uma coluna de uma folha de cálculo, do resultado de uma consulta ou de um ficheiro de log, cole aqui e receba um literal de array a sério: com aspas, separado por vírgulas e pronto para o seu código. Sem registo, sem carregar nada, sem esperas.",
+    "steps": [
+      {
+        "title": "Cole a sua lista",
+        "body": "Um valor por linha, tal como o copiou. As linhas vazias desaparecem e os espaços a mais são cortados, por isso até uma colagem desarrumada do Excel sai limpa."
+      },
+      {
+        "title": "Defina as regras uma vez",
+        "body": "Aspas simples ou duplas, números sem aspas ou entre aspas, duplicados fora, dialeto SQL escolhido. As suas escolhas ficam à sua espera na próxima visita."
+      },
+      {
+        "title": "Copie e volte ao trabalho",
+        "body": "Prima <code>Ctrl / Cmd + Enter</code>, ou deixe o modo Auto ligado e veja a saída acompanhar o que escreve. Um clique copia o array inteiro, mesmo quando a pré-visualização está cortada."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Uma lista de texto, todos os formatos de array",
+    "lead": "A sua lista é convertida para os oito formatos no mesmo instante. Os números continuam números, o texto leva aspas e os apóstrofos dentro dos valores são escapados como cada linguagem espera.",
+    "inputLabel": "Lista de entrada",
+    "outputLabel": "O que recebe",
+    "outputLead": "Oito saídas prontas a colar, geradas enquanto escreve. Mantenha lado a lado as três que mais usa e mude de painel sempre que mudar a linguagem de destino.",
+    "cards": [
+      {
+        "title": "Array de JavaScript / TypeScript",
+        "body": "Um literal de array simples para JS, TS e Node. Mude para aspas duplas se o seu linter as preferir."
+      },
+      {
+        "title": "Cláusula SQL IN",
+        "body": "Encaixa diretamente em <code>WHERE coluna IN (...)</code>. <code>N'...'</code> para SQL Server, ou mude o dialeto para <code>'...'</code> em MySQL, PostgreSQL e SQLite."
+      },
+      {
+        "title": "Lista de Python",
+        "body": "Cole num script, numa fixture ou num bloco parametrize do <code>pytest</code> sem voltar a escrever uma única vírgula."
+      },
+      {
+        "title": "Array de PHP",
+        "body": "A sintaxe clássica <code>array()</code>, que ainda funciona em bases de código antigas e em ficheiros de configuração do Laravel."
+      },
+      {
+        "title": "Array JSON",
+        "body": "JSON rigorosamente válido com escape real de strings — seguro para o corpo de um pedido de API ou um ficheiro de fixtures."
+      },
+      {
+        "title": "Array de C#",
+        "body": "Um array de tipo implícito para C# e .NET, construído a partir dos mesmos valores escapados como JSON."
+      },
+      {
+        "title": "Lista bruta separada por vírgulas",
+        "body": "Sem parênteses retos — o corpo com aspas e separado por vírgulas que pode colar em qualquer linguagem fora desta lista."
+      },
+      {
+        "title": "Padrão personalizado",
+        "body": "Escreva o seu próprio modelo: <code>{}</code> é o valor, <code>{n}</code> o número da linha a partir de 1 e <code>{i}</code> o índice a partir de 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Feito para listas reais e desarrumadas",
+    "lead": "A maioria dos conversores de lista para array desiste no primeiro apóstrofo ou na décima milésima linha. Este foi feito para as listas que cola mesmo no trabalho.",
+    "items": [
+      {
+        "title": "Nada é enviado.",
+        "body": "A conversão acontece dentro do seu navegador. Identificadores internos, endereços de e-mail e dados de clientes nunca saem do seu dispositivo."
+      },
+      {
+        "title": "Listas grandes continuam rápidas.",
+        "body": "O editor clássico aguenta 50.000 linhas sem esforço e o editor Ultra mantém fluidas colagens ainda maiores."
+      },
+      {
+        "title": "As aspas são escapadas como deve ser.",
+        "body": "<code>O'Brien</code> passa a <code>N'O''Brien'</code> em SQL e a <code>&quot;O'Brien&quot;</code> em JSON, por isso nada parte mais à frente."
+      },
+      {
+        "title": "Os números continuam números.",
+        "body": "As linhas puramente numéricas saem sem aspas por omissão, e um clique transforma-as em strings quando o seu esquema pede isso."
+      },
+      {
+        "title": "Duplicados fora com um clique.",
+        "body": "Ligue Duplicados e só a primeira ocorrência de cada linha sobrevive à conversão."
+      },
+      {
+        "title": "Três painéis ao mesmo tempo.",
+        "body": "Mostre Raw, JavaScript, SQL, Python, PHP, JSON, C# ou Custom, arraste-os para a ordem que quiser e encontre a mesma disposição da próxima vez."
+      },
+      {
+        "title": "Pensado para o teclado.",
+        "body": "<code>Ctrl / Cmd + Enter</code> converte, o modo Auto mantém as listas curtas atualizadas enquanto escreve e cada painel tem o seu botão de cópia."
+      },
+      {
+        "title": "Gratuito e de código aberto.",
+        "body": "Sem conta, sem quota, sem anúncios. O conversor inteiro está no GitHub, caso queira lê-lo ou fazer fork."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Para que os programadores convertem listas de texto em arrays",
+    "cards": [
+      {
+        "title": "Construir uma cláusula SQL IN a partir de uma folha de cálculo",
+        "body": "Copie uma coluna de números de encomenda ou de e-mails do Excel, cole aqui e obtenha em segundos uma lista <code>IN (...)</code> com aspas e escape pronta para a sua consulta."
+      },
+      {
+        "title": "Preparar dados de teste",
+        "body": "Transforme uma lista de SKU, slugs ou IDs de utilizador num array de JavaScript, Python ou C# para testes unitários e dados simulados."
+      },
+      {
+        "title": "Preparar corpos de pedidos de API",
+        "body": "Converta uma lista de identificadores num array JSON válido antes de a colar no Postman, no curl ou no seu cliente REST."
+      },
+      {
+        "title": "Chamadas em massa a procedimentos ou scripts",
+        "body": "Use o padrão personalizado para gerar uma instrução por linha: chamadas <code>EXEC</code>, comandos <code>UPDATE</code>, comandos de terminal ou scripts de migração."
+      },
+      {
+        "title": "Limpar logs exportados",
+        "body": "Cole a saída bruta do log, retire duplicados e linhas vazias e receba do outro lado um array limpo e sem repetições."
+      },
+      {
+        "title": "Preencher enums e ficheiros de configuração",
+        "body": "Leve uma lista de códigos de país, feature flags ou idiomas para o literal de array que a sua configuração está à espera."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Lista de texto para array: perguntas frequentes",
+    "items": [
+      {
+        "q": "O que é um conversor de lista de texto para array?",
+        "a": "É uma ferramenta que transforma uma lista simples de valores, um por linha, num literal de array que cola diretamente no código. O ArrayHelper cria ao mesmo tempo as versões JavaScript, SQL, Python, PHP, JSON, C# e personalizada da mesma lista, para nunca mais escrever aspas e vírgulas à mão."
+      },
+      {
+        "q": "Como converto uma lista de texto em array online?",
+        "a": "Cole a lista no editor no topo desta página, prima <code>Ctrl / Cmd + Enter</code> ou deixe o modo Auto ligado e depois copie o painel de que precisa. Nada para instalar, sem registo e sem limite de linhas."
+      },
+      {
+        "q": "Faz escape de aspas e caracteres especiais?",
+        "a": "Sim. As aspas simples são duplicadas para SQL e as saídas JSON e C# usam escape real de strings JSON, por isso valores com apóstrofos, barras invertidas ou tabulações continuam válidos na linguagem de destino."
+      },
+      {
+        "q": "Os números ficam entre aspas?",
+        "a": "Por omissão não: as linhas puramente numéricas são escritas como números e tudo o resto leva aspas. Se a sua coluna for de tipo texto, o botão dos números na barra também os coloca entre aspas."
+      },
+      {
+        "q": "Posso remover linhas duplicadas durante a conversão?",
+        "a": "Sim. Ligue Duplicados no menu de opções e apenas a primeira ocorrência de cada linha é mantida. As linhas vazias e os espaços à volta são sempre cortados, com ou sem esta opção."
+      },
+      {
+        "q": "Que tamanho de lista aguenta?",
+        "a": "O editor clássico é confortável até 50.000 linhas e o editor Ultra mantém a resposta rápida mesmo com colagens maiores. As saídas longas são encurtadas no ecrã por velocidade, mas Copiar dá-lhe sempre o array completo."
+      },
+      {
+        "q": "A minha lista é enviada para um servidor?",
+        "a": "Não. Cada conversão corre localmente no seu navegador, por isso a lista nunca sai do seu dispositivo — é por isso que a ferramenta é segura para identificadores internos e dados de clientes."
+      },
+      {
+        "q": "Posso definir o meu próprio formato de saída?",
+        "a": "Sim. O painel Custom aceita um modelo como <code>EXEC MyProcedure '{}';</code>, em que <code>{}</code> é o valor da linha, <code>{n}</code> o número da linha a começar em 1 e <code>{i}</code> o índice a começar em 0. Cada linha é gerada com esse modelo na sua própria linha."
+      },
+      {
+        "q": "Que dialeto SQL usa a cláusula IN?",
+        "a": "Os dois. <code>N'...'</code> é a predefinição para SQL Server; mude a definição SQL para <code>'...'</code> em MySQL, PostgreSQL, SQLite e outros dialetos padrão."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Converta listas de texto em arrays no seu idioma",
+    "lead": "O mesmo conversor, documentado em cada um dos idiomas abaixo. Escolha aquele em que pensa: as suas definições guardadas acompanham-no em todos.",
+    "aria": "Idiomas disponíveis"
+  },
+  "footer": {
+    "line": "ArrayHelper — conversor gratuito de lista de texto para array, alojado por {brand}.",
+    "guide": "Guia",
+    "faq": "FAQ"
+  }
+}

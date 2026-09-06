@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Convertir une Liste de Texte en Tableau – JS, SQL, Python, PHP",
+    "description": "Collez votre liste, récupérez le tableau prêt à l’emploi. Convertisseur gratuit de liste de texte en tableau pour JavaScript, SQL, Python, PHP, JSON et C#.",
+    "keywords": "convertir une liste de texte en tableau, liste vers tableau, convertisseur de liste en ligne, generateur de tableau, clause sql in, tableau javascript depuis une liste, liste python, tableau php, generer un tableau json, liste separee par des virgules",
+    "ogImageAlt": "Logo ArrayHelper et aperçu de la conversion en tableau",
+    "appName": "Array Helper – Convertisseur de Liste de Texte en Tableau"
+  },
+  "ui": {
+    "logoAria": "Accueil ArrayHelper",
+    "kbdBefore": "Appuyez sur",
+    "kbdAfter": "pour convertir",
+    "h1": "Convertisseur de liste de texte en tableau pour JavaScript, SQL, PHP et Python",
+    "tagline": "Collez n’importe quelle liste et obtenez aussitôt des tableaux prêts pour votre code.",
+    "convertAria": "Convertir la liste",
+    "editorAria": "Saisie de la liste de texte",
+    "editorPlaceholder": "Commencez à écrire...",
+    "copy": "Copier le texte",
+    "copied": "Copié",
+    "copyFailed": "Échec de la copie",
+    "tooManyLines": "Trop de lignes. Passage en mode Ultra.",
+    "truncated": "--- Sortie tronquée ({n} caractères) ---",
+    "patternAria": "Modèle de sortie personnalisé",
+    "tokenValue": "Valeur de la ligne",
+    "tokenRow": "Numéro de ligne, commence à 1",
+    "tokenIndex": "Index, commence à 0",
+    "doubleQuoteAria": "Utiliser des guillemets doubles",
+    "singleQuoteAria": "Utiliser des guillemets simples",
+    "plainNumbersAria": "Laisser les nombres sans guillemets",
+    "quotedNumbersAria": "Mettre les nombres entre guillemets",
+    "settingsAria": "Réglages",
+    "settingsEditor": "Éditeur",
+    "settingsClassic": "Classique",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Doublons",
+    "dedupeAria": "Supprimer les valeurs en double",
+    "settingsPanels": "Panneaux",
+    "settingsPanelsHint": "3 max.",
+    "clearAria": "Vider l’éditeur",
+    "jump": "Guide, exemples et FAQ",
+    "githubAria": "Voir le projet ArrayHelper sur GitHub",
+    "sectionsAria": "Sections de la page"
+  },
+  "nav": {
+    "how": "Fonctionnement",
+    "formats": "Formats de sortie",
+    "features": "Fonctionnalités",
+    "useCases": "Cas d’usage",
+    "faq": "FAQ",
+    "languages": "Langues"
+  },
+  "how": {
+    "h2": "Comment convertir une liste de texte en tableau",
+    "lead": "Copiez une colonne depuis un tableur, un résultat de requête ou un fichier de log, collez-la ici et récupérez un vrai littéral de tableau : entre guillemets, séparé par des virgules et prêt pour votre code. Sans inscription, sans téléversement, sans attente.",
+    "steps": [
+      {
+        "title": "Collez votre liste",
+        "body": "Une valeur par ligne, exactement telle que vous l’avez copiée. Les lignes vides disparaissent et les espaces superflus sont supprimés : même un collage brouillon depuis Excel ressort propre."
+      },
+      {
+        "title": "Réglez les règles une fois",
+        "body": "Guillemets simples ou doubles, nombres bruts ou entre guillemets, doublons retirés, dialecte SQL choisi. Vos préférences vous attendent à la prochaine visite."
+      },
+      {
+        "title": "Copiez et repartez travailler",
+        "body": "Appuyez sur <code>Ctrl / Cmd + Entrée</code>, ou laissez le mode Auto actif et la sortie suivra votre frappe. Un clic copie tout le tableau, même si l’aperçu est tronqué."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Une liste de texte, tous les formats de tableau",
+    "lead": "Votre liste est convertie dans les huit formats au même instant. Les nombres restent des nombres, le texte est mis entre guillemets et les apostrophes de vos valeurs sont échappées comme chaque langage l’attend.",
+    "inputLabel": "Liste en entrée",
+    "outputLabel": "Ce que vous obtenez",
+    "outputLead": "Huit sorties prêtes à coller, générées pendant que vous tapez. Gardez ouvertes côte à côte les trois que vous utilisez le plus et changez dès que le langage cible change.",
+    "cards": [
+      {
+        "title": "Tableau JavaScript / TypeScript",
+        "body": "Un littéral de tableau simple pour JS, TS et Node. Passez aux guillemets doubles si votre linter les préfère."
+      },
+      {
+        "title": "Clause SQL IN",
+        "body": "S’insère directement dans <code>WHERE colonne IN (...)</code>. <code>N'...'</code> pour SQL Server, ou changez de dialecte pour <code>'...'</code> sur MySQL, PostgreSQL et SQLite."
+      },
+      {
+        "title": "Liste Python",
+        "body": "Collez-la dans un script, une fixture ou un bloc parametrize de <code>pytest</code> sans retaper une seule virgule."
+      },
+      {
+        "title": "Tableau PHP",
+        "body": "La syntaxe classique <code>array()</code>, qui fonctionne encore dans les anciens projets et les fichiers de configuration Laravel."
+      },
+      {
+        "title": "Tableau JSON",
+        "body": "Du JSON strictement valide avec un véritable échappement de chaînes — sûr pour un corps de requête API ou un fichier de fixtures."
+      },
+      {
+        "title": "Tableau C#",
+        "body": "Un tableau à typage implicite pour C# et .NET, construit à partir des mêmes valeurs échappées en JSON."
+      },
+      {
+        "title": "Liste brute séparée par des virgules",
+        "body": "Sans crochets — le corps entre guillemets et séparé par des virgules, à coller dans n’importe quel langage absent de cette liste."
+      },
+      {
+        "title": "Modèle personnalisé",
+        "body": "Écrivez votre propre gabarit : <code>{}</code> est la valeur, <code>{n}</code> le numéro de ligne à partir de 1 et <code>{i}</code> l’index à partir de 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Conçu pour de vraies listes en désordre",
+    "lead": "La plupart des convertisseurs de liste en tableau abandonnent dès la première apostrophe ou à la dix-millième ligne. Celui-ci est fait pour les listes que vous collez vraiment au travail.",
+    "items": [
+      {
+        "title": "Rien n’est téléversé.",
+        "body": "La conversion se fait dans votre navigateur. Identifiants internes, adresses e-mail et données clients ne quittent jamais votre appareil."
+      },
+      {
+        "title": "Les grandes listes restent rapides.",
+        "body": "L’éditeur classique encaisse 50 000 lignes sans broncher, et l’éditeur Ultra garde de la fluidité sur des collages encore plus gros."
+      },
+      {
+        "title": "Les guillemets sont correctement échappés.",
+        "body": "<code>O'Brien</code> devient <code>N'O''Brien'</code> en SQL et <code>&quot;O'Brien&quot;</code> en JSON : rien ne casse en aval."
+      },
+      {
+        "title": "Les nombres restent des nombres.",
+        "body": "Les lignes purement numériques sortent sans guillemets par défaut, et un clic les transforme en chaînes quand votre schéma l’exige."
+      },
+      {
+        "title": "Doublons retirés en un clic.",
+        "body": "Activez Doublons et seule la première occurrence de chaque ligne survit à la conversion."
+      },
+      {
+        "title": "Trois panneaux à la fois.",
+        "body": "Affichez Raw, JavaScript, SQL, Python, PHP, JSON, C# ou Custom, réorganisez-les par glisser-déposer, et retrouvez la même disposition la fois suivante."
+      },
+      {
+        "title": "Pensé pour le clavier.",
+        "body": "<code>Ctrl / Cmd + Entrée</code> convertit, le mode Auto suit les listes courtes pendant la frappe, et chaque panneau a son propre bouton de copie."
+      },
+      {
+        "title": "Gratuit et open source.",
+        "body": "Pas de compte, pas de quota, pas de publicité. Tout le convertisseur est sur GitHub si vous voulez le lire ou le forker."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Pourquoi les développeurs convertissent des listes de texte en tableaux",
+    "cards": [
+      {
+        "title": "Construire une clause SQL IN depuis un tableur",
+        "body": "Copiez une colonne de numéros de commande ou d’adresses e-mail depuis Excel, collez-la ici et obtenez en quelques secondes une liste <code>IN (...)</code> échappée et prête pour votre requête."
+      },
+      {
+        "title": "Préparer des jeux de test",
+        "body": "Transformez une liste de références, de slugs ou d’identifiants utilisateur en tableau JavaScript, Python ou C# pour vos tests unitaires et vos données factices."
+      },
+      {
+        "title": "Préparer des corps de requêtes API",
+        "body": "Convertissez une liste d’identifiants en tableau JSON valide avant de la coller dans Postman, curl ou votre client REST."
+      },
+      {
+        "title": "Appels en masse de procédures ou de scripts",
+        "body": "Utilisez le modèle personnalisé pour produire une instruction par ligne : appels <code>EXEC</code>, requêtes <code>UPDATE</code>, commandes CLI ou scripts de migration."
+      },
+      {
+        "title": "Nettoyer des logs exportés",
+        "body": "Collez la sortie brute du log, supprimez les doublons et les lignes vides, et récupérez de l’autre côté un tableau propre et dédoublonné."
+      },
+      {
+        "title": "Remplir des enums et des fichiers de configuration",
+        "body": "Faites passer une liste de codes pays, de feature flags ou de locales dans le littéral de tableau qu’attend votre configuration."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Liste de texte en tableau : questions fréquentes",
+    "items": [
+      {
+        "q": "Qu’est-ce qu’un convertisseur de liste de texte en tableau ?",
+        "a": "C’est un outil qui transforme une simple liste de valeurs, une par ligne, en un littéral de tableau que vous collez directement dans votre code. ArrayHelper produit en même temps les versions JavaScript, SQL, Python, PHP, JSON, C# et personnalisée de la même liste, pour ne plus jamais taper les guillemets et les virgules à la main."
+      },
+      {
+        "q": "Comment convertir une liste de texte en tableau en ligne ?",
+        "a": "Collez la liste dans l’éditeur en haut de cette page, appuyez sur <code>Ctrl / Cmd + Entrée</code> ou laissez le mode Auto actif, puis copiez le panneau voulu. Rien à installer, aucune inscription et aucune limite de lignes."
+      },
+      {
+        "q": "Les guillemets et les caractères spéciaux sont-ils échappés ?",
+        "a": "Oui. Les apostrophes sont doublées pour SQL, et les sorties JSON et C# utilisent un véritable échappement de chaînes JSON : les valeurs contenant apostrophes, antislashs ou tabulations restent valides dans le langage cible."
+      },
+      {
+        "q": "Les nombres sont-ils mis entre guillemets ?",
+        "a": "Pas par défaut : les lignes purement numériques sont écrites comme des nombres et tout le reste est entre guillemets. Si votre colonne est de type texte, le bouton des nombres dans la barre les met aussi entre guillemets."
+      },
+      {
+        "q": "Puis-je supprimer les lignes en double pendant la conversion ?",
+        "a": "Oui. Activez Doublons dans le menu des options et seule la première occurrence de chaque ligne est conservée. Les lignes vides et les espaces autour sont toujours supprimés, avec ou sans cette option."
+      },
+      {
+        "q": "Quelle taille de liste peut-il traiter ?",
+        "a": "L’éditeur classique reste confortable jusqu’à 50 000 lignes, et l’éditeur Ultra garde de la réactivité sur des collages plus gros encore. Les sorties longues sont raccourcies à l’écran pour la vitesse, mais Copier vous donne toujours le tableau complet."
+      },
+      {
+        "q": "Ma liste est-elle envoyée sur un serveur ?",
+        "a": "Non. Chaque conversion s’exécute localement dans votre navigateur, votre liste ne quitte donc jamais votre appareil : c’est ce qui rend l’outil sûr pour des identifiants internes et des données clients."
+      },
+      {
+        "q": "Puis-je définir mon propre format de sortie ?",
+        "a": "Oui. Le panneau Custom accepte un gabarit comme <code>EXEC MyProcedure '{}';</code>, où <code>{}</code> est la valeur de la ligne, <code>{n}</code> le numéro de ligne à partir de 1 et <code>{i}</code> l’index à partir de 0. Chaque ligne est rendue avec ce gabarit sur sa propre ligne."
+      },
+      {
+        "q": "Quel dialecte SQL la clause IN utilise-t-elle ?",
+        "a": "Les deux. <code>N'...'</code> est la valeur par défaut pour SQL Server ; passez le réglage SQL à <code>'...'</code> pour MySQL, PostgreSQL, SQLite et les autres dialectes standard."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Convertissez vos listes de texte en tableaux dans votre langue",
+    "lead": "Le même convertisseur, documenté dans chacune des langues ci-dessous. Choisissez celle dans laquelle vous pensez : vos réglages enregistrés vous suivent partout.",
+    "aria": "Langues disponibles"
+  },
+  "footer": {
+    "line": "ArrayHelper — convertisseur gratuit de liste de texte en tableau, hébergé par {brand}.",
+    "guide": "Guide",
+    "faq": "FAQ"
+  }
+}

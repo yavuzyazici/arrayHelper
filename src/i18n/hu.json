@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Szöveglista Tömbbé Alakítása – JavaScript, SQL, Python, PHP",
+    "description": "Illeszd be a listát, és azonnal kész tömböt kapsz. Ingyenes szöveglista-tömb átalakító JavaScripthez, SQL-hez, Pythonhoz, PHP-hoz, JSON-hoz és C#-hoz — a böngésződben fut.",
+    "keywords": "szöveglista tömbbé alakítása, lista tömbbé, tömb generátor online, text list to array, sql in feltétel, javascript tömb listából, python lista, php tömb, json tömb készítése, vesszővel elválasztott lista",
+    "ogImageAlt": "ArrayHelper logó és a tömbbé alakítás előnézete",
+    "appName": "Array Helper – Szöveglista-Tömb Átalakító"
+  },
+  "ui": {
+    "logoAria": "ArrayHelper kezdőlap",
+    "kbdBefore": "Az átalakításhoz nyomd meg:",
+    "kbdAfter": "",
+    "h1": "Szöveglista-tömb átalakító JavaScripthez, SQL-hez, PHP-hoz és Pythonhoz",
+    "tagline": "Illessz be bármilyen listát, és alakítsd azonnal kódba illeszthető tömbökké.",
+    "convertAria": "Lista átalakítása",
+    "editorAria": "Szöveglista bevitele",
+    "editorPlaceholder": "Kezdj el gépelni...",
+    "copy": "Szöveg másolása",
+    "copied": "Másolva",
+    "copyFailed": "A másolás nem sikerült",
+    "tooManyLines": "Túl sok sor. Átváltás Ultra módra.",
+    "truncated": "--- A kimenet lerövidítve ({n} karakter) ---",
+    "patternAria": "Egyéni kimeneti minta",
+    "tokenValue": "A sor értéke",
+    "tokenRow": "Sorszám, 1-től indul",
+    "tokenIndex": "Index, 0-tól indul",
+    "doubleQuoteAria": "Dupla idézőjelek használata",
+    "singleQuoteAria": "Aposztrófok használata",
+    "plainNumbersAria": "A számok maradjanak idézőjel nélkül",
+    "quotedNumbersAria": "A számok kerüljenek idézőjelbe",
+    "settingsAria": "Beállítások",
+    "settingsEditor": "Szerkesztő",
+    "settingsClassic": "Klasszikus",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Duplikátumok",
+    "dedupeAria": "Ismétlődő értékek eltávolítása",
+    "settingsPanels": "Panelek",
+    "settingsPanelsHint": "legfeljebb 3",
+    "clearAria": "Szerkesztő kiürítése",
+    "jump": "Útmutató, példák és GYIK",
+    "githubAria": "Az ArrayHelper projekt megtekintése a GitHubon",
+    "sectionsAria": "Az oldal szakaszai"
+  },
+  "nav": {
+    "how": "Így működik",
+    "formats": "Kimeneti formátumok",
+    "features": "Funkciók",
+    "useCases": "Felhasználás",
+    "faq": "GYIK",
+    "languages": "Nyelvek"
+  },
+  "how": {
+    "h2": "Hogyan alakíts szöveglistát tömbbé",
+    "lead": "Másolj ki egy oszlopot egy táblázatból, egy lekérdezés eredményéből vagy egy naplófájlból, illeszd be ide, és rendes tömbliterált kapsz vissza: idézőjelekkel, vesszőkkel elválasztva, kódba illeszthetően. Regisztráció, feltöltés és várakozás nélkül.",
+    "steps": [
+      {
+        "title": "Illeszd be a listát",
+        "body": "Soronként egy érték, pontosan úgy, ahogy kimásoltad. Az üres sorok eltűnnek, a fölösleges szóközök levágódnak, így még egy kusza Excel-beillesztés is tisztán jön ki."
+      },
+      {
+        "title": "Állítsd be a szabályokat egyszer",
+        "body": "Aposztróf vagy idézőjel, számok csupaszon vagy idézőjelben, duplikátumok ki, SQL-nyelvjárás kiválasztva. A beállításaid a következő látogatásodkor is ott várnak."
+      },
+      {
+        "title": "Másold ki, és folytasd a munkát",
+        "body": "Nyomd meg a <code>Ctrl / Cmd + Enter</code> billentyűket, vagy hagyd bekapcsolva az Auto módot, és a kimenet követi a gépelésedet. Egy kattintás az egész tömböt másolja, akkor is, ha az előnézet rövidítve van."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Egy szöveglista, minden tömbformátum",
+    "lead": "A listád ugyanabban a pillanatban mind a nyolc formátumba átalakul. A számok számok maradnak, a szöveg idézőjelet kap, az értékeken belüli aposztrófokat pedig úgy kezeli a rendszer, ahogy az adott nyelv elvárja.",
+    "inputLabel": "Bemeneti lista",
+    "outputLabel": "Ezt kapod",
+    "outputLead": "Nyolc beilleszthető kimenet, gépelés közben előállítva. Tartsd nyitva egymás mellett a három leggyakrabban használtat, és válts panelt, amikor változik a célnyelv.",
+    "cards": [
+      {
+        "title": "JavaScript / TypeScript tömb",
+        "body": "Egyszerű tömbliterál JS-hez, TS-hez és Node-hoz. Válts dupla idézőjelre, ha a linter azt szereti jobban."
+      },
+      {
+        "title": "SQL IN feltétel",
+        "body": "Egyenesen beillik a <code>WHERE oszlop IN (...)</code> helyére. <code>N'...'</code> SQL Serverhez, vagy válts nyelvjárást a <code>'...'</code> formára MySQL, PostgreSQL és SQLite esetén."
+      },
+      {
+        "title": "Python lista",
+        "body": "Illeszd be egy szkriptbe, egy fixture-be vagy egy <code>pytest</code> parametrize blokkba anélkül, hogy egyetlen vesszőt is újra kellene gépelned."
+      },
+      {
+        "title": "PHP tömb",
+        "body": "A klasszikus <code>array()</code> szintaxis, amely régebbi kódbázisokban és Laravel konfigurációs fájlokban ma is működik."
+      },
+      {
+        "title": "JSON tömb",
+        "body": "Szigorúan érvényes JSON valódi karakterlánc-escapeléssel — biztonságos API-kérés törzsének vagy tesztadatfájlnak."
+      },
+      {
+        "title": "C# tömb",
+        "body": "Implicit típusú tömb C#-hoz és .NET-hez, ugyanazokból a JSON-escapelt értékekből felépítve."
+      },
+      {
+        "title": "Nyers, vesszős lista",
+        "body": "Szögletes zárójelek nélkül — csak az idézőjeles, vesszővel tagolt törzs, amelyet bármelyik, itt nem szereplő nyelvbe beilleszthetsz."
+      },
+      {
+        "title": "Egyéni minta",
+        "body": "Írd meg a saját sablonodat: a <code>{}</code> az érték, a <code>{n}</code> a sorszám 1-től, az <code>{i}</code> pedig az index 0-tól."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Valódi, rendetlen listákhoz készült",
+    "lead": "A legtöbb lista-tömb átalakító az első aposztrófnál vagy a tízezredik sornál feladja. Ez azokhoz a listákhoz készült, amelyeket tényleg beillesztesz a munkádban.",
+    "items": [
+      {
+        "title": "Semmi nem kerül fel szerverre.",
+        "body": "Az átalakítás a böngésződön belül történik. A belső azonosítók, az e-mail-címek és az ügyféladatok soha nem hagyják el az eszközödet."
+      },
+      {
+        "title": "A nagy listák is gyorsak maradnak.",
+        "body": "A klasszikus szerkesztő 50 000 sort könnyedén elvisz, az Ultra szerkesztő pedig még nagyobb beillesztéseknél is folyamatos marad."
+      },
+      {
+        "title": "Az idézőjelek helyesen escapelődnek.",
+        "body": "Az <code>O'Brien</code> SQL-ben <code>N'O''Brien'</code>, JSON-ban pedig <code>&quot;O'Brien&quot;</code> lesz, így később semmi nem törik el."
+      },
+      {
+        "title": "A számok számok maradnak.",
+        "body": "A tisztán numerikus sorok alapértelmezés szerint idézőjel nélkül jönnek ki, és egy kattintással sztringgé válnak, ha a sémád úgy kívánja."
+      },
+      {
+        "title": "Duplikátumok egy kattintással.",
+        "body": "Kapcsold be a Duplikátumok opciót, és minden sorból csak az első előfordulás marad meg."
+      },
+      {
+        "title": "Három panel egyszerre.",
+        "body": "Jelenítsd meg a Raw, JavaScript, SQL, Python, PHP, JSON, C# vagy Custom panelt, húzd őket tetszőleges sorrendbe, és legközelebb ugyanazt az elrendezést találod."
+      },
+      {
+        "title": "Billentyűzetre tervezve.",
+        "body": "A <code>Ctrl / Cmd + Enter</code> alakít át, az Auto mód gépelés közben frissíti a rövid listákat, és minden panelnek saját másolás gombja van."
+      },
+      {
+        "title": "Ingyenes és nyílt forráskódú.",
+        "body": "Nincs fiók, nincs kvóta, nincsenek hirdetések. A teljes átalakító fent van a GitHubon, ha el akarod olvasni vagy forkolni."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Mire alakítanak a fejlesztők szöveglistákat tömbbé",
+    "cards": [
+      {
+        "title": "SQL IN feltétel építése táblázatból",
+        "body": "Másolj ki egy rendelésszám- vagy e-mail-oszlopot az Excelből, illeszd be ide, és másodpercek alatt megkapod az idézőjeles, escapelt <code>IN (...)</code> listát a lekérdezésedhez."
+      },
+      {
+        "title": "Tesztadatok előkészítése",
+        "body": "Alakíts egy cikkszám-, slug- vagy felhasználóazonosító-listát JavaScript, Python vagy C# tömbbé egységtesztekhez és próbaadatokhoz."
+      },
+      {
+        "title": "API-kérések törzsének előkészítése",
+        "body": "Alakítsd az azonosítók listáját érvényes JSON tömbbé, mielőtt beillesztenéd a Postmanbe, a curlba vagy a REST-kliensedbe."
+      },
+      {
+        "title": "Tömeges eljárás- vagy szkripthívások",
+        "body": "Használd az egyéni mintát soronként egy utasításhoz: <code>EXEC</code> hívások, <code>UPDATE</code> parancsok, terminálparancsok vagy migrációs szkriptek."
+      },
+      {
+        "title": "Exportált naplók megtisztítása",
+        "body": "Illeszd be a nyers naplókimenetet, dobd ki a duplikátumokat és az üres sorokat, és a másik oldalon tiszta, ismétlésmentes tömböt kapsz."
+      },
+      {
+        "title": "Enumok és konfigurációs fájlok feltöltése",
+        "body": "Vidd át az országkódok, feature flagek vagy nyelvek listáját abba a tömbliterálba, amelyre a konfigurációd vár."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Szöveglistából tömb: gyakori kérdések",
+    "items": [
+      {
+        "q": "Mi az a szöveglista-tömb átalakító?",
+        "a": "Olyan eszköz, amely egy egyszerű, soronként egy értéket tartalmazó listát olyan tömbliterállá alakít, amelyet közvetlenül a kódba illeszthetsz. Az ArrayHelper egyszerre állítja elő ugyanannak a listának a JavaScript, SQL, Python, PHP, JSON, C# és egyéni változatát, így soha többé nem kell kézzel idézőjeleket és vesszőket írnod."
+      },
+      {
+        "q": "Hogyan alakítok szöveglistát tömbbé online?",
+        "a": "Illeszd be a listát az oldal tetején lévő szerkesztőbe, nyomd meg a <code>Ctrl / Cmd + Enter</code> billentyűket vagy hagyd bekapcsolva az Auto módot, majd másold ki a szükséges panelt. Nincs mit telepíteni, nincs regisztráció és nincs sorkorlát."
+      },
+      {
+        "q": "Escapeli az idézőjeleket és a speciális karaktereket?",
+        "a": "Igen. Az aposztrófok SQL-hez megkettőződnek, a JSON és C# kimenet pedig valódi JSON karakterlánc-escapelést használ, így az aposztrófot, fordított perjelet vagy tabulátort tartalmazó értékek is érvényesek maradnak a célnyelvben."
+      },
+      {
+        "q": "Idézőjelbe kerülnek a számok?",
+        "a": "Alapértelmezés szerint nem: a tisztán numerikus sorok számként íródnak ki, minden más idézőjelet kap. Ha az oszlopod szöveges típusú, az eszköztár szám gombja ezeket is idézőjelbe teszi."
+      },
+      {
+        "q": "Eltávolíthatom az ismétlődő sorokat átalakítás közben?",
+        "a": "Igen. Kapcsold be a Duplikátumok opciót a beállítások menüben, és minden sorból csak az első előfordulás marad meg. Az üres sorok és a körülöttük lévő szóközök mindig levágódnak, ettől a beállítástól függetlenül."
+      },
+      {
+        "q": "Mekkora listát bír el?",
+        "a": "A klasszikus szerkesztő 50 000 sorig kényelmes, az Ultra szerkesztő pedig nagyobb beillesztéseknél is fürge marad. A hosszú kimenetek a sebesség miatt a képernyőn rövidülnek, de a Másolás mindig a teljes tömböt adja."
+      },
+      {
+        "q": "Feltöltődik a listám valamilyen szerverre?",
+        "a": "Nem. Minden átalakítás helyben, a böngésződben fut, így a lista soha nem hagyja el az eszközödet — ezért biztonságos az eszköz belső azonosítókhoz és ügyféladatokhoz."
+      },
+      {
+        "q": "Megadhatok saját kimeneti formátumot?",
+        "a": "Igen. A Custom panel olyan sablont fogad, mint az <code>EXEC MyProcedure '{}';</code>, ahol a <code>{}</code> a sor értéke, a <code>{n}</code> az 1-től induló sorszám, az <code>{i}</code> pedig a 0-tól induló index. Minden sor ezzel a sablonnal, saját sorban jelenik meg."
+      },
+      {
+        "q": "Melyik SQL nyelvjárást használja az IN feltétel?",
+        "a": "Mindkettőt. Az <code>N'...'</code> az alapértelmezés SQL Serverhez; állítsd az SQL beállítást <code>'...'</code> értékre MySQL, PostgreSQL, SQLite és más szabványos nyelvjárásokhoz."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Alakíts szöveglistákat tömbbé a saját nyelveden",
+    "lead": "Ugyanaz az átalakító, az alábbi nyelvek mindegyikén dokumentálva. Válaszd azt, amelyiken gondolkodsz — a mentett beállításaid mindenhová veled tartanak.",
+    "aria": "Elérhető nyelvek"
+  },
+  "footer": {
+    "line": "ArrayHelper — ingyenes szöveglista-tömb átalakító, a tárhelyet a {brand} biztosítja.",
+    "guide": "Útmutató",
+    "faq": "GYIK"
+  }
+}

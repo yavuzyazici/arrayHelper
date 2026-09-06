@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Převod Textového Seznamu na Pole – JS, SQL, Python, PHP",
+    "description": "Vlož seznam a hned máš hotové pole. Bezplatný převodník textového seznamu na pole pro JavaScript, SQL, Python, PHP, JSON a C# — běží přímo v prohlížeči.",
+    "keywords": "převod textového seznamu na pole, seznam na pole, generátor pole online, text list to array, sql in klauzule, javascript pole ze seznamu, python seznam, php pole, generovat json pole, seznam oddělený čárkami",
+    "ogImageAlt": "Logo ArrayHelper a náhled převodu na pole",
+    "appName": "Array Helper – Převodník Textového Seznamu na Pole"
+  },
+  "ui": {
+    "logoAria": "Úvodní stránka ArrayHelper",
+    "kbdBefore": "Pro převod stiskni",
+    "kbdAfter": "",
+    "h1": "Převodník textového seznamu na pole pro JavaScript, SQL, PHP a Python",
+    "tagline": "Vlož libovolný seznam a okamžitě z něj máš pole připravená do kódu.",
+    "convertAria": "Převést seznam",
+    "editorAria": "Vstup textového seznamu",
+    "editorPlaceholder": "Začni psát...",
+    "copy": "Kopírovat text",
+    "copied": "Zkopírováno",
+    "copyFailed": "Kopírování selhalo",
+    "tooManyLines": "Příliš mnoho řádků. Přepínám do režimu Ultra.",
+    "truncated": "--- Výstup zkrácen ({n} znaků) ---",
+    "patternAria": "Vlastní vzor výstupu",
+    "tokenValue": "Hodnota řádku",
+    "tokenRow": "Číslo řádku, začíná od 1",
+    "tokenIndex": "Index, začíná od 0",
+    "doubleQuoteAria": "Použít dvojité uvozovky",
+    "singleQuoteAria": "Použít apostrofy",
+    "plainNumbersAria": "Nechat čísla bez uvozovek",
+    "quotedNumbersAria": "Dát čísla do uvozovek",
+    "settingsAria": "Nastavení",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Klasický",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Duplicity",
+    "dedupeAria": "Odstranit duplicitní hodnoty",
+    "settingsPanels": "Panely",
+    "settingsPanelsHint": "max. 3",
+    "clearAria": "Vyprázdnit editor",
+    "jump": "Návod, příklady a FAQ",
+    "githubAria": "Prohlédnout projekt ArrayHelper na GitHubu",
+    "sectionsAria": "Části stránky"
+  },
+  "nav": {
+    "how": "Jak to funguje",
+    "formats": "Formáty výstupu",
+    "features": "Funkce",
+    "useCases": "Využití",
+    "faq": "FAQ",
+    "languages": "Jazyky"
+  },
+  "how": {
+    "h2": "Jak převést textový seznam na pole",
+    "lead": "Zkopíruj sloupec z tabulky, z výsledku dotazu nebo z logu, vlož ho sem a dostaneš zpátky pořádný literál pole: v uvozovkách, oddělený čárkami a připravený do kódu. Bez registrace, bez nahrávání, bez čekání.",
+    "steps": [
+      {
+        "title": "Vlož svůj seznam",
+        "body": "Jedna hodnota na řádek, přesně jak jsi ji zkopíroval. Prázdné řádky zmizí a přebytečné mezery se ořežou, takže i rozházené vložení z Excelu vyjde čistě."
+      },
+      {
+        "title": "Nastav pravidla jednou",
+        "body": "Apostrofy nebo uvozovky, čísla holá nebo v uvozovkách, duplicity pryč, zvolený SQL dialekt. Tvoje volby na tebe počkají do příští návštěvy."
+      },
+      {
+        "title": "Zkopíruj a vrať se k práci",
+        "body": "Stiskni <code>Ctrl / Cmd + Enter</code>, nebo nech zapnutý režim Auto a výstup půjde s tvým psaním. Jedno kliknutí zkopíruje celé pole, i když je náhled zkrácený."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Jeden textový seznam, všechny formáty pole",
+    "lead": "Tvůj seznam se ve stejném okamžiku převede do všech osmi formátů. Čísla zůstanou čísly, text dostane uvozovky a apostrofy uvnitř hodnot se ošetří tak, jak to každý jazyk očekává.",
+    "inputLabel": "Vstupní seznam",
+    "outputLabel": "Co dostaneš",
+    "outputLead": "Osm výstupů připravených k vložení, generovaných během psaní. Nech si tři nejpoužívanější otevřené vedle sebe a přepínej panel, když se změní cílový jazyk.",
+    "cards": [
+      {
+        "title": "Pole v JavaScriptu / TypeScriptu",
+        "body": "Obyčejný literál pole pro JS, TS a Node. Přepni na dvojité uvozovky, pokud je tvůj linter preferuje."
+      },
+      {
+        "title": "Klauzule SQL IN",
+        "body": "Zapadne rovnou do <code>WHERE sloupec IN (...)</code>. <code>N'...'</code> pro SQL Server, nebo přepni dialekt na <code>'...'</code> pro MySQL, PostgreSQL a SQLite."
+      },
+      {
+        "title": "Seznam v Pythonu",
+        "body": "Vlož ho do skriptu, do fixture nebo do bloku parametrize v <code>pytest</code> bez přepisování jediné čárky."
+      },
+      {
+        "title": "Pole v PHP",
+        "body": "Klasická syntaxe <code>array()</code>, která pořád funguje ve starších projektech i v konfiguraci Laravelu."
+      },
+      {
+        "title": "Pole v JSON",
+        "body": "Striktně platný JSON se skutečným escapováním řetězců — bezpečný pro tělo API požadavku i pro soubor s testovacími daty."
+      },
+      {
+        "title": "Pole v C#",
+        "body": "Implicitně typované pole pro C# a .NET, sestavené ze stejných hodnot escapovaných jako v JSON."
+      },
+      {
+        "title": "Holý seznam s čárkami",
+        "body": "Úplně bez závorek — jen tělo v uvozovkách oddělené čárkami, které vložíš do jakéhokoli jazyka mimo tento seznam."
+      },
+      {
+        "title": "Vlastní vzor",
+        "body": "Napiš si vlastní šablonu: <code>{}</code> je hodnota, <code>{n}</code> číslo řádku od 1 a <code>{i}</code> index od 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Postavené na skutečné, nepořádné seznamy",
+    "lead": "Většina převodníků seznamu na pole to vzdá u prvního apostrofu nebo u desetitisícího řádku. Tenhle vznikl pro seznamy, které v práci opravdu vkládáš.",
+    "items": [
+      {
+        "title": "Nic se nikam neodesílá.",
+        "body": "Převod probíhá uvnitř tvého prohlížeče. Interní identifikátory, e-mailové adresy ani zákaznická data nikdy neopustí tvoje zařízení."
+      },
+      {
+        "title": "Velké seznamy zůstávají rychlé.",
+        "body": "Klasický editor zvládne 50 000 řádků bez zaváhání a editor Ultra udrží plynulost i u větších vložení."
+      },
+      {
+        "title": "Uvozovky se escapují správně.",
+        "body": "Z <code>O'Brien</code> se stane <code>N'O''Brien'</code> v SQL a <code>&quot;O'Brien&quot;</code> v JSON, takže se dál nic nerozbije."
+      },
+      {
+        "title": "Čísla zůstávají čísly.",
+        "body": "Čistě číselné řádky vycházejí ve výchozím nastavení bez uvozovek a jedno kliknutí z nich udělá řetězce, když to tvoje schéma vyžaduje."
+      },
+      {
+        "title": "Duplicity pryč jedním kliknutím.",
+        "body": "Zapni Duplicity a z převodu projde jen první výskyt každého řádku."
+      },
+      {
+        "title": "Tři panely najednou.",
+        "body": "Zobraz Raw, JavaScript, SQL, Python, PHP, JSON, C# nebo Custom, přetáhni je do pořadí, které ti vyhovuje, a příště najdeš stejné rozložení."
+      },
+      {
+        "title": "Dělané pro klávesnici.",
+        "body": "<code>Ctrl / Cmd + Enter</code> převádí, režim Auto drží krátké seznamy aktuální při psaní a každý panel má vlastní tlačítko kopírování."
+      },
+      {
+        "title": "Zdarma a s otevřeným kódem.",
+        "body": "Žádný účet, žádný limit, žádné reklamy. Celý převodník je na GitHubu, jestli si ho chceš přečíst nebo forknout."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "K čemu vývojáři převádějí textové seznamy na pole",
+    "cards": [
+      {
+        "title": "Sestavení klauzule SQL IN z tabulky",
+        "body": "Zkopíruj sloupec s čísly objednávek nebo e-maily z Excelu, vlož ho sem a během pár vteřin máš escapovaný seznam <code>IN (...)</code> pro svůj dotaz."
+      },
+      {
+        "title": "Příprava testovacích dat",
+        "body": "Uděláš ze seznamu kódů zboží, slugů nebo ID uživatelů pole v JavaScriptu, Pythonu nebo C# pro unit testy a falešná data."
+      },
+      {
+        "title": "Příprava těla API požadavků",
+        "body": "Převeď seznam identifikátorů na platné pole JSON, než ho vložíš do Postmanu, curlu nebo svého REST klienta."
+      },
+      {
+        "title": "Hromadná volání procedur nebo skriptů",
+        "body": "Použij vlastní vzor pro jeden příkaz na řádek: volání <code>EXEC</code>, příkazy <code>UPDATE</code>, příkazy terminálu nebo migrační skripty."
+      },
+      {
+        "title": "Úklid exportovaných logů",
+        "body": "Vlož holý výstup logu, zahoď duplicity a prázdné řádky a na druhé straně dostaneš čisté pole bez opakování."
+      },
+      {
+        "title": "Plnění enumů a konfiguračních souborů",
+        "body": "Přesuň seznam kódů zemí, feature flagů nebo jazyků do literálu pole, na který tvoje konfigurace čeká."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Textový seznam na pole: časté otázky",
+    "items": [
+      {
+        "q": "Co je převodník textového seznamu na pole?",
+        "a": "Je to nástroj, který z prostého seznamu hodnot, jedna na řádek, udělá literál pole, který vložíš přímo do kódu. ArrayHelper vytvoří najednou verze pro JavaScript, SQL, Python, PHP, JSON, C# i vlastní formát téhož seznamu, takže už nikdy nepíšeš uvozovky a čárky ručně."
+      },
+      {
+        "q": "Jak převedu textový seznam na pole online?",
+        "a": "Vlož seznam do editoru v horní části této stránky, stiskni <code>Ctrl / Cmd + Enter</code> nebo nech zapnutý režim Auto a pak zkopíruj panel, který potřebuješ. Nic se neinstaluje, není potřeba registrace ani není limit na počet řádků."
+      },
+      {
+        "q": "Escapuje uvozovky a speciální znaky?",
+        "a": "Ano. Apostrofy se pro SQL zdvojují a výstupy JSON a C# používají skutečné escapování řetězců JSON, takže hodnoty s apostrofy, zpětnými lomítky nebo tabulátory zůstanou v cílovém jazyce platné."
+      },
+      {
+        "q": "Dávají se čísla do uvozovek?",
+        "a": "Ve výchozím nastavení ne: čistě číselné řádky se zapisují jako čísla a všechno ostatní se dává do uvozovek. Pokud je tvůj sloupec textový, tlačítko čísel v liště je do uvozovek dá také."
+      },
+      {
+        "q": "Můžu při převodu odstranit duplicitní řádky?",
+        "a": "Ano. Zapni Duplicity v nabídce nastavení a zůstane jen první výskyt každého řádku. Prázdné řádky a mezery kolem se ořezávají vždy, ať už je tato volba zapnutá, nebo ne."
+      },
+      {
+        "q": "Jak velký seznam to zvládne?",
+        "a": "Klasický editor je pohodlný až do 50 000 řádků a editor Ultra zůstává svižný i u větších vložení. Dlouhé výstupy se na obrazovce kvůli rychlosti zkracují, ale Kopírovat ti vždy dá celé pole."
+      },
+      {
+        "q": "Nahrává se můj seznam na server?",
+        "a": "Ne. Každý převod běží lokálně v tvém prohlížeči, takže seznam nikdy neopustí tvoje zařízení — právě proto je nástroj bezpečný pro interní identifikátory a zákaznická data."
+      },
+      {
+        "q": "Můžu si nadefinovat vlastní formát výstupu?",
+        "a": "Ano. Panel Custom bere šablonu jako <code>EXEC MyProcedure '{}';</code>, kde <code>{}</code> je hodnota řádku, <code>{n}</code> číslo řádku počítané od 1 a <code>{i}</code> index počítaný od 0. Každý řádek se touto šablonou vykreslí na vlastní řádek."
+      },
+      {
+        "q": "Jaký SQL dialekt klauzule IN používá?",
+        "a": "Oba. <code>N'...'</code> je výchozí pro SQL Server; přepni nastavení SQL na <code>'...'</code> pro MySQL, PostgreSQL, SQLite a další standardní dialekty."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Převáděj textové seznamy na pole ve svém jazyce",
+    "lead": "Stejný převodník, popsaný v každém z jazyků níže. Vyber si ten, ve kterém přemýšlíš — uložená nastavení jdou s tebou všude.",
+    "aria": "Dostupné jazyky"
+  },
+  "footer": {
+    "line": "ArrayHelper — bezplatný převodník textového seznamu na pole, hostuje {brand}.",
+    "guide": "Návod",
+    "faq": "FAQ"
+  }
+}

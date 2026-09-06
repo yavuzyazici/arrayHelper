@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Textliste in Array umwandeln – JavaScript, SQL, Python, PHP",
+    "description": "Liste einfügen, fertiges Array sofort erhalten. Kostenloser Konverter für Textlisten zu Arrays in JavaScript, SQL, Python, PHP, JSON und C# — läuft im Browser.",
+    "keywords": "textliste in array umwandeln, liste in array konvertieren, array generator, text list to array, sql in klausel generator, javascript array aus liste, python liste erzeugen, php array generator, json array erstellen, komma getrennte liste",
+    "ogImageAlt": "ArrayHelper Logo und Vorschau der Array-Umwandlung",
+    "appName": "Array Helper – Textliste in Array umwandeln"
+  },
+  "ui": {
+    "logoAria": "ArrayHelper Startseite",
+    "kbdBefore": "Zum Umwandeln",
+    "kbdAfter": "drücken",
+    "h1": "Textliste in Array umwandeln für JavaScript, SQL, PHP und Python",
+    "tagline": "Beliebige Liste einfügen und sofort in fertige Arrays für deinen Code verwandeln.",
+    "convertAria": "Liste umwandeln",
+    "editorAria": "Eingabe der Textliste",
+    "editorPlaceholder": "Einfach lostippen...",
+    "copy": "Text kopieren",
+    "copied": "Kopiert",
+    "copyFailed": "Kopieren fehlgeschlagen",
+    "tooManyLines": "Zu viele Zeilen. Wechsel in den Ultra-Modus.",
+    "truncated": "--- Ausgabe gekürzt ({n} Zeichen) ---",
+    "patternAria": "Eigenes Ausgabemuster",
+    "tokenValue": "Zeilenwert",
+    "tokenRow": "Zeilennummer, beginnt bei 1",
+    "tokenIndex": "Index, beginnt bei 0",
+    "doubleQuoteAria": "Doppelte Anführungszeichen verwenden",
+    "singleQuoteAria": "Einfache Anführungszeichen verwenden",
+    "plainNumbersAria": "Zahlen ohne Anführungszeichen lassen",
+    "quotedNumbersAria": "Zahlen als Zeichenketten setzen",
+    "settingsAria": "Einstellungen",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Klassisch",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Duplikate",
+    "dedupeAria": "Doppelte Werte entfernen",
+    "settingsPanels": "Bereiche",
+    "settingsPanelsHint": "max. 3",
+    "clearAria": "Editor leeren",
+    "jump": "Anleitung, Beispiele und FAQ",
+    "githubAria": "ArrayHelper Projekt auf GitHub ansehen",
+    "sectionsAria": "Abschnitte der Seite"
+  },
+  "nav": {
+    "how": "So funktioniert es",
+    "formats": "Ausgabeformate",
+    "features": "Funktionen",
+    "useCases": "Anwendungsfälle",
+    "faq": "FAQ",
+    "languages": "Sprachen"
+  },
+  "how": {
+    "h2": "Wie du eine Textliste in ein Array umwandelst",
+    "lead": "Kopiere eine Spalte aus einer Tabelle, einem Abfrageergebnis oder einer Logdatei, füge sie hier ein und bekomme ein sauberes Array-Literal zurück — in Anführungszeichen, kommagetrennt und bereit für deinen Code. Ohne Anmeldung, ohne Upload, ohne Wartezeit.",
+    "steps": [
+      {
+        "title": "Liste einfügen",
+        "body": "Ein Wert pro Zeile, genau so, wie du ihn kopiert hast. Leerzeilen fallen weg und überflüssige Leerzeichen werden entfernt — auch ein unsauberer Einfügevorgang aus Excel kommt sauber heraus."
+      },
+      {
+        "title": "Regeln einmal festlegen",
+        "body": "Einfache oder doppelte Anführungszeichen, Zahlen roh oder zitiert, Duplikate entfernen, SQL-Dialekt wählen. Deine Einstellungen warten beim nächsten Besuch auf dich."
+      },
+      {
+        "title": "Kopieren und weiterarbeiten",
+        "body": "Drücke <code>Strg / Cmd + Enter</code> oder lass Auto aktiv, dann folgt die Ausgabe deiner Eingabe. Ein Klick kopiert das komplette Array, auch wenn die Vorschau gekürzt ist."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Eine Textliste, jedes Array-Format",
+    "lead": "Deine Liste wird gleichzeitig in alle acht Formate umgewandelt. Zahlen bleiben Zahlen, Text wird zitiert, und Apostrophe in deinen Werten werden so maskiert, wie es die jeweilige Sprache erwartet.",
+    "inputLabel": "Eingabeliste",
+    "outputLabel": "Das bekommst du",
+    "outputLead": "Acht einfügefertige Ausgaben, erzeugt während du tippst. Halte die drei wichtigsten nebeneinander offen und wechsle, sobald sich die Zielsprache ändert.",
+    "cards": [
+      {
+        "title": "JavaScript / TypeScript Array",
+        "body": "Ein schlichtes Array-Literal für JS, TS und Node. Wechsle zu doppelten Anführungszeichen, wenn dein Linter sie bevorzugt."
+      },
+      {
+        "title": "SQL IN-Klausel",
+        "body": "Passt direkt in <code>WHERE spalte IN (...)</code>. <code>N'...'</code> für SQL Server oder Dialekt umstellen für <code>'...'</code> bei MySQL, PostgreSQL und SQLite."
+      },
+      {
+        "title": "Python-Liste",
+        "body": "Füge sie in ein Skript, eine Fixture oder einen <code>pytest</code> parametrize-Block ein, ohne ein einziges Komma zu tippen."
+      },
+      {
+        "title": "PHP-Array",
+        "body": "Klassische <code>array()</code> Syntax, die auch in älteren Codebasen und Laravel-Konfigurationen noch funktioniert."
+      },
+      {
+        "title": "JSON-Array",
+        "body": "Streng gültiges JSON mit echtem String-Escaping — sicher für einen API-Request-Body oder eine Fixture-Datei."
+      },
+      {
+        "title": "C#-Array",
+        "body": "Ein implizit typisiertes Array für C# und .NET, gebaut aus denselben JSON-maskierten Werten."
+      },
+      {
+        "title": "Rohe kommagetrennte Liste",
+        "body": "Ganz ohne Klammern — der zitierte, kommagetrennte Rumpf, den du in jede Sprache einfügen kannst, die hier nicht aufgeführt ist."
+      },
+      {
+        "title": "Eigenes Muster",
+        "body": "Schreibe deine eigene Vorlage: <code>{}</code> ist der Wert, <code>{n}</code> die Zeilennummer ab 1 und <code>{i}</code> der Index ab 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Gebaut für echte, unordentliche Listen",
+    "lead": "Die meisten Konverter geben beim ersten Apostroph oder bei der zehntausendsten Zeile auf. Dieser hier ist für die Listen gemacht, die du im Arbeitsalltag wirklich einfügst.",
+    "items": [
+      {
+        "title": "Nichts wird hochgeladen.",
+        "body": "Die Umwandlung passiert in deinem Browser. Interne IDs, E-Mail-Adressen und Kundendaten verlassen dein Gerät nie."
+      },
+      {
+        "title": "Große Listen bleiben schnell.",
+        "body": "Der klassische Editor verkraftet 50.000 Zeilen mühelos, und der Ultra-Editor hält auch größere Einfügungen flüssig."
+      },
+      {
+        "title": "Anführungszeichen werden korrekt maskiert.",
+        "body": "Aus <code>O'Brien</code> wird in SQL <code>N'O''Brien'</code> und in JSON <code>&quot;O'Brien&quot;</code>, damit nichts weiter unten bricht."
+      },
+      {
+        "title": "Zahlen bleiben Zahlen.",
+        "body": "Rein numerische Zeilen kommen standardmäßig ohne Anführungszeichen heraus, und ein Klick macht Zeichenketten daraus, wenn dein Schema das verlangt."
+      },
+      {
+        "title": "Duplikate mit einem Klick weg.",
+        "body": "Aktiviere Duplikate und nur das erste Vorkommen jeder Zeile überlebt die Umwandlung."
+      },
+      {
+        "title": "Drei Bereiche gleichzeitig.",
+        "body": "Zeige Raw, JavaScript, SQL, Python, PHP, JSON, C# oder Custom, ordne sie per Drag-and-drop, und finde dieselbe Anordnung beim nächsten Mal wieder vor."
+      },
+      {
+        "title": "Für die Tastatur gemacht.",
+        "body": "<code>Strg / Cmd + Enter</code> wandelt um, Auto hält kurze Listen beim Tippen aktuell, und jeder Bereich hat seinen eigenen Kopieren-Button."
+      },
+      {
+        "title": "Kostenlos und quelloffen.",
+        "body": "Kein Konto, kein Kontingent, keine Werbung. Der komplette Konverter liegt auf GitHub, wenn du ihn lesen oder forken willst."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Wofür Entwickler Textlisten in Arrays umwandeln",
+    "cards": [
+      {
+        "title": "Eine SQL IN-Klausel aus einer Tabelle bauen",
+        "body": "Kopiere eine Spalte mit Bestellnummern oder E-Mail-Adressen aus Excel, füge sie hier ein und erhalte in Sekunden eine zitierte, maskierte <code>IN (...)</code> Liste für deine Abfrage."
+      },
+      {
+        "title": "Testdaten anlegen",
+        "body": "Verwandle eine Liste von SKUs, Slugs oder Benutzer-IDs in ein JavaScript-, Python- oder C#-Array für Unit-Tests und Mock-Daten."
+      },
+      {
+        "title": "API-Request-Bodies vorbereiten",
+        "body": "Wandle eine Liste von Bezeichnern in ein gültiges JSON-Array um, bevor du sie in Postman, curl oder deinen REST-Client einfügst."
+      },
+      {
+        "title": "Massenaufrufe von Prozeduren oder Skripten",
+        "body": "Nutze das eigene Muster für eine Anweisung pro Zeile: <code>EXEC</code> Aufrufe, <code>UPDATE</code> Statements, CLI-Befehle oder Migrationsskripte."
+      },
+      {
+        "title": "Exportierte Logs aufräumen",
+        "body": "Füge rohe Logausgaben ein, entferne Duplikate und Leerzeilen und bekomme am anderen Ende ein sauberes, dedupliziertes Array."
+      },
+      {
+        "title": "Enums und Konfigurationsdateien füllen",
+        "body": "Übernimm eine Liste von Ländercodes, Feature-Flags oder Locales in das Array-Literal, das deine Konfiguration erwartet."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Textliste in Array umwandeln: häufige Fragen",
+    "items": [
+      {
+        "q": "Was ist ein Konverter für Textlisten zu Arrays?",
+        "a": "Es ist ein Werkzeug, das eine einfache Liste von Werten mit einem Wert pro Zeile in ein Array-Literal verwandelt, das du direkt in deinen Code einfügen kannst. ArrayHelper erzeugt die JavaScript-, SQL-, Python-, PHP-, JSON-, C#- und eigene Variante derselben Liste gleichzeitig, damit du Anführungszeichen und Kommas nie wieder von Hand tippst."
+      },
+      {
+        "q": "Wie wandle ich eine Textliste online in ein Array um?",
+        "a": "Füge die Liste oben auf dieser Seite in den Editor ein, drücke <code>Strg / Cmd + Enter</code> oder lass Auto aktiv und kopiere dann den gewünschten Bereich. Nichts zu installieren, keine Anmeldung und keine Zeilenbegrenzung."
+      },
+      {
+        "q": "Werden Anführungszeichen und Sonderzeichen maskiert?",
+        "a": "Ja. Einfache Anführungszeichen werden für SQL verdoppelt, und die JSON- und C#-Ausgaben nutzen echtes JSON-String-Escaping. Werte mit Apostroph, Backslash oder Tabulator bleiben damit in der Zielsprache gültig."
+      },
+      {
+        "q": "Werden Zahlen in Anführungszeichen gesetzt?",
+        "a": "Standardmäßig nicht — rein numerische Zeilen werden als Zahlen geschrieben, alles andere wird zitiert. Ist deine Spalte ein Textfeld, setzt der Zahlen-Schalter in der Leiste auch sie in Anführungszeichen."
+      },
+      {
+        "q": "Kann ich beim Umwandeln doppelte Zeilen entfernen?",
+        "a": "Ja. Aktiviere Duplikate im Optionsmenü, dann bleibt nur das erste Vorkommen jeder Zeile erhalten. Leerzeilen und umgebende Leerzeichen werden immer entfernt, mit oder ohne diese Option."
+      },
+      {
+        "q": "Wie große Listen sind möglich?",
+        "a": "Der klassische Editor ist bis 50.000 Zeilen komfortabel, der Ultra-Editor hält auch größere Einfügungen reaktionsschnell. Lange Ausgaben werden auf dem Bildschirm gekürzt, aber Kopieren liefert immer das vollständige Array."
+      },
+      {
+        "q": "Wird meine Liste auf einen Server hochgeladen?",
+        "a": "Nein. Jede Umwandlung läuft lokal in deinem Browser, deine Liste verlässt dein Gerät nicht — genau deshalb ist das Werkzeug auch für interne Bezeichner und Kundendaten unbedenklich."
+      },
+      {
+        "q": "Kann ich ein eigenes Ausgabeformat definieren?",
+        "a": "Ja. Der Custom-Bereich nimmt eine Vorlage wie <code>EXEC MyProcedure '{}';</code> entgegen. Dabei ist <code>{}</code> der Zeilenwert, <code>{n}</code> die bei 1 beginnende Zeilennummer und <code>{i}</code> der bei 0 beginnende Index. Jede Zeile wird mit dieser Vorlage in einer eigenen Zeile ausgegeben."
+      },
+      {
+        "q": "Welchen SQL-Dialekt nutzt die IN-Klausel?",
+        "a": "Beide. <code>N'...'</code> ist die Voreinstellung für SQL Server; stelle die SQL-Einstellung auf <code>'...'</code> für MySQL, PostgreSQL, SQLite und andere Standarddialekte um."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Textlisten in deiner Sprache in Arrays umwandeln",
+    "lead": "Derselbe Konverter, dokumentiert in jeder Sprache unten. Wähle die, in der du denkst — deine gespeicherten Einstellungen kommen überall mit.",
+    "aria": "Verfügbare Sprachen"
+  },
+  "footer": {
+    "line": "ArrayHelper — kostenloser Konverter für Textlisten zu Arrays, gehostet von {brand}.",
+    "guide": "Anleitung",
+    "faq": "FAQ"
+  }
+}

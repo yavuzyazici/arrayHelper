@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Konverter Tekstliste til Array – JavaScript, SQL, Python, PHP",
+    "description": "Indsæt din liste og få et færdigt array med det samme. Gratis konverter fra tekstliste til array til JavaScript, SQL, Python, PHP, JSON og C# — kører i browseren.",
+    "keywords": "konverter tekstliste til array, liste til array, array generator online, text list to array, sql in sætning, javascript array fra liste, python liste, php array, lav json array, kommasepareret liste",
+    "ogImageAlt": "ArrayHelper-logo og forhåndsvisning af array-konverteringen",
+    "appName": "Array Helper – Konverter fra Tekstliste til Array"
+  },
+  "ui": {
+    "logoAria": "ArrayHelper forside",
+    "kbdBefore": "Tryk",
+    "kbdAfter": "for at konvertere",
+    "h1": "Konverter tekstliste til array til JavaScript, SQL, PHP og Python",
+    "tagline": "Indsæt en hvilken som helst liste og lav den om til arrays, der er klar til din kode.",
+    "convertAria": "Konverter listen",
+    "editorAria": "Indtastning af tekstlisten",
+    "editorPlaceholder": "Begynd at skrive...",
+    "copy": "Kopiér tekst",
+    "copied": "Kopieret",
+    "copyFailed": "Kopiering mislykkedes",
+    "tooManyLines": "For mange linjer. Skifter til Ultra-tilstand.",
+    "truncated": "--- Output forkortet ({n} tegn) ---",
+    "patternAria": "Eget outputmønster",
+    "tokenValue": "Linjens værdi",
+    "tokenRow": "Rækkenummer, starter ved 1",
+    "tokenIndex": "Indeks, starter ved 0",
+    "doubleQuoteAria": "Brug dobbelte anførselstegn",
+    "singleQuoteAria": "Brug enkelte anførselstegn",
+    "plainNumbersAria": "Lad tal stå uden anførselstegn",
+    "quotedNumbersAria": "Sæt tal i anførselstegn",
+    "settingsAria": "Indstillinger",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Klassisk",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Dubletter",
+    "dedupeAria": "Fjern ens værdier",
+    "settingsPanels": "Paneler",
+    "settingsPanelsHint": "maks. 3",
+    "clearAria": "Ryd editoren",
+    "jump": "Guide, eksempler og FAQ",
+    "githubAria": "Se ArrayHelper-projektet på GitHub",
+    "sectionsAria": "Sidens afsnit"
+  },
+  "nav": {
+    "how": "Sådan virker det",
+    "formats": "Outputformater",
+    "features": "Funktioner",
+    "useCases": "Anvendelser",
+    "faq": "FAQ",
+    "languages": "Sprog"
+  },
+  "how": {
+    "h2": "Sådan konverterer du en tekstliste til et array",
+    "lead": "Kopiér en kolonne fra et regneark, et forespørgselsresultat eller en logfil, indsæt den her og få en rigtig array-literal retur: med anførselstegn, kommasepareret og klar til din kode. Uden konto, uden upload, uden ventetid.",
+    "steps": [
+      {
+        "title": "Indsæt din liste",
+        "body": "Én værdi per linje, præcis som du kopierede den. Tomme linjer forsvinder, og overflødige mellemrum bliver trimmet væk, så selv en rodet indsættelse fra Excel kommer pænt ud."
+      },
+      {
+        "title": "Sæt reglerne én gang",
+        "body": "Enkelte eller dobbelte anførselstegn, tal rå eller i anførselstegn, dubletter væk, SQL-dialekt valgt. Dine valg venter på dig næste gang du kigger forbi."
+      },
+      {
+        "title": "Kopiér og kom videre",
+        "body": "Tryk <code>Ctrl / Cmd + Enter</code>, eller lad Auto være slået til og se outputtet følge det, du skriver. Ét klik kopierer hele arrayet, også når forhåndsvisningen er forkortet."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Én tekstliste, alle array-formater",
+    "lead": "Din liste bliver konverteret til alle otte formater i samme øjeblik. Tal forbliver tal, tekst får anførselstegn, og apostroffer inde i værdierne bliver escapet, som hvert sprog forventer.",
+    "inputLabel": "Inputliste",
+    "outputLabel": "Det får du",
+    "outputLead": "Otte færdige output, genereret mens du skriver. Hold de tre, du bruger mest, åbne ved siden af hinanden, og skift panel når målsproget ændrer sig.",
+    "cards": [
+      {
+        "title": "JavaScript- / TypeScript-array",
+        "body": "En simpel array-literal til JS, TS og Node. Skift til dobbelte anførselstegn, hvis din linter foretrækker det."
+      },
+      {
+        "title": "SQL IN-sætning",
+        "body": "Går direkte ind i <code>WHERE kolonne IN (...)</code>. <code>N'...'</code> til SQL Server, eller skift dialekt for <code>'...'</code> i MySQL, PostgreSQL og SQLite."
+      },
+      {
+        "title": "Python-liste",
+        "body": "Indsæt den i et script, en fixture eller en parametrize-blok i <code>pytest</code> uden at skrive et eneste komma om."
+      },
+      {
+        "title": "PHP-array",
+        "body": "Klassisk <code>array()</code>-syntaks, der stadig virker i ældre kodebaser og Laravel-konfigurationer."
+      },
+      {
+        "title": "JSON-array",
+        "body": "Strengt gyldig JSON med ægte streng-escaping — sikker til en API-request body eller en fixture-fil."
+      },
+      {
+        "title": "C#-array",
+        "body": "Et implicit typet array til C# og .NET, bygget af de samme JSON-escapede værdier."
+      },
+      {
+        "title": "Rå kommasepareret liste",
+        "body": "Helt uden kantede parenteser — den citerede, kommaseparerede del, du kan indsætte i ethvert sprog, der ikke står på listen."
+      },
+      {
+        "title": "Eget mønster",
+        "body": "Skriv din egen skabelon: <code>{}</code> er værdien, <code>{n}</code> rækkenummeret fra 1 og <code>{i}</code> indekset fra 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Bygget til rigtige, rodede lister",
+    "lead": "De fleste konvertere fra liste til array giver op ved den første apostrof eller den ti tusinde linje. Denne her er lavet til de lister, du faktisk indsætter på arbejdet.",
+    "items": [
+      {
+        "title": "Intet bliver uploadet.",
+        "body": "Konverteringen sker inde i din browser. Interne id-numre, e-mailadresser og kundedata forlader aldrig din enhed."
+      },
+      {
+        "title": "Store lister bliver ved med at være hurtige.",
+        "body": "Den klassiske editor tager 50.000 linjer uden besvær, og Ultra-editoren holder endnu større indsættelser flydende."
+      },
+      {
+        "title": "Anførselstegn bliver escapet korrekt.",
+        "body": "<code>O'Brien</code> bliver til <code>N'O''Brien'</code> i SQL og <code>&quot;O'Brien&quot;</code> i JSON, så intet knækker længere nede."
+      },
+      {
+        "title": "Tal forbliver tal.",
+        "body": "Rent numeriske linjer kommer ud uden anførselstegn som standard, og ét klik laver dem om til strenge, når dit skema kræver det."
+      },
+      {
+        "title": "Dubletter væk med ét klik.",
+        "body": "Slå Dubletter til, så overlever kun den første forekomst af hver linje."
+      },
+      {
+        "title": "Tre paneler ad gangen.",
+        "body": "Vis Raw, JavaScript, SQL, Python, PHP, JSON, C# eller Custom, træk dem i den rækkefølge du vil, og find den samme opsætning næste gang."
+      },
+      {
+        "title": "Lavet til tastaturet.",
+        "body": "<code>Ctrl / Cmd + Enter</code> konverterer, Auto holder korte lister opdateret mens du skriver, og hvert panel har sin egen kopiknap."
+      },
+      {
+        "title": "Gratis og open source.",
+        "body": "Ingen konto, ingen kvote, ingen reklamer. Hele konverteren ligger på GitHub, hvis du vil læse eller forke den."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Hvad udviklere konverterer tekstlister til arrays til",
+    "cards": [
+      {
+        "title": "Bygge en SQL IN-sætning ud fra et regneark",
+        "body": "Kopiér en kolonne med ordrenumre eller e-mailadresser fra Excel, indsæt den her og få på få sekunder en citeret og escapet <code>IN (...)</code>-liste til din forespørgsel."
+      },
+      {
+        "title": "Lave testdata",
+        "body": "Lav en liste med varenumre, slugs eller bruger-id-numre om til et JavaScript-, Python- eller C#-array til unittests og mockdata."
+      },
+      {
+        "title": "Forberede API-kald",
+        "body": "Konvertér en liste med identifikatorer til et gyldigt JSON-array, før du indsætter den i Postman, curl eller din REST-klient."
+      },
+      {
+        "title": "Masseopkald af procedurer eller scripts",
+        "body": "Brug det egne mønster til én sætning per linje: <code>EXEC</code>-kald, <code>UPDATE</code>-sætninger, terminalkommandoer eller migrationsscripts."
+      },
+      {
+        "title": "Rydde op i eksporterede logfiler",
+        "body": "Indsæt rå logoutput, fjern dubletter og tomme linjer, og få et rent, afdubletteret array ud i den anden ende."
+      },
+      {
+        "title": "Udfylde enums og konfigurationsfiler",
+        "body": "Flyt en liste med landekoder, feature flags eller sprog ind i den array-literal, din konfiguration venter på."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Tekstliste til array: ofte stillede spørgsmål",
+    "items": [
+      {
+        "q": "Hvad er en konverter fra tekstliste til array?",
+        "a": "Det er et værktøj, der laver en simpel liste med værdier, én per linje, om til en array-literal, du indsætter direkte i koden. ArrayHelper laver JavaScript-, SQL-, Python-, PHP-, JSON-, C#- og den egne version af den samme liste på én gang, så du aldrig igen skriver anførselstegn og kommaer i hånden."
+      },
+      {
+        "q": "Hvordan konverterer jeg en tekstliste til et array online?",
+        "a": "Indsæt listen i editoren øverst på siden, tryk <code>Ctrl / Cmd + Enter</code> eller lad Auto være slået til, og kopiér så det panel, du har brug for. Intet at installere, ingen oprettelse og ingen grænse på antal linjer."
+      },
+      {
+        "q": "Escaper den anførselstegn og specialtegn?",
+        "a": "Ja. Enkelte anførselstegn bliver fordoblet til SQL, og JSON- og C#-outputtet bruger ægte JSON-streng-escaping, så værdier med apostroffer, backslashes eller tabulatorer forbliver gyldige i målsproget."
+      },
+      {
+        "q": "Bliver tal sat i anførselstegn?",
+        "a": "Ikke som standard: rent numeriske linjer skrives som tal, og alt andet bliver citeret. Er din kolonne et tekstfelt, sætter talknappen i værktøjslinjen også dem i anførselstegn."
+      },
+      {
+        "q": "Kan jeg fjerne dubletlinjer under konverteringen?",
+        "a": "Ja. Slå Dubletter til i indstillingsmenuen, så beholdes kun den første forekomst af hver linje. Tomme linjer og mellemrum omkring bliver altid trimmet væk, med eller uden det valg."
+      },
+      {
+        "q": "Hvor store lister kan den klare?",
+        "a": "Den klassiske editor er behagelig op til 50.000 linjer, og Ultra-editoren holder sig hurtig selv ved større indsættelser. Langt output bliver forkortet på skærmen af hensyn til hastigheden, men Kopiér giver dig altid hele arrayet."
+      },
+      {
+        "q": "Bliver min liste uploadet til en server?",
+        "a": "Nej. Hver konvertering kører lokalt i din browser, så listen forlader aldrig din enhed — det er derfor værktøjet er trygt til interne identifikatorer og kundedata."
+      },
+      {
+        "q": "Kan jeg definere mit eget outputformat?",
+        "a": "Ja. Custom-panelet tager en skabelon som <code>EXEC MyProcedure '{}';</code>, hvor <code>{}</code> er linjens værdi, <code>{n}</code> rækkenummeret der starter ved 1 og <code>{i}</code> indekset der starter ved 0. Hver linje bliver skrevet med den skabelon på sin egen linje."
+      },
+      {
+        "q": "Hvilken SQL-dialekt bruger IN-sætningen?",
+        "a": "Begge. <code>N'...'</code> er standard til SQL Server; sæt SQL-indstillingen til <code>'...'</code> til MySQL, PostgreSQL, SQLite og andre standarddialekter."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Konvertér tekstlister til arrays på dit sprog",
+    "lead": "Den samme konverter, dokumenteret på hvert af sprogene nedenfor. Vælg det, du tænker på — dine gemte indstillinger følger med overalt.",
+    "aria": "Tilgængelige sprog"
+  },
+  "footer": {
+    "line": "ArrayHelper — gratis konverter fra tekstliste til array, hostet af {brand}.",
+    "guide": "Guide",
+    "faq": "FAQ"
+  }
+}

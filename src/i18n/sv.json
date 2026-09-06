@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Konvertera Textlista till Array – JavaScript, SQL, Python, PHP",
+    "description": "Klistra in din lista och få en färdig array direkt. Gratis konverterare från textlista till array för JavaScript, SQL, Python, PHP, JSON och C# — körs i webbläsaren.",
+    "keywords": "konvertera textlista till array, lista till array, array generator online, text list to array, sql in sats, javascript array från lista, python lista, php array, skapa json array, kommaseparerad lista",
+    "ogImageAlt": "ArrayHelper-logotyp och förhandsvisning av arraykonverteringen",
+    "appName": "Array Helper – Konverterare från Textlista till Array"
+  },
+  "ui": {
+    "logoAria": "ArrayHelper startsida",
+    "kbdBefore": "Tryck",
+    "kbdAfter": "för att konvertera",
+    "h1": "Konvertera textlista till array för JavaScript, SQL, PHP och Python",
+    "tagline": "Klistra in vilken lista som helst och gör om den direkt till arrayer som är redo för koden.",
+    "convertAria": "Konvertera listan",
+    "editorAria": "Inmatning av textlista",
+    "editorPlaceholder": "Börja skriva...",
+    "copy": "Kopiera text",
+    "copied": "Kopierat",
+    "copyFailed": "Kopieringen misslyckades",
+    "tooManyLines": "För många rader. Byter till Ultra-läge.",
+    "truncated": "--- Utdata förkortad ({n} tecken) ---",
+    "patternAria": "Eget utdatamönster",
+    "tokenValue": "Radens värde",
+    "tokenRow": "Radnummer, börjar på 1",
+    "tokenIndex": "Index, börjar på 0",
+    "doubleQuoteAria": "Använd dubbla citattecken",
+    "singleQuoteAria": "Använd enkla citattecken",
+    "plainNumbersAria": "Lämna siffror utan citattecken",
+    "quotedNumbersAria": "Sätt siffror inom citattecken",
+    "settingsAria": "Inställningar",
+    "settingsEditor": "Editor",
+    "settingsClassic": "Klassisk",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "Auto",
+    "settingsDedupe": "Dubbletter",
+    "dedupeAria": "Ta bort dubbletter",
+    "settingsPanels": "Paneler",
+    "settingsPanelsHint": "max 3",
+    "clearAria": "Töm editorn",
+    "jump": "Guide, exempel och FAQ",
+    "githubAria": "Se ArrayHelper-projektet på GitHub",
+    "sectionsAria": "Sidans avsnitt"
+  },
+  "nav": {
+    "how": "Så fungerar det",
+    "formats": "Utdataformat",
+    "features": "Funktioner",
+    "useCases": "Användningsfall",
+    "faq": "FAQ",
+    "languages": "Språk"
+  },
+  "how": {
+    "h2": "Så konverterar du en textlista till en array",
+    "lead": "Kopiera en kolumn från ett kalkylblad, ett frågeresultat eller en loggfil, klistra in den här och få tillbaka en riktig array-literal: med citattecken, kommaseparerad och redo för koden. Utan konto, utan uppladdning, utan väntan.",
+    "steps": [
+      {
+        "title": "Klistra in din lista",
+        "body": "Ett värde per rad, precis som du kopierade det. Tomma rader försvinner och överflödiga mellanslag trimmas bort, så även en slarvig inklistring från Excel blir ren."
+      },
+      {
+        "title": "Ställ in reglerna en gång",
+        "body": "Enkla eller dubbla citattecken, siffror rena eller citerade, dubbletter bort, SQL-dialekt vald. Dina val väntar på dig nästa gång du kommer tillbaka."
+      },
+      {
+        "title": "Kopiera och gå vidare",
+        "body": "Tryck <code>Ctrl / Cmd + Enter</code>, eller låt Auto vara på och se utdatan följa det du skriver. Ett klick kopierar hela arrayen, även när förhandsvisningen är förkortad."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "En textlista, alla arrayformat",
+    "lead": "Din lista konverteras till alla åtta format i samma ögonblick. Siffror förblir siffror, text får citattecken och apostrofer inuti värdena escapas som varje språk förväntar sig.",
+    "inputLabel": "Indatalista",
+    "outputLabel": "Det här får du",
+    "outputLead": "Åtta färdiga utdata, genererade medan du skriver. Ha de tre du använder mest öppna sida vid sida och byt panel när målspråket ändras.",
+    "cards": [
+      {
+        "title": "JavaScript- / TypeScript-array",
+        "body": "En enkel array-literal för JS, TS och Node. Byt till dubbla citattecken om din linter föredrar det."
+      },
+      {
+        "title": "SQL IN-sats",
+        "body": "Går rakt in i <code>WHERE kolumn IN (...)</code>. <code>N'...'</code> för SQL Server, eller byt dialekt för <code>'...'</code> i MySQL, PostgreSQL och SQLite."
+      },
+      {
+        "title": "Python-lista",
+        "body": "Klistra in den i ett skript, en fixture eller ett parametrize-block i <code>pytest</code> utan att skriva om ett enda kommatecken."
+      },
+      {
+        "title": "PHP-array",
+        "body": "Klassisk <code>array()</code>-syntax som fortfarande fungerar i äldre kodbaser och Laravel-konfigurationer."
+      },
+      {
+        "title": "JSON-array",
+        "body": "Strikt giltig JSON med riktig strängescaping — säker för en API-request body eller en fixture-fil."
+      },
+      {
+        "title": "C#-array",
+        "body": "En implicit typad array för C# och .NET, byggd av samma JSON-escapade värden."
+      },
+      {
+        "title": "Rå kommaseparerad lista",
+        "body": "Helt utan hakparenteser — den citerade, kommaseparerade delen som du kan klistra in i vilket språk som helst utanför den här listan."
+      },
+      {
+        "title": "Eget mönster",
+        "body": "Skriv din egen mall: <code>{}</code> är värdet, <code>{n}</code> radnumret från 1 och <code>{i}</code> indexet från 0."
+      }
+    ]
+  },
+  "features": {
+    "h2": "Byggd för verkliga, stökiga listor",
+    "lead": "De flesta konverterare från lista till array ger upp vid den första apostrofen eller den tiotusende raden. Den här är gjord för listorna du faktiskt klistrar in på jobbet.",
+    "items": [
+      {
+        "title": "Ingenting laddas upp.",
+        "body": "Konverteringen sker inuti din webbläsare. Interna ID:n, e-postadresser och kunddata lämnar aldrig din enhet."
+      },
+      {
+        "title": "Stora listor förblir snabba.",
+        "body": "Den klassiska editorn tar 50 000 rader utan problem och Ultra-editorn håller ännu större inklistringar mjuka."
+      },
+      {
+        "title": "Citattecken escapas rätt.",
+        "body": "<code>O'Brien</code> blir <code>N'O''Brien'</code> i SQL och <code>&quot;O'Brien&quot;</code> i JSON, så inget går sönder längre fram."
+      },
+      {
+        "title": "Siffror förblir siffror.",
+        "body": "Rent numeriska rader kommer ut utan citattecken som standard, och ett klick gör strängar av dem när ditt schema kräver det."
+      },
+      {
+        "title": "Dubbletter bort med ett klick.",
+        "body": "Slå på Dubbletter så överlever bara den första förekomsten av varje rad."
+      },
+      {
+        "title": "Tre paneler samtidigt.",
+        "body": "Visa Raw, JavaScript, SQL, Python, PHP, JSON, C# eller Custom, dra dem i den ordning du vill och hitta samma layout nästa gång."
+      },
+      {
+        "title": "Gjord för tangentbordet.",
+        "body": "<code>Ctrl / Cmd + Enter</code> konverterar, Auto håller korta listor uppdaterade medan du skriver och varje panel har sin egen kopieringsknapp."
+      },
+      {
+        "title": "Gratis och öppen källkod.",
+        "body": "Inget konto, ingen kvot, inga annonser. Hela konverteraren finns på GitHub om du vill läsa eller forka den."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Vad utvecklare konverterar textlistor till arrayer för",
+    "cards": [
+      {
+        "title": "Bygga en SQL IN-sats från ett kalkylblad",
+        "body": "Kopiera en kolumn med ordernummer eller e-postadresser från Excel, klistra in den här och få på några sekunder en citerad och escapad <code>IN (...)</code>-lista till din fråga."
+      },
+      {
+        "title": "Skapa testdata",
+        "body": "Gör om en lista med artikelnummer, slugs eller användar-ID:n till en JavaScript-, Python- eller C#-array för enhetstester och mockdata."
+      },
+      {
+        "title": "Förbereda API-anrop",
+        "body": "Konvertera en lista med identifierare till en giltig JSON-array innan du klistrar in den i Postman, curl eller din REST-klient."
+      },
+      {
+        "title": "Massanrop av procedurer eller skript",
+        "body": "Använd det egna mönstret för en sats per rad: <code>EXEC</code>-anrop, <code>UPDATE</code>-satser, terminalkommandon eller migrationsskript."
+      },
+      {
+        "title": "Städa upp exporterade loggar",
+        "body": "Klistra in rå loggutdata, ta bort dubbletter och tomma rader och få ut en ren, avdubblerad array på andra sidan."
+      },
+      {
+        "title": "Fylla enums och konfigurationsfiler",
+        "body": "Flytta en lista med landskoder, feature flags eller språk in i den array-literal som din konfiguration väntar på."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Textlista till array: vanliga frågor",
+    "items": [
+      {
+        "q": "Vad är en konverterare från textlista till array?",
+        "a": "Det är ett verktyg som gör om en enkel lista med värden, ett per rad, till en array-literal som du klistrar in direkt i koden. ArrayHelper skapar samtidigt JavaScript-, SQL-, Python-, PHP-, JSON-, C#- och den egna versionen av samma lista, så du aldrig mer behöver skriva citattecken och kommatecken för hand."
+      },
+      {
+        "q": "Hur konverterar jag en textlista till en array online?",
+        "a": "Klistra in listan i editorn högst upp på den här sidan, tryck <code>Ctrl / Cmd + Enter</code> eller låt Auto vara på, och kopiera sedan panelen du behöver. Inget att installera, inget konto och ingen radgräns."
+      },
+      {
+        "q": "Escapar den citattecken och specialtecken?",
+        "a": "Ja. Enkla citattecken dubbleras för SQL, och JSON- och C#-utdatan använder riktig JSON-strängescaping, så värden med apostrofer, bakstreck eller tabbar förblir giltiga i målspråket."
+      },
+      {
+        "q": "Sätts siffror inom citattecken?",
+        "a": "Inte som standard: rent numeriska rader skrivs som tal och allt annat citeras. Om din kolumn är en textkolumn citerar sifferknappen i verktygsraden även dem."
+      },
+      {
+        "q": "Kan jag ta bort dubbletter under konverteringen?",
+        "a": "Ja. Slå på Dubbletter i inställningsmenyn så behålls bara den första förekomsten av varje rad. Tomma rader och omgivande blanksteg trimmas alltid bort, med eller utan det valet."
+      },
+      {
+        "q": "Hur stora listor klarar den?",
+        "a": "Den klassiska editorn är bekväm upp till 50 000 rader, och Ultra-editorn håller sig responsiv även vid större inklistringar. Långa utdata förkortas på skärmen för snabbhetens skull, men Kopiera ger dig alltid hela arrayen."
+      },
+      {
+        "q": "Laddas min lista upp till en server?",
+        "a": "Nej. Varje konvertering körs lokalt i din webbläsare, så listan lämnar aldrig din enhet — det är därför verktyget är tryggt för interna identifierare och kunddata."
+      },
+      {
+        "q": "Kan jag definiera ett eget utdataformat?",
+        "a": "Ja. Custom-panelen tar en mall som <code>EXEC MyProcedure '{}';</code>, där <code>{}</code> är radens värde, <code>{n}</code> radnumret som börjar på 1 och <code>{i}</code> indexet som börjar på 0. Varje rad renderas med den mallen på en egen rad."
+      },
+      {
+        "q": "Vilken SQL-dialekt använder IN-satsen?",
+        "a": "Båda. <code>N'...'</code> är standard för SQL Server; ställ om SQL-inställningen till <code>'...'</code> för MySQL, PostgreSQL, SQLite och andra standarddialekter."
+      }
+    ]
+  },
+  "languages": {
+    "h2": "Konvertera textlistor till arrayer på ditt språk",
+    "lead": "Samma konverterare, dokumenterad på vart och ett av språken nedan. Välj det du tänker på — dina sparade inställningar följer med överallt.",
+    "aria": "Tillgängliga språk"
+  },
+  "footer": {
+    "line": "ArrayHelper — gratis konverterare från textlista till array, som drivs av {brand}.",
+    "guide": "Guide",
+    "faq": "FAQ"
+  }
+}

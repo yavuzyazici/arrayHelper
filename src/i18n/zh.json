@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "文本列表转数组 – JavaScript、SQL、Python、PHP",
+    "description": "粘贴列表，立即拿到可直接使用的数组。免费的文本列表转数组工具，支持 JavaScript、SQL、Python、PHP、JSON 和 C#，全部在浏览器中完成。",
+    "keywords": "文本列表转数组, 列表转数组, 在线数组生成器, text list to array, sql in 语句生成, javascript 数组生成, python 列表转换, php 数组生成, json 数组生成, 逗号分隔列表",
+    "ogImageAlt": "ArrayHelper 标志与数组转换预览",
+    "appName": "Array Helper – 文本列表转数组工具"
+  },
+  "ui": {
+    "logoAria": "ArrayHelper 首页",
+    "kbdBefore": "按",
+    "kbdAfter": "开始转换",
+    "h1": "面向 JavaScript、SQL、PHP 和 Python 的文本列表转数组工具",
+    "tagline": "粘贴任意列表，立刻变成可以直接写进代码的数组。",
+    "convertAria": "转换列表",
+    "editorAria": "文本列表输入框",
+    "editorPlaceholder": "开始输入...",
+    "copy": "复制文本",
+    "copied": "已复制",
+    "copyFailed": "复制失败",
+    "tooManyLines": "行数过多，正在切换到 Ultra 模式。",
+    "truncated": "--- 输出已截断（{n} 个字符） ---",
+    "patternAria": "自定义输出模板",
+    "tokenValue": "行的值",
+    "tokenRow": "行号，从 1 开始",
+    "tokenIndex": "索引，从 0 开始",
+    "doubleQuoteAria": "使用双引号",
+    "singleQuoteAria": "使用单引号",
+    "plainNumbersAria": "数字保持不加引号",
+    "quotedNumbersAria": "把数字当作字符串加引号",
+    "settingsAria": "设置",
+    "settingsEditor": "编辑器",
+    "settingsClassic": "经典",
+    "settingsUltra": "Ultra",
+    "settingsAutoRun": "自动",
+    "settingsDedupe": "去重",
+    "dedupeAria": "移除重复的值",
+    "settingsPanels": "面板",
+    "settingsPanelsHint": "最多 3 个",
+    "clearAria": "清空编辑器",
+    "jump": "指南、示例与常见问题",
+    "githubAria": "在 GitHub 上查看 ArrayHelper 项目",
+    "sectionsAria": "页面板块"
+  },
+  "nav": {
+    "how": "使用方法",
+    "formats": "输出格式",
+    "features": "功能",
+    "useCases": "使用场景",
+    "faq": "常见问题",
+    "languages": "语言"
+  },
+  "how": {
+    "h2": "如何把文本列表转成数组",
+    "lead": "从表格、查询结果或日志文件里复制一列，粘贴到这里，就能拿回一段规规矩矩的数组字面量：带引号、用逗号分隔，可以直接写进代码。无需注册，无需上传，也不用等待。",
+    "steps": [
+      {
+        "title": "粘贴你的列表",
+        "body": "每行一个值，保持你复制时的样子。空行会被略过，多余的空格会被裁掉，所以就算是从 Excel 里乱粘贴过来，出来的结果也是干净的。"
+      },
+      {
+        "title": "规则只需设定一次",
+        "body": "单引号还是双引号、数字是否加引号、要不要去重、用哪种 SQL 方言。你的选择会在下次打开时依然保留。"
+      },
+      {
+        "title": "复制然后继续工作",
+        "body": "按 <code>Ctrl / Cmd + Enter</code>，或者让自动模式一直开着，输出会跟着你的输入更新。即使预览被截断，一次点击也会复制完整的数组。"
+      }
+    ]
+  },
+  "formats": {
+    "h2": "一份文本列表，全部数组格式",
+    "lead": "你的列表会在同一刻被转换成全部八种格式。数字仍然是数字，文本会加上引号，值里面的撇号也会按每种语言的要求转义。",
+    "inputLabel": "输入列表",
+    "outputLabel": "你会得到",
+    "outputLead": "八种可直接粘贴的输出，随着你的输入实时生成。把最常用的三种并排打开，目标语言改变时再切换面板。",
+    "cards": [
+      {
+        "title": "JavaScript / TypeScript 数组",
+        "body": "适用于 JS、TS 和 Node 的普通数组字面量。如果 linter 更喜欢双引号，一键即可切换。"
+      },
+      {
+        "title": "SQL IN 语句",
+        "body": "可以直接放进 <code>WHERE 列名 IN (...)</code>。SQL Server 用 <code>N'...'</code>；MySQL、PostgreSQL 和 SQLite 切换方言后用 <code>'...'</code>。"
+      },
+      {
+        "title": "Python 列表",
+        "body": "粘贴到脚本、fixture 或 <code>pytest</code> 的 parametrize 块里，一个逗号都不用重新敲。"
+      },
+      {
+        "title": "PHP 数组",
+        "body": "经典的 <code>array()</code> 写法，在较旧的代码库和 Laravel 配置文件里依然好用。"
+      },
+      {
+        "title": "JSON 数组",
+        "body": "严格合法的 JSON，带真正的字符串转义，可以放心用于 API 请求体或测试数据文件。"
+      },
+      {
+        "title": "C# 数组",
+        "body": "面向 C# 和 .NET 的隐式类型数组，由同样经过 JSON 转义的值构建。"
+      },
+      {
+        "title": "纯逗号分隔列表",
+        "body": "完全没有方括号，只有加了引号、用逗号分隔的主体，可以粘进任何不在这个列表里的语言。"
+      },
+      {
+        "title": "自定义模板",
+        "body": "写你自己的模板：<code>{}</code> 是值，<code>{n}</code> 是从 1 开始的行号，<code>{i}</code> 是从 0 开始的索引。"
+      }
+    ]
+  },
+  "features": {
+    "h2": "为真实而杂乱的列表而生",
+    "lead": "大多数列表转数组工具在第一个撇号或第一万行就撑不住了。这个工具是为你在工作中真正会粘贴的那些列表做的。",
+    "items": [
+      {
+        "title": "什么都不会上传。",
+        "body": "转换在你的浏览器里完成。内部编号、邮箱地址和客户数据永远不会离开你的设备。"
+      },
+      {
+        "title": "大列表依然很快。",
+        "body": "经典编辑器轻松承受 5 万行，Ultra 编辑器在更大的粘贴量下也能保持流畅。"
+      },
+      {
+        "title": "引号会被正确转义。",
+        "body": "<code>O'Brien</code> 在 SQL 里变成 <code>N'O''Brien'</code>，在 JSON 里变成 <code>&quot;O'Brien&quot;</code>，后面的环节不会出问题。"
+      },
+      {
+        "title": "数字仍然是数字。",
+        "body": "纯数字行默认不加引号输出，如果你的表结构需要字符串，一次点击就能切换。"
+      },
+      {
+        "title": "一键去掉重复项。",
+        "body": "打开去重，每行只保留第一次出现的那条。"
+      },
+      {
+        "title": "同时开三个面板。",
+        "body": "显示 Raw、JavaScript、SQL、Python、PHP、JSON、C# 或 Custom，拖拽成你喜欢的顺序，下次打开还是同样的布局。"
+      },
+      {
+        "title": "为键盘而设计。",
+        "body": "<code>Ctrl / Cmd + Enter</code> 执行转换，自动模式在你输入短列表时实时同步，每个面板都有自己的复制按钮。"
+      },
+      {
+        "title": "免费且开源。",
+        "body": "没有账号、没有配额、没有广告。整个转换工具都在 GitHub 上，你可以阅读或 fork。"
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "开发者为什么要把文本列表转成数组",
+    "cards": [
+      {
+        "title": "用表格数据拼出 SQL IN 语句",
+        "body": "从 Excel 复制订单号或邮箱那一列，粘贴到这里，几秒钟就能拿到已加引号并转义好的 <code>IN (...)</code> 列表。"
+      },
+      {
+        "title": "准备测试数据",
+        "body": "把一串 SKU、slug 或用户 ID 变成 JavaScript、Python 或 C# 数组，用于单元测试和模拟数据。"
+      },
+      {
+        "title": "准备 API 请求体",
+        "body": "在粘进 Postman、curl 或你的 REST 客户端之前，先把标识符列表转成合法的 JSON 数组。"
+      },
+      {
+        "title": "批量调用存储过程或脚本",
+        "body": "用自定义模板为每行生成一条语句：<code>EXEC</code> 调用、<code>UPDATE</code> 语句、命令行命令或迁移脚本。"
+      },
+      {
+        "title": "整理导出的日志",
+        "body": "粘贴原始日志输出，去掉重复行和空行，另一端就是一个干净、已去重的数组。"
+      },
+      {
+        "title": "填充枚举和配置文件",
+        "body": "把国家代码、功能开关或语言列表搬进配置文件正等着的那个数组字面量里。"
+      }
+    ]
+  },
+  "faq": {
+    "h2": "文本列表转数组：常见问题",
+    "items": [
+      {
+        "q": "什么是文本列表转数组工具？",
+        "a": "它是一个把每行一个值的普通列表变成数组字面量的工具，转换结果可以直接粘贴进代码。ArrayHelper 会同时生成同一份列表的 JavaScript、SQL、Python、PHP、JSON、C# 和自定义版本，你再也不用手敲引号和逗号。"
+      },
+      {
+        "q": "怎样在线把文本列表转成数组？",
+        "a": "把列表粘贴到本页顶部的编辑器里，按 <code>Ctrl / Cmd + Enter</code> 或让自动模式保持开启，然后复制你需要的面板。无需安装、无需注册，也没有行数限制。"
+      },
+      {
+        "q": "会转义引号和特殊字符吗？",
+        "a": "会。单引号在 SQL 中会被写成两个，JSON 和 C# 输出使用真正的 JSON 字符串转义，所以含有撇号、反斜杠或制表符的值在目标语言里依然合法。"
+      },
+      {
+        "q": "数字会被加引号吗？",
+        "a": "默认不会：纯数字行会按数字输出，其余内容都会加引号。如果你的字段是字符串类型，工具栏上的数字按钮也能把它们加上引号。"
+      },
+      {
+        "q": "转换时可以去掉重复行吗？",
+        "a": "可以。在选项菜单里打开去重，每行只保留第一次出现的那条。空行和首尾空格无论是否开启去重都会被清理掉。"
+      },
+      {
+        "q": "最大能处理多长的列表？",
+        "a": "经典编辑器在 5 万行以内都很从容，Ultra 编辑器即使面对更大的粘贴量也能保持响应。为了速度，过长的输出会在界面上截断，但复制永远给你完整的数组。"
+      },
+      {
+        "q": "我的列表会被上传到服务器吗？",
+        "a": "不会。每次转换都在你的浏览器本地运行，列表不会离开你的设备，所以用来处理内部标识符和客户数据也很安全。"
+      },
+      {
+        "q": "可以自定义输出格式吗？",
+        "a": "可以。Custom 面板接受类似 <code>EXEC MyProcedure '{}';</code> 的模板，其中 <code>{}</code> 是行的值，<code>{n}</code> 是从 1 开始的行号，<code>{i}</code> 是从 0 开始的索引。每一行都会按这个模板单独输出一行。"
+      },
+      {
+        "q": "IN 语句使用哪种 SQL 方言？",
+        "a": "两种都支持。SQL Server 默认使用 <code>N'...'</code>；把 SQL 设置切换为 <code>'...'</code> 即可用于 MySQL、PostgreSQL、SQLite 等标准方言。"
+      }
+    ]
+  },
+  "languages": {
+    "h2": "用你的语言把文本列表转成数组",
+    "lead": "同一个转换工具，下面每种语言都有对应的说明。选一个你思考时用的语言——保存的设置在所有语言里都会跟着你。",
+    "aria": "可用语言"
+  },
+  "footer": {
+    "line": "ArrayHelper — 免费的文本列表转数组工具，由 {brand} 提供托管。",
+    "guide": "指南",
+    "faq": "常见问题"
+  }
+}

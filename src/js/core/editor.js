@@ -1,4 +1,4 @@
-import { countLinesFast, getCurrentLineIndex, CONFIG, IS_MOBILE } from './utils.js?v=20260906';
+import { countLinesFast, getCurrentLineIndex, CONFIG, IS_MOBILE, T } from './utils.js?v=20260906';
 
 const MONACO_VS = 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs';
 
@@ -142,7 +142,7 @@ export function updateLineNumbers(state, DOM) {
   if (lines > CONFIG.MONACO_PREWARM_LINES) prewarmMonaco().catch(() => {});
 
   if (lines > CONFIG.MAX_CLASSIC_LINES) {
-    alert("Too many lines. Switching to Ultra mode.");
+    alert(T.tTooManyLines);
     state.mode = 'ultra';
     applyEditorMode(state, DOM);
     return;
