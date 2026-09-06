@@ -58,7 +58,11 @@
   <meta name="referrer" content="no-referrer-when-downgrade">
 
   <link rel="icon" type="image/x-icon" href="/images/icons/icon.png">
-  <link rel="stylesheet" href="/styles/globals.css?v=20260801">
+
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/pxiEyp8kv8JHgFVrJJfecg.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2">
+
+  <link rel="stylesheet" href="/styles/globals.css?v=20260906">
   <link rel="stylesheet" href="/styles/output.css?v=20260711">
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -131,13 +135,35 @@
 }
 </script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRJ7CJ6LQQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-XRJ7CJ6LQQ');
+
+  (function () {
+    var requested = false;
+
+    function loadGtag() {
+      if (requested) return;
+      requested = true;
+
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XRJ7CJ6LQQ';
+      document.head.appendChild(script);
+    }
+
+    ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (type) {
+      addEventListener(type, loadGtag, { once: true, passive: true });
+    });
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGtag, { timeout: 5000 });
+    } else {
+      setTimeout(loadGtag, 3000);
+    }
+  })();
 </script>
 </head>
 

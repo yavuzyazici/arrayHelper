@@ -38,8 +38,8 @@ export function prewarmMonaco() {
 
   monacoPromise = loadAmdLoader()
     .then(() => new Promise((resolve, reject) => {
-      require.config({ paths: { vs: MONACO_VS } });
-      require(['vs/editor/editor.main'], resolve, reject);
+      window.require.config({ paths: { vs: MONACO_VS } });
+      window.require(['vs/editor/editor.main'], resolve, reject);
     }))
     .catch(error => {
       monacoPromise = null;

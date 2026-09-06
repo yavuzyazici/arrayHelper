@@ -6,6 +6,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "4321", "--directory", "src"],
       "port": 4321
+    },
+    {
+      "name": "arrayhelper-dist",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "4322", "--directory", "dist"],
+      "port": 4322
     }
   ]
 }
