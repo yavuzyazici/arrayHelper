@@ -4,7 +4,7 @@
     "description": "Illeszd be a listát, és azonnal kész tömböt kapsz. Ingyenes szöveglista-tömb átalakító JavaScripthez, SQL-hez, Pythonhoz, PHP-hoz, JSON-hoz és C#-hoz — a böngésződben fut.",
     "keywords": "szöveglista tömbbé alakítása, lista tömbbé, tömb generátor online, text list to array, sql in feltétel, javascript tömb listából, python lista, php tömb, json tömb készítése, vesszővel elválasztott lista",
     "ogImageAlt": "ArrayHelper logó és a tömbbé alakítás előnézete",
-    "appName": "Array Helper – Szöveglista-Tömb Átalakító"
+    "appName": "ArrayHelper – Szöveglista-Tömb Átalakító"
   },
   "ui": {
     "logoAria": "ArrayHelper kezdőlap",

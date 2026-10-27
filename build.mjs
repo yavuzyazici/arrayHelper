@@ -1,4 +1,5 @@
 import { build } from 'esbuild';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -24,6 +25,8 @@ const STATIC_ENTRIES = [
   'images',
   'fonts',
   'robots.txt',
+  'llms.txt',
+  '404.html',
   'browserconfig.xml',
   '.htaccess'
 ];
@@ -125,35 +128,66 @@ function decode(value) {
     .replace(/<[^>]+>/g, '')
     .replace(/&mdash;/g, '—')
     .replace(/&ndash;/g, '–')
-    .replace(/&quot;/g, '“')
-    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#39;|&apos;/g, "'")
     .replace(/&nbsp;/g, ' ')
     .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-function buildJsonLd(t, locale, locales) {
+function buildJsonLd(t, locale) {
   const url = localeUrl(locale);
+  const description = decode(t.meta.description);
   const graph = [
     {
       '@type': 'WebSite',
       '@id': `${url}#website`,
       url,
       name: 'ArrayHelper',
-      description: decode(t.meta.description),
+      alternateName: 'Array Helper',
+      description,
       inLanguage: locale.hreflang,
-      publisher: [
-        { '@id': `${SITE}/#organization` },
-        { '@id': `${SITE}/#author` }
-      ]
+      publisher: { '@id': `${SITE}/#organization` }
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${url}#webpage`,
+      url,
+      name: decode(t.meta.title),
+      description,
+      inLanguage: locale.hreflang,
+      isPartOf: { '@id': `${url}#website` },
+      about: { '@id': `${SITE}/#app` },
+      mainEntity: { '@id': `${SITE}/#app` },
+      primaryImageOfPage: { '@id': `${SITE}/#primaryimage` },
+      image: { '@id': `${SITE}/#primaryimage` },
+      hasPart: { '@id': `${url}#faq` }
+    },
+    {
+      '@type': 'ImageObject',
+      '@id': `${SITE}/#primaryimage`,
+      url: `${SITE}/images/arrayHelper-og.png`,
+      contentUrl: `${SITE}/images/arrayHelper-og.png`,
+      width: 2121,
+      height: 1114
     },
     {
       '@type': 'Organization',
       '@id': `${SITE}/#organization`,
       name: 'ArrayHelper',
       url: `${SITE}/`,
-      logo: `${SITE}/images/arrayHelper-og.png`,
+      logo: {
+        '@type': 'ImageObject',
+        '@id': `${SITE}/#logo`,
+        url: `${SITE}/images/icons/icon.png`,
+        contentUrl: `${SITE}/images/icons/icon.png`,
+        width: 180,
+        height: 180
+      },
       sameAs: ['https://github.com/yavuzyazici/arrayHelper'],
       founder: { '@id': `${SITE}/#author` }
     },
@@ -161,53 +195,54 @@ function buildJsonLd(t, locale, locales) {
       '@type': 'Person',
       '@id': `${SITE}/#author`,
       name: 'Yavuz Selim Yazıcı',
+      alternateName: 'Yavuz Yazici',
       url: 'https://www.yavuzyazici.com/',
       sameAs: [
         'https://www.linkedin.com/in/yavuz-yazici/',
-        'https://github.com/yavuzyazici'
+        'https://github.com/yavuzyazici',
+        'https://x.com/4yavuzyazici'
       ]
     },
     {
-      '@type': ['WebApplication', 'SoftwareApplication'],
-      '@id': `${url}#app`,
-      name: decode(t.meta.appName),
-      url,
-      inLanguage: locale.hreflang,
+      // One app entity shared by every locale page
+      '@type': 'WebApplication',
+      '@id': `${SITE}/#app`,
+      name: 'ArrayHelper',
+      alternateName: decode(t.meta.appName),
+      url: `${SITE}/`,
+      description,
       applicationCategory: 'DeveloperApplication',
-      operatingSystem: 'All',
+      operatingSystem: 'Any',
       browserRequirements: 'Requires JavaScript',
-      description: decode(t.meta.description),
-      softwareVersion: '1.0',
-      codeRepository: 'https://github.com/yavuzyazici/arrayHelper',
-      featureList: t.features.items.map(item => decode(item.title)),
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      isAccessibleForFree: true,
+      featureList: t.features.items.map(item => decode(item.title).replace(/[.。।۔]+$/u, '')),
+      image: { '@id': `${SITE}/#primaryimage` },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url: `${SITE}/`
+      },
       author: { '@id': `${SITE}/#author` },
-      publisher: { '@id': `${SITE}/#organization` },
-      isPartOf: { '@id': `${url}#website` },
-      availableLanguage: locales.map(other => other.hreflang)
+      publisher: { '@id': `${SITE}/#organization` }
     },
     {
-      '@type': 'HowTo',
-      '@id': `${url}#howto`,
-      name: decode(t.how.h2),
-      description: decode(t.how.lead),
-      inLanguage: locale.hreflang,
-      totalTime: 'PT1M',
-      tool: { '@id': `${url}#app` },
-      isPartOf: { '@id': `${url}#website` },
-      step: t.how.steps.map((step, i) => ({
-        '@type': 'HowToStep',
-        position: i + 1,
-        name: decode(step.title),
-        text: decode(step.body),
-        url: `${url}#how-it-works`
-      }))
+      '@type': 'SoftwareSourceCode',
+      '@id': `${SITE}/#source`,
+      name: 'ArrayHelper source code',
+      codeRepository: 'https://github.com/yavuzyazici/arrayHelper',
+      programmingLanguage: 'JavaScript',
+      targetProduct: { '@id': `${SITE}/#app` },
+      author: { '@id': `${SITE}/#author` }
     },
     {
       '@type': 'FAQPage',
       '@id': `${url}#faq`,
+      url: `${url}#faq`,
+      name: decode(t.faq.h2),
       inLanguage: locale.hreflang,
-      isPartOf: { '@id': `${url}#website` },
+      isPartOf: { '@id': `${url}#webpage` },
       mainEntity: t.faq.items.map(item => ({
         '@type': 'Question',
         name: decode(item.q),
@@ -216,10 +251,24 @@ function buildJsonLd(t, locale, locales) {
     }
   ];
 
-  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
+  // "<" escaped so no translated string can ever close the <script> element
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2)
+    .replace(/</g, '\u003c');
 }
 
-function buildSitemap(locales, lastmod) {
+// Last commit that touched this locale's page, so a rebuild alone never bumps lastmod
+function contentDate(locale, today) {
+  const files = [`${SRC}/page.html`, `${SRC}/i18n/${locale.code}.json`];
+  try {
+    const dirty = execFileSync('git', ['status', '--porcelain', '--', ...files], { encoding: 'utf8' }).trim();
+    if (dirty) return today;
+    return execFileSync('git', ['log', '-1', '--format=%cs', '--', ...files], { encoding: 'utf8' }).trim() || today;
+  } catch {
+    return today;
+  }
+}
+
+function buildSitemap(locales, today) {
   const entries = locales.map(locale => {
     const alternates = locales.map(
       other => `    <xhtml:link rel="alternate" hreflang="${other.hreflang}" href="${localeUrl(other)}"/>`
@@ -230,7 +279,7 @@ function buildSitemap(locales, lastmod) {
     return [
       '  <url>',
       `    <loc>${localeUrl(locale)}</loc>`,
-      `    <lastmod>${lastmod}</lastmod>`,
+      `    <lastmod>${contentDate(locale, today)}</lastmod>`,
       ...alternates,
       '  </url>'
     ].join('\n');
@@ -323,7 +372,7 @@ if (!locales.length || locales[0].code !== 'en') {
 
 const missing = allLocales.filter(locale => !locales.includes(locale)).map(locale => locale.code);
 const hreflangBlock = buildHreflang(locales, locales[0]);
-const lastmod = new Date().toISOString().slice(0, 10);
+const today = new Date().toLocaleDateString('sv-SE');
 const report = [];
 
 for (const locale of locales) {
@@ -348,7 +397,7 @@ for (const locale of locales) {
     _hreflang: hreflangBlock,
     _languages: buildLanguageNav(locales, locale),
     _footerLine: buildFooterLine(translations, locale),
-    _jsonld: buildJsonLd(translations, locale, locales)
+    _jsonld: buildJsonLd(translations, locale)
   };
 
   const html = render(template, data, `${locale.code}.json`);
@@ -360,7 +409,7 @@ for (const locale of locales) {
   report.push([`${localePath(locale)}index.html`, Buffer.byteLength(html)]);
 }
 
-await writeFile(path.join(OUT, 'sitemap.xml'), buildSitemap(locales, lastmod));
+await writeFile(path.join(OUT, 'sitemap.xml'), buildSitemap(locales, today));
 
 console.log(`js/main.js         ${(jsBytes.length / 1024).toFixed(1)} KB`);
 console.log(`styles/app.css     ${(cssBytes.length / 1024).toFixed(1)} KB`);

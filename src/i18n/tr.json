@@ -4,7 +4,7 @@
     "description": "Listeni yapıştır, kullanıma hazır diziyi anında al. JavaScript, SQL, Python, PHP, JSON ve C# için ücretsiz metin listesi dizi dönüştürücü — tarayıcında çalışır.",
     "keywords": "metin listesini diziye çevirme, liste dizi dönüştürücü, text list to array, listeyi diziye çevirme, sql in listesi oluşturma, javascript dizi oluşturucu, python liste dönüştürücü, php dizi dönüştürücü, json dizi oluşturucu, virgülle ayrılmış liste",
     "ogImageAlt": "ArrayHelper logosu ve dizi dönüşümü önizlemesi",
-    "appName": "Array Helper – Metin Listesi Dizi Dönüştürücü"
+    "appName": "ArrayHelper – Metin Listesi Dizi Dönüştürücü"
   },
   "ui": {
     "logoAria": "ArrayHelper ana sayfa",

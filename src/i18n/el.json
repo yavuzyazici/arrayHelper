@@ -4,7 +4,7 @@
     "description": "Επικόλλησε τη λίστα σου και πάρε αμέσως έτοιμο πίνακα. Δωρεάν μετατροπέας λίστας κειμένου σε πίνακα για JavaScript, SQL, Python, PHP, JSON και C# — τρέχει στον browser.",
     "keywords": "μετατροπή λίστας κειμένου σε πίνακα, λίστα σε πίνακα, μετατροπέας λίστας online, text list to array, sql in clause, πίνακας javascript από λίστα, λίστα python, πίνακας php, δημιουργία json array, λίστα με κόμματα",
     "ogImageAlt": "Λογότυπο ArrayHelper και προεπισκόπηση της μετατροπής σε πίνακα",
-    "appName": "Array Helper – Μετατροπέας Λίστας Κειμένου σε Πίνακα"
+    "appName": "ArrayHelper – Μετατροπέας Λίστας Κειμένου σε Πίνακα"
   },
   "ui": {
     "logoAria": "Αρχική σελίδα ArrayHelper",

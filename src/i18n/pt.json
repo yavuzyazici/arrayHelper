@@ -4,7 +4,7 @@
     "description": "Cole a sua lista e receba o array pronto na hora. Conversor gratuito de lista de texto para array em JavaScript, SQL, Python, PHP, JSON e C# — corre no navegador.",
     "keywords": "converter lista de texto em array, lista para array, conversor de listas online, gerador de array, clausula sql in, array javascript a partir de lista, lista python, array php, gerar array json, lista separada por virgulas",
     "ogImageAlt": "Logótipo do ArrayHelper e pré-visualização da conversão em array",
-    "appName": "Array Helper – Conversor de Lista de Texto para Array"
+    "appName": "ArrayHelper – Conversor de Lista de Texto para Array"
   },
   "ui": {
     "logoAria": "Início do ArrayHelper",

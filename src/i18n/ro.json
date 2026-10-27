@@ -4,7 +4,7 @@
     "description": "Lipește lista și primești array-ul gata de folosit pe loc. Convertor gratuit din listă text în array pentru JavaScript, SQL, Python, PHP, JSON și C# — rulează în browser.",
     "keywords": "converteste lista text in array, lista in array, generator de array online, text list to array, clauza sql in, array javascript din lista, lista python, array php, generare array json, lista separata prin virgula",
     "ogImageAlt": "Logo ArrayHelper și previzualizarea conversiei în array",
-    "appName": "Array Helper – Convertor din Listă Text în Array"
+    "appName": "ArrayHelper – Convertor din Listă Text în Array"
   },
   "ui": {
     "logoAria": "Pagina principală ArrayHelper",

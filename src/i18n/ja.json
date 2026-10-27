@@ -4,7 +4,7 @@
     "description": "リストを貼り付けるだけで、すぐに使える配列が手に入ります。JavaScript・SQL・Python・PHP・JSON・C# に対応した無料のテキストリスト配列変換ツール。ブラウザ内で完結します。",
     "keywords": "テキストリスト 配列 変換, リスト 配列 変換, 配列 生成 ツール, text list to array, sql in句 生成, javascript 配列 作成, python リスト 変換, php 配列 生成, json 配列 作成, カンマ区切り リスト",
     "ogImageAlt": "ArrayHelper のロゴと配列変換のプレビュー",
-    "appName": "Array Helper – テキストリスト配列変換ツール"
+    "appName": "ArrayHelper – テキストリスト配列変換ツール"
   },
   "ui": {
     "logoAria": "ArrayHelper のホーム",

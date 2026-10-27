@@ -4,7 +4,7 @@
     "description": "Liitä listasi ja saat valmiin taulukon heti. Ilmainen tekstilistan taulukoksi muuntaja JavaScriptille, SQL:lle, Pythonille, PHP:lle, JSONille ja C#:lle — toimii selaimessa.",
     "keywords": "muunna tekstilista taulukoksi, lista taulukoksi, taulukon generaattori, text list to array, sql in lauseke, javascript taulukko listasta, python lista, php taulukko, json taulukko, pilkuilla eroteltu lista",
     "ogImageAlt": "ArrayHelper-logo ja esikatselu taulukkomuunnoksesta",
-    "appName": "Array Helper – Tekstilistan Taulukoksi Muuntaja"
+    "appName": "ArrayHelper – Tekstilistan Taulukoksi Muuntaja"
   },
   "ui": {
     "logoAria": "ArrayHelperin etusivu",

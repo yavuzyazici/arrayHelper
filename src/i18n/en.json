@@ -4,7 +4,7 @@
     "description": "Paste a text list, get a ready-to-use array instantly. Free text list to array converter for JavaScript, SQL, Python, PHP, JSON and C# — runs in your browser.",
     "keywords": "text list to array, text list to array converter, convert list to array, list to array converter online, comma separated list generator, sql in clause generator, javascript array from list, python list converter, php array converter, json array generator",
     "ogImageAlt": "ArrayHelper logo and array conversion preview",
-    "appName": "Array Helper – Text List to Array Converter"
+    "appName": "ArrayHelper – Text List to Array Converter"
   },
   "ui": {
     "logoAria": "ArrayHelper home",

@@ -4,7 +4,7 @@
     "description": "Vlož seznam a hned máš hotové pole. Bezplatný převodník textového seznamu na pole pro JavaScript, SQL, Python, PHP, JSON a C# — běží přímo v prohlížeči.",
     "keywords": "převod textového seznamu na pole, seznam na pole, generátor pole online, text list to array, sql in klauzule, javascript pole ze seznamu, python seznam, php pole, generovat json pole, seznam oddělený čárkami",
     "ogImageAlt": "Logo ArrayHelper a náhled převodu na pole",
-    "appName": "Array Helper – Převodník Textového Seznamu na Pole"
+    "appName": "ArrayHelper – Převodník Textového Seznamu na Pole"
   },
   "ui": {
     "logoAria": "Úvodní stránka ArrayHelper",

@@ -1,0 +1,27 @@
+# ArrayHelper
+
+> ArrayHelper is a free, browser-based text list to array converter. Paste one value per line and get JavaScript/TypeScript, SQL IN clause, Python, PHP, JSON, C#, raw comma-separated and custom-template output at the same time. Conversion runs locally in the browser and nothing is uploaded. Built by Yavuz Selim Yazıcı; the source code is public on GitHub.
+
+The converter itself needs JavaScript; every page below is static HTML.
+
+## Guide
+- [How it works](https://www.arrayhelper.com/#how-it-works): paste a list, set quote, number, dedupe and SQL-dialect options, copy the result
+- [Output formats](https://www.arrayhelper.com/#formats): the eight output formats, shown for the input apple, banana, 42
+- [Use cases](https://www.arrayhelper.com/#use-cases): SQL IN clauses from spreadsheet columns, test fixtures, API request bodies, bulk script calls, log clean-up, config lists
+- [FAQ](https://www.arrayhelper.com/#faq): quoting and escaping, numbers, duplicates, size limits, privacy, custom templates, SQL dialects
+
+## Key facts
+- Free, no account, no sign-up
+- Privacy: the list never leaves the browser
+- Size: the classic editor handles about 50,000 lines; the Ultra editor handles larger pastes
+- Escaping: quotes and backslashes are escaped per language; SQL doubles single quotes; JSON and C# use JSON string escaping
+- Numbers: values that are valid JSON numbers stay unquoted by default; everything else is quoted
+- SQL: N'...' by default (SQL Server); switch to '...' for MySQL, PostgreSQL, SQLite
+- Custom template placeholders: {} is the value, {n} the row number from 1, {i} the index from 0
+
+## Source and author
+- [GitHub repository](https://github.com/yavuzyazici/arrayHelper): source code and issues
+- [Author: Yavuz Selim Yazıcı](https://www.yavuzyazici.com/)
+
+## Optional
+- [Translations](https://www.arrayhelper.com/tr/): the same converter and guide in 25 more languages at /tr/, /de/, /es/, /fr/, /it/, /pt/, /ru/, /ja/, /ko/, /zh/, /ar/, /nl/, /pl/, /sv/, /no/, /da/, /fi/, /cs/, /ro/, /hu/, /el/, /hi/, /uk/, /ur/, /bs/

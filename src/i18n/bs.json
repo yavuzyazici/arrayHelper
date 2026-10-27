@@ -4,7 +4,7 @@
     "description": "Zalijepi listu i odmah dobij gotov niz. Besplatan pretvarač tekstualne liste u niz za JavaScript, SQL, Python, PHP, JSON i C# — radi u tvom pregledniku.",
     "keywords": "pretvori tekstualnu listu u niz, lista u niz, generator niza online, text list to array, sql in klauzula, javascript niz iz liste, python lista, php niz, generisanje json niza, lista odvojena zarezima",
     "ogImageAlt": "ArrayHelper logo i pregled pretvaranja u niz",
-    "appName": "Array Helper – Pretvarač Tekstualne Liste u Niz"
+    "appName": "ArrayHelper – Pretvarač Tekstualne Liste u Niz"
   },
   "ui": {
     "logoAria": "Početna stranica ArrayHelper",

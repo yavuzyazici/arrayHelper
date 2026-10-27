@@ -4,7 +4,7 @@
     "description": "Klistra in din lista och få en färdig array direkt. Gratis konverterare från textlista till array för JavaScript, SQL, Python, PHP, JSON och C# — körs i webbläsaren.",
     "keywords": "konvertera textlista till array, lista till array, array generator online, text list to array, sql in sats, javascript array från lista, python lista, php array, skapa json array, kommaseparerad lista",
     "ogImageAlt": "ArrayHelper-logotyp och förhandsvisning av arraykonverteringen",
-    "appName": "Array Helper – Konverterare från Textlista till Array"
+    "appName": "ArrayHelper – Konverterare från Textlista till Array"
   },
   "ui": {
     "logoAria": "ArrayHelper startsida",

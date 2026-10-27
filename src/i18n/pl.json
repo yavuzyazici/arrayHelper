@@ -4,7 +4,7 @@
     "description": "Wklej listę i od razu odbierz gotową tablicę. Darmowy konwerter listy tekstowej na tablicę dla JavaScriptu, SQL, Pythona, PHP, JSON i C# — działa w przeglądarce.",
     "keywords": "lista tekstowa na tablicę, konwerter listy na tablicę, zamiana listy na tablicę, generator tablicy online, klauzula sql in, tablica javascript z listy, lista python, tablica php, generator tablicy json, lista rozdzielona przecinkami",
     "ogImageAlt": "Logo ArrayHelper i podgląd konwersji na tablicę",
-    "appName": "Array Helper – Konwerter Listy Tekstowej na Tablicę"
+    "appName": "ArrayHelper – Konwerter Listy Tekstowej na Tablicę"
   },
   "ui": {
     "logoAria": "Strona główna ArrayHelper",

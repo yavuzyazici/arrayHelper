@@ -4,7 +4,7 @@
     "description": "Plak je lijst en krijg direct een kant-en-klare array. Gratis converter van tekstlijst naar array voor JavaScript, SQL, Python, PHP, JSON en C# — draait in je browser.",
     "keywords": "tekstlijst naar array, lijst naar array omzetten, array generator online, text list to array, sql in clausule generator, javascript array uit lijst, python lijst maken, php array generator, json array maken, komma gescheiden lijst",
     "ogImageAlt": "ArrayHelper logo en voorbeeld van de array-conversie",
-    "appName": "Array Helper – Tekstlijst naar Array Converter"
+    "appName": "ArrayHelper – Tekstlijst naar Array Converter"
   },
   "ui": {
     "logoAria": "ArrayHelper startpagina",

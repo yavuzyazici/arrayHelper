@@ -4,7 +4,7 @@
     "description": "Lim inn listen din og få en ferdig array med én gang. Gratis konverterer fra tekstliste til array for JavaScript, SQL, Python, PHP, JSON og C# — kjører i nettleseren.",
     "keywords": "konverter tekstliste til array, liste til array, array generator på nett, text list to array, sql in setning, javascript array fra liste, python liste, php array, lage json array, kommaseparert liste",
     "ogImageAlt": "ArrayHelper-logo og forhåndsvisning av array-konverteringen",
-    "appName": "Array Helper – Konverterer fra Tekstliste til Array"
+    "appName": "ArrayHelper – Konverterer fra Tekstliste til Array"
   },
   "ui": {
     "logoAria": "ArrayHelper startside",

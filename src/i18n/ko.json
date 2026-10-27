@@ -4,7 +4,7 @@
     "description": "목록을 붙여넣으면 바로 쓸 수 있는 배열이 나옵니다. JavaScript, SQL, Python, PHP, JSON, C#을 지원하는 무료 텍스트 목록 배열 변환기 — 브라우저에서 실행됩니다.",
     "keywords": "텍스트 목록 배열 변환, 리스트 배열 변환, 배열 생성기, text list to array, sql in 절 생성, 자바스크립트 배열 만들기, 파이썬 리스트 변환, php 배열 생성, json 배열 만들기, 쉼표 구분 목록",
     "ogImageAlt": "ArrayHelper 로고와 배열 변환 미리보기",
-    "appName": "Array Helper – 텍스트 목록 배열 변환기"
+    "appName": "ArrayHelper – 텍스트 목록 배열 변환기"
   },
   "ui": {
     "logoAria": "ArrayHelper 홈",

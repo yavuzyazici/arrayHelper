@@ -4,7 +4,7 @@
     "description": "粘贴列表，立即拿到可直接使用的数组。免费的文本列表转数组工具，支持 JavaScript、SQL、Python、PHP、JSON 和 C#，全部在浏览器中完成。",
     "keywords": "文本列表转数组, 列表转数组, 在线数组生成器, text list to array, sql in 语句生成, javascript 数组生成, python 列表转换, php 数组生成, json 数组生成, 逗号分隔列表",
     "ogImageAlt": "ArrayHelper 标志与数组转换预览",
-    "appName": "Array Helper – 文本列表转数组工具"
+    "appName": "ArrayHelper – 文本列表转数组工具"
   },
   "ui": {
     "logoAria": "ArrayHelper 首页",

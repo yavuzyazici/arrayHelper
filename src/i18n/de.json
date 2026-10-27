@@ -4,7 +4,7 @@
     "description": "Liste einfügen, fertiges Array sofort erhalten. Kostenloser Konverter für Textlisten zu Arrays in JavaScript, SQL, Python, PHP, JSON und C# — läuft im Browser.",
     "keywords": "textliste in array umwandeln, liste in array konvertieren, array generator, text list to array, sql in klausel generator, javascript array aus liste, python liste erzeugen, php array generator, json array erstellen, komma getrennte liste",
     "ogImageAlt": "ArrayHelper Logo und Vorschau der Array-Umwandlung",
-    "appName": "Array Helper – Textliste in Array umwandeln"
+    "appName": "ArrayHelper – Textliste in Array umwandeln"
   },
   "ui": {
     "logoAria": "ArrayHelper Startseite",

@@ -4,7 +4,7 @@
     "description": "Collez votre liste, récupérez le tableau prêt à l’emploi. Convertisseur gratuit de liste de texte en tableau pour JavaScript, SQL, Python, PHP, JSON et C#.",
     "keywords": "convertir une liste de texte en tableau, liste vers tableau, convertisseur de liste en ligne, generateur de tableau, clause sql in, tableau javascript depuis une liste, liste python, tableau php, generer un tableau json, liste separee par des virgules",
     "ogImageAlt": "Logo ArrayHelper et aperçu de la conversion en tableau",
-    "appName": "Array Helper – Convertisseur de Liste de Texte en Tableau"
+    "appName": "ArrayHelper – Convertisseur de Liste de Texte en Tableau"
   },
   "ui": {
     "logoAria": "Accueil ArrayHelper",
