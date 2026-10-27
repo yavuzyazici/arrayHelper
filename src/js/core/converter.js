@@ -7,6 +7,8 @@ const JSON_BASED = ['json', 'cs'];
 const PATTERN_TOKEN = /\{(value|n|i)?\}/g;
 const PATTERN_ESCAPE = /\\([ntr\\])/g;
 const SQL_QUOTE = /'/g;
+const SINGLE_QUOTED_ESCAPE = /['\\]/g;
+const DOUBLE_QUOTED_ESCAPE = /["\\]/g;
 
 // prefix, suffix and separator each panel wraps its intermediate with
 const SPECS = {
@@ -83,43 +85,65 @@ function measurePattern(compiled, valueLength, index) {
   return total;
 }
 
-// Anything Number() could still parse: hex/octal/binary radixes, exponents, Infinity
-const MAYBE_NUMERIC = /^[-+0-9.a-fA-FxXoOiInNtTyY]+$/;
-
-function isExoticNumber(value) {
-  return MAYBE_NUMERIC.test(value) && !isNaN(value);
+function skipDigits(value, i) {
+  const length = value.length;
+  while (i < length) {
+    const code = value.charCodeAt(i);
+    if (code < 48 || code > 57) break;
+    i++;
+  }
+  return i;
 }
 
-// Fast path for plain integers and decimals, exact !isNaN() semantics otherwise
+// Exactly the JSON number grammar, so a bare number is valid in every output language
+// (007, 0x1F, .5, +5 or Infinity would break JSON, Python or PHP, so they stay quoted)
 function isPlainNumber(value) {
   const length = value.length;
-  if (length === 0) return false;
+  let i = value.charCodeAt(0) === 45 ? 1 : 0;
 
-  let i = 0;
-  const first = value.charCodeAt(0);
+  if (i === length) return false;
 
-  if (first === 43 || first === 45) {
-    if (length === 1) return false;
-    i = 1;
+  const first = value.charCodeAt(i);
+
+  if (first === 48) i++;
+  else if (first >= 49 && first <= 57) i = skipDigits(value, i + 1);
+  else return false;
+
+  if (i < length && value.charCodeAt(i) === 46) {
+    const start = i + 1;
+    i = skipDigits(value, start);
+    if (i === start) return false;
   }
 
-  let digits = 0;
-  let dots = 0;
-
-  for (; i < length; i++) {
-    const code = value.charCodeAt(i);
-
-    if (code >= 48 && code <= 57) digits++;
-    else if (code === 46) { if (++dots > 1) return isExoticNumber(value); }
-    else return isExoticNumber(value);
+  if (i < length && (value.charCodeAt(i) | 32) === 101) {
+    i++;
+    if (i < length && (value.charCodeAt(i) === 43 || value.charCodeAt(i) === 45)) i++;
+    const start = i;
+    i = skipDigits(value, start);
+    if (i === start) return false;
   }
 
-  return digits > 0 || isExoticNumber(value);
+  return i === length;
 }
 
 function countQuotes(value) {
   let total = 0;
   for (let i = 0; i < value.length; i++) if (value.charCodeAt(i) === 39) total++;
+  return total;
+}
+
+// Backslashes and the active quote get a backslash, valid in JS, Python and PHP literals
+function escapeQuoted(value, quote) {
+  if (value.indexOf(quote) === -1 && value.indexOf('\\') === -1) return value;
+  return value.replace(quote === '"' ? DOUBLE_QUOTED_ESCAPE : SINGLE_QUOTED_ESCAPE, '\\$&');
+}
+
+function countEscapes(value, quoteCode) {
+  let total = 0;
+  for (let i = 0; i < value.length; i++) {
+    const code = value.charCodeAt(i);
+    if (code === quoteCode || code === 92) total++;
+  }
   return total;
 }
 
@@ -153,6 +177,7 @@ export function convertText(text, options, DOM, state, cap = CONFIG.OUTPUT_LIMIT
     : null;
 
   const quote = options.quoteStyle === 'double' ? '"' : "'";
+  const quoteCode = quote.charCodeAt(0);
   const sqlPrefix = options.sqlDialect === 'standard' ? '' : 'N';
   const sqlOverhead = sqlPrefix.length + 2;
   const plainNumbers = options.numbersFormat === 'plain';
@@ -187,7 +212,7 @@ export function convertText(text, options, DOM, state, cap = CONFIG.OUTPUT_LIMIT
 
     const numeric = plainNumbers && isPlainNumber(line);
 
-    if (needRaw) push(sinks.raw, numeric ? line : quote + line + quote);
+    if (needRaw) push(sinks.raw, numeric ? line : quote + escapeQuoted(line, quote) + quote);
 
     if (needSql) {
       const escaped = line.indexOf("'") === -1 ? line : line.replace(SQL_QUOTE, "''");
@@ -224,7 +249,7 @@ export function convertText(text, options, DOM, state, cap = CONFIG.OUTPUT_LIMIT
     const length = line.length;
     const numeric = plainNumbers && isPlainNumber(line);
 
-    if (needRaw) grow(sinks.raw, numeric ? length : length + 2);
+    if (needRaw) grow(sinks.raw, numeric ? length : length + 2 + countEscapes(line, quoteCode));
     if (needSql) grow(sinks.sql, length + sqlOverhead + countQuotes(line));
     if (needJson) grow(sinks.json, numeric ? length : JSON.stringify(line).length);
     if (customPattern) grow(sinks.custom, measurePattern(customPattern, length, customIndex++));
