@@ -1,2 +1,10 @@
 node_modules
 dist
+
+# claude-seo runtime
+.claude/skills/seo/.venv*/
+.claude/skills/seo/runtime-state.json
+.claude/skills/seo/.runtime-state*
+.claude/skills/seo/.setup.lock
+__pycache__/
+.claude/skills/seo/ms-playwright/
