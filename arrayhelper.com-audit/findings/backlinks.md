@@ -32,6 +32,8 @@ Release `cc-main-2026-jan-feb-mar` (quarterly; freshness approximate, source htt
 | **arrayhelper.com** | yes | 5,460,824 | 2,924,628 | 1 |
 | devtoollab.com (direct competitor) | yes | 5,659,845 | 2,989,417 | 1 |
 | listdiff.com (direct competitor) | yes | 7,612,288 | 7,433,723 | 2 |
+| charset.org (text-to-array competitor) | yes | 79,801 | 54,272 | 2 |
+| bushe.co (list-to-comma competitor) | **not found** | n/a | n/a | n/a |
 | atakdomain.com (registrar / origin-story employer; linked from footer) | yes | 32,660 | 111,601 | 5 |
 | codebeautify.org (established tool site, for scale) | yes | 24,856 | 4,703 | 3 |
 | jsonformatter.org (established tool site, for scale) | yes | 44,213 | 6,156 | 2 |
@@ -45,7 +47,7 @@ in the graph, and it sits in the same long-tail band as direct competitors devto
 roughly two to three orders of magnitude (in rank) below established tool sites (codebeautify.org, jsonformatter.org).
 This is a rank/presence signal, **not** a referring-domain count. yavuzyazici.com being absent from Common Crawl
 means "not crawled / too small", not "low authority".
-bushe.co and charset.org lookups did not complete in time and are not reported.
+bushe.co is not in the crawl (not evidence of low authority); charset.org, a text-to-array competitor, ranks far higher than arrayhelper.com.
 
 ### 1b. Verification Crawler (confidence 0.95, direct observation of the source page)
 Only candidate sources I supplied can be checked; the crawler cannot discover links.
