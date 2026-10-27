@@ -354,21 +354,23 @@ export function initEvents(state, DOM, options) {
         const buttons = container.querySelectorAll('.button');
 
         buttons.forEach(button => {
-            const alt = button.querySelector('img').alt;
+            const { option, value } = button.dataset;
 
-            if (alt === 'double-quote') button.classList.toggle('active', options.quoteStyle === 'double');
-            if (alt === 'single-quote') button.classList.toggle('active', options.quoteStyle === 'single');
-            if (alt === 'numbers-quote') button.classList.toggle('active', options.numbersFormat === 'quoted');
-            if (alt === 'numbers-without-quote') button.classList.toggle('active', options.numbersFormat === 'plain');
+            if (!option) return;
+
+            const active = options[option] === value;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', String(active));
 
             button.addEventListener('click', function () {
-                buttons.forEach(btn => btn.classList.remove('active'));
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
                 this.classList.add('active');
+                this.setAttribute('aria-pressed', 'true');
 
-                if (alt === 'double-quote') options.quoteStyle = 'double';
-                if (alt === 'single-quote') options.quoteStyle = 'single';
-                if (alt === 'numbers-quote') options.numbersFormat = 'quoted';
-                if (alt === 'numbers-without-quote') options.numbersFormat = 'plain';
+                options[option] = value;
 
                 saveOptions();
                 refreshOutputs();

@@ -4,6 +4,17 @@
   font-weight: 400;
   font-display: swap;
   src: url('../fonts/pxiEyp8kv8JHgFVrJJfecg.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext: ş ğ İ ą č ő and friends for tr, pl, cs, hu, ro, bs */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/pxiEyp8kv8JHgFVrJJnecmNE.woff2') format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -12,6 +23,16 @@
   font-weight: 600;
   font-display: swap;
   src: url('../fonts/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2') format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 :root {
@@ -76,6 +97,7 @@ body {
 }
 
 .options-container:hover .editor-selector-menu,
+.options-container:focus-within .editor-selector-menu,
 .options-container.open .editor-selector-menu {
   opacity: 1;
   visibility: visible;
@@ -140,9 +162,11 @@ body {
 
 /* Mobile keeps the fixed heights and natural page scroll */
 @media (max-width: 767px) {
+  /* Short enough that the first output panel shows up above the fold */
   main > .text-editor {
     flex: none;
-    height: 720px;
+    height: 340px;
+    height: clamp(240px, 42svh, 720px);
   }
 
   .output-section textarea {
@@ -359,6 +383,7 @@ body {
   }
 
   .options-container:hover .editor-selector-menu,
+  .options-container:focus-within .editor-selector-menu,
   .options-container.open .editor-selector-menu {
     transform: translateX(0) translateY(0);
   }
@@ -624,6 +649,12 @@ html {
 
 .content-section + .content-section {
   margin-top: 68px;
+}
+
+/* Below the fold: skip layout and paint until it nears the viewport */
+.content-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 .content-section h2 {
@@ -1009,4 +1040,9 @@ html {
 
 [dir="rtl"] .step-list li::before {
   direction: ltr;
+}
+
+/* Header hint and tagline: cool-gray is 2.07:1 on white, this is 4.9:1 */
+header .text-cool-gray {
+  color: #6b7080;
 }

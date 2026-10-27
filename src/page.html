@@ -16,13 +16,10 @@
   <meta property="og:description" content="{{meta.description}}">
   <meta property="og:site_name" content="ArrayHelper">
   <meta property="og:locale" content="{{_ogLocale}}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="2121">
+  <meta property="og:image:height" content="1114">
   <meta property="og:image:alt" content="{{meta.ogImageAlt}}">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:rich_attachment" content="true">
-  <meta property="og:price:amount" content="0.00">
-  <meta property="og:price:currency" content="USD">
 
   <!-- DC -->
   <meta name="DC.title" content="{{meta.title}}">
@@ -48,26 +45,21 @@
   <link rel="canonical" href="{{_url}}">
 {{_hreflang}}
   <meta name="keywords" content="{{meta.keywords}}">
-  <meta name="author" content="Yavuz Selim YAZICI">
+  <meta name="author" content="Yavuz Selim Yazıcı">
 
   <meta name="theme-color" content="#d5dfff">
   <meta name="msapplication-TileColor" content="#d5dfff">
   <meta name="msapplication-config" content="/browserconfig.xml">
 
   <meta name="google" content="notranslate">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="referrer" content="no-referrer-when-downgrade">
 
-  <link rel="icon" type="image/x-icon" href="/images/icons/icon.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="/images/icons/icon.png">
 
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/pxiEyp8kv8JHgFVrJJfecg.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2">
 
   <link rel="stylesheet" href="/styles/globals.css?v=20260906">
   <link rel="stylesheet" href="/styles/output.css?v=20260711">
-
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
   <link rel="modulepreload" href="/js/main.js?v=20260906">
   <link rel="modulepreload" href="/js/core/editor.js?v=20260906">
@@ -85,22 +77,14 @@
   gtag('js', new Date());
   gtag('config', 'G-XRJ7CJ6LQQ');
 
+  // Loaded only when the main thread is idle, never inside the user's first keystrokes
   (function () {
-    var requested = false;
-
     function loadGtag() {
-      if (requested) return;
-      requested = true;
-
       var script = document.createElement('script');
       script.async = true;
       script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XRJ7CJ6LQQ';
       document.head.appendChild(script);
     }
-
-    ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (type) {
-      addEventListener(type, loadGtag, { once: true, passive: true });
-    });
 
     if ('requestIdleCallback' in window) {
       requestIdleCallback(loadGtag, { timeout: 5000 });
@@ -117,7 +101,7 @@
     <header class="m-0 pl-2 pr-2 pt-1 pb-1">
       <div class="flex items-center gap-3">
         <a href="{{_url}}" aria-label="{{ui.logoAria}}" class="inline-flex items-center">
-          <img src="/images/arrayHelper.svg" alt="ArrayHelper logo" width="120" height="28" decoding="async" class="w-[110px] md:w-[120px] h-auto object-contain">
+          <img src="/images/arrayHelper.svg" alt="ArrayHelper logo" width="120" height="26" decoding="async" class="w-[110px] md:w-[120px] h-auto object-contain">
         </a>
         <p class="m-0 text-xs md:text-sm text-cool-gray leading-tight">
           {{ui.kbdBefore}}
@@ -139,7 +123,7 @@
         class="text-editor relative flex-1 w-full flex flex-col border-2 border-light-gray overflow-hidden">
         <button id="convertBtn" aria-label="{{ui.convertAria}}"
           class="absolute top-2 right-2 p-0.5 bg-white border-2 border-light-purple rounded-full cursor-pointer z-10 hover:bg-light-gray transition-all duration-300 group">
-          <img src="/images/icons/arrow-right.svg" alt="arrow-right"
+          <img src="/images/icons/arrow-right.svg" alt=""
             class="w-full h-full object-cover transition-transform duration-500 group-hover:rotate-45">
         </button>
         <div class="flex flex-1 overflow-auto relative">
@@ -156,130 +140,130 @@
           <div class="hidden md:block w-full h-0.5 bg-light-gray"></div>
           <div class="output-section w-full h-full" data-output="raw">
             <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
-              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ Raw ]</span>
+              <span class="output-title text-sm pl-1" id="rawTitle"><span class="drag-handle" aria-hidden="true"></span>[ Raw ]</span>
               <button id="rawCopy"
                 class="group relative inline-flex p-1.5 mr-2 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
-                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                  <img src="/images/icons/copy.svg" alt="" class="w-4 h-4 object-cover">
                 </div>
                 <div
                   class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
                   {{ui.copy}}</div>
               </button>
             </div>
-            <textarea name="rawOutput" id="rawOutput" aria-label="rawOutput-label"
+            <textarea name="rawOutput" id="rawOutput" aria-labelledby="rawTitle"
               class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section w-full h-full" data-output="js">
             <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
-              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ JavaScript ]</span>
+              <span class="output-title text-sm pl-1" id="jsTitle"><span class="drag-handle" aria-hidden="true"></span>[ JavaScript ]</span>
               <button id="jsCopy"
                 class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
-                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                  <img src="/images/icons/copy.svg" alt="" class="w-4 h-4 object-cover">
                 </div>
                 <div
                   class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
                   {{ui.copy}}</div>
               </button>
             </div>
-            <textarea name="jsOutput" id="jsOutput" aria-label="jsOutput-label"
+            <textarea name="jsOutput" id="jsOutput" aria-labelledby="jsTitle"
               class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section w-full h-full" data-output="sql">
             <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
-              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ SQL ]</span>
+              <span class="output-title text-sm pl-1" id="sqlTitle"><span class="drag-handle" aria-hidden="true"></span>[ SQL ]</span>
               <button id="sqlCopy"
                 class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
-                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                  <img src="/images/icons/copy.svg" alt="" class="w-4 h-4 object-cover">
                 </div>
                 <div
                   class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
                   {{ui.copy}}</div>
               </button>
             </div>
-            <textarea name="sqlOutput" id="sqlOutput" aria-label="sqlOutput-label"
+            <textarea name="sqlOutput" id="sqlOutput" aria-labelledby="sqlTitle"
               class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section hidden w-full h-full" data-output="py">
             <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
-              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ Python ]</span>
+              <span class="output-title text-sm pl-1" id="pyTitle"><span class="drag-handle" aria-hidden="true"></span>[ Python ]</span>
               <button id="pyCopy"
                 class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
-                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                  <img src="/images/icons/copy.svg" alt="" class="w-4 h-4 object-cover">
                 </div>
                 <div
                   class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
                   {{ui.copy}}</div>
               </button>
             </div>
-            <textarea name="pyOutput" id="pyOutput" aria-label="pyOutput-label"
+            <textarea name="pyOutput" id="pyOutput" aria-labelledby="pyTitle"
               class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section hidden w-full h-full" data-output="php">
             <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
-              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ PHP ]</span>
+              <span class="output-title text-sm pl-1" id="phpTitle"><span class="drag-handle" aria-hidden="true"></span>[ PHP ]</span>
               <button id="phpCopy"
                 class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
-                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                  <img src="/images/icons/copy.svg" alt="" class="w-4 h-4 object-cover">
                 </div>
                 <div
                   class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
                   {{ui.copy}}</div>
               </button>
             </div>
-            <textarea name="phpOutput" id="phpOutput" aria-label="phpOutput-label"
+            <textarea name="phpOutput" id="phpOutput" aria-labelledby="phpTitle"
               class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section hidden w-full h-full" data-output="json">
             <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
-              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ JSON ]</span>
+              <span class="output-title text-sm pl-1" id="jsonTitle"><span class="drag-handle" aria-hidden="true"></span>[ JSON ]</span>
               <button id="jsonCopy"
                 class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
-                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                  <img src="/images/icons/copy.svg" alt="" class="w-4 h-4 object-cover">
                 </div>
                 <div
                   class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
                   {{ui.copy}}</div>
               </button>
             </div>
-            <textarea name="jsonOutput" id="jsonOutput" aria-label="jsonOutput-label"
+            <textarea name="jsonOutput" id="jsonOutput" aria-labelledby="jsonTitle"
               class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section hidden w-full h-full" data-output="cs">
             <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
-              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ C# ]</span>
+              <span class="output-title text-sm pl-1" id="csTitle"><span class="drag-handle" aria-hidden="true"></span>[ C# ]</span>
               <button id="csCopy"
                 class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
-                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                  <img src="/images/icons/copy.svg" alt="" class="w-4 h-4 object-cover">
                 </div>
                 <div
                   class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
                   {{ui.copy}}</div>
               </button>
             </div>
-            <textarea name="csOutput" id="csOutput" aria-label="csOutput-label"
+            <textarea name="csOutput" id="csOutput" aria-labelledby="csTitle"
               class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
           <div class="output-section hidden w-full h-full" data-output="custom">
             <div class="output-header w-full gap-4 flex items-center justify-between p-1 bg-off-white" draggable="true">
-              <span class="output-title text-sm pl-1"><span class="drag-handle" aria-hidden="true"></span>[ Custom ]</span>
+              <span class="output-title text-sm pl-1" id="customTitle"><span class="drag-handle" aria-hidden="true"></span>[ Custom ]</span>
               <button id="customCopy"
                 class="group relative inline-flex mr-2 p-1.5 w-11 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32">
                 <div class="absolute left-3.5">
-                  <img src="/images/icons/copy.svg" alt="copy" class="w-4 h-4 object-cover">
+                  <img src="/images/icons/copy.svg" alt="" class="w-4 h-4 object-cover">
                 </div>
                 <div
                   class="inline-flex text-sm whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-100">
@@ -296,7 +280,7 @@
                 <button class="token-chip" data-token="{i}" title="{{ui.tokenIndex}}" type="button">{i}</button>
               </div>
             </div>
-            <textarea name="customOutput" id="customOutput" aria-label="customOutput-label"
+            <textarea name="customOutput" id="customOutput" aria-labelledby="customTitle"
               class="w-full p-1 text-sm resize-none overflow-auto focus:outline-none"></textarea>
             <div class="w-full h-0.5 bg-light-gray"></div>
           </div>
@@ -305,26 +289,26 @@
     </main>
     <div class="gap-4 flex flex-wrap items-center justify-start p-2" style="margin-top: 0;" dir="ltr">
       <div class="button-container max-[500px]:w-full">
-        <button class="button" aria-label="{{ui.doubleQuoteAria}}">
-          <img src="/images/icons/double-quote.svg" alt="double-quote" class="w-full h-max object-cover">
+        <button class="button" data-option="quoteStyle" data-value="double" aria-label="{{ui.doubleQuoteAria}}">
+          <img src="/images/icons/double-quote.svg" alt="" class="w-full h-max object-cover">
         </button>
-        <button class="button active" aria-label="{{ui.singleQuoteAria}}">
-          <img src="/images/icons/single-quote.svg" alt="single-quote" class="w-full h-max object-cover">
+        <button class="button active" data-option="quoteStyle" data-value="single" aria-label="{{ui.singleQuoteAria}}">
+          <img src="/images/icons/single-quote.svg" alt="" class="w-full h-max object-cover">
         </button>
       </div>
       <div class="button-container max-[500px]:w-full">
-        <button class="button active" aria-label="{{ui.plainNumbersAria}}">
-          <img src="/images/icons/numbers-without-quote.svg" alt="numbers-without-quote"
+        <button class="button active" data-option="numbersFormat" data-value="plain" aria-label="{{ui.plainNumbersAria}}">
+          <img src="/images/icons/numbers-without-quote.svg" alt=""
             class="w-full h-max object-cover">
         </button>
-        <button class="button" aria-label="{{ui.quotedNumbersAria}}">
-          <img src="/images/icons/numbers-quote.svg" alt="numbers-quote" class="w-full h-max object-cover">
+        <button class="button" data-option="numbersFormat" data-value="quoted" aria-label="{{ui.quotedNumbersAria}}">
+          <img src="/images/icons/numbers-quote.svg" alt="" class="w-full h-max object-cover">
         </button>
       </div>
       <div class="button-container max-[500px]:w-[120px] w-[50px] options-container" style="padding: 10px;">
         <button aria-label="{{ui.settingsAria}}"
           class="options w-full h-full flex justify-center items-center transition-transform duration-300 hover:rotate-180">
-          <img src="/images/icons/options.svg" alt="options" class="w-6 h-6">
+          <img src="/images/icons/options.svg" alt="" class="w-6 h-6">
         </button>
         <div class="editor-selector-menu">
           <div class="settings-row">
@@ -374,7 +358,7 @@
       </div>
       <div class="button-container max-[500px]:w-full">
         <button class="button delete" aria-label="{{ui.clearAria}}">
-          <img src="/images/icons/trash.svg" alt="trash" class="w-full h-max object-cover">
+          <img src="/images/icons/trash.svg" alt="" class="w-full h-max object-cover">
         </button>
       </div>
       <a class="hero-jump" href="#guide">
