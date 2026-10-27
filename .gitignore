@@ -8,3 +8,10 @@ dist
 .claude/skills/seo/.setup.lock
 __pycache__/
 .claude/skills/seo/ms-playwright/
+
+# claude-seo audit: keep the reports, not the raw captures
+arrayhelper.com-audit/*
+!arrayhelper.com-audit/*.md
+!arrayhelper.com-audit/audit-data.json
+!arrayhelper.com-audit/findings/
+arrayhelper.com-audit/findings/*.json

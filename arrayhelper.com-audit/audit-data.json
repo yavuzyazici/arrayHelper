@@ -1,0 +1,124 @@
+{
+  "summary": {
+    "health_score": 77,
+    "audit_date": "2026-10-27",
+    "url": "https://www.arrayhelper.com/",
+    "business_type": "Developer tool / free web application (SaaS-like utility, no pricing, 26 locales)",
+    "score_basis": "Live site before the fixes in this commit set; lab data only (no CrUX, GSC or GA4 credentials).",
+    "top_findings": [
+      "Escaping claim was false: JS/Python/PHP/Raw output emitted O'Brien unescaped and 007 / 0x1F / Infinity as bare numbers",
+      "Non-www host (https://arrayhelper.com/) and /index.html served 200 duplicates instead of 301",
+      "No security headers (HSTS, nosniff, X-Frame-Options, Referrer-Policy)",
+      "JSON-LD used deprecated HowTo and invalid properties (codeRepository, availableLanguage on WebApplication)",
+      "Mobile first screen was a 720px empty editor; results and toolbar below the fold"
+    ],
+    "quick_wins": [
+      "301 apex and /index.html in .htaccess",
+      "Add security headers in .htaccess",
+      "Escape quotes/backslashes and use JSON number grammar in converter.js",
+      "Clean up JSON-LD graph in build.mjs",
+      "Real per-locale sitemap lastmod from git history"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 85,
+      "what_works": [
+        "Static server-rendered HTML per locale, identical for Googlebot/GPTBot/ClaudeBot",
+        "hreflang perfect on all 26 pages (27 alternates, self-reference, return tags, x-default, zh-Hans)",
+        "Canonicals correct on every variant, http->https 301, Brotli, HTTP/2 + HTTP/3, real 404 status"
+      ],
+      "findings": [
+        {"title": "Apex host serves a 200 duplicate", "severity": "Medium", "description": "https://arrayhelper.com/ returned 200 (canonical to www) instead of 301.", "recommendation": "301 to https://www.arrayhelper.com in src/.htaccess (done)."},
+        {"title": "No security headers", "severity": "Medium", "description": "No HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy.", "recommendation": "Add in src/.htaccess mod_headers block (done; CSP left for later because of inline gtag + jsDelivr Monaco)."},
+        {"title": "/index.html duplicates return 200", "severity": "Low", "description": "/index.html and /<code>/index.html are reachable copies.", "recommendation": "301 to the directory URL (done)."},
+        {"title": "robots.txt / sitemap.xml cached 30 days", "severity": "Low", "description": "ExpiresDefault 1 month applied to text/plain and XML.", "recommendation": "1 day for text/plain and XML (done)."},
+        {"title": "Server-default 404 page", "severity": "Low", "description": "No way back to the site from a 404.", "recommendation": "ErrorDocument 404 /404.html with noindex (done)."},
+        {"title": "og:image dimensions wrong", "severity": "Low", "description": "Declared 1200x630, file is 2121x1114.", "recommendation": "Fixed in src/page.html (done)."}
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 71,
+      "what_works": [
+        "~1,170 unique words on the English page, Flesch 68, no filler phrases",
+        "All 25 translations structurally complete; specific first-hand details"
+      ],
+      "findings": [
+        {"title": "Escaping claim false for Raw/JS/Python/PHP", "severity": "High", "description": "O'Brien produced ['O'Brien'] (syntax error) despite features/FAQ promising per-language escaping.", "recommendation": "Escape quote + backslash in converter.js (done)."},
+        {"title": "Strictly-valid JSON claim false for exotic numbers", "severity": "Medium", "description": "007, +5, .5, 0x1F, Infinity emitted unquoted.", "recommendation": "Only JSON-grammar numbers stay bare (done)."},
+        {"title": "No visible author/about/privacy information", "severity": "High", "description": "E-E-A-T 51/100: no byline, no dates, no about or privacy disclosure while GA and jsDelivr load.", "recommendation": "Add an #about block (who built it, contact, analytics/CDN disclosure) to page.html + 26 locale files. Open."},
+        {"title": "Dedupe label reads as a noun in 21 locales", "severity": "Medium", "description": "e.g. de 'Duplikate' reads as 'enable duplicates'.", "recommendation": "Verb phrase per locale ('Duplikate entfernen'). Open."}
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 82,
+      "what_works": [
+        "Keyword-led title (59 chars) and description (158 chars), one H1, valid heading order",
+        "26 localized title/description pairs, none templated"
+      ],
+      "findings": [
+        {"title": "Brand spelled three ways", "severity": "Medium", "description": "ArrayHelper / Array Helper / arrayHelper; brand collides with Yii/Craft/CodeIgniter ArrayHelper classes.", "recommendation": "meta.appName unified to 'ArrayHelper – ...' in 26 locales and alternateName added in schema (done)."},
+        {"title": "Output textareas had junk accessible names", "severity": "Medium", "description": "aria-label='rawOutput-label' etc., untranslated.", "recommendation": "aria-labelledby the panel title (done)."},
+        {"title": "da and no share an identical title", "severity": "Low", "description": "src/i18n/da.json and no.json meta.title are identical.", "recommendation": "Differentiate the Norwegian title. Open."}
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 72,
+      "what_works": ["One valid @graph per page, 0 dangling @id, truthful free Offer, FAQ mirrors visible text"],
+      "findings": [
+        {"title": "Deprecated HowTo node on all 26 pages", "severity": "Medium", "description": "No rich result since Sep 2023; tool typed incorrectly.", "recommendation": "Removed (done)."},
+        {"title": "Invalid properties on WebApplication", "severity": "Medium", "description": "codeRepository and availableLanguage are outside the type's domain.", "recommendation": "Moved repo to SoftwareSourceCode node, dropped availableLanguage (done)."},
+        {"title": "Logo pointed at the 2121x1114 OG card", "severity": "Medium", "description": "Low-contrast wordmark used as Organization.logo.", "recommendation": "icon.png 180x180 ImageObject (done)."},
+        {"title": "FAQPage kept", "severity": "Info", "description": "FAQ rich results retired 2026-05-07; harmless, no removal.", "recommendation": "Keep as is."}
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 91,
+      "what_works": ["LCP is H1 text: 1.0-1.4 s mobile (4x CPU), 0.4-0.6 s desktop; CLS 0; ~50 KB first-party payload"],
+      "findings": [
+        {"title": "GA4 loaded on first interaction caused 240 ms keydown", "severity": "Medium", "description": "gtag evaluation landed inside the first typing burst.", "recommendation": "Load gtag on idle only (done)."},
+        {"title": "Below-the-fold article layout paid before first paint", "severity": "Medium", "description": "Layout 1,005 ms on /ja/ at 4x CPU; /ar/ LCP up to 2.18 s.", "recommendation": "content-visibility:auto on .content-section (done)."},
+        {"title": "Latin-Extended glyphs fell back to system font", "severity": "Low", "description": "tr/pl/cs/hu/ro/bs letters (ş ğ İ ą č ő) rendered in a fallback font.", "recommendation": "latin-ext @font-face with unicode-range (done)."},
+        {"title": "Unneeded jsDelivr preconnect on every view", "severity": "Low", "description": "Only Ultra mode uses jsDelivr.", "recommendation": "Removed (done)."},
+        {"title": "Large paste freezes on line numbers", "severity": "Medium", "description": "One div per line: 50k lines blocks 5.6 s at 4x CPU.", "recommendation": "Single text node or virtualised gutter in editor.js. Open."}
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 68,
+      "what_works": ["All AI crawlers allowed and served identical static HTML", "Question-form FAQ with direct 22-50 word answers"],
+      "findings": [
+        {"title": "No third-party brand presence", "severity": "High", "description": "Only self-owned links (GitHub repo nofollow, profile nofollow, yavuzyazici.com).", "recommendation": "Show HN / dev.to origin story, DevHunt, awesome-devtools, Stack Overflow answers with disclosure. Open (off-site)."},
+        {"title": "Settings menu hover-only on desktop", "severity": "High", "description": "Python/PHP/JSON/C#/Custom, SQL dialect and Dedupe unreachable by keyboard or agents.", "recommendation": ":focus-within opens the menu (done)."},
+        {"title": "llms.txt missing", "severity": "Info", "description": "Zero ranking weight; cheap optionality for AI coding agents.", "recommendation": "Added src/llms.txt (done)."},
+        {"title": "No LICENSE despite 'open source' claims", "severity": "Medium", "description": "Blocks directory submissions and SoftwareSourceCode.license.", "recommendation": "Owner decision: add a license to the repo. Open."}
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 55,
+      "what_works": ["Logo has alt and explicit dimensions"],
+      "findings": [
+        {"title": "Decorative icons carried English filler alt text", "severity": "Low", "description": "alt='copy', 'trash', 'arrow-right' inside already-labelled buttons, in every locale.", "recommendation": "alt='' and toolbar logic moved to data attributes (done)."},
+        {"title": "Logo SVG letterboxed and shifted the header", "severity": "Medium", "description": "SVG declared 120x48 for a 222x48 viewBox; CLS 0.04 in 2/8 runs.", "recommendation": "SVG and img set to 120x26 (done)."}
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {"name": "Phase 1: Critical Fixes", "timeframe": "Week 1", "items": ["Deploy this commit set", "Verify apex 301, /index.html 301 and headers on the live host", "Submit sitemap in Google Search Console and Bing Webmaster Tools"]},
+      {"name": "Phase 2: High-Impact Improvements", "timeframe": "Weeks 2-3", "items": ["Auto Run beyond 40 lines on paste, or a visible Convert hint", "Load-example button", "Visible format tabs instead of hover-only panel chips", "Add a LICENSE"]},
+      {"name": "Phase 3: Content & Authority", "timeframe": "Month 2", "items": ["#about block with author, contact and analytics disclosure in 26 locales", "Per-intent landing pages (/sql-in-clause-generator/, /list-to-json-array/, /comma-separated-list-generator/)", "Show HN / dev.to / DevHunt / awesome-devtools outreach", "Ask Atak Domain for an editorial link"]},
+      {"name": "Phase 4: Monitoring & Iteration", "timeframe": "Ongoing", "items": ["Search Console: Coverage for apex/index.html variants, Links report", "CrUX/PSI with an API key to replace lab estimates", "drift baseline: claude-seo drift baseline https://www.arrayhelper.com/"]}
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

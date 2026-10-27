@@ -1,0 +1,224 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.arrayhelper.com/#website",
+      "url": "https://www.arrayhelper.com/",
+      "name": "ArrayHelper",
+      "alternateName": "Array Helper",
+      "description": "Paste a text list, get a ready-to-use array instantly. Free text list to array converter for JavaScript, SQL, Python, PHP, JSON and C# — runs in your browser.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.arrayhelper.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.arrayhelper.com/#webpage",
+      "url": "https://www.arrayhelper.com/",
+      "name": "Text List to Array Converter – JavaScript, SQL, Python, PHP",
+      "description": "Paste a text list, get a ready-to-use array instantly. Free text list to array converter for JavaScript, SQL, Python, PHP, JSON and C# — runs in your browser.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.arrayhelper.com/#website"
+      },
+      "about": {
+        "@id": "https://www.arrayhelper.com/#app"
+      },
+      "mainEntity": {
+        "@id": "https://www.arrayhelper.com/#app"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.arrayhelper.com/#primaryimage"
+      },
+      "image": {
+        "@id": "https://www.arrayhelper.com/#primaryimage"
+      },
+      "hasPart": {
+        "@id": "https://www.arrayhelper.com/#faq"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.arrayhelper.com/#primaryimage",
+      "url": "https://www.arrayhelper.com/images/arrayHelper-og.png",
+      "contentUrl": "https://www.arrayhelper.com/images/arrayHelper-og.png",
+      "width": 2121,
+      "height": 1114
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.arrayhelper.com/#organization",
+      "name": "ArrayHelper",
+      "url": "https://www.arrayhelper.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.arrayhelper.com/#logo",
+        "url": "https://www.arrayhelper.com/images/icons/icon.png",
+        "contentUrl": "https://www.arrayhelper.com/images/icons/icon.png",
+        "width": 180,
+        "height": 180
+      },
+      "sameAs": [
+        "https://github.com/yavuzyazici/arrayHelper"
+      ],
+      "founder": {
+        "@id": "https://www.arrayhelper.com/#author"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.arrayhelper.com/#author",
+      "name": "Yavuz Selim Yazıcı",
+      "alternateName": "Yavuz Yazici",
+      "url": "https://www.yavuzyazici.com/",
+      "sameAs": [
+        "https://www.linkedin.com/in/yavuz-yazici/",
+        "https://github.com/yavuzyazici",
+        "https://x.com/4yavuzyazici"
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://www.arrayhelper.com/#app",
+      "name": "Array Helper – Text List to Array Converter",
+      "url": "https://www.arrayhelper.com/",
+      "description": "Paste a text list, get a ready-to-use array instantly. Free text list to array converter for JavaScript, SQL, Python, PHP, JSON and C# — runs in your browser.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "featureList": [
+        "Nothing is uploaded",
+        "Large lists stay fast",
+        "Quotes are escaped correctly",
+        "Numbers stay numbers",
+        "Duplicates gone in one click",
+        "Three panels at once",
+        "Made for the keyboard",
+        "Free and open source"
+      ],
+      "image": {
+        "@id": "https://www.arrayhelper.com/#primaryimage"
+      },
+      "screenshot": {
+        "@type": "ImageObject",
+        "url": "https://www.arrayhelper.com/images/Readme%20Image%202.png",
+        "contentUrl": "https://www.arrayhelper.com/images/Readme%20Image%202.png",
+        "width": 1876,
+        "height": 922
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.arrayhelper.com/"
+      },
+      "author": {
+        "@id": "https://www.arrayhelper.com/#author"
+      },
+      "publisher": {
+        "@id": "https://www.arrayhelper.com/#organization"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://www.arrayhelper.com/#source",
+      "name": "ArrayHelper source code",
+      "codeRepository": "https://github.com/yavuzyazici/arrayHelper",
+      "programmingLanguage": "JavaScript",
+      "targetProduct": {
+        "@id": "https://www.arrayhelper.com/#app"
+      },
+      "author": {
+        "@id": "https://www.arrayhelper.com/#author"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.arrayhelper.com/#faq",
+      "url": "https://www.arrayhelper.com/#faq",
+      "name": "Text list to array: frequently asked questions",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.arrayhelper.com/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a text list to array converter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a tool that turns a plain list of values, one per line, into an array literal you can paste straight into code. ArrayHelper builds the JavaScript, SQL, Python, PHP, JSON, C# and custom versions of the same list at once, so you never hand-type quotes and commas again."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert a text list to an array online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paste the list into the editor at the top of this page, press Ctrl / Cmd + Enter or leave Auto Run on, then copy the panel you need. Nothing to install, no sign-up and no row limit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it escape quotes and special characters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Single quotes are doubled for SQL, and the JSON and C# outputs use real JSON string escaping, so values with apostrophes, backslashes or tabs stay valid in the target language."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are numbers quoted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not by default — plain numeric lines are written as numbers and everything else is quoted. If your column is a string type, the numbers toggle in the toolbar quotes them too."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I remove duplicate lines while converting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Switch on Dedupe in the options menu and only the first occurrence of each line is kept. Blank lines and surrounding whitespace are always trimmed, with or without Dedupe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How large a list can it handle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The classic editor is comfortable up to 50,000 lines, and the Ultra editor keeps even larger pastes responsive. Long outputs are shortened on screen for speed, but Copy always gives you the complete array."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my list uploaded to a server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Every conversion runs locally in your browser, so your list never leaves your device — which is why the tool is safe for internal identifiers and customer data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I define my own output format?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Custom panel takes a template like EXEC MyProcedure '{}';, where {} is the line value, {n} the row number starting at 1 and {i} the index starting at 0. Every line is rendered with that template on its own row."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which SQL dialect does the IN clause use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both. N'...' is the default for SQL Server; switch the SQL setting to '...' for MySQL, PostgreSQL, SQLite and other standard dialects."
+          }
+        }
+      ]
+    }
+  ]
+}
